@@ -1,13 +1,73 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
-          "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <META http-equiv="Content-Type" text="content/html; charset=ISO-8859-1">
-  <title>The KLEE Symbolic Virtual Machine</title>
-  <meta http-equiv="refresh"
-        content="0;url=http://klee.github.io/klee/">
-</head>
-<body>
-  Redirecting to <a href="http://klee.github.io/klee">http://klee.github.io/klee</a>
-</body>
-</html>
+---
+layout: home
+title: KLEE
+---
+
+<div class="guides-section">
+  <main>
+    <header class="container">
+      <h2 class="xxlarge">KLEE LLVM Execution Engine</h2>
+      <div class="divider divider--secondary">
+        <span class="themed divider-icon">
+      </div>
+      <p>
+        KLEE is a symbolic virtual machine built on top of the <a
+          href="http://llvm.org">LLVM</a> compiler infrastructure, and available
+        under the UIUC open source license. For more information on what KLEE is
+        and what it can do, see the <a
+        href="http://llvm.org/pubs/2008-12-OSDI-KLEE.html">OSDI 2008</a> paper.
+      </p>
+    </header>
+    <ul class="guides-list container-medium">
+      <li class="guides-list__item g--half">
+        <div class="primary-content">
+          <h3 class="xlarge">
+            <a href="{{site.baseurl}}/docs" title="Documentation" class="themed">Documentation</a>
+          </h3>
+          <p>Learn how to use KLEE</p>
+        </div>
+        <div class="secondary-content">
+          <span class="icon-circle themed--background">
+            <i class="icon icon-lessons"></i>
+          </span>
+          <ol class="list-links list-links--secondary">
+            <li><a href="{{site.baseurl}}/docs/options/">Command-line options</a></li>
+            <li><a href="{{site.baseurl}}/docs/intrinsics/">Intrinsic functions</a></li>
+            <li><a href="{{site.baseurl}}/docs/files/">Generated files</a></li>
+            <li><a href="{{site.baseurl}}/docs/tools/">Auxiliary tools</a></li>
+            <li><a href="{{site.baseurl}}/docs/kquery/">KQuery language</a></li>
+            <li><a href="{{site.baseurl}}/docs/developers-guide/">Developer's guide</a></li>
+            {% for doc in site.docs %}
+              <li>
+              <a href="{{doc.url}}">{{doc.title}}</a>
+              </li>
+            {% endfor %}
+          </ol>
+        </div>
+      </li>
+      <li class="guides-list__item g--half g--last">
+        <div class="primary-content">
+          <h3 class="xlarge">
+            <a href="{{site.baseurl}}/tutorials" title="Documentation" class="themed">Tutorials</a>
+          </h3>
+          <p>Try KLEE for Yourself</p>
+        </div>
+        <div class="secondary-content">
+          <span class="icon-circle themed--background">
+            <i class="icon icon-lessons"></i>
+          </span>
+          <ol class="list-links list-links--secondary">
+            <li><a href="{{site.baseurl}}/tutorials/testing-function/">Testing small a function</a></li>
+            <li><a href="{{site.baseurl}}/tutorials/testing-regex/">Testing simple regular expression library</a></li>
+            <li><a href="{{site.baseurl}}/tutorials/testing-coreutils/">Testing Coreutils</a></li>
+          </ol>
+        </div>
+      </li>
+    </ul>
+
+    <blockquote class="quote__content g-wide--push-1 g-wide--pull-1 g-medium--push-1">
+      The role of art is not to reproduce visible objects, but to make invisibles visible.
+      <p>Paul Klee (1920)</p>
+    </blockquote>
+  </main>
+</div>

@@ -1,0 +1,16 @@
+github: [Repository metadata]
+markdown: kramdown
+kramdown:
+  input: GFM
+  toc_levels: "1..2"
+highlighter: pygments
+permalink: pretty
+
+exclude: ['README.md']
+
+gems:
+- jekyll-sitemap
+
+project_title: KLEE
+current_version: 1.0.0
+repository: https://github.com/klee/klee

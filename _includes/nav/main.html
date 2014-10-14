@@ -1,0 +1,38 @@
+<header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="{{ site.baseurl }}/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="{{ site.baseurl }}/">
+        <img alt="KLEE" src="{{site.baseurl}}/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer" role="navigation">
+  <h4>Navigation</h3>
+  <ul>
+    <li{% if page.slug == "getting-started" %} class="active"{% endif %}>
+      <a href="{{ site.baseurl }}/getting-started">Getting Started</a>
+    </li>
+    <li{% if page.slug == "documentation" %} class="active"{% endif %}>
+      <a href="{{ site.baseurl }}/docs">Documentation</a>
+    </li>
+    <li{% if page.slug == "tutorials" %} class="active"{% endif %}>
+      <a href="{{ site.baseurl }}/tutorials">Tutorials</a>
+    </li>
+    <li{% if page.slug == "publications" %} class="active"{% endif %}>
+      <a href="{{ site.baseurl }}/publications">Publications</a>
+    </li>
+    <li{% if page.slug == "projects" %} class="active"{% endif %}>
+      <a href="{{ site.baseurl }}/projects">Projects</a>
+    </li>
+    <li{% if page.slug == "getting-involved" %} class="active"{% endif %}>
+      <a href="{{ site.baseurl }}/getting-involved">Getting Involved</a>
+    </li>
+  </ul>
+</nav>
