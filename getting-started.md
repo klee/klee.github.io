@@ -5,7 +5,8 @@ subtitle: Building and Running KLEE
 slug: getting-started
 ---
 
-The current procedure for building is outlined below.
+The current procedure for building KLEE with LLVM 2.9 (stable) is outlined below.
+If you want to build KLEE with LLVM 3.4 (experimental), [click here]({{site.baseurl}}/experimental).
 
 1. **Install dependencies:** KLEE requires all the dependencies of LLVM, which are discussed [here](http://llvm.org/docs/GettingStarted.html#requirements). In particular, you should have the following packages (the list is likely not complete): g++, curl, dejagnu, subversion, bison, flex, bc, libcap-dev(el):
 
@@ -23,7 +24,7 @@ The current procedure for building is outlined below.
 
 2. **Build LLVM 2.9:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
-   **NOTE:** The only LLVM version currently supported by KLEE is **LLVM 2.9**. KLEE is currently tested on **Linux x86-64**, and might break on x86-32. KLEE will **not** compile with LLVM versions
+   **NOTE:** The only LLVM version currently supported by KLEE is **LLVM 2.9**. KLEE is currently tested on **Linux x86-64**, and might break on x86-32. KLEE will **not** compile with LLVM versions prior to 2.9, and there is only experimental support for LLVM 3.4. 
 
    1. Install llvm-gcc:
       * Download and install the LLVM 2.9 release of llvm-gcc from  [here](http://llvm.org/releases/download.html#2.9). On an x86-64 Linux platform you are going to need the archive  [LLVM-GCC 4.2 Front End Binaries for Linux x86-64](http://llvm.org/releases/2.9/llvm-gcc4.2-2.9-x86_64-linux.tar.bz2). 
@@ -40,7 +41,7 @@ The current procedure for building is outlined below.
       The `--enable-optimized` configure argument is not necessary, but KLEE runs very slowly in Debug mode.
       _You may run into compilation issues if you use new kernels/glibc versions. Please see [this mailing list post](http://www.mail-archive.com/klee-dev@imperial.ac.uk/msg01302.html) for details on how to fix this issue._
 
-3. **Build STP:** The default version of KLEE uses the STP constraint solver. We recommend downloading the version at [this link](http://www.doc.ic.ac.uk/~cristic/klee/stp.html), which we have tested and used successfully, but you can download a more recent revision from the [STP website](http://stp.github.io/stp/) website if you prefer. _Please let us know if you have successfully and extensively used KLEE with a more recent version of STP._
+3. **Build STP:** The default version of KLEE uses the STP constraint solver. We recommend downloading the version at [this link](http://www.doc.ic.ac.uk/~cristic/klee/stp.html), which we have tested and used successfully, but you can download a more recent revision from the [STP website](http://stp.github.io/stp/) if you prefer. _Please let us know if you have successfully and extensively used KLEE with a more recent version of STP._
 
    ```bash
    $ tar xzfv stp-r940.tgz  
@@ -54,6 +55,11 @@ The current procedure for building is outlined below.
    ```bash
    $ ulimit -s unlimited
    ```
+
+   You can make this persistent by updating the `/etc/security/limits.conf` file.<br/><br/>
+
+   If you encounter build errors with the r940 version, you have to modify the STP code according to [this commit](https://github.com/stp/stp/commit/ece1a55fb367bd905078baca38476e35b4df06c3) (the files to modify in r940 are CVC.y, smtlib.y and smtlib2.y in src/parser/).<br/><br/>  
+
 4. (Optional) **Build uclibc and the POSIX environment model:** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
 
    1. Download KLEE's uClibc. KLEE uses a version of uClibc which has been modified slightly for our purposes.
@@ -97,4 +103,6 @@ The current procedure for building is outlined below.
    $ make unittests  
    ```
 
-9. You're ready to go! Check the [Tutorials](Tutorials.html) page to try KLEE.
+   **NOTE:** For testing real applications (e.g. Coreutils), you may need to increase your system's open file limit (ulimit -n). Something between 10000 and 999999 should work. In most cases, the hard limit will have to be increased first, so it is best to directly edit the `/etc/security/limits.conf` file.<br/><br/>
+
+9. You're ready to go! Check the [Tutorials]({{site.baseurl}}/tutorials) page to try KLEE.
