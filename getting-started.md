@@ -62,19 +62,15 @@ If you want to build KLEE with LLVM 3.4 (experimental), [click here]({{site.base
 
 4. (Optional) **Build uclibc and the POSIX environment model:** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
 
-   1. Download KLEE's uClibc. KLEE uses a version of uClibc which has been modified slightly for our purposes.
-      * A version that works on 64-bit Linux can be found [here](http://www.doc.ic.ac.uk/~cristic/klee/klee-uclibc-x64.html)
-      * A version that works on 32-bit Linux can be found [here](http://www.doc.ic.ac.uk/~cristic/klee/klee-uclibc-i386.html)
+   ```bash
+   $ git clone https://github.com/klee/klee-uclibc.git
+   $ cd klee-uclibc
+   $ ./configure --make-llvm-lib
+   $ make -j2
+   $ cd ..
+   ```
 
-   2. Build uClibc with llvm-gcc:
-   
-      ```bash
-      $ tar zxvf klee-uclibc-0.02.tgz  
-      $ ./configure --with-llvm=path-to-llvm
-      $ make
-      ```
-
-      **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run make config and select the correct target. The defaults for the other uClibc configuration variables should be fine.
+   **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run make config and select the correct target. The defaults for the other uClibc configuration variables should be fine.
 
 5. **Download KLEE:**
 
