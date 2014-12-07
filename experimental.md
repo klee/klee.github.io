@@ -31,7 +31,7 @@ If you want to build KLEE with LLVM 2.9 (stable), [click here]({{site.baseurl}}/
 
    ```bash
    deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.4 main  
-   deb-src http://llvm.org/apt/trusty/ llvm-toolchain-trsuty-3.4 main
+   deb-src http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.4 main
    ```
 
    Then add the repository key and install the 3.4 packages:  

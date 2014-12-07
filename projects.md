@@ -17,11 +17,7 @@ This page lists a variety of open projects that are natural (and tractable) exte
 
 * _Improve User Interface:_
 
-  This is not a very glamorous project, but it is still important.Currently, KLEE has a myriad of command line options and flags, most of which are left over from its research project roots. In order to promote KLEE's use as a user tool, we would like to clean up most of the UI so that the default behavior matches best practice, and so that more arcane or research-only options are hidden by default.
-
-* _Experiment With Other Constraint Solvers:_
-
-  For the most part, KLEE has been written so that it is possible toswap in other constraint solvers, but we have never tried anything other than STP. We would love to see the results of using other contraint solvers (like Yices or Z3) with KLEE.
+  This is not a very glamorous project, but it is still important. Currently, KLEE has a myriad of command line options and flags, most of which are left over from its research project roots. In order to promote KLEE's use as a user tool, we would like to clean up most of the UI so that the default behavior matches best practice, and so that more arcane or research-only options are hidden by default.
 
 * _Implement Expression Level Constraint Optimization:_
 
@@ -29,4 +25,4 @@ This page lists a variety of open projects that are natural (and tractable) exte
 
   In general, because KLEE is dealing with expressions which result from dynamic execution traces, many expressions end up having constant components. This means we can frequently apply the same optimizations a compiler would do, but to much greater effect because we are more likely to see constant values. For reference, see the kinds of optimizations done by LLVM's `InstCombine` pass [here](http://llvm.org/viewvc/llvm-project/llvm/trunk/lib/Transforms/InstCombine/).
 
-  The bulk of this project involves defining a good framework for us to apply optimizations to expressions, and for deciding when to attempt tooptimization expressions.
+  The bulk of this project involves defining a good framework for us to apply optimizations to expressions, and for deciding when to attempt to optimize expressions.
