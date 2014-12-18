@@ -109,3 +109,7 @@ The kleeCore library (lib/Core) provides several functions that can be used simi
 ### Adding a command line option to a tool
 
 KLEE uses LLVM's CommandLine library for adding options to tools in KLEE, which is well documented [here](http://llvm.org/docs/CommandLine.html). See lib/core/Executor.cpp for examples.
+
+### Run-time libraries
+
+KLEE searches for run-time libraries in install and build paths. These are hard-coded to the binary, so if the filesystem tree changes, KLEE will not find them until recompiled. This behaviour can be overridden by setting _KLEE_RUNTIME_LIBRARY_PATH_ environment variable to the path to the libraries.
