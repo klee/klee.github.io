@@ -100,6 +100,15 @@ $ cd path/to/build-dir/test
 $ make check-one TESTONE=path/to/source-dir/test/category/test-name
 {% endhighlight %}
 
+# Internal tests
+These tests are located in ``unittests/`` and can be executed by running:
+{% highlight bash %}
+$ cd path/to/klee/build
+$ make unittests
+{% endhighlight %}
+
+These test use [Google's C++ testing framework](https://code.google.com/p/googletest/) and is well [documented](https://code.google.com/p/googletest/wiki/Documentation).
+
 ## Miscellaneous
 
 ### Writing messages to standard error
