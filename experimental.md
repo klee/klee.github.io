@@ -53,17 +53,24 @@ If you want to build KLEE with LLVM 2.9 (stable), [click here]({{site.baseurl}}/
 3. **Build STP:** KLEE is based on the STP constraint solver. STP does not make frequent releases, and its GitHub repository is under constant development and may be unstable. The instructions below are for the upstream version. If you would like to use a version, which we have tested and used successfully, please refer to the [Getting Started guide]({{site.baseurl}}/getting-started). _Please let us know if you have successfully and extensively used KLEE with a more recent version of STP._  
 
    ```bash
-   $ git clone https://github.com/stp/stp.git  
-   $ mkdir stp/build  
+   $ git clone https://github.com/stp/minisat.git
+   $ cd minisat
+   $ mkdir build
+   $ cd build
+   $ cmake -DCMAKE_INSTALL_PREFIX=/usr/ ../
+   $ sudo make install
+   $ cd ../../
+   $ git clone https://github.com/stp/stp.git
+   $ mkdir stp/build
    $ cd stp/build
    ```
 
-   Shared STP libraries cause problems for KLEE, so we have to disable them ([see this mailing list thread](https://www.mail-archive.com/klee-dev@imperial.ac.uk/msg01704.html)). The python interface requires shared libraries, so we have to disable that, too.  
+   Shared STP libraries cause problems for KLEE, so we have to disable them ([see this mailing list thread](https://www.mail-archive.com/klee-dev@imperial.ac.uk/msg01704.html)). The python interface requires shared libraries, so we have to disable that, too.
 
    ```bash
-   $ cmake -DBUILD_SHARED_LIBS:BOOL=OFF -DENABLE_PYTHON_INTERFACE:BOOL=OFF ..  
-   $ make  
-   $ sudo make install  
+   $ cmake -DBUILD_SHARED_LIBS:BOOL=OFF -DENABLE_PYTHON_INTERFACE:BOOL=OFF ..
+   $ make
+   $ sudo make install
    $ cd ..
    ```
 
