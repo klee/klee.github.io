@@ -3,8 +3,10 @@ layout: default
 title: Publications
 subtitle: Publications and Systems Using KLEE
 slug: publications
-lead: Below you can find a list of papers that use or extend KLEE. Papers are listed in chronological order.
+lead: Below you can find a list of papers and systems that either use or extend KLEE. They are listed in chronological order.
 ---
+
+If you have used or extended KLEE and would like to have your paper listed here, please email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [c.cadar@imperial.ac.uk](mailto:c.cadar@imperial.ac.uk)).
 
 1. [KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs](http://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf)
   Cristian Cadar, Daniel Dunbar, Dawson Engler  
@@ -125,7 +127,12 @@ lead: Below you can find a list of papers that use or extend KLEE. Papers are li
 1. [Checking Properties Described by State Machines: On Synergy of Instrumentation, Slicing, and Symbolic Execution](http://is.muni.cz/repo/984069/sse.pdf)  
   Jiri Slaby, Jan Strejcek, Marek Trtík  
   Formal Methods for Industrial Critical Systems (FMICS 2012)  
-  August 27-28, 2012, Paris, France  
+  August 27-28, 2012, Paris, France
+
+1. [Enhancing Symbolic Execution to Test the Compatibility of Re-engineered Industrial Software](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6462670)
+  Susumu Tokumoto, Tadahiro Uehara, Kazuki Munakata, Haruyuki Ishida, Toru Eguchi, Masafumi Baba
+  Asia-Pacific Software Engineering Conference
+  December 4-7, 2012, Hong Kong, China
 
 1. [Automatic Detection of Floating-Point Exceptions](http://earlbarr.com/publications/ariadne.pdf)  
   Peter C. Rigby, Earl T. Barr, Christian Bird, Premkumar Devanbu, Daniel M. German  
@@ -150,6 +157,24 @@ lead: Below you can find a list of papers that use or extend KLEE. Papers are li
 1. [KATCH: High-Coverage Testing of Software Patches](http://srg.doc.ic.ac.uk/publications/katch-fse-13.html)  
   Paul Dan Marinescu, Cristian Cadar  
   Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2013)  
-  August 18-26, 2013, St Petersburg, Russia  
+  August 18-26, 2013, St Petersburg, Russia
 
-If you have used or extended KLEE, please share your experience by having your paper listed here (email klee-dev-owner or [c.cadar@imperial.ac.uk](mailto:c.cadar@imperial.ac.uk)).
+1. [Automatic Concolic Test Generation with Virtual Prototypes for Post-silicon Validation](http://web.cecs.pdx.edu/~congkai/papers/actg.pdf)
+  Kai Cong, Fei Xie, Li Lei
+  International Conference on Computer-aided Design (ICCAD 2013)
+  November 18-21, 2013, San Jose, CA, USA
+
+1. [Practical Use of Formal Verification for Safety Critical Cyber-Physical Systems: A Case Study](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6961235)
+   Tasuku Ishigooka, Habib Saissi, Thorsten Piper, Stefan Winter and Neeraj Suri
+   IEEE International Conference on Cyber-Physical Systems, Networks, and Applications (CPSNA 2014)
+   August 25-26, 2014, Hong Kong, China
+
+1. [Frog Program Bug Finder](http://www.frog-test.com/)
+   Qirong Wang, 2015
+   Software testing and debugging tool combining KLEE test generation with fault localization
+
+1. [DASE: Document-Assisted Symbolic Execution for Improving Automated Software Testing](https://ece.uwaterloo.ca/~lintan/publications/dase-icse15.pdf)
+   Edmund Wong, Lei Zhang, Song Wang, Taiyue Liu, and Lin Tan
+   International Conference on Software Engineering (ICSE 2015)
+   May 16-24, 2015, Florence, Italy
+
