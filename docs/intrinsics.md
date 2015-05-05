@@ -83,3 +83,24 @@ klee_assume(0);
 The first two paths go further while the 3rd is terminated with an error, which is the intended behavior, albeit in a rather non-straightforward way. Ideally the paths which satisfy the assume would be merged but klee currently has only some experimental support for path merging. 
 
 As a side note, it is possible to obtain the 'one path' behavior by replacing the logical `&&` and `||` operators with their bitwise counterparts. To correctly do this, ensure that all operands have boolean values and no side effects.
+
+## `klee_prefer_cex(object, condition)`
+
+This function tells KLEE to prefer certain values when generating test cases as output. A KLEE state can correspond to many different possible test cases. For example, in this code:
+
+{% highlight c %}
+char input[4];
+klee_make_symbolic(input, sizeof input);
+assert(input[0] == 'Q');
+{% endhighlight %}
+
+KLEE will have a single failing state that corresponds to `input = "aaaa"`, `input = "1234"`, and every other input that fails the assertion. Normally, when KLEE generates a test case for this failure, it chooses an arbitrary one of these inputs. The result could be `input = "\0\0\0\0"` or `input = "\xff\xff\xff\xff"` or some other ugly value. We can make it more readable by using `klee_prefer_cex` after `klee_make_symbolic`:
+
+{% highlight c %}
+for (int i = 0; i < 4; i++)
+  klee_prefer_cex(input, 32 <= input[i] && input[i] <= 126); // assume ASCII
+{% endhighlight %}
+
+Now, when KLEE has a choice between many equivalent test cases, it will prefer to use printable characters when possible. When KLEE finds paths that conflict with the `klee_prefer_cex` condition, it will ignore the preference and generate (ugly) test cases anyway. Thus, the generated test cases will follow exactly the same paths and trigger exactly the same crashes as before, but some of them will look nicer.
+
+The POSIX runtime uses `klee_prefer_cex` in a few places, for instance to prefer printable characters in symbolic command-line arguments. You can cause KLEE to ignore all preferences by giving it the `--no-prefer-cex` option.
