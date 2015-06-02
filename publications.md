@@ -178,3 +178,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
    International Conference on Software Engineering (ICSE 2015)
    May 16-24, 2015, Florence, Italy
 
+1. [A Framework for Measuring Software Obfuscation Resilience Against Automated Attacks](https://www22.in.tum.de/fileadmin/papers/spro15.pdf)
+   Sebastian Banescu, Martin Ochoa, Alexander Pretschner
+   International Workshop on Software Protection (SPRO 2015)
+   May 17, 2015, Florence, Italy
