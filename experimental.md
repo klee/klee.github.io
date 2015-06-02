@@ -27,7 +27,7 @@ If you want to build KLEE with LLVM 2.9 (stable), [click here]({{site.baseurl}}/
 
    _**NOTE:** Currently, KLEE has only experimental support for **LLVM 3.4**. The only stable LLVM version for KLEE is **LLVM 2.9**. KLEE is currently tested on **Linux x86-64**, and might break on x86-32. KLEE will **not** compile with LLVM versions prior to 2.9._
 
-   If you are using a recent Ubuntu (≥ 12.04, e.g. 14.04 LTS) or Debian, we recommend you to use the LLVM packages provided by LLVM itself. Use LLVM Package Repository to add the appropriate line to your `/etc/apt/sources.list`. As an example, for Ubuntu 14.04, the following lines should be added:  
+   If you are using a recent Ubuntu (≥ 12.04, e.g. 14.04 LTS) or Debian, we recommend you to use the LLVM packages provided by LLVM itself. Use [LLVM Package Repository](http://llvm.org/apt/) to add the appropriate line to your `/etc/apt/sources.list`. As an example, for Ubuntu 14.04, the following lines should be added:  
 
    ```bash
    deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.4 main  
@@ -84,7 +84,7 @@ If you want to build KLEE with LLVM 2.9 (stable), [click here]({{site.baseurl}}/
 
    You can make this persistent by editing the `/etc/security/limits.conf` file.<br/><br/>  
 
-4. (Optional) **Build uclibc and the POSIX environment model:** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.  
+4. **(Optional) Build uclibc and the POSIX environment model:** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.  
 
    ```bash
    $ git clone https://github.com/klee/klee-uclibc.git  
@@ -96,7 +96,7 @@ If you want to build KLEE with LLVM 2.9 (stable), [click here]({{site.baseurl}}/
 
    **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run make config and select the correct target. The defaults for the other uClibc configuration variables should be fine.<br/><br/>  
 
-5. (Optional) **Build libgtest:**
+5. **(Optional) Build libgtest:**
 
    Build Google test libraries for unit tests. We do a manual build, because the libgtest-dev package (version 1.6) installed through apt does not work for us.  
 
@@ -118,9 +118,7 @@ If you want to build KLEE with LLVM 2.9 (stable), [click here]({{site.baseurl}}/
 7. **Configure KLEE:** From the KLEE source directory, run:  
 
    ```bash
-   $ mkdir build  
-   $ cd build  
-   $ ../configure --with-stp=/full/path/to/stp/build --with-uclibc=/full/path/to/klee-uclibc --enable-posix-runtime
+   $ ./configure --with-stp=/full/path/to/stp/build --with-uclibc=/full/path/to/klee-uclibc --enable-posix-runtime
    ```
 
    **NOTE:** If LLVM is not found or you have multiple LLVM versions installed, you can add `--with-llvmsrc=/usr/lib/llvm-3.4/build --with-llvmobj=/usr/lib/llvm-3.4/build --with-llvmcc=/usr/bin/clang-3.4 --with-llvmcxx=/usr/bin/clang++-3.4`.  
@@ -129,40 +127,43 @@ If you skipped step 4, simply remove the `--with-uclibc` and `--enable-posix-run
 8. **Build KLEE:**  
 
    ```bash
-   $ make DISABLE_ASSERTIONS=0 ENABLE_OPTIMIZED=1 ENABLE_SHARED=0 -j2
+   $ make  
    ```
+   <!-- make DISABLE_ASSERTIONS=0 ENABLE_OPTIMIZED=1 ENABLE_SHARED=0 -j2-->
 
-   **NOTE:** You can add `/full/path/to/klee/build/Release+Asserts/bin` to your path.
+   **NOTE:** You can add `/full/path/to/klee/build/Release/bin` to your path.<br/><br/>
 
-9. **Run the tests to verify your build:**
 
+9. **Run the main regression test suite to verify your build:**
+
+   <!---
    1. Install lit (it is not installed with the newer LLVM versions):  
 
       ```bash
       $ sudo pip install lit
       ```
-
-   2. Run KLEE regression tests:  
+   -->
    
-      ```bash
-      $ cd /full/path/to/klee/build/test  
-      $ make lit.site.cfg DISABLE_ASSERTIONS=0 ENABLE_OPTIMIZED=1 ENABLE_SHARED=0  
-      $ lit -v .
-      ```
+   ```bash
+   $ make test
+   ```
 
-   3. Get the LLVM unit tests makefile (not included in default installation):  
+10. **(Optional) Run the unit tests:**
+
+    Get the LLVM unit tests makefile (not included in default installation):
    
-      ```bash
-      $ sudo mkdir -p /usr/lib/llvm-3.4/build/unittests/  
-      $ sudo curl -L http://llvm.org/svn/llvm-project/llvm/branches/release_34/unittests/Makefile.unittest -o /usr/lib/llvm-3.4/build/unittests/Makefile.unittest  
-      ```
+    ```bash
+    $ sudo mkdir -p /usr/lib/llvm-3.4/build/unittests/  
+    $ sudo curl -L http://llvm.org/svn/llvm-project/llvm/branches/release_34/unittests/Makefile.unittest -o /usr/lib/llvm-3.4/build/unittests/Makefile.unittest  
+    ```
 
-   4. Run KLEE unit tests:  
+    Run KLEE unit tests:
 
-      ```bash
-      $ make CPPFLAGS=-I/full/path/to/gtest-1.7.0/include LDFLAGS=-L/full/path/to/gtest-1.7.0 DISABLE_ASSERTIONS=0 ENABLE_OPTIMIZED=1 ENABLE_SHARED=0 unittests
-      ```
-    **NOTE:** The flags (DISABLE_ASSERTIONS, ENABLE_OPTIMIZED, ENABLE_SHARED) have to be the same as the ones used for building KLEE.  
-    **NOTE:** For testing real applications (e.g. Coreutils), you may need to increase your system's open file limit (ulimit -n). Something between 10000 and 999999 should work. In most cases, the hard limit will have to be increased first, so it is best to directly edit the `/etc/security/limits.conf` file.<br/><br/>
+    ```bash
+    $ make CPPFLAGS=-I/full/path/to/gtest-1.7.0/include LDFLAGS=-L/full/path/to/gtest-1.7.0 unittests
+    ```
+11. **You're ready to go! Check the [Tutorials]({{site.baseurl}}/tutorials) page to try KLEE.**
 
-10. You're ready to go! Check the [Tutorials]({{site.baseurl}}/tutorials) page to try KLEE.
+<!--    **NOTE:** The flags (DISABLE_ASSERTIONS, ENABLE_OPTIMIZED, ENABLE_SHARED) have to be the same as the ones used for building KLEE. -->
+
+**NOTE:** For testing real applications (e.g. Coreutils), you may need to increase your system's open file limit (ulimit -n). Something between 10000 and 999999 should work. In most cases, the hard limit will have to be increased first, so it is best to directly edit the `/etc/security/limits.conf` file.<br/><br/>
