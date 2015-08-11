@@ -76,3 +76,7 @@ To log the queries issued by KLEE during symbolic execution, you can use the fol
     - **0** (default): to log all queries
     - **&lt;0**: a negative value specifies that only queries that timed out should be logged. The timeout value is specified via the `--max-solver-time` option.
     - **&gt;0**: only queries that took more that **TIME** milliseconds should be logged.
+
+## Entry Point
+
+To change the entry point you can use the option `-entry-point=FUNCTION_NAME`, where **FUNCTION_NAME** is the name of the function to use as the entry point for execution.
