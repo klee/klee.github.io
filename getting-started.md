@@ -41,13 +41,28 @@ If you want to build KLEE with LLVM 3.4 (experimental), [click here]({{site.base
       The `--enable-optimized` configure argument is not necessary, but KLEE runs very slowly in Debug mode.
       _You may run into compilation issues if you use new kernels/glibc versions. Please see [this mailing list post](http://www.mail-archive.com/klee-dev@imperial.ac.uk/msg01302.html) for details on how to fix this issue._
 
-3. **Build STP:** The default version of KLEE uses the STP constraint solver. We recommend downloading the version at [this link](http://www.doc.ic.ac.uk/~cristic/klee/stp.html), which we have tested and used successfully, but you can download a more recent revision from the [STP website](http://stp.github.io/stp/) if you prefer. _Please let us know if you have successfully and extensively used KLEE with a more recent version of STP._
+3. **Build STP:** The default version of KLEE uses the STP constraint solver. We recommend downloading the current stable version at [this link](https://github.com/stp/stp/archive/2.1.0.tar.gz), which we have tested and used successfully. More recent versions can be accessed from the [STP website](http://stp.github.io/stp/) if you prefer. _Please let us know if you have successfully and extensively used KLEE with a more recent version of STP._
+
+  The SAT solver minisat needs to be build separately with recent versions of STP.
+
+  ```bash
+  $ git clone https://github.com/stp/minisat.git
+  $ cd minisat
+  $ mdir build
+  $ cd build
+  $ cmake ../
+  $ make
+  $ sudo make install
+  ```
 
    ```bash
-   $ tar xzfv stp-r940.tgz  
-   $ cd stp-r940  
-   $ ./scripts/configure --with-prefix=`pwd`/install --with-cryptominisat2  
-   $ make OPTIMIZE=-O2 CFLAGS_M32= install
+   $ tar xzfv 2.1.0.tar.gz  
+   $ cd stp-2.1.0
+   $ mkdir build
+   $ cd build
+   $ cmake ..  
+   $ make
+   $ sudo make install
    ```
 
     As documented on the STP website, it is essential to run the following command before using STP (and thus KLEE):
@@ -57,8 +72,7 @@ If you want to build KLEE with LLVM 3.4 (experimental), [click here]({{site.base
    ```
 
    You can make this persistent by updating the `/etc/security/limits.conf` file.<br/><br/>
-
-   If you encounter build errors with the r940 version, you have to modify the STP code according to [this commit](https://github.com/stp/stp/commit/ece1a55fb367bd905078baca38476e35b4df06c3) (the files to modify in r940 are CVC.y, smtlib.y and smtlib2.y in src/parser/).<br/><br/>  
+<br/><br/>  
 
 4. (Optional) **Build uclibc and the POSIX environment model:** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
 

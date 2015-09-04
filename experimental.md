@@ -135,22 +135,25 @@ If you skipped step 4, simply remove the `--with-uclibc` and `--enable-posix-run
 
 
 9. **Run the main regression test suite to verify your build:**
-
-   <!---
-   1. Install lit (it is not installed with the newer LLVM versions):  
-
-      ```bash
-      $ sudo pip install lit
-      ```
-   -->
    
    ```bash
    $ make test
    ```
-
+   
+   If you want to invoke `lit` manually use:
+   ```bash
+   $ /usr/lib/llvm-3.4/build/utils/lit/lit.py test/
+   ```
+   
+   This way you can run individual tests or subsets of the suite:
+   ```bash
+   $ /usr/lib/llvm-3.4/build/utils/lit/lit.py test/regression
+   ```
+   
 10. **(Optional) Run the unit tests:**
 
-    Get the LLVM unit tests makefile (not included in default installation):
+    If you did not install the LLVM upstream or Debian packages,
+    install the LLVM unit tests makefile:
    
     ```bash
     $ sudo mkdir -p /usr/lib/llvm-3.4/build/unittests/  
