@@ -1,121 +1,191 @@
 ---
 layout: default
 title: Getting Started
-subtitle: Building and Running KLEE
+subtitle: Running KLEE
 slug: getting-started
 ---
 
-The current procedure for building KLEE with LLVM 2.9 (stable) is outlined below.
-If you want to build KLEE with LLVM 3.4 (experimental), [click here]({{site.baseurl}}/experimental).
+The fastest way to get started with KLEE is to use our [Docker images](https://hub.docker.com/r/klee/klee/). If you would rather build KLEE from source without using Docker then see [our build instructions]({{site.baseurl}}/build-stable).
 
-1. **Install dependencies:** KLEE requires all the dependencies of LLVM, which are discussed [here](http://llvm.org/docs/GettingStarted.html#requirements). In particular, you should have the following packages (the list is likely not complete): g++, curl, dejagnu, subversion, bison, flex, bc, libcap-dev(el):
+# What is Docker?
 
-   ```bash
-   $ sudo apt-get install g++ curl dejagnu subversion bison flex bc libcap-dev # Ubuntu 
-   $ sudo yum install g++ curl dejagnu subversion bison flex bc libcap-devel # Fedora
-   ```
+[Docker](https://www.docker.com/) provides tools for deploying applications within containers. Containers are (mostly) isolated from each other and the underlying system. This allows you to make a KLEE container , tinker with it and then throw it away when you're done without affecting the underlying sytem or other containers.
 
-   On some architectures, you might also need to set the following environment variables (best to put them in a config file like **.bashrc**):
+A Docker container is built from a Docker image. A Docker image encapsulates an application which in this case is KLEE. This application level encapsulation is useful because it provides a "portable" and reproducible environment to run KLEE in.
 
-   ```bash
-   $ export C_INCLUDE_PATH=/usr/include/x86_64-linux-gnu  
-   $ export CPLUS_INCLUDE_PATH=/usr/include/x86_64-linux-gnu
-   ```
+**Note that to run Docker natively on your machine you need to be using a Linux distribution with Docker installed. Users of Windows and OSX can use [Boot2Docker](http://boot2docker.io/) to run Docker inside a lightweight Linux based virtual machine.**
 
-2. **Build LLVM 2.9:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
+# Getting the KLEE Docker image
 
-   **NOTE:** The only LLVM version currently supported by KLEE is **LLVM 2.9**. KLEE is currently tested on **Linux x86-64**, and might break on x86-32. KLEE will **not** compile with LLVM versions prior to 2.9, and there is only experimental support for LLVM 3.4. 
+There are two ways of obtaining the KLEE Docker image.
 
-   1. Install llvm-gcc:
-      * Download and install the LLVM 2.9 release of llvm-gcc from  [here](http://llvm.org/releases/download.html#2.9). On an x86-64 Linux platform you are going to need the archive  [LLVM-GCC 4.2 Front End Binaries for Linux x86-64](http://llvm.org/releases/2.9/llvm-gcc4.2-2.9-x86_64-linux.tar.bz2). 
-      * Add llvm-gcc to your PATH. It is important to do this first so that llvm-gcc is found in subsequent configure steps. llvm-gcc will be used later to compile programs that KLEE can execute. _Forgetting to add llvm-gcc to your PATH at this point is by far the most common source of build errors reported by new users._
+## Pulling from the Docker Hub
 
-   2. Download and build [LLVM 2.9](http://llvm.org/releases/2.9/llvm-2.9.tgz):
+Our GitHub repository is linked to the DockerHub so that changes to particular branches trigger an automatic rebuild of the corresponding Docker image.
 
-      ```bash
-      $ tar zxvf llvm-2.9.tgz  
-      $ cd llvm-2.9  
-      $ ./configure --enable-optimized --enable-assertions  
-      $ make
-      ```
-      The `--enable-optimized` configure argument is not necessary, but KLEE runs very slowly in Debug mode.
-      _You may run into compilation issues if you use new kernels/glibc versions. Please see [this mailing list post](http://www.mail-archive.com/klee-dev@imperial.ac.uk/msg01302.html) for details on how to fix this issue._
+To pull down the latest build of a particular Docker image run:
 
-3. **Build STP:** The default version of KLEE uses the STP constraint solver. We recommend downloading the current stable version at [this link](https://github.com/stp/stp/archive/2.1.0.tar.gz), which we have tested and used successfully. More recent versions can be accessed from the [STP website](http://stp.github.io/stp/) if you prefer. _Please let us know if you have successfully and extensively used KLEE with a more recent version of STP._
+```bash
+$ docker pull klee/klee
+```
 
-   **NOTE:** The SAT solver minisat needs to be build separately with recent versions of STP.
+If you want to use a tagged revision of KLEE you should instead run:
 
-   1. Install minisat:
+```bash
+$ docker pull klee/klee:<TAG>
+```
 
-      ```bash
-      $ git clone https://github.com/stp/minisat.git
-      $ cd minisat
-      $ mkdir build
-      $ cd build
-      $ cmake ../
-      $ make
-      $ sudo make install
-      ```
+Where ``<TAG>`` is [one of the tags listed on the DockerHub](https://hub.docker.com/r/klee/klee/tags/). Typically this is either ``latest`` (corresponds to the ``master`` branch) or a version number (e.g. ``1.0.0``).
 
-   2. Install STP:
+**Note this process pulls images containing code compiled by a third-party service. We do not accept resonsibility for the contents of the image**
 
-      ```bash
-      $ tar xzfv 2.1.0.tar.gz  
-      $ cd stp-2.1.0
-      $ mkdir build
-      $ cd build
-      $ cmake ..  
-      $ make
-      $ sudo make install
-      ```
+## Building the Docker image locally
 
-   3. As documented on the STP website, it is **essential** to run the following command before using STP (and thus KLEE):
+If you want to build the Docker image manually you can do so by running
 
-      ```bash
-      $ ulimit -s unlimited
-      ```
+```bash
+$ git clone https://github.com/klee/klee.git
+$ cd klee
+$ docker build -t klee/klee
+```
 
-      You can make this persistent by updating the `/etc/security/limits.conf` file.
+This will use the contents of the ``Dockerfile`` in the root of the repository to build the Docker image.
 
-4. (Optional) **Build uclibc and the POSIX environment model:** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
+# Creating a KLEE Docker container
 
-   ```bash
-   $ git clone https://github.com/klee/klee-uclibc.git
-   $ cd klee-uclibc
-   $ ./configure --make-llvm-lib
-   $ make -j2
-   $ cd ..
-   ```
+Now that you have a KLEE Docker image you can try creating a container from the image.
 
-   **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run make config and select the correct target. The defaults for the other uClibc configuration variables should be fine.
+The simplest thing to try is creating a temporary container and gain shell access. To do this run
 
-5. **Download KLEE:**
+```bash
+$ docker run --rm -ti klee/klee
+```
 
-   ```bash
-   $ git clone https://github.com/klee/klee.git
-   ```
+**Note if you wanted to use a tagged KLEE image replace** ``klee/klee`` **with** ``klee/klee:<TAG>`` **where** ``<TAG>`` **is the tag you wish to use**
 
-6. **Configure KLEE:** From the KLEE source directory, run:
+If this worked correctly your shell prompt will have changed and you will be the ``klee`` user.
 
-   ```bash
-   $ ./configure --with-llvm=full-path-to-llvm --with-stp=full-path-to-stp/install --with-uclibc=full-path-to-klee-uclibc --enable-posix-runtime
-   ```
+```bash
+klee@3c098b05ca85:~$ whoami
+klee
+klee@3c098b05ca85:~$
+```
 
-   **NOTE:** If you skipped step 4, simply remove the `--with-uclibc` and `--enable-posix-runtime` options.
+You can now try running KLEE inside the container
 
-7. **Build KLEE:**
+```bash
+klee@3c098b05ca85:~$ klee --version
+KLEE 1.0.0 (https://klee.github.io)
+  Built Sep 21 2015 (17:03:14)
+  Build mode: Release+Asserts
+  Build revision: unknown
 
-   ```bash
-   $ make ENABLE_OPTIMIZED=1
-   ```
+LLVM (http://llvm.org/):
+  LLVM version 3.4
+  
+  Optimized build.
+  Built Mar  5 2014 (17:05:10).
+  Default target: x86_64-pc-linux-gnu
+  Host CPU: core-avx2
+```
 
-8. **Run the regression suite to verify your build:**
+and Clang
 
-   ```bash
-   $ make check  
-   $ make unittests  
-   ```
+```bash
+$ clang --version
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+```
 
-   **NOTE:** For testing real applications (e.g. Coreutils), you may need to increase your system's open file limit (ulimit -n). Something between 10000 and 999999 should work. In most cases, the hard limit will have to be increased first, so it is best to directly edit the `/etc/security/limits.conf` file.<br/><br/>
+Now exit the container
 
-9. **You're ready to go! Check the [Tutorials]({{site.baseurl}}/tutorials) page to try KLEE.**
+```bash
+klee@3c098b05ca85:~$ exit
+```
+
+Because the ``--rm`` flag was used with the ``docker run`` command the container was destroyed (not visible in ``docker ps -a``) when the application running in the container (``/bin/bash``) terminated.
+
+
+# Persistent Containers
+
+The earlier example didn't do anything interesting with KLEE and threw the created container away. Here is a simple
+example that does something slightly more interesting with KLEE and also shows how a container can be persisted.
+
+To create and enter the container run:
+
+```bash
+$ docker run --ti --name=my_first_klee_container klee/klee
+```
+
+Notice we didn't use ``--rm`` so the container will not be destroyed when we exit it from it and we also gave the container a name using the ``-t`` flag.
+
+Now inside the container you can try running the following:
+
+```bash
+klee@3c098b05ca85:~$ pwd
+/home/klee
+klee@3c098b05ca85:~$ echo "int main(int argn, char** argv) { return 0; }" > test.c
+klee@3c098b05ca85:~$ clang -emit-llvm -g -c test.c -o test.bc
+klee@3c098b05ca85:~$ klee --libc=uclibc --posix-runtime test.bc
+KLEE: NOTE: Using klee-uclibc : /home/klee/klee_build/klee/Release+Asserts/lib/klee-uclibc.bca
+KLEE: NOTE: Using model: /home/klee/klee_build/klee/Release+Asserts/lib/libkleeRuntimePOSIX.bca
+KLEE: output directory is "/home/klee/klee-out-0"
+KLEE: WARNING: undefined reference to function: klee_posix_prefer_cex
+KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 44070352)
+KLEE: WARNING ONCE: calling __user_main with extra arguments.
+
+KLEE: done: total instructions = 5047
+KLEE: done: completed paths = 1
+KLEE: done: generated tests = 1
+klee@3c098b05ca85:~$ ls
+klee-last  klee-out-0  klee_build  klee_src  test.bc  test.c
+```
+
+Now exit the container
+
+```bash
+klee@3c098b05ca85:~$ exit
+```
+
+We can check that the container still exists by running
+
+```bash
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS                     PORTS               NAMES
+1c408467bdf7        klee/klee           "/bin/bash"         About a minute ago   Exited (0) 2 seconds ago                       my_first_klee_container
+```
+
+You can restart the container by running
+
+```bash
+$ docker start -ai my_first_klee_container
+klee@1c408467bdf7:~$ ls
+klee-last  klee-out-0  klee_build  klee_src  test.bc  test.c
+klee@1c408467bdf7:~$ exit
+```
+
+As you can see the files we created earlier are still present.
+
+When you are finished with the container you can run
+
+```bash
+$ docker rm my_first_klee_container
+```
+
+to remove it.
+
+# Working with KLEE containers built from the KLEE Docker image
+
+There are a few useful things to know about KLEE Docker containers created using the KLEE Docker image.
+
+* The Docker image is based on an Ubuntu 12.04 LTS image.
+* Inside the Docker image the ``klee`` user has sudo access (password is ``klee``) so that you can install other applications inside the container (e.g. a text editor). Given that the default user has sudo access this image **should never be used in a production environment**.
+* You may want files on your native filesystem available in the container. By default the host filesystem is not visible inside the container.  You can use the ``--volumes-from`` option to ``docker run`` to mount directories on the host filesystem into the container.
+* These Docker images use LLVM 3.4 so you need to use ``clang`` (not ``llvm-gcc``) to create LLVM bitcode. So when trying out the tutorials
+  use ``clang`` and not ``llvm-gcc``.
+* ``gcc`` is not installed in the Docker image. If you need to build native code inside the container just use ``clang``.
+* ``/home/klee/klee_src`` contains the source code used to build KLEE.
+* ``/home/klee/klee_build`` contains the build of KLEE built from ``/home/klee/klee_src``
+* All the previous examples implicitly run ``/bin/bash`` inside the container. This is the default but it is also possible to run KLEE directly (useful for scripting) by specifying the command line to use to ``docker run``.
+
+This should give you everything you need to start playing with KLEE using Docker. If you are unfamilar with Docker and wish to learn more a good place to start is [Docker's documentation](https://docs.docker.com/).
