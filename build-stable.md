@@ -1,17 +1,17 @@
 ---
 layout: default
-title: Getting Started
-subtitle: Building and Running KLEE
-slug: getting-started
+title: Building KLEE
+subtitle: with LLVM 2.9
+slug: build-stable
 ---
 
 The current procedure for building KLEE with LLVM 2.9 (stable) is outlined below.
-If you want to build KLEE with LLVM 3.4 (experimental), [click here]({{site.baseurl}}/experimental).
+If you want to build KLEE with LLVM 3.4 (experimental), [click here]({{site.baseurl}}/build-experimental).
 
-1. **Install dependencies:** KLEE requires all the dependencies of LLVM, which are discussed [here](http://llvm.org/docs/GettingStarted.html#requirements). In particular, you should have the following packages (the list is likely not complete): g++, python, curl, cmake, git, bison, flex, bc, libcap-dev(el):
+1. **Install dependencies:** KLEE requires all the dependencies of LLVM, which are discussed [here](http://llvm.org/docs/GettingStarted.html#requirements). In particular, you should have the following packages (the list is likely not complete): g++, curl, dejagnu, subversion, bison, flex, bc, libcap-dev(el):
 
    ```bash
-   $ sudo apt-get install g++ python curl cmake git bison flex bc libcap-dev # Ubuntu 
+   $ sudo apt-get install g++ python curl cmake git bison flex bc libcap-dev # Ubuntu
    $ sudo dnf install g++ python curl cmake git bison flex bc libcap-devel # Fedora 21+
    ```
 
