@@ -37,7 +37,7 @@ Where ``<TAG>`` is [one of the tags listed on the DockerHub](https://hub.docker.
 
 ## Building the Docker image locally
 
-If you want to build the Docker image manually you can do so by running
+If you want to build the Docker image manually instead of pulling the image from DockerHub you can do so by running
 
 ```bash
 $ git clone https://github.com/klee/klee.git
