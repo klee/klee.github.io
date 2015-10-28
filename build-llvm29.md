@@ -2,11 +2,11 @@
 layout: default
 title: Building KLEE
 subtitle: with LLVM 2.9
-slug: build-stable
+slug: build-llvm29
 ---
 
 The current procedure for building KLEE with LLVM 2.9 (stable) is outlined below.
-If you want to build KLEE with LLVM 3.4 (experimental), [click here]({{site.baseurl}}/build-experimental).
+If you want to build KLEE with LLVM 3.4 (experimental), [click here]({{site.baseurl}}/build-llvm34).
 
 1. **Install dependencies:** KLEE requires all the dependencies of LLVM, which are discussed [here](http://llvm.org/docs/GettingStarted.html#requirements). In particular, you should have the following packages (the list is likely not complete): g++, curl, dejagnu, subversion, bison, flex, bc, libcap-dev(el):
 

@@ -2,11 +2,11 @@
 layout: default
 title: Building KLEE (experimental)
 subtitle: with LLVM 3.4
-slug: build-experimental
+slug: build-llvm34
 ---
 
 The current procedure for building KLEE with LLVM 3.4 (experimental) is outlined below.
-If you want to build KLEE with LLVM 2.9 (stable), [click here]({{site.baseurl}}/build-stable).
+If you want to build KLEE with LLVM 2.9 (stable), [click here]({{site.baseurl}}/build-llvm29).
 
 1. **Install dependencies:** KLEE requires all the dependencies of LLVM, which are discussed [here](http://llvm.org/docs/GettingStarted.html#requirements). In particular, you should install the following programs and libraries, listed below as Ubuntu packages:  
 

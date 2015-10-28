@@ -5,7 +5,7 @@ subtitle: Running KLEE
 slug: getting-started
 ---
 
-The fastest way to get started with KLEE is to use our [Docker images](https://hub.docker.com/r/klee/klee/). If you would rather build KLEE from source without using Docker then see [our build instructions]({{site.baseurl}}/build-stable).
+The fastest way to get started with KLEE is to use our [Docker images](https://hub.docker.com/r/klee/klee/). If you would rather build KLEE from source without using Docker then see [our build instructions]({{site.baseurl}}/build-llvm29).
 
 # What is Docker?
 
