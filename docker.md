@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Using KLEE with Docker
+subtitle: using Docker Images
 slug: documentation
 ---
 # What is Docker?
@@ -9,7 +10,10 @@ slug: documentation
 
 A Docker container is built from a Docker image. A Docker image encapsulates an application which in this case is KLEE. This application level encapsulation is useful because it provides a "portable" and reproducible environment to run KLEE in.
 
-**Note that to run Docker natively on your machine you need to be using a Linux distribution with Docker installed. Users of Windows and OSX can use [Boot2Docker](http://boot2docker.io/) to run Docker inside a lightweight Linux based virtual machine.**
+# Installing Docker
+
+To run Docker natively on your machine you need to be using a Linux distribution with Docker installed.   Follow these links for installation instructions on [Ubuntu](https://docs.docker.com/installation/ubuntulinux/), [OS X](https://docs.docker.com/installation/mac/) and [Windows](https://docs.docker.com/installation/windows/).
+
 
 # Getting the KLEE Docker image
 
@@ -33,11 +37,11 @@ $ docker pull klee/klee:<TAG>
 
 Where ``<TAG>`` is [one of the tags listed on the DockerHub](https://hub.docker.com/r/klee/klee/tags/). Typically this is either ``latest`` (corresponds to the ``master`` branch) or a version number (e.g. ``1.0.0``).
 
-**Note this process pulls images containing code compiled by a third-party service. We do not accept resonsibility for the contents of the image**
+**Note this process pulls images containing code compiled by a third-party service. We do not accept resonsibility for the contents of the image.**
 
 ## Building the Docker image locally
 
-If you want to build the Docker image manually instead of pulling the image from DockerHub you can do so by running
+If you want to build the Docker image manually instead of pulling the image from DockerHub you can do so by running:
 
 ```bash
 $ git clone https://github.com/klee/klee.git
