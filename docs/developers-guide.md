@@ -15,7 +15,7 @@ Contents
 
 ## GitHub Environment
 
-KLEE's codebase is currently hosted on [GitHub](https://github.com/ccadar/klee). For those unfamiliar with GitHub, a good starting point is [here](https://help.github.com/categories/54/articles).
+KLEE's codebase is currently hosted on [GitHub](https://github.com/klee/klee). For those unfamiliar with GitHub, a good starting point is [here](https://help.github.com/categories/54/articles).
 
 We are using a fork & pull model in KLEE, based on pull requests. For those of you unfamiliar with the process, you can find more information [here](https://help.github.com/articles/using-pull-requests).
 
