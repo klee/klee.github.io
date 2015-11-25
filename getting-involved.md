@@ -14,7 +14,7 @@ Commit messages to the KLEE repository go to [klee-commits](https://mailman.ic.a
 
 ## Bug Reports
 
-If you find a bug in KLEE, please fill a bug report on [GitHub](https://github.com/ccadar/klee/issues/new). You might also want to report it on [klee-dev]({{site.baseurl}}/klee-dev).
+If you find a bug in KLEE, please fill a bug report on [GitHub](https://github.com/klee/klee/issues/new). You might also want to report it on [klee-dev]({{site.baseurl}}/klee-dev).
 
 ## Working with the Code
 
