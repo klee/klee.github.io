@@ -182,3 +182,9 @@ If you have used or extended KLEE and would like to have your paper listed here,
    Sebastian Banescu, Martin Ochoa, Alexander Pretschner
    International Workshop on Software Protection (SPRO 2015)
    May 17, 2015, Florence, Italy
+
+1. [Parallel SMT Solving and Concurrent Symbolic Execution](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7345624)
+   Emil Rakadjiev, Taku Shimosawa, Hiroshi Mine, Satoshi Oshima
+   IEEE Trustcom/BigDataSE/ISPA 2015
+   August 20-22, 2015, Helsinki, Finland
+
