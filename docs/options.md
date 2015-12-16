@@ -80,3 +80,7 @@ To log the queries issued by KLEE during symbolic execution, you can use the fol
 ## Entry Point
 
 To change the entry point you can use the option `-entry-point=FUNCTION_NAME`, where **FUNCTION_NAME** is the name of the function to use as the entry point for execution.
+
+## Calls to `klee-assume`
+
+By default, KLEE will report an error if the assumed condition is infeasible. The option `-silent-klee-assume` can be used to sliently terminate the current path exploration in such cases.
