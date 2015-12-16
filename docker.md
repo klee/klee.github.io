@@ -58,10 +58,12 @@ Now that you have a KLEE Docker image you can try creating a container from the 
 The simplest thing to try is creating a temporary container and gain shell access. To do this run
 
 ```bash
-$ docker run --rm -ti klee/klee
+$ docker run --rm -ti --ulimit='stack=-1:-1' klee/klee
 ```
 
 **Note if you wanted to use a tagged KLEE image replace** ``klee/klee`` **with** ``klee/klee:<TAG>`` **where** ``<TAG>`` **is the tag you wish to use**
+
+**Note the ``--ulimit`` option sets an unlimited stack size inside the container. This is to avoid stack overflow issues when running KLEE.**
 
 If this worked correctly your shell prompt will have changed and you will be the ``klee`` user.
 
@@ -115,7 +117,7 @@ example that does something slightly more interesting with KLEE and also shows h
 To create and enter the container run:
 
 ```bash
-$ docker run --ti --name=my_first_klee_container klee/klee
+$ docker run --ti --name=my_first_klee_container --ulimit='stack=-1:-1' klee/klee
 ```
 
 Notice we didn't use ``--rm`` so the container will not be destroyed when we exit it from it and we also gave the container a name using the ``-t`` flag.
