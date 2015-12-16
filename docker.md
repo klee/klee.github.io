@@ -182,7 +182,7 @@ There are a few useful things to know about KLEE Docker containers created using
 
 * The Docker image is based on an Ubuntu 14.04 LTS image.
 * Inside the Docker image the ``klee`` user has sudo access (password is ``klee``) so that you can install other applications inside the container (e.g. a text editor). Given that the default user has sudo access this image **should never be used in a production environment**.
-* You may want files on your native filesystem available in the container. By default the host filesystem is not visible inside the container.  You can use the ``--volumes-from`` option to ``docker run`` to mount directories on the host filesystem into the container.
+* You may want files on your native filesystem available in the container. By default the host filesystem is not visible inside the container.  You can use the ``--volume=`` option to ``docker run`` to mount directories on the host filesystem into the container.
 * These Docker images use LLVM 3.4 so you need to use ``clang`` (not ``llvm-gcc``) to create LLVM bitcode. So when trying out the tutorials
   use ``clang`` and not ``llvm-gcc``.
 * ``gcc`` is not installed in the Docker image. If you need to build native code inside the container just use ``clang``.
