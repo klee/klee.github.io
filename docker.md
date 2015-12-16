@@ -120,7 +120,7 @@ To create and enter the container run:
 $ docker run --ti --name=my_first_klee_container --ulimit='stack=-1:-1' klee/klee
 ```
 
-Notice we didn't use ``--rm`` so the container will not be destroyed when we exit it from it and we also gave the container a name using the ``-t`` flag.
+Notice we didn't use ``--rm`` so the container will not be destroyed when we exit it from it and we also gave the container a name using the ``--name`` flag.
 
 Now inside the container you can try running the following:
 
