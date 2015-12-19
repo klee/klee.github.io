@@ -117,7 +117,7 @@ example that does something slightly more interesting with KLEE and also shows h
 To create and enter the container run:
 
 ```bash
-$ docker run --ti --name=my_first_klee_container --ulimit='stack=-1:-1' klee/klee
+$ docker run -ti --name=my_first_klee_container --ulimit='stack=-1:-1' klee/klee
 ```
 
 Notice we didn't use ``--rm`` so the container will not be destroyed when we exit it from it and we also gave the container a name using the ``--name`` flag.
@@ -153,6 +153,7 @@ klee@3c098b05ca85:~$ exit
 We can check that the container still exists by running
 
 ```bash
+$ docker ps -a
 CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS                     PORTS               NAMES
 1c408467bdf7        klee/klee           "/bin/bash"         About a minute ago   Exited (0) 2 seconds ago                       my_first_klee_container
 ```
