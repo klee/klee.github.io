@@ -195,3 +195,26 @@ klee -exit-on-error input.bc
 {% highlight bash %}
 klee -exit-on-error-type=Assert -exit-on-error-type=Ptr input.bc
 {% endhighlight %}
+
+## Linking External Libraries
+
+Definitions of undefined functions are taken from files given using the option
+`-link-llvm-lib`.
+
+If some functions in the input file are defined in an external LLVM IR file, an
+archive (.a) of LLVM IR files, or a shared object with LLVM IR code, these
+external files can be *linked in* using the option `-link-llvm-lib=LIB_FILENAME`.
+
+For example, the following command runs KLEE on the program `test.bc`, linking
+a helper library:
+
+{% highlight bash %}
+$ klee -link-llvm-lib=libhelper.so.bc test.bc
+{% endhighlight %}
+
+The option can be provided multiple times. For instance, linking two libraries,
+helper and helper2, can be done with the following command:
+
+{% highlight bash %}
+$ klee -link-llvm-lib=libhelper.so.bc -link-llvm-lib=libhelper2.so.bc test.bc
+{% endhighlight %}
