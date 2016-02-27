@@ -87,7 +87,7 @@ By default, KLEE will report an error if the assumed condition is infeasible. Th
 
 ## Linking External Libraries
 
-Defintions of undefined functions are taken from files given using the option
+Definitions of undefined functions are taken from files given using the option
 `-link-llvm-lib`.
 
 If some functions in the input file are defined in an external LLVM IR file, an
