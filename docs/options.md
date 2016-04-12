@@ -76,6 +76,7 @@ To log the queries issued by KLEE during symbolic execution, you can use the fol
     - **0** (default): to log all queries
     - **&lt;0**: a negative value specifies that only queries that timed out should be logged. The timeout value is specified via the `--max-solver-time` option.
     - **&gt;0**: only queries that took more that **TIME** milliseconds should be logged.
+3. `--log-partial-queries-early=true` is used to dump the query to the log file before the next part of the solver chain is called.  Normally, KLEE prints the query and its solution after it has been solved. But if KLEE crashes inside the solver chain, the suspicious query will not be logged. Enable this option to debug such cases. This option comes with a performance penalty as the log buffer gets always flushed.
 
 ## Entry Point
 
