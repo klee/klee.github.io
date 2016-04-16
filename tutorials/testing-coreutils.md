@@ -196,8 +196,9 @@ usage: (klee_init_env) [options] [program arguments]
   -sym-arg              - Replace by a symbolic argument with length N
   -sym-args             - Replace by at least MIN arguments and at most
                               MAX arguments, each with maximum length N
-  -sym-files            - Make stdin and up to NUM symbolic files, each
-                              with maximum size N.
+  -sym-files            - Make up to NUM symbolic files, each with
+  			      maximum size N.
+  -sym-stdin            - Make stdin symbolic with maximum size N.
   -sym-stdout           - Make stdout symbolic.
   -max-fail             - Allow up to  injected failures
   -fd-fail              - Shortcut for '-max-fail 1'
