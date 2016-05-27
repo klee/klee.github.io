@@ -193,15 +193,15 @@ src$ klee --libc=uclibc --posix-runtime ./echo.bc --help
 ...
 
 usage: (klee_init_env) [options] [program arguments]
-  -sym-arg              - Replace by a symbolic argument with length N
-  -sym-args             - Replace by at least MIN arguments and at most
+  -sym-arg <N>              - Replace by a symbolic argument with length N
+  -sym-args <MIN> <MAX> <N> - Replace by at least MIN arguments and at most
                               MAX arguments, each with maximum length N
-  -sym-files            - Make up to NUM symbolic files, each with
-  			      maximum size N.
-  -sym-stdin            - Make stdin symbolic with maximum size N.
-  -sym-stdout           - Make stdout symbolic.
-  -max-fail             - Allow up to  injected failures
-  -fd-fail              - Shortcut for '-max-fail 1'
+  -sym-files <NUM> <N>      - Make NUM symbolic files ('A', 'B', 'C', etc.),
+                              each with size N
+  -sym-stdin <N>            - Make stdin symbolic with size N.
+  -sym-stdout               - Make stdout symbolic.
+  -max-fail <N>             - Allow up to N injected failures
+  -fd-fail                  - Shortcut for '-max-fail 1'
 ...
 {% endhighlight %}
 
