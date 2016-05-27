@@ -73,7 +73,7 @@ This document is structured as a series of FAQs:
     \--max-static-solve-pct=1 --max-static-cpfork-pct=1 --switch-type=internal \  
     \--randomize-fork --search=random-path --search=nurs:covnew \  
     \--use-batching-search --batch-instructions=10000 \  
-    ./paste.bc --sym-args 0 1 10 --sym-args 0 2 2 --sym-files 1 8 --sym-stdout
+    ./paste.bc --sym-args 0 1 10 --sym-args 0 2 2 --sym-files 1 8 --sym-stdin 8 --sym-stdout
     ```
 
 8.  How do I generate test.env and /tmp/sandbox?   
@@ -98,16 +98,16 @@ This document is structured as a series of FAQs:
     We ran most utilities using the arguments below. Our choice was based on a high-level understanding of the Coreutils applications: most behavior can be triggered with no more than two short options, one long option, and two small input streams (stdin and one file).
 
     ```bash
-    --sym-args 0 1 10 --sym-args 0 2 2 --sym-files 1 8 --sym-stdout
+    --sym-args 0 1 10 --sym-args 0 2 2 --sym-files 1 8 --sym-stdin 8 --sym-stdout
     ```
 
     For eight tools where the coverage results were unsatisfactory, we consulted the man page and increased the number and size of arguments and files as follows:
 
-    * **dd:** `--sym-args 0 3 10 --sym-files 1 8 --sym-stdout`
-    * **dircolors:** `--sym-args 0 3 10 --sym-files 2 12 --sym-stdout`
-    * **echo:** `--sym-args 0 4 300 --sym-files 2 30 --sym-stdout`   
+    * **dd:** `--sym-args 0 3 10 --sym-files 1 8 --sym-stdin 8 --sym-stdout`
+    * **dircolors:** `--sym-args 0 3 10 --sym-files 2 12 --sym-stdin 12 --sym-stdout`
+    * **echo:** `--sym-args 0 4 300 --sym-files 2 30 --sym-stdin 30 --sym-stdout`   
     * **expr:** `--sym-args 0 1 10 --sym-args 0 3 2 --sym-stdout`
-    * **mknod:** `--sym-args 0 1 10 --sym-args 0 3 2 --sym-files 1 8 --sym-stdout`
-    * **od:** `--sym-args 0 3 10 --sym-files 2 12 --sym-stdout`
-    * **pathchk:** `--sym-args 0 1 2 --sym-args 0 1 300 --sym-files 1 8 --sym-stdout`
-    * **printf:** `--sym-args 0 3 10 --sym-files 2 12 --sym-stdout`
+    * **mknod:** `--sym-args 0 1 10 --sym-args 0 3 2 --sym-files 1 8 --sym-stdin 8 --sym-stdout`
+    * **od:** `--sym-args 0 3 10 --sym-files 2 12 --sym-stdin 12 --sym-stdout`
+    * **pathchk:** `--sym-args 0 1 2 --sym-args 0 1 300 --sym-files 1 8 --sym-stdin 8 --sym-stdout`
+    * **printf:** `--sym-args 0 3 10 --sym-files 2 12 --sym-stdin 12 --sym-stdout`
