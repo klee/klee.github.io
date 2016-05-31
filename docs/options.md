@@ -85,3 +85,12 @@ To change the entry point you can use the option `-entry-point=FUNCTION_NAME`, w
 ## Calls to `klee-assume`
 
 By default, KLEE will report an error if the assumed condition is infeasible. The option `-silent-klee-assume` can be used to sliently terminate the current path exploration in such cases.
+
+## Linking External Libraries
+
+Definitions of undefined functions are taken from files given using the option
+`-link-llvm-lib`.
+
+If some functions in the input file are defined in an external LLVM IR file, an
+archive (.a) of LLVM IR files, or a shared object with LLVM IR code, these
+external files can be *linked in* using the option `-link-llvm-lib=LIB_FILENAME`.
