@@ -19,6 +19,7 @@ $ cmake -DCMAKE_INSTALL_PREFIX=/usr/ ../
 $ sudo make install
 $ cd ../../
 $ git clone https://github.com/stp/stp.git
+$ cd stp
 $ git checkout tags/2.1.2
 $ mkdir stp/build
 $ cd stp/build
