@@ -35,13 +35,15 @@ int main() {
 
 ## Compiling to LLVM bitcode
 
-KLEE operates on LLVM bitcode. To run a program with KLEE, you first compile it to LLVM bitcode using `llvm-gcc --emit-llvm`. Assuming our code is stored in `get_sign.c`, we run:
+KLEE operates on LLVM bitcode. To run a program with KLEE, you first compile it to LLVM bitcode using `clang -emit-llvm`. Assuming our code is stored in `get_sign.c`, we run:
 
 {% highlight bash %}
-$ llvm-gcc --emit-llvm -c -g get_sign.c
+$ clang -emit-llvm -c -g get_sign.c
 {% endhighlight %}
 
 to generate the LLVM bitcode file `get_sign.o`. It is useful to (1) build with `-g` to add debug information to the bitcode file, which we use to generate source line level statistics information, and (2) not use any optimization flags. The code can be optimized later, as KLEE provides the `--optimize` command line option to run the optimizer internally.
+
+**NOTE:** If you have built KLEE with LLVM 2.9, replace `clang` with `llvm-gcc`.
 
 ## Running KLEE
 
