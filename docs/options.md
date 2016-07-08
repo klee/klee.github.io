@@ -152,3 +152,14 @@ KLEE provides several debugging options:
   - `=compact:file`   - Log all instructions to file instructions.txt in format `[inst_id]`
 
 * `-debug-compress-instructions`  - Compress the `instructions.txt` file (**default=off**)
+
+## Memory Management
+
+KLEE explicitly intercepts calls for memory management (like `malloc()` and `free()`) and forwards to an existing memory allocators.
+To change this behaviour, following options are provided:
+
+* `--allocate-determ`                  - Enable support to allocate memory deterministically for the executed application (*default=off*)
+* `--allocate-determ-size`             - For deterministic allocation, the buffer of the specified size is pre-allocated in MB (*default=100*)
+* `--allocate-determ-start-addres`     - Controls the required start address of the pre-allocated memory. This address has to be page aligned. If null is provided, the memory is mapped to an arbitrary address.
+* `--return-null-on-zero-malloc`       - Controls if a NULL pointer should be returned in case the size argument is zero (*default=off*)
+* `--red-zone-space`                   - Controls the space kept unused between two adjacent allocations in byte (*default=10*)
