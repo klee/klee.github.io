@@ -85,3 +85,20 @@ To change the entry point you can use the option `-entry-point=FUNCTION_NAME`, w
 ## Calls to `klee-assume`
 
 By default, KLEE will report an error if the assumed condition is infeasible. The option `-silent-klee-assume` can be used to sliently terminate the current path exploration in such cases.
+
+## Statistics
+
+By default, KLEE generates two files containing statistics concerning the code exploration:
+
+* **run.stats**: This is a text file containing various statistics emitted by KLEE. While this file can be inspected manually, you should use the [klee-stats]({{site.baseurl}}/docs/tools) tool for that.
+* **run.istats**: This is a text file in Callgrind format containing global statistics emitted by KLEE for each line of code in the program. This file can be inspected with frontends which are able to read it (e.g. [kcachegrind](https://kcachegrind.github.io/))
+
+There are several options to modify how KLEE outputs statistics:
+
+* `-stats`                             - Enable statistics output from program (*default=on*)
+* `-output-stats`                      - Write running stats trace file (*default=on*)
+* `-output-istats`                     - Write instruction level statistics in callgrind format (*default=on*)
+* `-stats-write-interval=TIME`         - Approximate number of seconds between stats writes (*default=1.0s*)
+* `-istats-write-interval=TIME`        - Approximate number of seconds between istats writes (*default=10.0s*)
+* `-stats-write-after-instructions=N`  - Write statistics after each `N` instructions, 0 to disable (*default=0*)
+* `-istats-write-after-instructions=N` - Write istats after each `N` instructions, 0 to disable (*default=0*)
