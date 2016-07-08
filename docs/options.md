@@ -12,6 +12,38 @@ Contents
 {:.toc__list .list-anchor}
 {:toc}
 
+## KLEE usage
+
+{% highlight bash %}
+$ klee [klee-options] <program.bc> [program-options]
+{% endhighlight %}
+
+The general form of a KLEE command-line is first the arguments for KLEE itself (`[klee-options]`), then the LLVM bitcode file to execute (`program.bc`), and then any arguments to pass to the application (`[program-options]`).
+In particular, the KLEE option `-posix-runtime` enables the use of the symbolic environment options as part of the program's options.
+
+To get a complete list of KLEE's command-line options run: `klee --help`. The remainder of this page illustrate KLEE's main command-line options.
+
+## Symbolic Environment
+
+KLEE provides several options as part of its symbolic environment:
+
+1.  `-sym-arg <N>` - Replace by a symbolic argument with length N.
+2.  `-sym-args <MIN> <MAX> <N>` - Replace by at least MIN arguments and at most MAX arguments, each with maximum length N.
+3.  `-sym-files <NUM> <N>` - Make NUM symbolic files ('A', 'B', 'C', etc.), each with size N (excluding stdin)
+4.  `-sym-stdin <N>` - Make stdin symbolic with size N.
+5.  `-sym-stdout` - Make stdout symbolic.
+6.  `-max-fail <N>` - Allow up to N injected failures.
+7.  `-fd-fail` - Shortcut for '-max-fail 1'.
+
+Some usage examples:
+
+{% highlight bash %}
+$ klee -posix-runtime <program.bc> -sym-arg 16
+{% endhighlight %}
+{% highlight bash %}
+$ klee -posix-runtime <program.bc> -sym-files 2 30 -sym-stdin
+{% endhighlight %}
+
 ## Search Heuristics
 
 ### Main search heuristics
