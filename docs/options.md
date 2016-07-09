@@ -140,13 +140,15 @@ There are several options to modify how KLEE outputs statistics:
 
 KLEE provides several debugging options:
 
-* `-debug-print-instructions`     - Log the LLVM instructions executed by KLEE during the exploration (**default=off**). The output may include: the source code file and line (`src`), the instruction identifier as assigned by KLEE (`inst_id`), and the LLVM instruction with debugging informations (`llvm_inst`). The output format can be controlled with the following options:
+* `-debug-print-instructions=FORMAT`     - Log the LLVM instructions executed by KLEE (**default=off**).
 
-    `=all:stderr`     - Log all instructions to stderr in format `[src, inst_id, llvm_inst]`
-    `=src:stderr`     - Log all instructions to stderr in format `[src, inst_id]`
-    `=compact:stderr` - Log all instructions to stderr in format `[inst_id]`
-    `=all:file`       - Log all instructions to file instructions.txt in format `[src, inst_id, llvm_inst]`
-    `=src:file`       - Log all instructions to file instructions.txt in format `[src, inst_id]`
-    `=compact:file`   - Log all instructions to file instructions.txt in format `[inst_id]`
+  The output may include: the source code file and line (`src`), the instruction identifier as assigned by KLEE (`inst_id`), and the LLVM instruction with debugging informations (`llvm_inst`). The output format can be controlled with the following options:
+  
+  - `=all:stderr`     - Log all instructions to stderr in format `[src, inst_id, llvm_inst]`
+  - `=src:stderr`     - Log all instructions to stderr in format `[src, inst_id]`
+  - `=compact:stderr` - Log all instructions to stderr in format `[inst_id]`
+  - `=all:file`       - Log all instructions to file instructions.txt in format `[src, inst_id, llvm_inst]`
+  - `=src:file`       - Log all instructions to file instructions.txt in format `[src, inst_id]`
+  - `=compact:file`   - Log all instructions to file instructions.txt in format `[inst_id]`
 
 * `-debug-compress-instructions`  - Compress the `instructions.txt` file (**default=off**)
