@@ -109,6 +109,7 @@ To log the queries issued by KLEE during symbolic execution, you can use the fol
     - **&lt;0**: a negative value specifies that only queries that timed out should be logged. The timeout value is specified via the `--max-solver-time` option.
     - **&gt;0**: only queries that took more that **TIME** milliseconds should be logged.
 3. `--log-partial-queries-early=true` is used to dump the query to the log file before the next part of the solver chain is called.  Normally, KLEE prints the query and its solution after it has been solved. But if KLEE crashes inside the solver chain, the suspicious query will not be logged. Enable this option to debug such cases. This option comes with a performance penalty as the log buffer gets always flushed.
+4. `--compress-query-log` is used to compress query log files (**default=off**)
 
 ## Entry Point
 
@@ -134,3 +135,18 @@ There are several options to modify how KLEE outputs statistics:
 * `-istats-write-interval=TIME`        - Approximate number of seconds between istats writes (*default=10.0s*)
 * `-stats-write-after-instructions=N`  - Write statistics after each `N` instructions, 0 to disable (*default=0*)
 * `-istats-write-after-instructions=N` - Write istats after each `N` instructions, 0 to disable (*default=0*)
+
+## KLEE debug
+
+KLEE provides several debugging options:
+
+* `-debug-print-instructions`     - Log the LLVM instructions executed by KLEE during the exploration (**default=off**). The output may include: the source code file and line (`src`), the instruction identifier as assigned by KLEE (`inst_id`), and the LLVM instruction with debugging informations (`llvm_inst`). The output format can be controlled with the following options:
+
+    `=all:stderr`     - Log all instructions to stderr in format `[src, inst_id, llvm_inst]`
+    `=src:stderr`     - Log all instructions to stderr in format `[src, inst_id]`
+    `=compact:stderr` - Log all instructions to stderr in format `[inst_id]`
+    `=all:file`       - Log all instructions to file instructions.txt in format `[src, inst_id, llvm_inst]`
+    `=src:file`       - Log all instructions to file instructions.txt in format `[src, inst_id]`
+    `=compact:file`   - Log all instructions to file instructions.txt in format `[inst_id]`
+
+* `-debug-compress-instructions`  - Compress the `instructions.txt` file (**default=off**)
