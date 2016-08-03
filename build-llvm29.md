@@ -22,6 +22,12 @@ If you want to build KLEE with LLVM 3.4 (recommended), [click here]({{site.baseu
    $ export CPLUS_INCLUDE_PATH=/usr/include/x86_64-linux-gnu
    ```
 
+   **(Optional) Build KLEE with TCMalloc support:** By default, KLEE uses malloc_info() to observe and to restrict its memory usage. Due to limitations of malloc_info(), the maximum limit is set to 2 GB. To support bigger limits, KLEE can use TCMalloc as an alternative allocator. It is thus necessary to install TCMalloc:
+
+   ```bash
+   $ sudo apt-get install libtcmalloc-minimal4 libgoogle-perftools-dev
+   ```
+
 2. **Build LLVM 2.9:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
    **NOTE:** The only LLVM version currently supported by KLEE is **LLVM 2.9**. KLEE is currently tested on **Linux x86-64**, and might break on x86-32. KLEE will **not** compile with LLVM versions prior to 2.9, and there is only experimental support for LLVM 3.4. 
