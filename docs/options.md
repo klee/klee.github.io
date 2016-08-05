@@ -164,3 +164,34 @@ To change this behaviour, following options are provided:
 * `--allocate-determ-start-addres`     - Controls the required start address of the pre-allocated memory. This address has to be page aligned. If null is provided, the memory is mapped to an arbitrary address.
 * `--return-null-on-zero-malloc`       - Controls if a NULL pointer should be returned in case the size argument is zero (*default=off*)
 * `--red-zone-space`                   - Controls the space kept unused between two adjacent allocations in byte (*default=10*)
+
+## Making KLEE Exit on Events
+
+KLEE does not exit if a bug is found in the analyzed application by default. On
+the other hand, KLEE implicitly exits on some failures. This behaviour can be
+changed by the following options:
+
+* `-exit-on-error`                     - Exit on the first arbitrary error.
+* `-exit-on-error-type=TYPE`           - Exit on the first error of type `TYPE`. This parameter can be repeated to exit after more types. `TYPE` can one of the following:
+  - `=Abort`       - The program crashed
+  - `=Assert`      - An assertion was hit
+  - `=Exec`        - Trying to execute an unexpected instruction
+  - `=External`    - External objects referenced
+  - `=Free`        - Freeing invalid memory
+  - `=Model`       - Memory model limit hit
+  - `=Overflow`    - An overflow occurred
+  - `=Ptr`         - Pointer error
+  - `=ReadOnly`    - Write to read-only memory
+  - `=ReportError` - `klee_report_error` called
+  - `=User`        - Wrong `klee_*` functions invocation
+  - `=Unhandled`   - Unhandled instruction hit
+
+* `-ignore-solver-failures`            - Do not exit upon solver failure.
+
+Examples:
+{% highlight bash %}
+klee -exit-on-error input.bc
+{% endhighlight %}
+{% highlight bash %}
+klee -exit-on-error-type=Assert -exit-on-error-type=Ptr input.bc
+{% endhighlight %}
