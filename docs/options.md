@@ -32,8 +32,9 @@ KLEE provides several options as part of its symbolic environment:
 3.  `-sym-files <NUM> <N>` - Make NUM symbolic files ('A', 'B', 'C', etc.), each with size N (excluding stdin)
 4.  `-sym-stdin <N>` - Make stdin symbolic with size N.
 5.  `-sym-stdout` - Make stdout symbolic.
-6.  `-max-fail <N>` - Allow up to N injected failures.
-7.  `-fd-fail` - Shortcut for '-max-fail 1'.
+6.  `-save-all-writes` - Allow write operations to execute as expected even if they exceed the file size (*default=on*). When *off*, all writes exceeding the initial file size are discarded. **Note:** file offset is *always* incremented.
+7.  `-max-fail <N>` - Allow up to N injected failures.
+8.  `-fd-fail` - Shortcut for '-max-fail 1'.
 
 Some usage examples:
 
