@@ -15,7 +15,7 @@ We'll start by showing how to build and run the example, and then explain how th
 
 ## Building the example
 
-The first step is to compile the source code using a compiler which can generate object files in LLVM bitcode format. Here we use [Clang](http://clang.llvm.org) but if you have built KLEE with LLVM 2.9, you should use `llvm-gcc`.
+The first step is to compile the source code using a compiler which can generate object files in LLVM bitcode format. Here we use [Clang](http://clang.llvm.org) but if you have built KLEE with LLVM 2.9, you should use `llvm-gcc`. Notice that `llmv-gcc` creates `.o` files (e.g. `Regexp.o`), so you need to modify the commands accordingly.
 
 From within the `examples/regexp` directory:
 
@@ -23,12 +23,12 @@ From within the `examples/regexp` directory:
 $ clang -I ../../include -emit-llvm -c -g Regexp.c
 {% endhighlight %}
 
-which should create a Regexp.o file in LLVM bitcode format. The `-I` argument is used so that the compiler can find [`klee/klee.h`](http://t1.minormatter.com/~ddunbar/klee-doxygen/klee_8h-source.html), which contains definitions for the intrinsic functions used to interact with the KLEE virtual machine. `-c` is used because we only want to compile the code to an object file (not a native executable), and finally `-g` causes additional debug information to be stored in the object file, which KLEE will use to determine source line number information.
+which should create a Regexp.bc file in LLVM bitcode format. The `-I` argument is used so that the compiler can find [`klee/klee.h`](http://t1.minormatter.com/~ddunbar/klee-doxygen/klee_8h-source.html), which contains definitions for the intrinsic functions used to interact with the KLEE virtual machine. `-c` is used because we only want to compile the code to an object file (not a native executable), and finally `-g` causes additional debug information to be stored in the object file, which KLEE will use to determine source line number information.
 
 If you have the LLVM tools installed in your path, you can verify that this step worked by running llvm-nm on the generated file:
 
 {% highlight bash %}
-$ llvm-nm Regexp.o
+$ llvm-nm Regexp.bc
         t matchstar
         t matchhere
         T match
@@ -45,7 +45,7 @@ Normally before running this program we would need to link it to create a native
 The next step is to execute the code with KLEE:
 
 {% highlight bash %}
-$ klee --only-output-states-covering-new Regexp.o
+$ klee --only-output-states-covering-new Regexp.bc
 KLEE: output directory = "klee-out-1"
 KLEE: ERROR: .../klee/examples/regexp/Regexp.c:23: memory error: out of bound pointer
 KLEE: NOTE: now ignoring this error at this location
