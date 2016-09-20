@@ -21,8 +21,8 @@ $ cd ../../
 $ git clone https://github.com/stp/stp.git
 $ cd stp
 $ git checkout tags/2.1.2
-$ mkdir stp/build
-$ cd stp/build
+$ mkdir build
+$ cd build
 ```
 
 Shared STP libraries cause problems for KLEE, so we have to disable them ([see this mailing list thread](https://www.mail-archive.com/klee-dev@imperial.ac.uk/msg01704.html)). The python interface requires shared libraries, so we have to disable that, too.
