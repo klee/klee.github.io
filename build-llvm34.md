@@ -77,8 +77,9 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
    ```bash
    $ git clone https://github.com/google/googletest.git
    $ cd googletest
+   $ git checkout release-1.8.0
    $ cmake .
-   $ make -j`nproc`
+   $ make
    $ cd ..
    ```
 
