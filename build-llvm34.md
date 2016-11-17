@@ -18,13 +18,6 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
 
    You will need gcc/g++ 4.8 or later installed on your system. For Ubuntu 12.04 and 13.04, you can follow the instructions [here](http://ubuntuhandbook.org/index.php/2013/08/install-gcc-4-8-via-ppa-in-ubuntu-12-04-13-04/).   
 
-   On some architectures, you might also need to set the following environment variables (best to put them in a config file like **.bashrc**):  
-
-   ```bash
-   $ export C_INCLUDE_PATH=/usr/include/x86_64-linux-gnu  
-   $ export CPLUS_INCLUDE_PATH=/usr/include/x86_64-linux-gnu
-   ```
-
    **(Optional) Build KLEE with TCMalloc support:** By default, KLEE uses malloc_info() to observe and to restrict its memory usage. Due to limitations of malloc_info(), the maximum limit is set to 2 GB. To support bigger limits, KLEE can use TCMalloc as an alternative allocator. It is thus necessary to install TCMalloc:
 
    ```bash
