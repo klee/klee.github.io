@@ -24,7 +24,7 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
 
 2. **Install LLVM 3.4:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
-   _**NOTE:** Currently, KLEE has only experimental support for **LLVM 3.4**. The only stable LLVM version for KLEE is **LLVM 2.9**. KLEE is currently tested on **Linux x86-64**, and might break on x86-32. KLEE will **not** compile with LLVM versions prior to 2.9._
+   **NOTE:** KLEE is currently tested on **Linux x86-64**, and might break on x86-32.
 
    If you are using a recent Ubuntu (≥ 12.04 and ≤ 15.10, e.g. 14.04 LTS) or Debian, we recommend you to use the LLVM packages provided by LLVM itself. Use [LLVM Package Repository](http://llvm.org/apt/) to add the appropriate line to your `/etc/apt/sources.list`. As an example, for Ubuntu 14.04, the following lines should be added:  
 

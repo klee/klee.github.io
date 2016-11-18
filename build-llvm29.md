@@ -32,7 +32,7 @@ If you want to build KLEE with LLVM 3.4 (recommended), [click here]({{site.baseu
 
 2. **Build LLVM 2.9:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
-   **NOTE:** The only LLVM version currently supported by KLEE is **LLVM 2.9**. KLEE is currently tested on **Linux x86-64**, and might break on x86-32. KLEE will **not** compile with LLVM versions prior to 2.9, and there is only experimental support for LLVM 3.4. 
+   **NOTE:** KLEE is currently tested on **Linux x86-64**, and might break on x86-32. KLEE will **not** compile with LLVM versions prior to 2.9.
 
    1. Install llvm-gcc:
       * Download and install the LLVM 2.9 release of llvm-gcc from  [here](http://llvm.org/releases/download.html#2.9). On an x86-64 Linux platform you are going to need the archive  [LLVM-GCC 4.2 Front End Binaries for Linux x86-64](http://llvm.org/releases/2.9/llvm-gcc4.2-2.9-x86_64-linux.tar.bz2). 
