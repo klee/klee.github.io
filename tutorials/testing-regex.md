@@ -38,7 +38,7 @@ $ llvm-nm Regexp.bc
         d LC1
 {% endhighlight %}
 
-Normally before running this program we would need to link it to create a native executable. However, KLEE runs directly on LLVM bitcode files -- since this program only has a single file there is no need to link. For "real" programs with multiple inputs, the [llvm-link](http://llvm.org/cmds/llvm-link.html) and [llvm-ld](http://llvm.org/cmds/llvm-ld.html) tools can be used in place of the regular link step to merge multiple LLVM bitcode files into a single module which can be executed by KLEE.
+Normally before running this program we would need to link it to create a native executable. However, KLEE runs directly on LLVM bitcode files -- since this program only has a single file there is no need to link. For "real" programs with multiple inputs, the [llvm-link](http://llvm.org/cmds/llvm-link.html) and [llvm-ld](http://llvm.org/releases/2.9/docs/CommandGuide/html/llvm-ld.html) tools can be used in place of the regular link step to merge multiple LLVM bitcode files into a single module which can be executed by KLEE.
 
 ## Executing the code with KLEE
     

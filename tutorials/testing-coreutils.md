@@ -515,4 +515,4 @@ The reasons for not getting perfect 100% line coverage are left as an exercise t
 
 ## Step 7: Using `zcov` to analyze coverage
 
-For visualizing the coverage results, you might want to use the [zcov](http://minormatter.com/zcov/) tool.
+For visualizing the coverage results, you might want to use the [zcov](https://github.com/ddunbar/zcov) tool.

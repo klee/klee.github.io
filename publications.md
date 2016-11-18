@@ -22,7 +22,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Raimondas Sasnauskas, Olaf Landsiedel, Muhammad Hamad Alizai, Carsten Weise, Stefan Kowalewski, Klaus Wehrle  
   ACM/IEEE International Conference on Information Processing in Sensor Networks (IPSN 2010)  
   April 12-16, 2010, Stockholm, Sweden  
-  **KleeNet is available [here](https://www.comsys.rwth-aachen.de/research/projects/kleenet/).**  
+  **KleeNet is available [here](https://www.comsys.rwth-aachen.de/research/past-projects/kleenet/).**
 
 1. [Execution Synthesis: A Technique for Automated Software Debugging](http://dslab.epfl.ch/pubs/esd.pdf)  
   Cristian Zamfir, George Candea  
@@ -39,7 +39,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
   USENIX Annual Technical Conference (USENIX ATC 2010)  
   June 22-25, 2010, Boston, MA, USA  
 
-1. [Stable Deterministic Multithreading through Schedule Memoization](http://rcs.cs.columbia.edu/papers/cui-tern-osdi10.pdf)  
+1. [Stable Deterministic Multithreading through Schedule Memoization](https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Cui.pdf)  
   Heming Cui, Jingyue Wu, Chia-che Tsai, Junfeng Yang  
   USENIX Symposium on Operating Systems Design and Implementation (OSDI 2010)  
   October 4-6, 2010, Vancouver, BC, Canada  
@@ -71,7 +71,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
   ACM SIGOPS/EuroSys European Conference on Computer Systems (EuroSys 2011)  
   April 10-13, 2011, Salzburg, Austria  
 
-1. [Practical, Low-Effort Equivalence Verification of Real Code](http://keeda.stanford.edu/~daramos/papers/ucklee-cav-2011.pdf)
+1. [Practical, Low-Effort Equivalence Verification of Real Code](http://www.pgbovine.net/PhD-memoir/ucklee-cav-2011.pdf)
   David Ramos, Dawson Engler  
   Computer Aided Verification (CAV 2011)  
   July 16-20, 2011, Snowbird, UT, USA  
@@ -81,7 +81,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
   IEEE International Conference on Distributed Computing Systems (ICDCS 2011)  
   June 20-24, 2011, Minneapolis, MN, USA  
 
-1. [Efficient Deterministic Multithreading through Schedule Relaxation](http://rcs.cs.columbia.edu/papers/peregrine-sosp11.pdf) 
+1. [Efficient Deterministic Multithreading through Schedule Relaxation](http://www.cs.columbia.edu/~huayang/files/peregrine.pdf) 
   Heming Cui, Jingyue Wu, John Gallagher, Huayang Guo, Junfeng Yang  
   ACM Symposium on Operating Systems Principles (SOSP 2011)  
   October 23-26, 2011, Cascais, Portugal  
@@ -96,7 +96,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Haifa Verification Conference (HVC 2011)  
   December 6-8, 2011, Haifa, Israel  
 
-1. [GKLEE: Concolic Verification and Test Generation for GPUs](http://www.cs.utah.edu/formal_verification/GKLEE/ppopp12-gklee-accepted-version.pdf)  
+1. [GKLEE: Concolic Verification and Test Generation for GPUs](http://formalverification.cs.utah.edu/pdf/PPoPP12-GKLEE-Extended-Version.pdf)  
   Guodong Li, Peng Li, Geof Sawaya, Ganesh Gopalakrishnan, Indradeep Ghosh, and Sreeranga P. Rajan  
   ACM Symposium on Principles and Practice of Parallel Programming (PPoPP 2012)  
   February 25-29, 2012, New Orleans, LA, USA  
@@ -112,7 +112,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Wei Jin, Alessandro Orso  
   International Conference on Software Engineering (ICSE 2012)  
   June 2-9, 2012, Zurich, Switzerland  
-  **BugRedux is available [here](http://www.cc.gatech.edu/~wjin6/mypage/bugredux.html).**  
+  **BugRedux is available [here](https://github.com/gatech/bugredux).**  
 
 1. [Efficient State Merging in Symbolic Execution](http://dslab.epfl.ch/pubs/stateMerging.pdf)  
   Volodymyr Kuznetsov, Johannes Kinder, Stefan Bucur, George Candea  
@@ -178,7 +178,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
    International Conference on Software Engineering (ICSE 2015)
    May 16-24, 2015, Florence, Italy
 
-1. [A Framework for Measuring Software Obfuscation Resilience Against Automated Attacks](https://www22.in.tum.de/fileadmin/papers/spro15.pdf)
+1. [A Framework for Measuring Software Obfuscation Resilience Against Automated Attacks](https://wwwpretschner.in.tum.de/fileadmin/papers/spro15.pdf)
    Sebastian Banescu, Martin Ochoa, Alexander Pretschner
    International Workshop on Software Protection (SPRO 2015)
    May 17, 2015, Florence, Italy
