@@ -3,18 +3,13 @@ layout: default
 title: Testing Coreutils
 subtitle: Tutorial on How to Use KLEE to Test GNU Coreutils
 slug: tutorials
---- 
+---
 
 As a more detailed explanation of using KLEE, we will look at how we did our testing of [GNU Coreutils](http://www.gnu.org/software/coreutils/) using KLEE.
 
 This tutorial assumes that you have configured and built KLEE with `uclibc` and `POSIX` runtime support.
 
-These tests were done on a 32-bit Linux machine. On a 64-bit machine, we needed to also set the `LD_LIBRARY_PATH` environment variable:
- 
-{% highlight bash %}
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64 # Fedora
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu # Ubuntu
-{% endhighlight %}
+These tests were done on a 64-bit Linux machine.
 
 ## Step 1: Build coreutils with gcov
 
@@ -41,9 +36,9 @@ You should now have a set of `coreutils` in the `objc-gcov/src` directory. For e
 {% highlight bash %}
 obj-gcov$ cd src
 src$ ls -l ls echo cat
--rwxr-xr-x 1 ddunbar ddunbar 164841 2009-07-25 20:58 cat
--rwxr-xr-x 1 ddunbar ddunbar 151051 2009-07-25 20:59 echo
--rwxr-xr-x 1 ddunbar ddunbar 439712 2009-07-25 20:58 ls
+-rwxrwxr-x 1 klee klee 150632 Nov 21 21:58 cat
+-rwxrwxr-x 1 klee klee 135984 Nov 21 21:58 echo
+-rwxrwxr-x 1 klee klee 390552 Nov 21 21:58 ls
 src$ ./cat --version
 cat (GNU coreutils) 6.11
 Copyright (C) 2008 Free Software Foundation, Inc.
@@ -61,59 +56,64 @@ src$ rm -f *.gcda # Get rid of any stale gcov files
 src$ ./echo**
 
 src$ ls -l echo.gcda
--rw-r--r-- 1 ddunbar ddunbar 1832 2009-08-04 21:14 echo.gcda
+-rw-rw-r-- 1 klee klee 896 Nov 21 22:00 echo.gcda
 src$ gcov echo
-File '../../src/system.h'
-Lines executed:0.00% of 47
-../../src/system.h:creating 'system.h.gcov'
-
-File '../../lib/timespec.h'
-Lines executed:0.00% of 2
-../../lib/timespec.h:creating 'timespec.h.gcov'
-
-File '../../lib/gettext.h'
-Lines executed:0.00% of 32
-../../lib/gettext.h:creating 'gettext.h.gcov'
-
-File '../../lib/openat.h'
-Lines executed:0.00% of 8
-../../lib/openat.h:creating 'openat.h.gcov'
-
 File '../../src/echo.c'
-Lines executed:18.81% of 101
-../../src/echo.c:creating 'echo.c.gcov'
+Lines executed:24.27% of 103
+Creating 'echo.c.gcov'
+
+File '../../src/system.h'
+Lines executed:0.00% of 3
+Creating 'system.h.gcov'
+
 {% endhighlight %}
 
 By default `gcov` will show the number of lines executed in the program (the `.h` files include code which was compiled into `echo.c`).
 
-## Step 2: Build Coreutils with LLVM
+## Step 2: Install WLLVM
 
-One of the difficult parts of testing real software using KLEE is that it must be first compiled so that the final program is an LLVM bitcode file and not a linked executable. The software's build system may be set up to use tools such as 'ar', 'libtool', and 'ld', which do not in general understand LLVM bitcode files.
+One of the difficult parts of testing real software using KLEE is that it must be first compiled so that the final program is an LLVM bitcode file and not a native binary. The software's build system may be set up to use tools such as 'ar', 'libtool', and 'ld', which do not in general understand LLVM bitcode files.
 
-It depends on the actual project what the best way to do this is. For coreutils, we use a helper script `klee-gcc`, which acts like `llvm-gcc` but adds additional arguments to cause it to emit LLVM bitcode files and to call `llvm-ld` to link executables. This is **not** a general solution, and your mileage may vary.
+For coreutils, we use [whole-program-llvm](https://github.com/travitch/whole-program-llvm) (WLLVM), which provides tools for building whole-program LLVM bitcode files from an unmodified C or C++ source package. WLLVM includes four python executables: `wllvm` a C compiler and `wllvm++` a C++ compiler, the tool `extract-bc` for extracting the bitcode from a build product (either object file, executable, library, or archive), and the sanity checker `wllvm-sanity-checker` for detecting configuration oversights. In this tutorial, we use WLLVM version 1.0.17.
+
+To install _whole-program-llvm_ the easiest way is to use `pip`:
+
+{% highlight bash %}
+$ pip install --upgrade wllvm
+{% endhighlight %}
+
+To successfully execute WLLVM it is necessary to set the environment variable `LLVM_COMPILER` to the underlying LLVM compiler (either `dragonegg` or `clang`). In this tutorial, we use `clang`:
+
+{% highlight bash %}
+$ export LLVM_COMPILER=clang
+{% endhighlight %}
+
+To make the environment variable persistent, add the export to your shell profile (e.g. `.bashrc`).
+
+## Step 3: Build Coreutils with LLVM
 
 As before, we will build in a separate directory so we can easily access both the native executables and the LLVM versions. Here are the steps:
 
 {% highlight bash %}
 coreutils-6.11$ mkdir obj-llvm
 coreutils-6.11$ cd obj-llvm
-obj-llvm$ ../configure --disable-nls CFLAGS="-g"
+obj-llvm$ CC=wllvm ../configure --disable-nls CFLAGS="-g"
 ... verify that configure worked ...
-obj-llvm$ make CC=/full/path/to/klee/scripts/klee-gcc
-obj-llvm$ make -C src arch hostname CC=/full/path/to/klee/scripts/klee-gcc
+obj-llvm$ CC=wllvm make
+obj-llvm$ CC=wllvm make -C src arch hostname
 ... verify that make worked ...
 {% endhighlight %}
 
-Notice that we made two changes. First, we don't want to add _gcov_ instrumentation in the binary we are going to test using KLEE, so we left of the `-fprofile-arcs -ftest-coverage` flags. Second, when running make, we set the `CC` variable to point to our `klee-gcc` wrapper script.
+Notice that we made two changes. First, we don't want to add _gcov_ instrumentation in the binary we are going to test using KLEE, so we left of the `-fprofile-arcs -ftest-coverage` flags. Second, when running make, we set the `CC` variable to point to `wllvm`.
 
-If all went well, you should now have LLVM bitcode versions of Coreutils! For example:
+If all went well, you should now have Coreutils _executables_. For example:
 
 {% highlight bash %}
 obj-llvm$ cd src
 src$ ls -l ls echo cat
--rwxr-xr-x 1 ddunbar ddunbar 65 2009-07-25 23:40 cat
--rwxr-xr-x 1 ddunbar ddunbar 66 2009-07-25 23:43 echo
--rwxr-xr-x 1 ddunbar ddunbar 94 2009-07-25 23:38 ls
+-rwxrwxr-x 1 klee klee 105448 Nov 21 12:03 cat
+-rwxrwxr-x 1 klee klee  95424 Nov 21 12:03 echo
+-rwxrwxr-x 1 klee klee 289624 Nov 21 12:03 ls
 src$ ./cat --version
 cat (GNU coreutils) 6.11
 Copyright (C) 2008 Free Software Foundation, Inc.
@@ -121,38 +121,37 @@ License GPLv3+: GNU GPL version 3 or later
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
-LLVM ERROR: JIT does not support inline asm!
+Written by Torbjorn Granlund and Richard M. Stallman.
 {% endhighlight %}
 
-You may notice some funny things going on. To start with, the files are way too small! Since we are actually producing LLVM bitcode files, the operating system can't run them directly. What `llvm-ld` does to make it so we can still run the resulting outputs is write a little shell script which uses the LLVM interpreter to run the binaries; the actual LLVM bitcode files have `.bc` appended. If we look a little closer:
+You may notice that instead of LLVM bitcode files, we obtained executable files. This is because WLLVM works in two steps. In the first step, WLLVM invokes the standard compiler and then, for each object file, it also invokes a bitcode compiler to produce LLVM bitcode. WLLVM stores the location of the generated bitcode files in a dedicated section of the object file. When object files are linked together, the locations are concatenated to save the locations of all constituent files. After the build completes, one can use the WLLVM utility `extract-bc` to read the contents of the dedicated section and link all of the bitcode into a single whole-program bitcode file.
+
+To obtain the LLVM bitcode version of all Coreutils, we can invoke `extract-bc` on all executable files:
 
 {% highlight bash %}
-src$ cat ls
-#!/bin/sh
-lli=${LLVMINTERP-lli}
-exec $lli \
-    -load=/usr/lib/librt.so \
-    ls.bc ${1+"$@"}
+src$ for exe in `find . -executable`; do extract-bc $exe; done
 src$ ls -l ls.bc
--rwxr-xr-x 1 ddunbar ddunbar 643640 2009-07-25 23:38 ls.bc
+-rw-rw-r-- 1 klee klee 543052 Nov 21 12:03 ls.bc
 {% endhighlight %}
 
-The other funny thing is that the version message doesn't all print out, the LLVM interpreter emits a message about not supporting inline assembly. The problem here is that `glibc` occasionally implements certain operations using inline assembly, which the LLVM interpreter (`lli`) doesn't understand. KLEE works around this problem by specially recognizing certain common inline assembly sequences and turning them back into the appropriate LLVM instructions before executing the binary.
-
-## Step 3: Using KLEE as an interpreter
+## Step 4: Using KLEE as an interpreter
 
 At its core, KLEE is just an interpreter for LLVM bitcode. For example, here is how to run the same `cat` command we did before, using KLEE. Note, this step requires that you configured and built KLEE with `uclibc` and `POSIX` runtime support (if you didn't, you'll need to go do that now).
 
 {% highlight bash %}
 src$ klee --libc=uclibc --posix-runtime ./cat.bc --version
-KLEE: NOTE: Using model: /home/ddunbar/public/klee/Release/lib/libkleeRuntimePOSIX.bca
-KLEE: output directory = "klee-out-3"
-KLEE: WARNING: undefined reference to function: __signbitl
+KLEE: NOTE: Using klee-uclibc : /usr/local/lib/klee/runtime/klee-uclibc.bca
+KLEE: NOTE: Using model: /usr/local/lib/klee/runtime/libkleeRuntimePOSIX.bca
+KLEE: output directory is "/home/klee/coreutils-6.11/obj-llvm/src/./klee-out-0"
+Using STP solver backend
+KLEE: WARNING ONCE: function "vasnprintf" has inline asm
+KLEE: WARNING: undefined reference to function: __ctype_b_loc
+KLEE: WARNING: undefined reference to function: klee_posix_prefer_cex
 KLEE: WARNING: executable has module level assembly (ignoring)
-KLEE: WARNING: calling external: syscall(54, 0, 21505, 177325672)
-KLEE: WARNING: calling __user_main with extra arguments.
-KLEE: WARNING: calling external: getpagesize()
-KLEE: WARNING: calling external: vprintf(177640072, 183340048)
+KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 42637408)
+KLEE: WARNING ONCE: calling __user_main with extra arguments.
+KLEE: WARNING ONCE: calling external: getpagesize()
+KLEE: WARNING ONCE: calling external: vprintf(43649760, 51466656)
 cat (GNU coreutils) 6.11
 
 License GPLv3+: GNU GPL version 3 or later
@@ -160,9 +159,10 @@ This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
 Written by Torbjorn Granlund and Richard M. Stallman.
-KLEE: WARNING: calling close_stdout with extra arguments.
 Copyright (C) 2008 Free Software Foundation, Inc.
-KLEE: done: total instructions = 259357
+KLEE: WARNING ONCE: calling close_stdout with extra arguments.
+
+KLEE: done: total instructions = 28988
 KLEE: done: completed paths = 1
 KLEE: done: generated tests = 1
 {% endhighlight %}
@@ -175,14 +175,14 @@ Similarly, a native application would be running on top of an operating system t
 
 As before, cat prints out its version information (note that this time all the text is written out), but we now have a number of additional information output by KLEE. In this case, most of these warnings are innocuous, but for completeness here is what they mean:
 
-* _undefined reference to function: __signbitl_: This warning means that the program contains a call to the function __signbitl, but that function isn't defined anywhere (we would have seen a lot more of these if we had not linked with uClibc and the POSIX runtime). If the program actually ends up making a call to this function while it is executing, KLEE won't be able to interpret it and may terminate the program.
+* _undefined reference to function: ___ctype_b_loc_: This warning means that the program contains a call to the function __ctype_b_loc, but that function isn't defined anywhere (we would have seen a lot more of these if we had not linked with uClibc and the POSIX runtime). If the program actually ends up making a call to this function while it is executing, KLEE won't be able to interpret it and may terminate the program.
 * _executable has module level assembly (ignoring)_: Some file compiled in to the application had file level inline-assembly, which KLEE can't understand. In this case this comes from uClibc and is unused, so this is safe.
 * _calling __user_main with extra arguments_: This indicates that the function was called with more arguments than it expected, it is almost always innocuous. In this case __user_main is actually the main() function for cat, which KLEE has renamed it when linking with uClibc. main() is being called with additional arguments by uClibc itself during startup, for example the environment pointer.
 * _calling external: getpagesize()_: This is an example of KLEE calling a function which is used in the program but is never defined. What KLEE actually does in such cases is try to call the native version of the function, if it exists. This is sometimes safe, as long as that function does write to any of the programs memory or attempt to manipulate symbolic values. getpagesize(), for example, just returns a constant.
 
 In general, KLEE will only emit a given warning once. The warnings are also logged to warnings.txt in the KLEE output directory.
 
-## Step 4: Introducing symbolic data to an application 
+## Step 4: Introducing symbolic data to an application
 
 We've seen that KLEE can interpret a program normally, but the real purpose of KLEE is to explore programs more exhaustively by making parts of their input symbolic. For example, lets look at running KLEE on the echo application.
 
@@ -209,68 +209,59 @@ As an example, lets run echo with a symbolic argument of 3 characters.
 
 {% highlight bash %}
 src$ klee --libc=uclibc --posix-runtime ./echo.bc --sym-arg 3
-KLEE: NOTE: Using model: /home/ddunbar/public/klee/Release/lib/libkleeRuntimePOSIX.bca
-KLEE: output directory = "klee-out-16"
-KLEE: WARNING: undefined reference to function: __signbitl
+KLEE: NOTE: Using klee-uclibc : /usr/local/lib/klee/runtime/klee-uclibc.bca
+KLEE: NOTE: Using model: /usr/local/lib/klee/runtime/libkleeRuntimePOSIX.bca
+KLEE: output directory is "/home/klee/coreutils-6.11/obj-llvm/src/./klee-out-1"
+Using STP solver backend
+KLEE: WARNING ONCE: function "vasnprintf" has inline asm
+KLEE: WARNING: undefined reference to function: __ctype_b_loc
+KLEE: WARNING: undefined reference to function: klee_posix_prefer_cex
 KLEE: WARNING: executable has module level assembly (ignoring)
-KLEE: WARNING: calling external: syscall(54, 0, 21505, 189414856)
-KLEE: WARNING: calling __user_main with extra arguments.
+KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 39407520)
+KLEE: WARNING ONCE: calling __user_main with extra arguments.
 ..
 KLEE: WARNING: calling close_stdout with extra arguments.
 ...
-KLEE: WARNING: calling external: printf(183664896, 183580400)
-Usage: ./echo.bc [OPTION]... [STRING]...
+KLEE: WARNING ONCE: calling external: printf(42797984, 41639952)
+..
+KLEE: WARNING ONCE: calling external: vprintf(41640400, 52740448)
+..
 Echo the STRING(s) to standard output.
 
--n             do not output the trailing newline
--e             enable interpretation of backslash escapes
--E             disable interpretation of backslash escapes (default)
-    --help     display this help and exit
-    --version  output version information and exit
-
+  -n             do not output the trailing newline
+  -e             enable interpretation of backslash escapes
+  -E             disable interpretation of backslash escapes (default)
+      --help     display this help and exit
+      --version  output version information and exit
+Usage: ./echo.bc [OPTION]... [STRING]...
+echo (GNU coreutils) 6.11
+Copyright (C) 2008 Free Software Foundation, Inc.
 If -e is in effect, the following sequences are recognized:
 
-\0NNN   the character whose ASCII code is NNN (octal)
-\\     backslash
-\a     alert (BEL)
-\b     backspace
-\c     suppress trailing newline
-\f     form feed
-\n     new line
-\r     carriage return
-\t     horizontal tab
-\v     vertical tab
+  \0NNN   the character whose ASCII code is NNN (octal)
+  \\     backslash
+  \a     alert (BEL)
+  \b     backspace
+
+License GPLv3+: GNU GPL version 3 or later
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+  \c     suppress trailing newline
+  \f     form feed
+  \n     new line
+  \r     carriage return
+  \t     horizontal tab
+  \v     vertical tab
 
 NOTE: your shell may have its own version of echo, which usually supersedes
 the version described here.  Please refer to your shell's documentation
 for details about the options it supports.
 
 Report bugs to <bug-coreutils@gnu.org>.
-KLEE: WARNING: calling external: vprintf(183956664, 190534360)
-echo (GNU coreutils) 6.11
-
-License GPLv3+: GNU GPL version 3 or later 
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-
 Written by FIXME unknown.
-...
-...
-...
 
-
-
-
-..
-
-
-.
-
-.
-..
-...
-Copyright (C) 2008 Free Software Foundation, Inc.
-KLEE: done: total instructions = 300193
+KLEE: done: total instructions = 64546
 KLEE: done: completed paths = 25
 KLEE: done: generated tests = 25
 {% endhighlight %}
@@ -279,11 +270,11 @@ The results here are slightly more interesting, KLEE has explored 25 paths throu
 
 {% highlight bash %}
 src$ klee-stats klee-last
--------------------------------------------------------------------------
-| Path      | Instrs | Time(s) | ICov(%) | BCov(%) | ICount | Solver(%) |
--------------------------------------------------------------------------
-| klee-last | 300673 |    1.47 |   28.18 |   17.37 |  28635 |      5.65 |
--------------------------------------------------------------------------
+------------------------------------------------------------------------
+|  Path   |  Instrs|  Time(s)|  ICov(%)|  BCov(%)|  ICount|  TSolver(%)|
+------------------------------------------------------------------------
+|klee-last|   64546|     0.15|    22.07|    14.14|   19943|       62.97|
+------------------------------------------------------------------------
 {% endhighlight %}
 
 Here _ICov_ is the percentage of LLVM instructions which were covered, and _BCov_ is the percentage of branches that were covered. You may be wondering why the percentages are so low -- how much more code can echo have! The main reason is that these numbers are computed using all the instructions or branches in the bitcode files; that includes a lot of library code which may not even be executable. We can help with that problem (and others) by passing the `--optimize` option to KLEE. This will cause KLEE to run the LLVM optimization passes on the bitcode module before executing it; in particular they will remove any dead code. When working with non-trivial applications, it is almost always a good idea to use this flag. Here are the results from running again with `--optimze` enabled:
@@ -291,20 +282,20 @@ Here _ICov_ is the percentage of LLVM instructions which were covered, and _BCov
 {% highlight bash %}
 src$ klee --optimize --libc=uclibc --posix-runtime ./echo.bc --sym-arg 3
 ...
-KLEE: done: total instructions = 123251
+KLEE: done: total instructions = 33991
 KLEE: done: completed paths = 25
 KLEE: done: generated tests = 25
 src$ klee-stats klee-last
--------------------------------------------------------------------------
-| Path      | Instrs | Time(s) | ICov(%) | BCov(%) | ICount | Solver(%) |
--------------------------------------------------------------------------
-| klee-last | 123251 |    0.32 |   38.02 |   25.43 |   9531 |     29.66 |
--------------------------------------------------------------------------
+------------------------------------------------------------------------
+|  Path   |  Instrs|  Time(s)|  ICov(%)|  BCov(%)|  ICount|  TSolver(%)|
+------------------------------------------------------------------------
+|klee-last|   33991|     0.13|    30.16|    21.91|    8339|       80.66|
+------------------------------------------------------------------------
 {% endhighlight %}
 
-This time the instruction coverage went up by about ten percent, and you can see that KLEE also ran faster and executed less instructions. Most of the remaining code is still in library functions, just in places that the optimizers aren't smart enough to remove. We can verify this -- and look for uncovered code inside `echo` -- by using KCachegrind to visualize the results of a KLEE run.
+This time the instruction coverage went up by about six percent, and you can see that KLEE also ran faster and executed less instructions. Most of the remaining code is still in library functions, just in places that the optimizers aren't smart enough to remove. We can verify this -- and look for uncovered code inside `echo` -- by using KCachegrind to visualize the results of a KLEE run.
 
-## Step 5: Visualizing KLEE's progress with `kcachegrind`
+## Step 6: Visualizing KLEE's progress with `kcachegrind`
 
 [KCachegrind](http://kcachegrind.sourceforge.net) is an excellent profiling visualization tool, originally written for use with the callgrind plugin for valgrind. If you don't have it already, it is usually easily available on a modern Linux distribution via your platforms' software installation tool (e.g., `apt-get` or `yum`).
 
@@ -339,7 +330,7 @@ In a normal application, if the statement on Line 1 was only executed once, then
 
 Another useful tidbit: KLEE actually writes the `run.istats` file periodically as the application is running. This provides one way to monitor the status of long running applications (another way is to use the klee-stats tool).
 
-## Step 6: Replaying KLEE generated test cases
+## Step 7: Replaying KLEE generated test cases
 
 Let's step away from KLEE for a bit and look at just the test cases KLEE generated. If we look inside the `klee-last` we should see 25 `.ktest` files.
 
@@ -364,13 +355,13 @@ args       : ['./echo.bc', '--sym-arg', '3']
 num objects: 2
 object    0: name: 'arg0'
 object    0: size: 4
-object    0: data: '@@@\x00'
+object    0: data: '\x00\x00\x00\x00'
 object    1: name: 'model_version'
 object    1: size: 4
 object    1: data: '\x01\x00\x00\x00'
 {% endhighlight %}
 
-In this case, the test case indicates that values "@@@\x00" should be passed as the first argument. However, `.ktest` files generally aren't really meant to be looked at directly. For the POSIX runtime, we provide a tool `klee- replay` which can be used to read the `.ktest` file and invoke the native application, automatically passing it the data necessary to reproduce the path that KLEE followed.
+In this case, the test case indicates that values "\x00\x00\x00\x00" should be passed as the first argument. However, `.ktest` files generally aren't really meant to be looked at directly. For the POSIX runtime, we provide a tool `klee-replay` which can be used to read the `.ktest` file and invoke the native application, automatically passing it the data necessary to reproduce the path that KLEE followed.
 
 To see how it works, go back to the directory where we built the native executables:
 
@@ -380,7 +371,7 @@ obj-llvm$ cd ..
 coreutils-6.11$ cd obj-gcov
 obj-gcov$ cd src
 src$ ls -l echo
--rwxr-xr-x 1 ddunbar ddunbar 151051 2009-07-25 20:59 echo
+-rwxrwxr-x 1 klee klee 135984 Nov 21 21:58 echo
 {% endhighlight %}
 
 To use the `klee-replay` tool, we just tell it the executable to run and the `.ktest` file to use. The program arguments, input files, etc. will all be constructed from the data in the `.ktest` file.
@@ -388,8 +379,8 @@ To use the `klee-replay` tool, we just tell it the executable to run and the `.k
 {% highlight bash %}
 src$ klee-replay ./echo ../../obj-llvm/src/klee-last/test000001.ktest
 klee-replay: TEST CASE: ../../obj-llvm/src/klee-last/test000001.ktest
-klee-replay: ARGS: "./echo" "@@@"
-@@@
+klee-replay: ARGS: "./echo" ""
+
 klee-replay: EXIT STATUS: NORMAL (0 seconds)
 {% endhighlight %}
 
@@ -412,25 +403,13 @@ Copyright (C) 2008 Free Software Foundation, Inc.
 _..._
 
 src$ gcov echo
-File '../../src/system.h'
-Lines executed:6.38% of 47
-../../src/system.h:creating 'system.h.gcov'
-
-File '../../lib/timespec.h'
-Lines executed:0.00% of 2
-../../lib/timespec.h:creating 'timespec.h.gcov'
-
-File '../../lib/gettext.h'
-Lines executed:0.00% of 32
-../../lib/gettext.h:creating 'gettext.h.gcov'
-
-File '../../lib/openat.h'
-Lines executed:0.00% of 8
-../../lib/openat.h:creating 'openat.h.gcov'
-
 File '../../src/echo.c'
-Lines executed:50.50% of 101
-../../src/echo.c:creating 'echo.c.gcov'
+Lines executed:52.43% of 103
+Creating 'echo.c.gcov'
+
+File '../../src/system.h'
+Lines executed:100.00% of 3
+Creating 'system.h.gcov'
 {% endhighlight %}
 
 The number for `echo.c` here significantly higher than the `klee-stats` number because `gcov` is only considering lines in that one file, not the entire application. As with `kcachegrind`, we can inspect the coverage file output by `gcov` to see exactly what lines were covered and which weren't. Here is a fragment from the output:
@@ -457,7 +436,7 @@ The number for `echo.c` here significantly higher than the `klee-stats` number b
     #####:  211:		    case 'b': c = '\b'; break;
     #####:  212:		    case 'c': exit (EXIT_SUCCESS);
     #####:  213:		    case 'f': c = '\f'; break;
-    #####:  214:		    case 'n': c = '\n'; break; 
+    #####:  214:		    case 'n': c = '\n'; break;
 {% endhighlight %}
 
 The far left hand column is the number of times each line was executed; **-**
@@ -470,14 +449,14 @@ Before moving on to testing more complex applications, lets make sure we can get
 {% highlight bash %}
 src$ klee --only-output-states-covering-new --optimize --libc=uclibc --posix-runtime ./echo.bc --sym-args 0 2 4
 ...
-KLEE: done: total instructions = 7437521
-KLEE: done: completed paths = 9963
-KLEE: done: generated tests = 55
+KLEE: done: total instructions = 7611521
+KLEE: done: completed paths = 10179
+KLEE: done: generated tests = 57
 {% endhighlight %}
 
 The format of the `--sym-args` option actually specifies a minimum and a maximum number of arguments to pass and the length to use for each argument.  In this case `--sym-args 0 2 4` says to pass between 0 and 2 arguments (inclusive), each with a maximum length of four characters.
 
-We also added the `--only-output-states-covering-new` option to the KLEE command line. By default KLEE will write out test cases for every path it explores. This becomes less useful  once the program becomes larger, because many test cases will end up exercise the same paths, and computing (or even reexecuting) each one wastes time. Using this option tells KLEE to only output test cases for paths which covered some new instruction in the code (or hit an error). The final lines of the output show that even though KLEE explored almost ten thousand paths through the code, it only needed to write 55 test cases.
+We also added the `--only-output-states-covering-new` option to the KLEE command line. By default KLEE will write out test cases for every path it explores. This becomes less useful  once the program becomes larger, because many test cases will end up exercise the same paths, and computing (or even reexecuting) each one wastes time. Using this option tells KLEE to only output test cases for paths which covered some new instruction in the code (or hit an error). The final lines of the output show that even though KLEE explored almost ten thousand paths through the code, it only needed to write 57 test cases.
 
 If we go back to the `obj-gcov/src` directory and rerun the latest set of test cases, we finally have reasonable coverage of `echo.c`:
 
@@ -490,29 +469,17 @@ klee-replay: ARGS: "./echo"
 ...
 
 src$ gcov echo
-File '../../src/system.h'
-Lines executed:6.38% of 47
-../../src/system.h:creating 'system.h.gcov'
-
-File '../../lib/timespec.h'
-Lines executed:0.00% of 2
-../../lib/timespec.h:creating 'timespec.h.gcov'
-
-File '../../lib/gettext.h'
-Lines executed:0.00% of 32
-../../lib/gettext.h:creating 'gettext.h.gcov'
-
-File '../../lib/openat.h'
-Lines executed:0.00% of 8
-../../lib/openat.h:creating 'openat.h.gcov'
-
 File '../../src/echo.c'
-Lines executed:97.03% of 101
-../../src/echo.c:creating 'echo.c.gcov'
+Lines executed:97.09% of 103
+Creating 'echo.c.gcov'
+
+File '../../src/system.h'
+Lines executed:100.00% of 3
+Creating 'system.h.gcov'
 {% endhighlight %}
 
 The reasons for not getting perfect 100% line coverage are left as an exercise to the reader.
 
-## Step 7: Using `zcov` to analyze coverage
+## Step 8: Using `zcov` to analyze coverage
 
 For visualizing the coverage results, you might want to use the [zcov](https://github.com/ddunbar/zcov) tool.
