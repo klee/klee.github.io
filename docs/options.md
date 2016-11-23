@@ -104,7 +104,7 @@ To log the queries issued by KLEE during symbolic execution, you can use the fol
 
 1.  `--use-query-log=TYPE:FORMAT`, where:
     - **TYPE** is either **all** to log all the queries KLEE made during execution before any optimisation (e.g. caching, constraint independence) is performed, or **solver** to log only the queries passed to KLEE's underlying solver. Note that it is possible that some of the unoptimized queries are never executed or are modified before being executed by KLEE's underlying solver.
-    - **FORMAT** is the format in which queries are logged and can be either **pc** for the [KQuery]({{site.baseurl}}/docs/kquery) format, or **smt2** for the [SMT-LIBv2](http://www.smtlib.org) format.
+    - **FORMAT** is the format in which queries are logged and can be either **kquery** for the [KQuery]({{site.baseurl}}/docs/kquery) format, or **smt2** for the [SMT-LIBv2](http://www.smtlib.org) format.
 2.  `--min-query-time-to-log=TIME` (in ms) is used to log only queries that exceed a certain time limit. **TIME** can be:
     - **0** (default): to log all queries
     - **&lt;0**: a negative value specifies that only queries that timed out should be logged. The timeout value is specified via the `--max-solver-time` option.

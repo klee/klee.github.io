@@ -38,7 +38,7 @@ In particular, the set of array declarations can be used in several distinct que
 An input query log may contain independent queries, that is query declarations that immediately follow their own array declarations. For instance, KLEE logs the queries issued to the solver as a list of independent queries. In this scenario, it is possible to optimize Kleaver runtime to substantially reduce its memory footprint by running Kleaver with the option `-clear-array-decls-after-query`. For example:
 
 {% highlight bash %}
-$ kleaver --clear-array-decls-after-query=true klee-queries.pc
+$ kleaver --clear-array-decls-after-query=true klee-queries.kquery
 {% endhighlight %}
 
 ## Solver  
@@ -52,7 +52,7 @@ Kleaver can leverage several backend SMT solvers to compute the query:
 To select a specific SMT solver, use the `-solver-backend` option provided by Kleaver. For example:
 
 {% highlight bash %}
-$ kleaver --solver-backend=stp query.pc
+$ kleaver --solver-backend=stp query.kquery
 {% endhighlight %}
 
 ## Query Logging
@@ -62,5 +62,5 @@ To log the queries issued by Kleaver to the underlying solver, you can use the s
 To select where to store the log, you can use the `-query-log-dir` option. The default value is the current working directory. For example:
 
 {% highlight bash %}
-$ kleaver --query-log-dir=kleaver-log query.pc
+$ kleaver --query-log-dir=kleaver-log query.kquery
 {% endhighlight %}
