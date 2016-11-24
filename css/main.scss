@@ -322,6 +322,10 @@ main {
   color: $colorGrayDark;
 }
 
+img.wide {
+  width: 100%;
+}
+
 @media all and (max-width: 619px) {
   .main-footer__list--primary {
     border-bottom: 1px solid $colorGrayLight;

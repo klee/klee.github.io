@@ -307,13 +307,13 @@ src$ kcachegrind klee-last/run.istats
 
 After KCachegrind opens, you should see a window that looks something like the one below. You should make sure that the "Instructions" statistic is selected by choosing "View" > "Primary Event Type" > "Instructions" from the menu, and make sure the "Source Code" view is selected (the right hand pane in the screenshot below).
 
-![]({{site.url}}/content/coreutils_kc_0.png)
+[![]({{site.url}}/content/coreutils_kc_0.png){:.wide}]({{site.url}}/content/coreutils_kc_0.png)
 
 KCachegrind is a complex application in itself, and interested users should see the KCachegrind website for more information and documentation. However, the basics are that the one pane shows the "Flat Profile"; this is a list of which how many instructions were executed in each function. The "Self" column is the number of instructions which were executed in the function itself, and the "Incl" (inclusive) column is the number of instructions which were executed in the function, or any of the functions it called (or its callees called, and so on).
 
 KLEE includes quite a few statistics about execution. The one we are interested in now is "Uncovered Instructions", which will show which functions have instructions which were never executed. If you select that statistic and resort the list of functions, you should see something like this:
 
-![]({{site.url}}/content/coreutils_kc_1.png)
+[![]({{site.url}}/content/coreutils_kc_1.png){:.wide}]({{site.url}}/content/coreutils_kc_1.png)
 
 Notice that most of the uncovered instructions are in library code as we would expect. However, if we select the `__user_main` function, we can look for code inside `echo` itself that was uncovered. In this case, most of the uncovered instructions are inside a large `if` statement guarded by the variable `do_v9`. If you look a bit more, you can see that this is a flag set to true when `-e` is passed. The reason that KLEE never explored this code is because we only passed one symbolic argument -- hitting this code requires a command line like `$ echo -e \a`.
 
