@@ -164,6 +164,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   International Conference on Computer-aided Design (ICCAD 2013)
   November 18-21, 2013, San Jose, CA, USA
 
+1. [SemFix: Program Repair via Semantic Analysis](https://www.comp.nus.edu.sg/~abhik/pdf/ICSE13-SEMFIX.pdf)  
+   Hoang Duong Thien Nguyen, Dawei Qi, Abhik Roychoudhury, Satish Chandra  
+   ACM/IEEE International Conference on Software Engineering (ICSE) 2013  
+   May 18-26, 2013, San Francisco, CA, USA  
+
 1. [Practical Use of Formal Verification for Safety Critical Cyber-Physical Systems: A Case Study](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6961235)
    Tasuku Ishigooka, Habib Saissi, Thorsten Piper, Stefan Winter and Neeraj Suri
    IEEE International Conference on Cyber-Physical Systems, Networks, and Applications (CPSNA 2014)
@@ -188,7 +193,8 @@ If you have used or extended KLEE and would like to have your paper listed here,
    IEEE Trustcom/BigDataSE/ISPA 2015
    August 20-22, 2015, Helsinki, Finland
 
-1. [Angelix: Scalable Multiline Program Patch Synthesis via Symbolic Analysis](http://www.comp.nus.edu.sg/~abhik/pdf/ICSE16-angelix.pdf)
-   Sergey Mechtaev, Jooyong Yi, Abhik Roychoudhury
-   ACM/IEEE International Conference on Software Engineering (ICSE) 2016
-   May 14-22, 2016, Austin, Texas, USA
+1. [Angelix: Scalable Multiline Program Patch Synthesis via Symbolic Analysis](http://www.comp.nus.edu.sg/~abhik/pdf/ICSE16-angelix.pdf)  
+   Sergey Mechtaev, Jooyong Yi, Abhik Roychoudhury  
+   ACM/IEEE International Conference on Software Engineering (ICSE) 2016  
+   May 14-22, 2016, Austin, Texas, USA  
+   **Angelix is available [here](http://angelix.io/).**  
