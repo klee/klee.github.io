@@ -188,3 +188,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
    IEEE Trustcom/BigDataSE/ISPA 2015
    August 20-22, 2015, Helsinki, Finland
 
+1. [Angelix: Scalable Multiline Program Patch Synthesis via Symbolic Analysis](http://www.comp.nus.edu.sg/~abhik/pdf/ICSE16-angelix.pdf)
+   Sergey Mechtaev, Jooyong Yi, Abhik Roychoudhury
+   ACM/IEEE International Conference on Software Engineering (ICSE) 2016
+   May 14-22, 2016, Austin, Texas, USA
