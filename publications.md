@@ -174,6 +174,12 @@ If you have used or extended KLEE and would like to have your paper listed here,
    IEEE International Conference on Cyber-Physical Systems, Networks, and Applications (CPSNA 2014)
    August 25-26, 2014, Hong Kong, China
 
+1. [Docovery: Toward Generic Automatic Document Recovery](https://srg.doc.ic.ac.uk/publications/docovery-ase-14.html)  
+   Tomasz Kuchta, Cristian Cadar, Miguel Castro, Manuel Costa  
+   International Conference on Automated Software Engineering (ASE) 2014  
+   September 15-19, 2014, Vasteras, Sweden  
+   **Docovery is available [here](https://srg.doc.ic.ac.uk/projects/docovery/).**  
+
 1. [Frog Program Bug Finder](http://www.frog-test.com/)
    Qirong Wang, 2015
    Software testing and debugging tool combining KLEE test generation with fault localization
@@ -197,4 +203,10 @@ If you have used or extended KLEE and would like to have your paper listed here,
    Sergey Mechtaev, Jooyong Yi, Abhik Roychoudhury  
    ACM/IEEE International Conference on Software Engineering (ICSE) 2016  
    May 14-22, 2016, Austin, Texas, USA  
-   **Angelix is available [here](http://angelix.io/).**  
+   **Angelix is available [here](http://angelix.io/).**
+
+1. [Shadow of a Doubt: Testing for Divergences Between Software Versions](https://srg.doc.ic.ac.uk/publications/shadow-icse-16.html)  
+   Hristina Palikareva, Tomasz Kuchta, Cristian Cadar  
+   International Conference on Software Engineering (ICSE) 2016  
+   May 14-22, 2015, Austin, Texas, USA  
+   **Shadow is available [here](https://srg.doc.ic.ac.uk/projects/shadow/).**  
