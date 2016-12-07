@@ -46,7 +46,7 @@ If you want to build the Docker image manually instead of pulling the image from
 ```bash
 $ git clone https://github.com/klee/klee.git
 $ cd klee
-$ docker build -t klee/klee
+$ docker build -t klee/klee .
 ```
 
 This will use the contents of the ``Dockerfile`` in the root of the repository to build the Docker image.
