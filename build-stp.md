@@ -15,7 +15,7 @@ $ git clone https://github.com/stp/minisat.git
 $ cd minisat
 $ mkdir build
 $ cd build
-$ cmake -DSTATICCOMPILE=ON -DCMAKE_INSTALL_PREFIX=/usr/ ../
+$ cmake -DSTATIC_BINARIES=ON -DCMAKE_INSTALL_PREFIX=/usr/ ../
 $ sudo make install
 $ cd ../../
 $ git clone https://github.com/stp/stp.git
