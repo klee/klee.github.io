@@ -1,0 +1,12 @@
+{%if site.is_release %}
+  {% capture ribbon_text %}Version {{site.current_version}}{% endcapture %}
+  {% capture ribbon_url %}{{site.repository}}/releases/tag/v{{site.current_version}}{% endcapture %}
+{% else %}
+  {% assign ribbon_text = "master branch" %}
+  {% capture ribbon_url %}{{site.repository}}/tree/master{% endcapture %}
+{% endif %}
+<a href="{{ribbon_url}}">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  {{ribbon_text}}
+</div>
+</a>

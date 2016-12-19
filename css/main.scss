@@ -440,3 +440,46 @@ img.wide {
     flex-direction: row;
   }
 }
+
+/* Corner ribbons */
+.cr {
+  width: 200px;
+  padding: 16px;
+  position: absolute;
+  text-align: center;
+  color: #f0f0f0;
+  z-index: 10;
+  font-weight: bold;
+}
+
+.cr-sticky {
+  position: fixed;
+}
+
+/* Positions */
+
+.cr-top    { top: 20px; }
+.cr-bottom { bottom: 25px; }
+.cr-left   { left: -50px; }
+.cr-right  { right: -50px; }
+
+/* Rotations */
+
+.cr-top.cr-left,
+.cr-bottom.cr-right {
+  transform: rotate(-45deg);
+}
+
+.cr-top.cr-right,
+.cr-bottom.cr-left {
+  transform: rotate(45deg);
+}
+
+#version_ribbon {
+  background-color: #297ea9;
+  // Hide the ribbon on small screens as it
+  // breaks the navigation otherwise.
+  @include small-only {
+    visibility: hidden;
+  }
+}
