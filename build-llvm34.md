@@ -77,11 +77,11 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
    Build Google test libraries for unit tests. We do a manual build, because the libgtest-dev package (version 1.6) installed through apt does not work for us.  
 
    ```bash
-   $ curl -OL https://googletest.googlecode.com/files/gtest-1.7.0.zip  
-   $ unzip gtest-1.7.0.zip  
-   $ cd gtest-1.7.0  
-   $ cmake .  
-   $ make  
+   $ git clone https://github.com/google/googletest.git
+   $ cd googletest
+   $ git checkout release-1.8.0
+   $ cmake .
+   $ make
    $ cd ..
    ```
 
