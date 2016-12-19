@@ -107,7 +107,7 @@ If you skipped step 4, simply remove the `--with-uclibc` and `--enable-posix-run
 9. **Run the main regression test suite to verify your build:**
    
    ```bash
-   $ make test
+   $ make systemtests
    ```
    
    If you want to invoke `lit` manually use:

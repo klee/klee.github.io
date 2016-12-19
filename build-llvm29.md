@@ -86,8 +86,8 @@ If you want to build KLEE with LLVM 3.4 (recommended), [click here]({{site.baseu
 8. **Run the regression suite to verify your build:**
 
    ```bash
-   $ make check  
-   $ make unittests  
+   $ make systemtests
+   $ make unittests
    ```
 
    **NOTE:** For testing real applications (e.g. Coreutils), you may need to increase your system's open file limit (ulimit -n). Something between 10000 and 999999 should work. In most cases, the hard limit will have to be increased first, so it is best to directly edit the `/etc/security/limits.conf` file.<br/><br/>
