@@ -6,6 +6,12 @@ kramdown:
 highlighter: rouge
 permalink: pretty
 
+# When doing a release make sure you exclude the releases folder by replacing
+# the `exclude` declaration with the version that is currently commented out.
+#
+# It would be nice if we could just the right thing if `is_release` is set to
+# `true` but we can't do this in YAML.
+# exclude: ['README.md', 'releases']
 exclude: ['README.md']
 
 gems:

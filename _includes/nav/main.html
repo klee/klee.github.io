@@ -34,8 +34,15 @@
     <li{% if page.slug == "getting-involved" %} class="active"{% endif %}>
       <a href="{{ site.baseurl }}/getting-involved">Getting Involved</a>
     </li>
+    {% if site.is_release %}
+    {% comment %}
+    When doing a release we should hide the release page to avoid
+    having a release contain all previous releases.
+    {% endcomment %}
+    {% else %}
     <li{% if page.slug == "releases" %} class="active"{% endif %}>
       <a href="{{ site.baseurl }}/releases">Releases</a>
     </li>
+    {% endif %}
   </ul>
 </nav>
