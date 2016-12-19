@@ -19,6 +19,13 @@
         </li>
       </ul>
       <div class="main-footer__klee-section">
+        <p style="text-align: center">
+{% if site.is_release %}
+Documentation for KLEE v{{site.current_version}}
+{% else %}
+Documentation for KLEE master branch
+{% endif %}
+        </p>
         <p>&copy; Copyright 2009-2016, The KLEE Team.</p>
       </div>
     </div>
