@@ -14,3 +14,8 @@ gems:
 project_title: KLEE
 current_version: 1.0.0
 repository: https://github.com/klee/klee
+
+# This variable controls changes the behaviour of the banner in
+# `_includes/version_warning.md`. When generating documentation
+# for a release this should be set to true.
+is_release: false

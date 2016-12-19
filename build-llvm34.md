@@ -5,6 +5,8 @@ subtitle: with LLVM 3.4
 slug: build-llvm34
 ---
 
+{% include version_warning.md %}
+
 The current procedure for building KLEE with LLVM 3.4 (recommended) is outlined below.
 If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llvm29).
 
