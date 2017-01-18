@@ -125,7 +125,7 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
    ```
 
    Now `cd` into the build directory and run CMake to configure KLEE where `<KLEE_SRC_DIRECTORY>` is the path
-   to the KLEE git repository you cloned in step 7.
+   to the KLEE git repository you cloned in step 8.
 
    ```bash
    $ cd klee_build_dir
