@@ -53,7 +53,9 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
    * [Z3](https://github.com/z3prover/z3) Z3 support is much more recent addition to KLEE but is reasonably stable. You should use Z3 version >= 4.4. For build instructions see [here](https://github.com/Z3Prover/z3/blob/master/README.md).
    * [metaSMT](https://github.com/agra-uni-bremen/metaSMT) **experimental** For build instructions see [here](https://github.com/agra-uni-bremen/metaSMT).
 
-4. **(Optional) Build uclibc and the POSIX environment model:** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.  
+4. **(Optional) Build uclibc and the POSIX environment model:** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
+
+   **To build klee-uclibc run:**
 
    ```bash
    $ git clone https://github.com/klee/klee-uclibc.git  
@@ -62,8 +64,12 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
    $ make -j2  
    $ cd .. 
    ```
+   **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run make config and select the correct target. The defaults for the other uClibc configuration variables should be fine.  <br/><br/>  
 
-   **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run make config and select the correct target. The defaults for the other uClibc configuration variables should be fine.<br/><br/>  
+   To tell KLEE to use klee-uclibc and use the POSIX runtime pass
+   `-DENABLE_POSIX_RUNTIME=ON` and `-DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR>`
+   to CMake when configuring KLEE in step 9 where `<KLEE_UCLIBC_SOURCE_DIR>` is
+   the absolute path to the cloned `klee-uclibc` git repository.<br/><br/>  
 
 5. **(Optional) Get Google test sources:**
 
