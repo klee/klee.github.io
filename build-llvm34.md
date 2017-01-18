@@ -86,7 +86,8 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
    directory containing the LLVM binaries.
 
    If you don't want to run the tests you can skip this step but you will need
-   to pass `-DENABLE_TESTS=OFF` to CMake when configuring KLEE in step 9.
+   to pass `-DENABLE_UNIT_TESTS=OFF` and `-DENABLE_SYSTEM_TESTS=OFF` to CMake
+   when configuring KLEE in step 9.
 
    ```bash
    $ pip install lit
@@ -137,7 +138,6 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
      -DENABLE_KLEE_UCLIBC \
      -DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR> \
      -DGTEST_SRC_DIR=<GTEST_SOURCE_DIR> \
-     -DENABLE_TESTS=ON \
      -DENABLE_SYSTEM_TESTS=ON \
      -DENABLE_UNIT_TESTS=ON \
      <KLEE_SRC_DIRECTORY>
