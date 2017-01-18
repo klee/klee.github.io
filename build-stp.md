@@ -10,6 +10,12 @@ The instructions below are for the release 2.1.2. If you would like to use the u
 
 _Please let us know if you have successfully and extensively used KLEE with a more recent version of STP._  
 
+STP has a few external dependencies they are listed below as an install command for Ubuntu 14.04LTS.
+
+```bash
+sudo apt-get install cmake bison flex libboost-all-dev python perl
+```
+
 ```bash
 $ git clone https://github.com/stp/minisat.git
 $ cd minisat
@@ -25,6 +31,7 @@ $ mkdir build
 $ cd build
 ```
 
+<!-- TODO: Once we switch to CMake drop building the static library. Using the shared library works fine when KLEE is built with CMake -->
 Shared STP libraries cause problems for KLEE, so we have to disable them ([see this mailing list thread](https://www.mail-archive.com/klee-dev@imperial.ac.uk/msg01704.html)). The python interface requires shared libraries, so we have to disable that, too.
 
 ```bash
