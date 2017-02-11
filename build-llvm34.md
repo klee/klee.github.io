@@ -141,7 +141,7 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
    cmake \
      -DENABLE_SOLVER_STP=ON \
      -DENABLE_POSIX_RUNTIME=ON \
-     -DENABLE_KLEE_UCLIBC \
+     -DENABLE_KLEE_UCLIBC=ON \
      -DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR> \
      -DGTEST_SRC_DIR=<GTEST_SOURCE_DIR> \
      -DENABLE_SYSTEM_TESTS=ON \
