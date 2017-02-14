@@ -194,7 +194,7 @@ In particular, the KLEE option <code class="highlighter-rouge">-posix-runtime</c
   <li><code class="highlighter-rouge">--use-query-log=TYPE:FORMAT</code>, where:
     <ul>
       <li><strong>TYPE</strong> is either <strong>all</strong> to log all the queries KLEE made during execution before any optimisation (e.g. caching, constraint independence) is performed, or <strong>solver</strong> to log only the queries passed to KLEE’s underlying solver. Note that it is possible that some of the unoptimized queries are never executed or are modified before being executed by KLEE’s underlying solver.</li>
-      <li><strong>FORMAT</strong> is the format in which queries are logged and can be either <strong>kquery</strong> for the <a href="/releases/docs/v1.3.0/docs/kquery">KQuery</a> format, or <strong>smt2</strong> for the <a href="http://www.smtlib.org">SMT-LIBv2</a> format.</li>
+      <li><strong>FORMAT</strong> is the format in which queries are logged and can be either <strong>pc</strong> for the <a href="/releases/docs/v1.3.0/docs/kquery">KQuery</a> format, or <strong>smt2</strong> for the <a href="http://www.smtlib.org">SMT-LIBv2</a> format.</li>
     </ul>
   </li>
   <li><code class="highlighter-rouge">--min-query-time-to-log=TIME</code> (in ms) is used to log only queries that exceed a certain time limit. <strong>TIME</strong> can be:
