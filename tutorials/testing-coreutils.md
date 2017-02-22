@@ -182,7 +182,7 @@ As before, cat prints out its version information (note that this time all the t
 
 In general, KLEE will only emit a given warning once. The warnings are also logged to warnings.txt in the KLEE output directory.
 
-## Step 4: Introducing symbolic data to an application
+## Step 5: Introducing symbolic data to an application
 
 We've seen that KLEE can interpret a program normally, but the real purpose of KLEE is to explore programs more exhaustively by making parts of their input symbolic. For example, lets look at running KLEE on the echo application.
 
