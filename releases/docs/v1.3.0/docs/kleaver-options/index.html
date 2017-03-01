@@ -124,7 +124,7 @@ To get a complete list of Kleaver’s command-line options run: <code class="hig
 
 <p>An input query log may contain independent queries, that is query declarations that immediately follow their own array declarations. For instance, KLEE logs the queries issued to the solver as a list of independent queries. In this scenario, it is possible to optimize Kleaver runtime to substantially reduce its memory footprint by running Kleaver with the option <code class="highlighter-rouge">-clear-array-decls-after-query</code>. For example:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>kleaver --clear-array-decls-after-query<span class="o">=</span><span class="nb">true </span>klee-queries.kquery</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>kleaver --clear-array-decls-after-query<span class="o">=</span><span class="nb">true </span>klee-queries.pc</code></pre></figure>
 
 <h2 id="solver">Solver</h2>
 
@@ -138,7 +138,7 @@ To get a complete list of Kleaver’s command-line options run: <code class="hig
 
 <p>To select a specific SMT solver, use the <code class="highlighter-rouge">-solver-backend</code> option provided by Kleaver. For example:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>kleaver --solver-backend<span class="o">=</span>stp query.kquery</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>kleaver --solver-backend<span class="o">=</span>stp query.pc</code></pre></figure>
 
 <h2 id="query-logging">Query Logging</h2>
 
@@ -146,7 +146,7 @@ To get a complete list of Kleaver’s command-line options run: <code class="hig
 
 <p>To select where to store the log, you can use the <code class="highlighter-rouge">-query-log-dir</code> option. The default value is the current working directory. For example:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>kleaver --query-log-dir<span class="o">=</span>kleaver-log query.kquery</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>kleaver --query-log-dir<span class="o">=</span>kleaver-log query.pc</code></pre></figure>
 
 
     </main>
