@@ -13,7 +13,7 @@ _Please let us know if you have successfully and extensively used KLEE with a mo
 STP has a few external dependencies they are listed below as an install command for Ubuntu 14.04LTS.
 
 ```bash
-sudo apt-get install cmake bison flex libboost-all-dev python perl
+sudo apt-get install cmake bison flex libboost-all-dev python perl zlib1g-dev
 ```
 
 ```bash
