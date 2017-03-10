@@ -45,7 +45,7 @@ $ clang -I ../../include -emit-llvm -c -g get_sign.c
 
 which should create a `get_sign.bc` file in LLVM bitcode format. The -I argument is used so that the compiler can find klee/klee.h, which contains definitions for the intrinsic functions used to interact with the KLEE virtual machine. It is useful to (1) build with `-g` to add debug information to the bitcode file, which we use to generate source line level statistics information, and (2) not use any optimization flags. The code can be optimized later, as KLEE provides the `--optimize` command line option to run the optimizer internally.
 
-**NOTE:** If you have built KLEE with LLVM 2.9, replace `clang` with `llvm-gcc`. Notice that `llmv-gcc` creates `.o` files (e.g. `get_sign.o`), so you need to modify the commands accordingly.
+**NOTE:** If you have built KLEE with LLVM 2.9, replace `clang` with `llvm-gcc`. Notice that `llvm-gcc` creates `.o` files (e.g. `get_sign.o`), so you need to modify the commands accordingly.
 
 ## Running KLEE
 
