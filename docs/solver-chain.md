@@ -78,6 +78,17 @@ This solver can be enabled with the `-use-independent-solver` option.
 
 The remaining solvers are used for debugging.
 
+### Assignment validating solver
+
+This solver checks that assignments to satisfiable queries are satisfiable
+when substituted into the expressions in the query.
+
+This is useful for checking the consistency of KLEE's constraint language and
+that of the core solver.
+
+This option can be enabled using the `-debug-assignment-validating-solver`
+option.
+
 ### Debug validating solver
 
 This solver is meant for debugging and currently is only useful if building with
