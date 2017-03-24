@@ -13,6 +13,7 @@ slug: documentation
 1. [Building KLEE (LLVM 3.4) using Autoconf]({{site.baseurl}}/build-llvm34-autoconf/): Instructions on how to build KLEE from source using LLVM 3.4 and KLEE's older Autoconf/Makefile based build system.
 1. [Building KLEE (LLVM 2.9)]({{site.baseurl}}/build-llvm29/): Instructions on how to build KLEE from source using LLVM 2.9.
 1. [Building STP]({{site.baseurl}}/build-stp/): Instructions on how to build STP, KLEE's default constraint solver.
+1. [Solver Chain]({{site.baseurl}}/docs/solver-chain/): Overview of the solver chain and related command line arguments.
 1. [KLEE Options]({{site.baseurl}}/docs/options/): Overview of KLEE's main command-line options.
 1. [Kleaver Options]({{site.baseurl}}/docs/kleaver-options/): Overview of Kleaver's main command-line options.
 2. [Intrinsics]({{site.baseurl}}/docs/intrinsics/): Overview of the main KLEE intrinsic functions.
