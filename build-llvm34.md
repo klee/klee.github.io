@@ -43,7 +43,11 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
 
    Finally, make sure llvm-config is in your path:   
 
-   That's it for LLVM. If you want to install it manually, please refer to the official [LLVM Getting Started documentation](http://www.llvm.org/docs/GettingStarted.html).<br/><br/>  
+   That's it for LLVM. If you want to install it manually, please refer to the official [LLVM Getting Started documentation](http://releases.llvm.org/3.4.2/docs/GettingStarted.html).
+
+   **NOTE:** If you build LLVM and Clang 3.4 from source **DO NOT USE CMAKE TO BUILD IT**. Use LLVM's Autoconf/Makefile build
+   system. This is due to [a bug where the llvm-config binary does not report the correct flags](https://github.com/klee/klee/issues/508).
+   <br/><br/>  
 
 3. **Install constraint solver(s)**
 
