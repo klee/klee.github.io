@@ -46,7 +46,8 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
    That's it for LLVM. If you want to install it manually, please refer to the official [LLVM Getting Started documentation](http://releases.llvm.org/3.4.2/docs/GettingStarted.html).
 
    **NOTE:** If you build LLVM and Clang 3.4 from source **DO NOT USE CMAKE TO BUILD IT**. Use LLVM's Autoconf/Makefile build
-   system. This is due to [a bug where the llvm-config binary does not report the correct flags](https://github.com/klee/klee/issues/508).
+   system. Although KLEE's CMake build system is independent of the build system used to build LLVM and Clang [a bug in LLVM 3.4](https://github.com/klee/klee/issues/508)
+   means that if CMake is used to build LLVM then it will likely lead to [RTTI related linking errors](#rtti_link_error).
    <br/><br/>  
 
 3. **Install constraint solver(s)**
@@ -185,7 +186,7 @@ CMakeFiles/kleaver.dir/main.cpp.o: In function `llvm::cl::opt<std::__cxx11::basi
    $ CXXFLAGS="-D_GLIBCXX_USE_CXX11_ABI=0" cmake <CMAKE_OPTIONS> <KLEE_SRC_DIRECTORY>
    ```
 
-   **NOTE:** If you see linker errors involving undefined references to `typeinfo` this is likely an [RTTI issue](https://github.com/klee/klee/issues/508).
+   <a name="rtti_link_error">**NOTE:**</a> If you see linker errors involving undefined references to `typeinfo` this is likely an [RTTI issue](https://github.com/klee/klee/issues/508).
    Here's an example:
 
    ```
