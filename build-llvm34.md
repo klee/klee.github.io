@@ -43,7 +43,12 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
 
    Finally, make sure llvm-config is in your path:   
 
-   That's it for LLVM. If you want to install it manually, please refer to the official [LLVM Getting Started documentation](http://www.llvm.org/docs/GettingStarted.html).<br/><br/>  
+   That's it for LLVM. If you want to install it manually, please refer to the official [LLVM Getting Started documentation](http://releases.llvm.org/3.4.2/docs/GettingStarted.html).
+
+   **NOTE:** If you build LLVM and Clang 3.4 from source **DO NOT USE CMAKE TO BUILD IT**. Use LLVM's Autoconf/Makefile build
+   system. Although KLEE's CMake build system is independent of the build system used to build LLVM and Clang [a bug in LLVM 3.4](https://github.com/klee/klee/issues/508)
+   means that if CMake is used to build LLVM then it will likely lead to [RTTI related linking errors](#rtti_link_error).
+   <br/><br/>  
 
 3. **Install constraint solver(s)**
 
@@ -164,6 +169,43 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
    ```bash
    $ make
    ```
+
+   **NOTE:** If you see linker errors involving `cxx11` you may be running into the [dual ABI issue](https://github.com/klee/klee/issues/336#issuecomment-181827009).
+   Here's an example:
+
+   ```
+/usr/lib/llvm-3.4/include/llvm/Support/CommandLine.h:905: undefined reference to `vtable for llvm::cl::parser<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >'
+CMakeFiles/kleaver.dir/main.cpp.o: In function `main':
+/home/user/programs/klee/klee/tools/kleaver/main.cpp:413: undefined reference to `llvm::error_code::message[abi:cxx11]() const'
+CMakeFiles/kleaver.dir/main.cpp.o: In function `llvm::cl::opt<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, false, llvm::cl::parser<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~opt()':
+   ```
+
+   This is caused by a mismatch between the ABI used to build LLVM and the ABI used to build KLEE. To fix this delete your KLEE build directory and rerun `cmake` like so
+
+   ```bash
+   $ CXXFLAGS="-D_GLIBCXX_USE_CXX11_ABI=0" cmake <CMAKE_OPTIONS> <KLEE_SRC_DIRECTORY>
+   ```
+
+   <a name="rtti_link_error">**NOTE:**</a> If you see linker errors involving undefined references to `typeinfo` this is likely an [RTTI issue](https://github.com/klee/klee/issues/508).
+   Here's an example:
+
+   ```
+[ 81%] Linking CXX executable ../../bin/kleaver
+CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1238): undefined reference to `typeinfo for llvm::cl::Option'
+CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1270): undefined reference to `typeinfo for llvm::cl::generic_parser_base'
+CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x12d0): undefined reference to `typeinfo for llvm::cl::GenericOptionValue'
+CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x12f8): undefined reference to `typeinfo for llvm::cl::Option'
+CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1330): undefined reference to `typeinfo for llvm::cl::generic_parser_base'
+CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1390): undefined reference to `typeinfo for llvm::cl::GenericOptionValue'
+   ```
+
+   The issue here is that LLVM was built without RTTI but KLEE is trying to build with RTTI. This is caused by the `llvm-config` binary not correctly reporting
+   that `-fno-rtti` needs to be passed to the compiler. To fix this delete your KLEE build directory and rerun `cmake` like so
+
+   ```
+   $ CXXFLAGS="-fno-rtti" cmake <CMAKE_OPTIONS> <KLEE_SRC_DIRECTORY>
+   ```
+
 
 9. **(Optional) Run the main regression test suite**
 
