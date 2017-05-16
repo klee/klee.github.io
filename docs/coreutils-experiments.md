@@ -87,7 +87,7 @@ This document is structured as a series of FAQs:
         $ env -i /bin/bash -c '(source testing-env.sh; env >test.env)'
         ```
 
-    3.  Download `sandbox.tgz` by clicking [here](http://www.doc.ic.ac.uk/~cristic/klee/klee-cu-sandbox.html), place it in `/tmp`, and run: 
+    3.  Download `sandbox.tgz` by clicking [here](http://www.doc.ic.ac.uk/~cristic/klee/sandbox.tgz), place it in `/tmp`, and run: 
 
         ```bash
         $ cd /tmp $ tar xzfv sandbox.tgz
