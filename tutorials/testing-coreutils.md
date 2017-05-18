@@ -129,7 +129,7 @@ You may notice that instead of LLVM bitcode files, we obtained executable files.
 To obtain the LLVM bitcode version of all Coreutils, we can invoke `extract-bc` on all executable files:
 
 {% highlight bash %}
-src$ for exe in `find . -executable`; do extract-bc $exe; done
+src$ find . -executable -type f | xargs -I '{}' extract-bc '{}'
 src$ ls -l ls.bc
 -rw-rw-r-- 1 klee klee 543052 Nov 21 12:03 ls.bc
 {% endhighlight %}
