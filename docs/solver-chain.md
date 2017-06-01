@@ -37,12 +37,102 @@ This is the underlying SMT solver. Several solvers are currently supported.
 The default is dependent on what solvers were available when KLEE was built.
 The solver can be selected using the `-solver-backend=` option.
 
-1.  **STP:** Simple Theorem Prover SMT solver [link](http://stp.github.io). Use `-solver-backend=stp`.
-2.  **Z3:** The Z3 Theorem Prover [link](https://github.com/Z3Prover/z3). Use `-solver-backend=z3`.
-3.  **metaSMT:** An Embedded Domain Specific Language for SMT [link](http://www.informatik.uni-bremen.de/agra/eng/metasmt.php). Use `-solver-backend=metasmt`.
+### MetaSMT
 
-When using metaSMT as the core solver, its backend can be specified using the
-`-metasmt-backend=` option.
+**metaSMT:** An Embedded Domain Specific Language for SMT [link](http://www.informatik.uni-bremen.de/agra/eng/metasmt.php). Use `-solver-backend=metasmt`.
+
+These are options that only affect the MetaSMT solver.
+
+`-metasmt-backend=<backend>`
+
+This specifies the solver that metaSMT should use. Valid values for `<backend>`
+are `stp` (STP), `z3` (Z3), and `btor` (Boolector). Note that Z3 can also be
+used directly through its API via the Z3 core solver.
+
+`-use-construct-hash-metasmt`
+
+When set to true (**default: true**) constructed MetaSMT expressions will be
+cached (and then cleared) for each constraint to facilitate expression re-use.
+
+### STP
+
+**STP:** Simple Theorem Prover SMT solver [link](http://stp.github.io). Use `-solver-backend=stp`.
+
+These are options that only affect the STP solver.
+
+`-debug-dump-stp-queries`
+
+When set to true (**default: false**) every query that the STP solver receives
+will be written to standard error in its native format.
+
+`-ignore-solver-failures`
+
+When set to true (**default: false**) unexpected solver failures in the STP
+solver will be ignored.
+
+`-use-construct-hash`
+
+When set to true (**default: true**) constructed STP expressions will be cached
+(and then cleared) for each constraint to facilitate expression re-use.
+
+### Z3
+
+**Z3:** The Z3 Theorem Prover [link](https://github.com/Z3Prover/z3). Use `-solver-backend=z3`.
+
+These are options that only affect the Z3 solver.
+
+`-debug-z3-dump-queries=<path>`
+
+When set every query that the Z3 solver receives will be logged to the file
+at `<path>` in the SMT-LIBv2 format.
+
+`-debug-z3-log-api-interaction=<path>`
+
+When set Z3's C API interaction will be logged to the file at `<path>`.
+This log can be replayed by the Z3 binary using its `-log` option.
+This option is useful for precisely reproducing KLEE's interaction with Z3
+outside of KLEE.
+
+`-debug-z3-validate-models`
+
+When set to true (**default: false**), Z3 models will be subsituted back into
+the Z3 expressions for every query that is satisfiable. This is used to check
+that the models that Z3 provides are satisfiable in Z3's own constraint
+language. If a model does not satisfy the constraints information about the
+failure is printed to standard error and then an `abort()` is called.
+
+Note Z3 models being satisfiable in Z3's constraint language does not necessarily
+imply that the model is satifisable when substituted into KLEE's own expression
+language. This could happen if there was an unintentional semantic mismatch
+between Z3's and KLEE's expression language. To check that a model satisfies
+KLEE's constraint language use `-debug-assignment-validating-solver`.
+
+`-debug-z3-verbosity=<N>`
+
+When set, Z3's verbosity level will be set to level `<N>` (**default: 0**).
+This is equivalent to the Z3 binary's `-v:<N>` option. This is useful for
+observing Z3's internal behaviour (e.g. what tactic is being applied).
+
+`-use-construct-hash-z3`
+
+When set to true (**default: true**) constructed Z3 expressions will be cached
+(and then cleared) for each query to facilitate expression re-use.
+
+### Common core solver options
+
+These are options shared by two or more core solvers.
+
+`-solver-optimize-divides`
+
+This only affects the MetaSMT and STP solvers. When set to true expressions involving
+division will be optimized (if possible) before being given to the solver.
+
+`-use-forked-solver`
+
+This only affects the MetaSMT and STP solvers. When set to true (**default:
+true**) the solver is created in a seperate process that is forked from the
+`klee`/`kleaver` process. When set to false the solver is created in the
+`klee`/`kleaver` process.
 
 ## Caching Solvers
 
@@ -122,3 +212,4 @@ In addition there are several options that change how these queries are logged.
     - **&gt;0**: only queries that took more that **TIME** milliseconds should be logged.
 -  `--log-partial-queries-early=true` is used to dump the query to the log file before the next part of the solver chain is called.  Normally, KLEE prints the query and its solution after it has been solved. But if KLEE crashes inside the solver chain, the suspicious query will not be logged. Enable this option to debug such cases. This option comes with a performance penalty as the log buffer gets always flushed.
 -  `--compress-query-log` is used to compress query log files (**default=off**)
+
