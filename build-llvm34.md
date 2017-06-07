@@ -54,9 +54,10 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
 
    KLEE supports multiple different constraint solvers. You must install at least one to build KLEE.
 
-   * [STP](https://github.com/stp/stp) Historically KLEE was built around only this solver so support for this solver is the most stable. For build instructions see [here]({{site.baseurl}}/build-stp).
-   * [Z3](https://github.com/z3prover/z3) Z3 support is much more recent addition to KLEE but is reasonably stable. You should use Z3 version >= 4.4. For build instructions see [here](https://github.com/Z3Prover/z3/blob/master/README.md).
-   * [metaSMT](https://github.com/agra-uni-bremen/metaSMT) **experimental** For build instructions see [here](https://github.com/agra-uni-bremen/metaSMT).
+   * [STP](https://github.com/stp/stp) Historically KLEE was built around STP so support for this solver is the most stable. For build instructions, see [here]({{site.baseurl}}/build-stp).
+   * [Z3](https://github.com/z3prover/z3) is a more recent addition to KLEE but is reasonably stable. You should use Z3 version ≥ 4.4. For build instructions, see [here](https://github.com/Z3Prover/z3/blob/master/README.md).
+   * [metaSMT](https://github.com/agra-uni-bremen/metaSMT) supports
+     various solvers, including Boolector, STP and Z3.  We recommend branch v4.rc1 (`git clone -b v4.rc1 ...`). For build instructions, see [here](https://github.com/agra-uni-bremen/metaSMT).
 
 4. **(Optional) Build uclibc and the POSIX environment model:** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
 
