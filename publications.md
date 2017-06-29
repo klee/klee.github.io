@@ -6,7 +6,7 @@ slug: publications
 lead: Below you can find a list of papers and systems that either use or extend KLEE. They are listed in chronological order.
 ---
 
-If you have used or extended KLEE and would like to have your paper listed here, please email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [c.cadar@imperial.ac.uk](mailto:c.cadar@imperial.ac.uk)).
+If you have used or extended KLEE and would like to have your paper listed here, please email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [c.cadar@imperial.ac.uk](mailto:c.cadar@imperial.ac.uk).
 
 1. [KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs](http://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf)
   Cristian Cadar, Daniel Dunbar, Dawson Engler  
@@ -210,3 +210,8 @@ If you have used or extended KLEE and would like to have your paper listed here,
    International Conference on Software Engineering (ICSE) 2016  
    May 14-22, 2015, Austin, Texas, USA  
    **Shadow is available [here](https://srg.doc.ic.ac.uk/projects/shadow/).**  
+
+1. [Case Study on LLVM as suitable intermediate language for binary analysis](https://www.metallic.software/publications#casestudyonllvm)  
+   Florian Märkl  
+   Seminar "Reverse Code Engineering" Winter 2016/2017, Technische Universität München  
+   March 22, 2017, Munich, Germany  
