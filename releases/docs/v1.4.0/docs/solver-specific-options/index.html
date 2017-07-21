@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Solver specific options &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v1.4.0/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v1.4.0/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v1.4.0/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v1.4.0/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v1.4.0/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v1.4.0/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v1.4.0/">
+        <img alt="KLEE" src="/releases/docs/v1.4.0/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer" role="navigation">
+  <h4>Navigation</h3>
+  <ul>
+    <li>
+      <a href="/releases/docs/v1.4.0/getting-started">Getting Started</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v1.4.0/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v1.4.0/tutorials">Tutorials</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v1.4.0/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v1.4.0/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v1.4.0/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v1.4.0">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 1.4.0
+</div>
+</a>
+
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Solver specific options</h1>
+        <h2 class="editorial-header__subtitle">Overview of solver specific options</h2>
+        <p class="editorial-header__excerpt g-wide--pull-1"></p>
+      </div>
+
+      <p class="toc toc__title no_toc">Contents</p>
+<ul class="toc__list list-anchor" id="markdown-toc">
+  <li><a href="#common-options" id="markdown-toc-common-options">Common options</a>    <ul>
+      <li><a href="#-solver-optimize-divides" id="markdown-toc--solver-optimize-divides"><code class="highlighter-rouge">-solver-optimize-divides</code></a></li>
+      <li><a href="#-use-forked-solver" id="markdown-toc--use-forked-solver"><code class="highlighter-rouge">-use-forked-solver</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#stp" id="markdown-toc-stp">STP</a>    <ul>
+      <li><a href="#-debug-dump-stp-queries" id="markdown-toc--debug-dump-stp-queries"><code class="highlighter-rouge">-debug-dump-stp-queries</code></a></li>
+      <li><a href="#-ignore-solver-failures" id="markdown-toc--ignore-solver-failures"><code class="highlighter-rouge">-ignore-solver-failures</code></a></li>
+      <li><a href="#-use-construct-hash" id="markdown-toc--use-construct-hash"><code class="highlighter-rouge">-use-construct-hash</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#metasmt" id="markdown-toc-metasmt">MetaSMT</a>    <ul>
+      <li><a href="#-use-construct-hash-metasmt" id="markdown-toc--use-construct-hash-metasmt"><code class="highlighter-rouge">-use-construct-hash-metasmt</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#z3" id="markdown-toc-z3">Z3</a>    <ul>
+      <li><a href="#-debug-z3-dump-queriespath" id="markdown-toc--debug-z3-dump-queriespath"><code class="highlighter-rouge">-debug-z3-dump-queries=&lt;path&gt;</code></a></li>
+      <li><a href="#-debug-z3-log-api-interactionpath" id="markdown-toc--debug-z3-log-api-interactionpath"><code class="highlighter-rouge">-debug-z3-log-api-interaction=&lt;path&gt;</code></a></li>
+      <li><a href="#-debug-z3-validate-models" id="markdown-toc--debug-z3-validate-models"><code class="highlighter-rouge">-debug-z3-validate-models</code></a></li>
+      <li><a href="#-debug-z3-verbosityn" id="markdown-toc--debug-z3-verbosityn"><code class="highlighter-rouge">-debug-z3-verbosity=&lt;N&gt;</code></a></li>
+      <li><a href="#-use-construct-hash-z3" id="markdown-toc--use-construct-hash-z3"><code class="highlighter-rouge">-use-construct-hash-z3</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="common-options">Common options</h1>
+
+<p>These are options shared by two or more solver backends.</p>
+
+<h3 id="-solver-optimize-divides"><code class="highlighter-rouge">-solver-optimize-divides</code></h3>
+
+<p>This only affects the MetaSMT and STP backends. When set to true expressions involving
+division will be optimized (if possible) before being given to the solver backend.</p>
+
+<h3 id="-use-forked-solver"><code class="highlighter-rouge">-use-forked-solver</code></h3>
+
+<p>This only affects the MetaSMT and STP backends. When set to true (<strong>default:
+true</strong>) the solver is created in a seperate process that is forked from the
+<code class="highlighter-rouge">klee</code>/<code class="highlighter-rouge">kleaver</code> process. When set to false the solver is created in the
+<code class="highlighter-rouge">klee</code>/<code class="highlighter-rouge">kleaver</code> process.</p>
+
+<h1 id="stp">STP</h1>
+
+<p>These are options that only affect the STP backend.</p>
+
+<h3 id="-debug-dump-stp-queries"><code class="highlighter-rouge">-debug-dump-stp-queries</code></h3>
+
+<p>When set to true (<strong>default: false</strong>) every query that the STP backend receives will be written to
+standard error in its native format.</p>
+
+<h3 id="-ignore-solver-failures"><code class="highlighter-rouge">-ignore-solver-failures</code></h3>
+
+<p>When set to true (<strong>default: false</strong>) unexpected solver failures in the STP
+backend will be ignored.</p>
+
+<h3 id="-use-construct-hash"><code class="highlighter-rouge">-use-construct-hash</code></h3>
+
+<p>When set to true (<strong>default: true</strong>) constructed STP expressions will be cached
+(and then cleared) for each constraint to facilitate expression re-use.</p>
+
+<h1 id="metasmt">MetaSMT</h1>
+
+<p>These are options that only affect the MetaSMT backend.</p>
+
+<h3 id="-use-construct-hash-metasmt"><code class="highlighter-rouge">-use-construct-hash-metasmt</code></h3>
+
+<p>When set to true (<strong>default: true</strong>) constructed MetaSMT expressions will be
+cached (and then cleared) for each constraint to facilitate expression re-use.</p>
+
+<h1 id="z3">Z3</h1>
+
+<p>These are options that only affect the Z3 backend.</p>
+
+<h3 id="-debug-z3-dump-queriespath"><code class="highlighter-rouge">-debug-z3-dump-queries=&lt;path&gt;</code></h3>
+
+<p>When set every query that the Z3 backend receives will be logged to the file
+at <code class="highlighter-rouge">&lt;path&gt;</code> in the SMT-LIBv2 format.</p>
+
+<h3 id="-debug-z3-log-api-interactionpath"><code class="highlighter-rouge">-debug-z3-log-api-interaction=&lt;path&gt;</code></h3>
+
+<p>When set Z3’s C API interaction will be logged to the file at <code class="highlighter-rouge">&lt;path&gt;</code>.
+This log can be replayed by the Z3 binary using its <code class="highlighter-rouge">-log</code> option.
+This option is useful for precisely reproducing KLEE’s interaction with Z3
+outside of KLEE.</p>
+
+<h3 id="-debug-z3-validate-models"><code class="highlighter-rouge">-debug-z3-validate-models</code></h3>
+
+<p>When set to true (<strong>default: false</strong>), Z3 models will be subsituted back into
+the Z3 expressions for every query that is satisfiable. This is used to check
+that the models that Z3 provides are satisfiable in Z3’s own constraint
+language. If a model does not satisfy the constraints information about the
+failure is printed to standard error and then an <code class="highlighter-rouge">abort()</code> is called.</p>
+
+<p>Note Z3 models being satisfiable in Z3’s constraint language does not necessarily
+imply that the model is satifisable when substituted into KLEE’s own expression
+language. This could happen if there was an unintentional semantic mismatch
+between Z3’s and KLEE’s expression language. To check that a model satisfies
+KLEE’s constraint language use <code class="highlighter-rouge">-debug-assignment-validating-solver</code>.</p>
+
+<h3 id="-debug-z3-verbosityn"><code class="highlighter-rouge">-debug-z3-verbosity=&lt;N&gt;</code></h3>
+
+<p>When set, Z3’s verbosity level will be set to level <code class="highlighter-rouge">&lt;N&gt;</code> (<strong>default: 0</strong>).
+This is equivalent to the Z3 binary’s <code class="highlighter-rouge">-v:&lt;N&gt;</code> option. This is useful for
+observing Z3’s internal behaviour (e.g. what tactic is being applied).</p>
+
+<h3 id="-use-construct-hash-z3"><code class="highlighter-rouge">-use-construct-hash-z3</code></h3>
+
+<p>When set to true (<strong>default: true</strong>) constructed Z3 expressions will be cached
+(and then cleared) for each query to facilitate expression re-use.</p>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--web sitemap__item--home">
+          <strong>Resources</strong>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent"href="/releases/docs/v1.4.0/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent"href="http://www.doc.ic.ac.uk/~dsl11/klee-doxygen/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent"href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent"href="https://travis-ci.org/klee/klee/branches">TravisCI</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <p style="text-align: center">
+
+Documentation for KLEE v1.4.0
+
+        </p>
+        <p>&copy; Copyright 2009-2017, The KLEE Team.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v1.4.0/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
