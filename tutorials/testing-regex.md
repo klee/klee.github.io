@@ -3,7 +3,7 @@ layout: default
 title: Tutorial Two
 subtitle: Testing a Simple Regular Expression Library
 slug: tutorials
---- 
+---
 
 This is an example of using KLEE to test a simple regular expression matching function. You can find the basic example in the source tree under `examples/regexp`.
 
@@ -38,10 +38,10 @@ $ llvm-nm Regexp.bc
         d LC1
 {% endhighlight %}
 
-Normally before running this program we would need to link it to create a native executable. However, KLEE runs directly on LLVM bitcode files -- since this program only has a single file there is no need to link. For "real" programs with multiple inputs, the [llvm-link](http://llvm.org/cmds/llvm-link.html) and [llvm-ld](http://llvm.org/releases/2.9/docs/CommandGuide/html/llvm-ld.html) tools can be used in place of the regular link step to merge multiple LLVM bitcode files into a single module which can be executed by KLEE.
+Normally before running this program we would need to link it to create a native executable. However, KLEE runs directly on LLVM bitcode files -- since this program only has a single file there is no need to link. For "real" programs with multiple inputs, the [llvm-link](http://llvm.org/cmds/llvm-link.html) tools can be used in place of the regular link step to merge multiple LLVM bitcode files into a single module which can be executed by KLEE.
 
 ## Executing the code with KLEE
-    
+
 The next step is to execute the code with KLEE:
 
 {% highlight bash %}
@@ -88,7 +88,7 @@ KLEE will print a message to the console when it detects an error, in the test r
 Error: memory error: out of bound pointer
 File: .../klee/examples/regexp/Regexp.c
 Line: 23
-Stack: 
+Stack:
   #0 00000146 in matchhere (re=14816471, text=14815301) at .../klee/examples/regexp/Regexp.c:23
   #1 00000074 in matchstar (c, re=14816471, text=14815301) at .../klee/examples/regexp/Regexp.c:16
   #2 00000172 in matchhere (re=14816469, text=14815301) at .../klee/examples/regexp/Regexp.c:26
@@ -99,7 +99,7 @@ Stack:
   #7 00000231 in matchhere (re=14816464, text=14815300) at .../klee/examples/regexp/Regexp.c:30
   #8 00000280 in match (re=14816464, text=14815296) at .../klee/examples/regexp/Regexp.c:38
   #9 00000327 in main () at .../klee/examples/regexp/Regexp.c:59
-Info: 
+Info:
   address: 14816471
   next: object at 14816624 of size 4
   prev: object at 14816464 of size 7
@@ -119,8 +119,8 @@ The simplest way to fix this problem is to store '\0' at the end of the buffer, 
 int main() {
   // The input regular expression.
   char re[SIZE];
-  
-  // Make the input symbolic. 
+
+  // Make the input symbolic.
   klee_make_symbolic(re, sizeof re, "re");
   re[SIZE - 1] = '\0';
 
@@ -141,8 +141,8 @@ We can use `klee_assume` to cause KLEE to only explore states where the string i
 int main() {
   // The input regular expression.
   char re[SIZE];
-  
-  // Make the input symbolic. 
+
+  // Make the input symbolic.
   klee_make_symbolic(re, sizeof re, "re");
   klee_assume(re[SIZE - 1] == '\0');
 
