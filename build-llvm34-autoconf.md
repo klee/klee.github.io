@@ -9,7 +9,6 @@ slug: build-llvm34-autoconf
 
 The current procedure for building KLEE with LLVM 3.4 (recommended) using
 KLEE's older Autoconf/Makefile build system is outlined below.
-If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llvm29).
 
 1. **Install dependencies:** KLEE requires all the dependencies of LLVM, which are discussed [here](http://llvm.org/docs/GettingStarted.html#requirements). In particular, you should install the following programs and libraries, listed below as Ubuntu packages:  
 
@@ -61,7 +60,7 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
    $ cd klee-uclibc  
    $ ./configure --make-llvm-lib  
    $ make -j2  
-   $ cd .. 
+   $ cd ..
    ```
 
    **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run make config and select the correct target. The defaults for the other uClibc configuration variables should be fine.<br/><br/>  
@@ -105,26 +104,26 @@ If you skipped step 4, simply remove the `--with-uclibc` and `--enable-posix-run
 
 
 9. **Run the main regression test suite to verify your build:**
-   
+
    ```bash
    $ make systemtests
    ```
-   
+
    If you want to invoke `lit` manually use:
    ```bash
    $ /usr/lib/llvm-3.4/build/utils/lit/lit.py test/
    ```
-   
+
    This way you can run individual tests or subsets of the suite:
    ```bash
    $ /usr/lib/llvm-3.4/build/utils/lit/lit.py test/regression
    ```
-   
+
 10. **(Optional) Run the unit tests:**
 
     If you did not install the LLVM upstream or Debian packages,
     install the LLVM unit tests makefile:
-   
+
     ```bash
     $ sudo mkdir -p /usr/lib/llvm-3.4/build/unittests/  
     $ sudo curl -L http://llvm.org/svn/llvm-project/llvm/branches/release_34/unittests/Makefile.unittest -o /usr/lib/llvm-3.4/build/unittests/Makefile.unittest  
