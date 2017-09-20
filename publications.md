@@ -230,6 +230,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   IEEE Trustcom/BigDataSE/ISPA 2015  
   August 20-22, 2015, Helsinki, Finland
 
+1. [Parallel Symbolic Execution: Merging In-Flight Requests](https://link.springer.com/chapter/10.1007/978-3-319-26287-1_8)  
+  Martin Nowack, Katja Tietze, and Christof Fetzer  
+  11th Haifa Verification Conference (HVC 2015)  
+  November 17-19, Haifa, Israel
+
 1. [Generating High Coverage Tests for SystemC Designs Using Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7428006/)  
   Bin Lin, Zhenkun Yang, Kai Cong, and Fei Xie  
   21st Asia and South Pacific  Design Automation Conference (ASP-DAC 2016)  
