@@ -232,6 +232,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   May 14-22, 2015, Austin, Texas, USA  
   **Shadow is available [here](https://srg.doc.ic.ac.uk/projects/shadow/).**
 
+1. [Patch-related Vulnerability Detection Based on Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7867765/)  
+  Weizhong Qiang, Yuehua Liao, Guozhong Sun, Laurence T. Yang, Deqing Zou, and Hai Jin  
+  IEEE Access, vol. PP, no. 99  
+  March 1, 2017
+
 1. [Case Study on LLVM as Suitable Intermediate Language for Binary Analysis](https://www.metallic.software/publications#casestudyonllvm)  
   Florian Märkl  
   Seminar "Reverse Code Engineering" Winter 2016/2017, Technische Universität München  
