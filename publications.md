@@ -229,7 +229,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
 1. [Shadow of a Doubt: Testing for Divergences Between Software Versions](https://srg.doc.ic.ac.uk/publications/shadow-icse-16.html)  
   Hristina Palikareva, Tomasz Kuchta, Cristian Cadar  
   International Conference on Software Engineering (ICSE) 2016  
-  May 14-22, 2015, Austin, Texas, USA  
+  May 14-22, 2016, Austin, Texas, USA  
   **Shadow is available [here](https://srg.doc.ic.ac.uk/projects/shadow/).**
 
 1. [Patch-related Vulnerability Detection Based on Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7867765/)  
