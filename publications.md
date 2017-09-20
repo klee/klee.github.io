@@ -252,6 +252,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   24th ACM SIGSOFT International Symposium on Foundations of Software Engineering (FSE 2016)  
   November 13-18, 2016, Seattle, WA, USA
 
+1. [Eliminating Path Redundancy via Postconditioned Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7835264/)  
+  Qiuping Yi, Zijiang Yang, Shengjian Guo, Chao Wang, Jian Liu, and Chen Zhao  
+  IEEE Transactions on Software Engineering, Volume: PP, Issue: 99  
+  January 26, 2017
+
 1. [Patch-related Vulnerability Detection Based on Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7867765/)  
   Weizhong Qiang, Yuehua Liao, Guozhong Sun, Laurence T. Yang, Deqing Zou, and Hai Jin  
   IEEE Access, vol. PP, no. 99  
