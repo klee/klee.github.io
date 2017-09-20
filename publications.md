@@ -119,6 +119,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Programming Language Design and Implementation (PLDI)  
   June 11-16, 2012, Beijing, China
 
+1. [Noninterference via Symbolic Execution](https://lirias.kuleuven.be/bitstream/123456789/346050/1/LiriasEntry.pdf)  
+  Dimiter Milushev, Wim Beck, and Dave Clarke  
+  In: Giese H., Rosu G. (eds) Formal Techniques for Distributed Systems. Lecture Notes in Computer Science, vol 7273. Springer, Berlin, Heidelberg (FMOODS/FORTE 2012)  
+  June 13-16, 2012, Stockholm, Sweden
+
 1. [High-Coverage Symbolic Patch Testing](http://srg.doc.ic.ac.uk/publications/highcovpatch-spin-12.html)  
   Paul Dan Marinescu, Cristian Cadar  
   SPIN Workshop on Model Checking of Software (SPIN 2012)  
