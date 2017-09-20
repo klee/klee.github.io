@@ -247,6 +247,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Seminar "Reverse Code Engineering" Winter 2016/2017, Technische Universität München  
   March 22, 2017, Munich, Germany
 
+1. [pbSE: Phase-Based Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/8023117/)  
+  Qixue Xiao, Yu Chen, Chengang Wu, Kang Li, and Junjie Mao  
+  47th Annual IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2017)  
+  June 26-19, 2017, Denver, CO, USA
+
 1. [Did we learn from LLC Side Channel Attacks? A Cache Leakage Detection Tool for Crypto Libraries](https://arxiv.org/abs/1709.01552)  
   Gorka Irazoqui, Kai Cong, Xiaofei Guo, Hareesh Khattri, Arun Kanuparthi, Thomas Eisenbarth, and Berk Sunar  
   arXiv, September 5, 2017
