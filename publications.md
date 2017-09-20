@@ -267,6 +267,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   47th Annual IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2017)  
   June 26-19, 2017, Denver, CO, USA
 
+1. [Failure-Directed Program Trimming](https://dl.acm.org/citation.cfm?id=3106249)  
+  Kostas Ferles, Valentin Wüstholz, Maria Christakis, and Isil Dillig  
+  11th Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017)  
+  September 4-8, 2017, Paderborn, Germany
+
 1. [Did we learn from LLC Side Channel Attacks? A Cache Leakage Detection Tool for Crypto Libraries](https://arxiv.org/abs/1709.01552)  
   Gorka Irazoqui, Kai Cong, Xiaofei Guo, Hareesh Khattri, Arun Kanuparthi, Thomas Eisenbarth, and Berk Sunar  
   arXiv, September 5, 2017
