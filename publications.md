@@ -169,6 +169,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   ACM/IEEE International Conference on Software Engineering (ICSE) 2013  
   May 18-26, 2013, San Francisco, CA, USA
 
+1. [FIE on Firmware: Finding Vulnerabilities in Embedded Systems using Symbolic Execution](https://www.usenix.org/system/files/conference/usenixsecurity13/sec13-paper_davidson.pdf)  
+  Drew Davidson, Benjamin Moench, Somesh Jha, and Thomas Ristenpart  
+  22nd USENIX Security Symposium (USENIX Security '13)  
+  August 14–16, 2013, Washington, D.C., USA
+
 1. [Practical Use of Formal Verification for Safety Critical Cyber-Physical Systems: A Case Study](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6961235)  
   Tasuku Ishigooka, Habib Saissi, Thorsten Piper, Stefan Winter and Neeraj Suri  
   IEEE International Conference on Cyber-Physical Systems, Networks, and Applications (CPSNA 2014)  
