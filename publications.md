@@ -139,6 +139,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Asia-Pacific Software Engineering Conference  
   December 4-7, 2012, Hong Kong, China
 
+1. [Symbolic Simulation for Debugging and Analysis of REKO Models Using KLEE](http://www.diva-portal.org/smash/get/diva2:1016124/FULLTEXT02.pdf)  
+  Marta Vicente Romero  
+  Master Thesis, Luleå University of Technology  
+  2013, Luleå, Sweden
+
 1. [Automatic Detection of Floating-Point Exceptions](http://earlbarr.com/publications/ariadne.pdf)  
   Peter C. Rigby, Earl T. Barr, Christian Bird, Premkumar Devanbu, Daniel M. German  
   Principles of Programming Languages (POPL)  
