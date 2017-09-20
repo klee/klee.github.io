@@ -174,6 +174,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   International Conference on Computer-aided Design (ICCAD 2013)  
   November 18-21, 2013, San Jose, CA, USA
 
+1. [Automated Testcase Generation for Numerical Support Functions in Embedded Systems](https://ti.arc.nasa.gov/publications/13554/download/)  
+  Johann Schumann, and Stefan-Alexander Schneider  
+  6th International Symposium on NASA Formal Methods (NFM 2014)  
+  April 29 - May 01, 2014, Houston, TX, USA
+
 1. [SemFix: Program Repair via Semantic Analysis](https://www.comp.nus.edu.sg/~abhik/pdf/ICSE13-SEMFIX.pdf)  
   Hoang Duong Thien Nguyen, Dawei Qi, Abhik Roychoudhury, Satish Chandra  
   ACM/IEEE International Conference on Software Engineering (ICSE) 2013  
