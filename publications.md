@@ -139,6 +139,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Asia-Pacific Software Engineering Conference  
   December 4-7, 2012, Hong Kong, China
 
+1. [Symbolic Simulation for Debugging and Analysis of REKO Models Using KLEE](http://www.diva-portal.org/smash/get/diva2:1016124/FULLTEXT02.pdf)  
+  Marta Vicente Romero  
+  Master Thesis, Luleå University of Technology  
+  2013, Luleå, Sweden
+
 1. [Automatic Detection of Floating-Point Exceptions](http://earlbarr.com/publications/ariadne.pdf)  
   Peter C. Rigby, Earl T. Barr, Christian Bird, Premkumar Devanbu, Daniel M. German  
   Principles of Programming Languages (POPL)  
@@ -168,6 +173,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Kai Cong, Fei Xie, Li Lei  
   International Conference on Computer-aided Design (ICCAD 2013)  
   November 18-21, 2013, San Jose, CA, USA
+
+1. [Automated Testcase Generation for Numerical Support Functions in Embedded Systems](https://ti.arc.nasa.gov/publications/13554/download/)  
+  Johann Schumann, and Stefan-Alexander Schneider  
+  6th International Symposium on NASA Formal Methods (NFM 2014)  
+  April 29 - May 01, 2014, Houston, TX, USA
 
 1. [SemFix: Program Repair via Semantic Analysis](https://www.comp.nus.edu.sg/~abhik/pdf/ICSE13-SEMFIX.pdf)  
   Hoang Duong Thien Nguyen, Dawei Qi, Abhik Roychoudhury, Satish Chandra  
@@ -199,6 +209,12 @@ If you have used or extended KLEE and would like to have your paper listed here,
   IEEE 8th International Conference on Software Testing, Verification and Validation (ICST) 2015  
   April 13-17, 2015, Graz, Austria
 
+1. [Analyzing Protocol Implementations for Interoperability](https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-pedrosa.pdf)  
+  Luis Pedrosa, Ari Fogel, Nupur Kothari, Ramesh Govindan, Ratul Mahajan, and Todd Millstein  
+  12th USENIX Symposium on Networked Systems Design and Implementation (NSDI 2015)  
+  May 4-6, 2015, Oakland, CA, USA  
+  **PIC is available [here](https://github.com/USC-NSL/SPA).**
+
 1. [DASE: Document-Assisted Symbolic Execution for Improving Automated Software Testing](https://ece.uwaterloo.ca/~lintan/publications/dase-icse15.pdf)  
   Edmund Wong, Lei Zhang, Song Wang, Taiyue Liu, and Lin Tan  
   International Conference on Software Engineering (ICSE 2015)  
@@ -214,6 +230,16 @@ If you have used or extended KLEE and would like to have your paper listed here,
   IEEE Trustcom/BigDataSE/ISPA 2015  
   August 20-22, 2015, Helsinki, Finland
 
+1. [Parallel Symbolic Execution: Merging In-Flight Requests](https://link.springer.com/chapter/10.1007/978-3-319-26287-1_8)  
+  Martin Nowack, Katja Tietze, and Christof Fetzer  
+  11th Haifa Verification Conference (HVC 2015)  
+  November 17-19, Haifa, Israel
+
+1. [Generating High Coverage Tests for SystemC Designs Using Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7428006/)  
+  Bin Lin, Zhenkun Yang, Kai Cong, and Fei Xie  
+  21st Asia and South Pacific  Design Automation Conference (ASP-DAC 2016)  
+  January 25-28, 2016, Macau, China
+
 1. [Angelix: Scalable Multiline Program Patch Synthesis via Symbolic Analysis](http://www.comp.nus.edu.sg/~abhik/pdf/ICSE16-angelix.pdf)  
   Sergey Mechtaev, Jooyong Yi, Abhik Roychoudhury  
   ACM/IEEE International Conference on Software Engineering (ICSE) 2016  
@@ -223,13 +249,38 @@ If you have used or extended KLEE and would like to have your paper listed here,
 1. [Shadow of a Doubt: Testing for Divergences Between Software Versions](https://srg.doc.ic.ac.uk/publications/shadow-icse-16.html)  
   Hristina Palikareva, Tomasz Kuchta, Cristian Cadar  
   International Conference on Software Engineering (ICSE) 2016  
-  May 14-22, 2015, Austin, Texas, USA  
+  May 14-22, 2016, Austin, Texas, USA  
   **Shadow is available [here](https://srg.doc.ic.ac.uk/projects/shadow/).**
+
+1. [Hotspot Symbolic Execution of Floating-point Programs](https://dl.acm.org/citation.cfm?id=2983966)  
+  Minghui Quan  
+  24th ACM SIGSOFT International Symposium on Foundations of Software Engineering (FSE 2016)  
+  November 13-18, 2016, Seattle, WA, USA
+
+1. [Eliminating Path Redundancy via Postconditioned Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7835264/)  
+  Qiuping Yi, Zijiang Yang, Shengjian Guo, Chao Wang, Jian Liu, and Chen Zhao  
+  IEEE Transactions on Software Engineering, Volume: PP, Issue: 99  
+  January 26, 2017
+
+1. [Patch-related Vulnerability Detection Based on Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7867765/)  
+  Weizhong Qiang, Yuehua Liao, Guozhong Sun, Laurence T. Yang, Deqing Zou, and Hai Jin  
+  IEEE Access, vol. PP, no. 99  
+  March 1, 2017
 
 1. [Case Study on LLVM as Suitable Intermediate Language for Binary Analysis](https://www.metallic.software/publications#casestudyonllvm)  
   Florian Märkl  
   Seminar "Reverse Code Engineering" Winter 2016/2017, Technische Universität München  
   March 22, 2017, Munich, Germany
+
+1. [pbSE: Phase-Based Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/8023117/)  
+  Qixue Xiao, Yu Chen, Chengang Wu, Kang Li, and Junjie Mao  
+  47th Annual IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2017)  
+  June 26-19, 2017, Denver, CO, USA
+
+1. [Failure-Directed Program Trimming](https://dl.acm.org/citation.cfm?id=3106249)  
+  Kostas Ferles, Valentin Wüstholz, Maria Christakis, and Isil Dillig  
+  11th Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017)  
+  September 4-8, 2017, Paderborn, Germany
 
 1. [Did we learn from LLC Side Channel Attacks? A Cache Leakage Detection Tool for Crypto Libraries](https://arxiv.org/abs/1709.01552)  
   Gorka Irazoqui, Kai Cong, Xiaofei Guo, Hareesh Khattri, Arun Kanuparthi, Thomas Eisenbarth, and Berk Sunar  
