@@ -232,6 +232,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   May 14-22, 2016, Austin, Texas, USA  
   **Shadow is available [here](https://srg.doc.ic.ac.uk/projects/shadow/).**
 
+1. [Hotspot Symbolic Execution of Floating-point Programs](https://dl.acm.org/citation.cfm?id=2983966)  
+  Minghui Quan  
+  24th ACM SIGSOFT International Symposium on Foundations of Software Engineering (FSE 2016)  
+  November 13-18, 2016, Seattle, WA, USA
+
 1. [Patch-related Vulnerability Detection Based on Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7867765/)  
   Weizhong Qiang, Yuehua Liao, Guozhong Sun, Laurence T. Yang, Deqing Zou, and Hai Jin  
   IEEE Access, vol. PP, no. 99  
