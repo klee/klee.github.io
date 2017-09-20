@@ -189,6 +189,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Qirong Wang, 2015  
   Software testing and debugging tool combining KLEE test generation with fault localization
 
+1. [Postconditioned Symbolic Execution](http://www-bcf.usc.edu/~wang626/pubDOC/YiYGWLZ15.pdf)  
+  Qiuping Yi, Zijiang Yang, Shengjian Guo, Chao Wang, Jian Liu, Chen Zhao  
+  IEEE 8th International Conference on Software Testing, Verification and Validation (ICST) 2015  
+  April 13-17, 2015, Graz, Austria
+
 1. [DASE: Document-Assisted Symbolic Execution for Improving Automated Software Testing](https://ece.uwaterloo.ca/~lintan/publications/dase-icse15.pdf)  
   Edmund Wong, Lei Zhang, Song Wang, Taiyue Liu, and Lin Tan  
   International Conference on Software Engineering (ICSE 2015)  
