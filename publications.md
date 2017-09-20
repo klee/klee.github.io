@@ -199,6 +199,12 @@ If you have used or extended KLEE and would like to have your paper listed here,
   IEEE 8th International Conference on Software Testing, Verification and Validation (ICST) 2015  
   April 13-17, 2015, Graz, Austria
 
+1. [Analyzing Protocol Implementations for Interoperability](https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-pedrosa.pdf)  
+  Luis Pedrosa, Ari Fogel, Nupur Kothari, Ramesh Govindan, Ratul Mahajan, and Todd Millstein  
+  12th USENIX Symposium on Networked Systems Design and Implementation (NSDI 2015)  
+  May 4-6, 2015, Oakland, CA, USA  
+  **PIC is available [here](https://github.com/USC-NSL/SPA).**
+
 1. [DASE: Document-Assisted Symbolic Execution for Improving Automated Software Testing](https://ece.uwaterloo.ca/~lintan/publications/dase-icse15.pdf)  
   Edmund Wong, Lei Zhang, Song Wang, Taiyue Liu, and Lin Tan  
   International Conference on Software Engineering (ICSE 2015)  
