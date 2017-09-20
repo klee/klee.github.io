@@ -226,7 +226,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
   May 14-22, 2015, Austin, Texas, USA  
   **Shadow is available [here](https://srg.doc.ic.ac.uk/projects/shadow/).**
 
-1. [Case Study on LLVM as suitable intermediate language for binary analysis](https://www.metallic.software/publications#casestudyonllvm)  
+1. [Case Study on LLVM as Suitable Intermediate Language for Binary Analysis](https://www.metallic.software/publications#casestudyonllvm)  
   Florian Märkl  
   Seminar "Reverse Code Engineering" Winter 2016/2017, Technische Universität München  
   March 22, 2017, Munich, Germany
