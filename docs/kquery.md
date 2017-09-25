@@ -455,4 +455,4 @@ expression = "(" "ReadLSB" type index-expression version ")"
 expression = "(" "ReadMSB" type index-expression version ")"  
 {% endhighlight %}
 
-_ReadLSB_ and _ReadMSB_ can be used to simplify contiguous array accesses. The type of the expression must be a multiple `N` of the array range type. The expression expands to a concatenation of `N` read expressions, where each read is done at a subsequent offset from the `index-expression`. For _ReadLSB_ (_ReadMSB_), the concatentation is done such that the read at `index-expression` forms the least- (most-) significant bits.
+_ReadLSB_ and _ReadMSB_ can be used to simplify contiguous array accesses. The type of the expression must be a multiple `N` of the array range type. The expression expands to a concatenation of `N` read expressions, where each read is done at a subsequent offset from the `index-expression`. For _ReadLSB_ (_ReadMSB_), the concatenation is done such that the read at `index-expression` forms the least- (most-) significant bits.

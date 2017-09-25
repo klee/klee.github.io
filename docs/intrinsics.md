@@ -22,7 +22,7 @@ KLEE provides a set of special functions which are useful in the context of symb
 
 ### Interaction with short-circuit operators
 
-When _condition_ contains [short-circuit operators](https://en.wikipedia.org/wiki/Short-circuit_evaluation), the results of the `klee_assume` instrinsics may come unexpected. For example, consider the following code and the corresponding KLEE output: Note: the output was obtained after compilation with llvm-gcc 2.9. Other compilers/versions may yield slightly different results.
+When _condition_ contains [short-circuit operators](https://en.wikipedia.org/wiki/Short-circuit_evaluation), the results of the `klee_assume` intrinsics may come unexpected. For example, consider the following code and the corresponding KLEE output: Note: the output was obtained after compilation with llvm-gcc 2.9. Other compilers/versions may yield slightly different results.
 
 {% highlight c %}
 int main()
