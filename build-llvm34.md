@@ -160,7 +160,7 @@ If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llv
 
 
    **NOTE:** If LLVM is not found or you need a particular version to be used you can pass `-DLLVM_CONFIG_BINARY=<LLVM_CONFIG_BINARY>` to CMake where `<LLVM_CONFIG_BINARY>` is the absolute path to the
-   relevant `llvm-config` binary. Similary KLEE needs a C and C++ compiler that can create LLVM bitcode that is compatible with the version of LLVM KLEE is using. If these are not detected automatically `-DLLVMCC=<PATH_TO_CLANG>` and `-DLLVMCXX=<PATH_TO_CLANG++>` can be passed to explicitly set these compilers where `<PATH_TO_CLANG>` is the absolute path to `clang` and `<PATH_TO_CLANG++>` is the absolute path to `clang++`.
+   relevant `llvm-config` binary. Similarly KLEE needs a C and C++ compiler that can create LLVM bitcode that is compatible with the version of LLVM KLEE is using. If these are not detected automatically `-DLLVMCC=<PATH_TO_CLANG>` and `-DLLVMCXX=<PATH_TO_CLANG++>` can be passed to explicitly set these compilers where `<PATH_TO_CLANG>` is the absolute path to `clang` and `<PATH_TO_CLANG++>` is the absolute path to `clang++`.
 
 
 9. **Build KLEE:**

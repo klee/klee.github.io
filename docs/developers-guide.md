@@ -2,7 +2,7 @@
 layout: default
 title: Developer's Guide
 subtitle: Working with KLEE source code
-lead: This guide covers several areas of KLEE that may not be imediately obvious to new developers.
+lead: This guide covers several areas of KLEE that may not be immediately obvious to new developers.
 slug: developers-guide
 ---
 
@@ -117,7 +117,7 @@ $ cd path/to/klee/build/test
 $ make check
 {% endhighlight %}
 
-or you can use ``llvm-lit`` directy
+or you can use ``llvm-lit`` directly
 
 {% highlight bash %}
 $ cd path/to/klee/build/test
