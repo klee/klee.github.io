@@ -301,3 +301,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
 1. [Did we learn from LLC Side Channel Attacks? A Cache Leakage Detection Tool for Crypto Libraries](https://arxiv.org/abs/1709.01552)  
   Gorka Irazoqui, Kai Cong, Xiaofei Guo, Hareesh Khattri, Arun Kanuparthi, Thomas Eisenbarth, and Berk Sunar  
   arXiv, September 5, 2017
+
+1. [KLOVER: Automatic Test Generation for C and C++ Programs, Using Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/8048666/)  
+  IEEE Software (Volume: 34, Issue: 5, 2017)  
+  September 22, 2017
