@@ -211,6 +211,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   September 15-19, 2014, Vasteras, Sweden  
   **Docovery is available [here](https://srg.doc.ic.ac.uk/projects/docovery/).**
 
+1. [Symbolic Execution of Multithreaded Programs from Arbitrary Program Contexts](https://dl.acm.org/citation.cfm?id=2660200)  
+  Tom Bergan, Dan Grossman, and Luis Ceze  
+  ACM International Conference on Object Oriented Programming Systems Languages & Applications (OOPSLA 2014)  
+  October 20–24, 2014, Portland, USA
+
 1. [Frog Program Bug Finder](http://www.frog-test.com/)  
   Qirong Wang, 2015  
   Software testing and debugging tool combining KLEE test generation with fault localization
