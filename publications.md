@@ -134,6 +134,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Formal Methods for Industrial Critical Systems (FMICS 2012)  
   August 27-28, 2012, Paris, France
 
+1. [SymDrive: Testing Drivers without Devices](https://www.usenix.org/system/files/conference/osdi12/osdi12-final-4.pdf)  
+  Matthew J. Renzelmann, Asim Kadav, and Michael M. Swift  
+  10th USENIX Symposium on Operating Systems Design and Implementation (OSDI 2012)  
+  October 8-10, 2012, Hollywood, USA
+
 1. [Enhancing Symbolic Execution to Test the Compatibility of Re-engineered Industrial Software](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6462670)  
   Susumu Tokumoto, Tadahiro Uehara, Kazuki Munakata, Haruyuki Ishida, Toru Eguchi, Masafumi Baba  
   Asia-Pacific Software Engineering Conference  
