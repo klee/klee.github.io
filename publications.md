@@ -220,6 +220,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   IEEE 8th International Conference on Software Testing, Verification and Validation (ICST) 2015  
   April 13-17, 2015, Graz, Austria
 
+1. [The Use of Symbolic Execution for Testing of Real-Time Safety-Related Software](https://pdfs.semanticscholar.org/5740/17e5ec589b21de1ad5756da8b49bf7727cc2.pdf)  
+  Martin Hořeňovský  
+  Bachelor Thesis, Czech Technical University in Prague  
+  May 2015, Prague, CZ
+
 1. [Analyzing Protocol Implementations for Interoperability](https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-pedrosa.pdf)  
   Luis Pedrosa, Ari Fogel, Nupur Kothari, Ramesh Govindan, Ratul Mahajan, and Todd Millstein  
   12th USENIX Symposium on Networked Systems Design and Implementation (NSDI 2015)  
