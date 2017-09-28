@@ -298,6 +298,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   11th Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017)  
   September 4-8, 2017, Paderborn, Germany
 
+1. [Symbolic Execution of Programmable Logic Controller Code](https://pdfs.semanticscholar.org/6abb/1a0a4031d1e4e81b5aee041ffb438c55c5b2.pdf)  
+  Shengjian Guo, Meng Wu, and Chao Wang  
+  11th Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017)  
+  September 4-8, 2017, Paderborn, Germany
+
 1. [Did we learn from LLC Side Channel Attacks? A Cache Leakage Detection Tool for Crypto Libraries](https://arxiv.org/abs/1709.01552)  
   Gorka Irazoqui, Kai Cong, Xiaofei Guo, Hareesh Khattri, Arun Kanuparthi, Thomas Eisenbarth, and Berk Sunar  
   arXiv, September 5, 2017
