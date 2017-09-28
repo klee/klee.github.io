@@ -179,6 +179,12 @@ If you have used or extended KLEE and would like to have your paper listed here,
   International Conference on Computer-aided Design (ICCAD 2013)  
   November 18-21, 2013, San Jose, CA, USA
 
+1. [Conflict-Driven Symbolic Execution](file:///data/downloads/ubc_2014_spring_val_celina.pdf)  
+  Celina Gomes do Val  
+  Master Thesis, University of British Columbia  
+  March 2014, Vancouver, CA  
+  **KITE is available [here](http://www.cs.ubc.ca/labs/isd/Projects/Kite/).**
+
 1. [Automated Testcase Generation for Numerical Support Functions in Embedded Systems](https://ti.arc.nasa.gov/publications/13554/download/)  
   Johann Schumann, and Stefan-Alexander Schneider  
   6th International Symposium on NASA Formal Methods (NFM 2014)  
