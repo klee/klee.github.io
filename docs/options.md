@@ -121,7 +121,7 @@ To change the entry point you can use the option `-entry-point=FUNCTION_NAME`, w
 
 ## Calls to `klee-assume`
 
-By default, KLEE will report an error if the assumed condition is infeasible. The option `-silent-klee-assume` can be used to sliently terminate the current path exploration in such cases.
+By default, KLEE will report an error if the assumed condition is infeasible. The option `-silent-klee-assume` can be used to silently terminate the current path exploration in such cases.
 
 ## Statistics
 

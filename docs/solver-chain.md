@@ -95,14 +95,14 @@ outside of KLEE.
 
 `-debug-z3-validate-models`
 
-When set to true (**default: false**), Z3 models will be subsituted back into
+When set to true (**default: false**), Z3 models will be substituted back into
 the Z3 expressions for every query that is satisfiable. This is used to check
 that the models that Z3 provides are satisfiable in Z3's own constraint
 language. If a model does not satisfy the constraints information about the
 failure is printed to standard error and then an `abort()` is called.
 
 Note Z3 models being satisfiable in Z3's constraint language does not necessarily
-imply that the model is satifisable when substituted into KLEE's own expression
+imply that the model is satisfiable when substituted into KLEE's own expression
 language. This could happen if there was an unintentional semantic mismatch
 between Z3's and KLEE's expression language. To check that a model satisfies
 KLEE's constraint language use `-debug-assignment-validating-solver`.
@@ -130,7 +130,7 @@ division will be optimized (if possible) before being given to the solver.
 `-use-forked-solver`
 
 This only affects the MetaSMT and STP solvers. When set to true (**default:
-true**) the solver is created in a seperate process that is forked from the
+true**) the solver is created in a separate process that is forked from the
 `klee`/`kleaver` process. When set to false the solver is created in the
 `klee`/`kleaver` process.
 
@@ -190,7 +190,7 @@ then checks that the solvers agree. The separate solver can be set with the
 `-debug-crosscheck-core-solver=` option which takes the same arguments as
 `-solver-backend=`.
 
-This is useful for comparing two completly independent solvers (e.g. STP and Z3) and
+This is useful for comparing two completely independent solvers (e.g. STP and Z3) and
 for checking that invoking the solver chain and a solver directly obtains the
 same results.
 

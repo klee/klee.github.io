@@ -32,7 +32,7 @@ These are global files are always generated on a KLEE execution:
     KLEE: done: avg. constructs per query = 6
     KLEE: done: total queries = 3
     KLEE: done: valid queries = 0
-    KLEE: done: invalid queriers = 3
+    KLEE: done: invalid queries = 3
     KLEE: done: query cex = 3
     KLEE: done: total instructions = 67
     KLEE: done: completed paths = 3

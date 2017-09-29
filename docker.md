@@ -6,7 +6,7 @@ slug: documentation
 ---
 # What is Docker?
 
-[Docker](https://www.docker.com/) provides tools for deploying applications within containers. Containers are (mostly) isolated from each other and the underlying system. This allows you to make a KLEE container , tinker with it and then throw it away when you're done without affecting the underlying sytem or other containers.
+[Docker](https://www.docker.com/) provides tools for deploying applications within containers. Containers are (mostly) isolated from each other and the underlying system. This allows you to make a KLEE container, tinker with it and then throw it away when you're done without affecting the underlying system or other containers.
 
 A Docker container is built from a Docker image. A Docker image encapsulates an application which in this case is KLEE. This application level encapsulation is useful because it provides a "portable" and reproducible environment to run KLEE in.
 
@@ -37,7 +37,7 @@ $ docker pull klee/klee:<TAG>
 
 Where ``<TAG>`` is [one of the tags listed on the DockerHub](https://hub.docker.com/r/klee/klee/tags/). Typically this is either ``latest`` (corresponds to the ``master`` branch) or a version number (e.g. ``1.0.0``).
 
-**Note this process pulls images containing code compiled by a third-party service. We do not accept resonsibility for the contents of the image.**
+**Note this process pulls images containing code compiled by a third-party service. We do not accept responsibility for the contents of the image.**
 
 ## Building the Docker image locally
 
@@ -191,4 +191,4 @@ There are a few useful things to know about KLEE Docker containers created using
 * ``/home/klee/klee_build`` contains the build of KLEE built from ``/home/klee/klee_src``
 * All the previous examples implicitly run ``/bin/bash`` inside the container. This is the default but it is also possible to run KLEE directly (useful for scripting) by specifying the command line to use to ``docker run``.
 
-This should give you everything you need to start playing with KLEE using Docker. If you are unfamilar with Docker and wish to learn more a good place to start is [Docker's documentation](https://docs.docker.com/).
+This should give you everything you need to start playing with KLEE using Docker. If you are unfamiliar with Docker and wish to learn more a good place to start is [Docker's documentation](https://docs.docker.com/).
