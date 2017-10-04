@@ -8,8 +8,6 @@ slug: build-llvm34
 {% include version_warning.md %}
 
 The current procedure for building KLEE with LLVM 3.4 (recommended) is outlined below.
-These instructions use KLEE's new CMake based build system. If you wish to build with
-KLEE's older build system then see [here]({{site.baseurl}}/build-llvm34-autoconf).
 
 If you want to build KLEE with LLVM 2.9, [click here]({{site.baseurl}}/build-llvm29).
 
