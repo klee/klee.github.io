@@ -174,6 +174,12 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2013)  
   August 18-26, 2013, St Petersburg, Russia
 
+1. [Multi-solver Support in Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/klee-multisolver-cav-13.pdf)  
+  Hristina Palikareva, Cristian Cadar  
+  International Conference on Computer Aided Verification (CAV 2013)  
+  July 13-19, 2013, St Petersburg, Russia  
+  **KLEE-Multisolver is available [here](https://srg.doc.ic.ac.uk/projects/klee-multisolver/).**
+
 1. [Automatic Concolic Test Generation with Virtual Prototypes for Post-silicon Validation](http://web.cecs.pdx.edu/~congkai/papers/actg.pdf)  
   Kai Cong, Fei Xie, Li Lei  
   International Conference on Computer-aided Design (ICCAD 2013)  
@@ -298,6 +304,12 @@ If you have used or extended KLEE and would like to have your paper listed here,
   47th Annual IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2017)  
   June 26-19, 2017, Denver, CO, USA
 
+1. [Accelerating Array Constraints in Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/klee-array-17.pdf)  
+  David M. Perry, Andrea Mattavelli, Xiangyu Zhang, Cristian Cadar  
+  International Symposium on Software Testing and Analysis (ISSTA 2017)  
+  July 10-14, 2017, Santa Barbara, CA, USA  
+  **KLEE-Array is available [here](https://srg.doc.ic.ac.uk/projects/klee-array/).**
+
 1. [Failure-Directed Program Trimming](https://dl.acm.org/citation.cfm?id=3106249)  
   Kostas Ferles, Valentin Wüstholz, Maria Christakis, and Isil Dillig  
   11th Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017)  
@@ -316,3 +328,13 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Guodong Li, Takuki Kamiya, Indradeep Ghosh, Sreeranga Rajan, Susumu Tokumoto, Kazuki Munakata, and Tadahiro Uehara  
   IEEE Software (Volume: 34, Issue: 5, 2017)  
   September 22, 2017
+
+1. [Automatic Testing of Symbolic Execution Engines via Program Generation and Differential Testing](https://srg.doc.ic.ac.uk/files/papers/symex-engine-tester-ase-17.pdf)  
+  Timotej Kapus, Cristian Cadar  
+  IEEE/ACM International conference on Automated Software Engineering (ASE 2017)  
+  October 30 - November 3, 2017, Urbana-Champaign, IL, USA
+
+1. [Floating-Point Symbolic Execution: A Case Study in N-version Programming](https://srg.doc.ic.ac.uk/files/papers/klee-n-version-fp-ase-17.pdf)  
+  Daniel Liew, Daniel Schemmel, Cristian Cadar, Alastair Donaldson, Rafael Zähl, Klaus Wehrle  
+  IEEE/ACM International conference on Automated Software Engineering (ASE 2017)  
+  October 30 - November 3, 2017, Urbana-Champaign, IL, USA
