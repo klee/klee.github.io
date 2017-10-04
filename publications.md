@@ -313,5 +313,6 @@ If you have used or extended KLEE and would like to have your paper listed here,
   arXiv, September 5, 2017
 
 1. [KLOVER: Automatic Test Generation for C and C++ Programs, Using Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/8048666/)  
+  Guodong Li, Takuki Kamiya, Indradeep Ghosh, Sreeranga Rajan, Susumu Tokumoto, Kazuki Munakata, and Tadahiro Uehara  
   IEEE Software (Volume: 34, Issue: 5, 2017)  
   September 22, 2017
