@@ -102,6 +102,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   February 25-29, 2012, New Orleans, LA, USA  
   **GKLEE is available [here](http://www.cs.utah.edu/formal_verification/GKLEE).**  
 
+1. [Staged Symbolic Execution](https://dl.acm.org/citation.cfm?id=2231988)  
+  Junaid Haroon Siddiqui, Sarfraz Khurshid  
+  ACM Symposium on Applied Computing (SAC 2012)  
+  March 26-30, 2012, Trento, Italy
+
 1. [make test-zesti: A Symbolic Execution Solution for Improving Regression Testing](http://srg.doc.ic.ac.uk/publications/zesti-icse-12.html)  
   Paul Dan Marinescu, Cristian Cadar  
   International Conference on Software Engineering (ICSE 2012)  
@@ -138,6 +143,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Matthew J. Renzelmann, Asim Kadav, and Michael M. Swift  
   10th USENIX Symposium on Operating Systems Design and Implementation (OSDI 2012)  
   October 8-10, 2012, Hollywood, USA
+
+1. [Scaling Symbolic Execution Using Ranged Analysis](https://dl.acm.org/citation.cfm?id=2384654)  
+  Junaid Haroon Siddiqui, Sarfraz Khurshid
+  ACM International Conference on Object Oriented Programming Systems Languages & Applications (OOPSLA 2012)  
+  October 19-26, 2012, Tucson, Arizona, USA
 
 1. [Enhancing Symbolic Execution to Test the Compatibility of Re-engineered Industrial Software](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6462670)  
   Susumu Tokumoto, Tadahiro Uehara, Kazuki Munakata, Haruyuki Ishida, Toru Eguchi, Masafumi Baba  
@@ -260,12 +270,27 @@ If you have used or extended KLEE and would like to have your paper listed here,
 1. [Parallel Symbolic Execution: Merging In-Flight Requests](https://link.springer.com/chapter/10.1007/978-3-319-26287-1_8)  
   Martin Nowack, Katja Tietze, and Christof Fetzer  
   11th Haifa Verification Conference (HVC 2015)  
-  November 17-19, Haifa, Israel
+  November 17-19, 2015, Haifa, Israel
+
+1. [Studying the Influence of Standard Compiler Optimizations on Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7381814/)  
+  Shiyu Dong, Oswaldo Olivo, Lingming Zhang, Sarfraz Khurshid  
+  IEEE International Symposium on Software Reliability Engineering (ISSRE 2015)  
+  November 2-5, 2015, Gaithersbury, MD, USA
 
 1. [Generating High Coverage Tests for SystemC Designs Using Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7428006/)  
   Bin Lin, Zhenkun Yang, Kai Cong, and Fei Xie  
   21st Asia and South Pacific  Design Automation Conference (ASP-DAC 2016)  
   January 25-28, 2016, Macau, China
+
+1. [Profiting from Unit Tests for Integration Testing](http://ieeexplore.ieee.org/abstract/document/7515486/)  
+  Dominik Holling, Andreas Hofbauer, Alexander Pretschner, Matthias Gemmar  
+  IEEE 9th International Conference on Software Testing, Verification and Validation (ICST) 2016  
+  April 11-15, 2016, Chicago, IL, USA
+
+1. [Nequivack: Assessing Mutation Score Confidence](http://ieeexplore.ieee.org/abstract/document/7528957/)  
+  Dominik Holling, Sebastian Banescu, Marco Probst, Ana Petrovska, Alexander Pretschner  
+  IEEE 9th International Conference on Software Testing, Verification and Validation (ICST) 2016  
+  April 11-15, 2016, Chicago, IL, USA
 
 1. [Angelix: Scalable Multiline Program Patch Synthesis via Symbolic Analysis](http://www.comp.nus.edu.sg/~abhik/pdf/ICSE16-angelix.pdf)  
   Sergey Mechtaev, Jooyong Yi, Abhik Roychoudhury  
@@ -278,6 +303,26 @@ If you have used or extended KLEE and would like to have your paper listed here,
   International Conference on Software Engineering (ICSE) 2016  
   May 14-22, 2016, Austin, Texas, USA  
   **Shadow is available [here](https://srg.doc.ic.ac.uk/projects/shadow/).**
+
+1. [On the Techniques We Create, the Tools We Build, and Their Misalignments: A Study of KLEE](http://ieeexplore.ieee.org/abstract/document/7886898/)  
+   Eric F. Rizzi, Sebastian Elbaum, Matthew B. Dwyer  
+  International Conference on Software Engineering (ICSE) 2016  
+  May 14-22, 2016, Austin, Texas, USA
+
+1. [Automatic Generation of High-coverage Tests for RTL Designs Using Software Techniques and Tools](http://ieeexplore.ieee.org/abstract/document/7603701/)  
+  Yu Zhang, Wenlong Feng, Mengxing Huang  
+  IEEE Conference on Industrial Electronics and Applications (ICIEA) 2016  
+  June 5-7, 2016, Hefei, China
+
+1. [MACKE: Compositional Analysis of Low-level Vulnerabilities with Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7582815/)  
+  Saahil Ognawala, Martín Ochoa, Alexander Pretschner, Tobias Limmer  
+  IEEE/ACM International conference on Automated Software Engineering (ASE 2016)  
+  September 3-7, 2016, Singapore, Singapore
+
+1. [Building Robust Distributed Systems and Network Protocols by Using Adversarial Testing and Behavioral Analysis](http://ieeexplore.ieee.org/abstract/document/7839807/)  
+  Endadul Hoque, Cristina Nita-Rotaru  
+  IEEE Cybersecurity Development (SecDev) 2016  
+  November 3-4, 2016, Boston, MA, USA
 
 1. [Hotspot Symbolic Execution of Floating-point Programs](https://dl.acm.org/citation.cfm?id=2983966)  
   Minghui Quan  
@@ -298,6 +343,21 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Florian Märkl  
   Seminar "Reverse Code Engineering" Winter 2016/2017, Technische Universität München  
   March 22, 2017, Munich, Germany
+
+1. [Non-Semantics-Preserving Transformations for Higher-Coverage Test Generation Using Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7927979/)  
+  Hayes Converse, Oswaldo Olivo, Sarfraz Khurshid  
+  IEEE 10th International Conference on Software Testing, Verification and Validation (ICST) 2017  
+  March 13-17, 2017, Tokyo, Japan
+
+1. [Heuristically Matching Solution Spaces of Arithmetic Formulas to Efficiently Reuse Solutions](https://dl.acm.org/citation.cfm?id=3097419)  
+  Andrea Aquino, Giovanni Denaro, and Mauro Pezz&egrave;  
+  ACM/IEEE International Conference on Software Engineering (ICSE) 2017  
+  May 20-28, 2017, Buenos Aires, Argentina
+
+1. [An Empirical Study on Mutation, Statement and Branch Coverage Fault Revelation that Avoids the Unreliable Clean Program Assumption](https://dl.acm.org/citation.cfm?id=3097440)  
+  Thierry Titcheu Chekam, Mike Papadakis, Yves Le Traon, and Mark Harman  
+  ACM/IEEE International Conference on Software Engineering (ICSE) 2017  
+  May 20-28, 2017, Buenos Aires, Argentina
 
 1. [pbSE: Phase-Based Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/8023117/)  
   Qixue Xiao, Yu Chen, Chengang Wu, Kang Li, and Junjie Mao  
@@ -320,7 +380,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
   11th Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017)  
   September 4-8, 2017, Paderborn, Germany
 
-1. [Did we learn from LLC Side Channel Attacks? A Cache Leakage Detection Tool for Crypto Libraries](https://arxiv.org/abs/1709.01552)  
+1. [Did we Learn from LLC Side Channel Attacks? A Cache Leakage Detection Tool for Crypto Libraries](https://arxiv.org/abs/1709.01552)  
   Gorka Irazoqui, Kai Cong, Xiaofei Guo, Hareesh Khattri, Arun Kanuparthi, Thomas Eisenbarth, and Berk Sunar  
   arXiv, September 5, 2017
 
@@ -328,6 +388,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Guodong Li, Takuki Kamiya, Indradeep Ghosh, Sreeranga Rajan, Susumu Tokumoto, Kazuki Munakata, and Tadahiro Uehara  
   IEEE Software (Volume: 34, Issue: 5, 2017)  
   September 22, 2017
+
+1. [Effectiveness of Synthesis in Concolic Deobfuscation](http://www.sciencedirect.com/science/article/pii/S0167404817301475)  
+  Fabrizio Biondi, Sébastien Josse, Axel Legay, Thomas Sirvent  
+  Computers & Security (Volume: 70, 2017)  
+  September 2017
 
 1. [Automatic Testing of Symbolic Execution Engines via Program Generation and Differential Testing](https://srg.doc.ic.ac.uk/files/papers/symex-engine-tester-ase-17.pdf)  
   Timotej Kapus, Cristian Cadar  
