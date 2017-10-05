@@ -58,6 +58,8 @@ This document is structured as a series of FAQs:
 
     Some of these options have been renamed or removed in the current version of KLEE. Most notably, the options `--exclude-libc-cov` and `--exclude-cov-file` were implemented in a fragile way and we decided to remove them from KLEE. The idea was to treat the functions in libc or specified in a text file as "covered". (For the Coreutils experiments, we were interested in covering the code in the tools themselves, as opposed to library code, see the paper for more details). If you plan to reimplement these options in a clean way, please consider contributing your code to the mainline.
 
+    Option `--randomize-fork` was used in the experiments but recently removed (commit [`5133b98`](https://github.com/klee/klee/commit/5133b98f1d989af94902366c6d02eb6447458aa1)).
+
 7.  What are the options closest to the ones above that work with the current version KLEE?
 
     Try the following: 
@@ -71,7 +73,7 @@ This document is structured as a series of FAQs:
     \--max-sym-array-size=4096 --max-instruction-time=30. --max-time=3600. \  
     \--watchdog --max-memory-inhibit=false --max-static-fork-pct=1 \  
     \--max-static-solve-pct=1 --max-static-cpfork-pct=1 --switch-type=internal \  
-    \--randomize-fork --search=random-path --search=nurs:covnew \  
+    \--search=random-path --search=nurs:covnew \  
     \--use-batching-search --batch-instructions=10000 \  
     ./paste.bc --sym-args 0 1 10 --sym-args 0 2 2 --sym-files 1 8 --sym-stdin 8 --sym-stdout
     ```
