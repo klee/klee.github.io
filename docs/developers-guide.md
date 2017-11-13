@@ -55,20 +55,20 @@ Note that KLEE depends on LLVM and STP. If you need to debug KLEE's calls to tha
 
 Because KLEE uses LLVM's build system, adding a class to an existing library in KLEE is very simple. For example, to add a class to libkleaverExpr, the following steps would be followed:
 
-1. Create the header file (.h) for the class and place it somewhere inside include/ (the location isn't really important except that #include is relative to the include/ directory).
-2. Create the source file (.cpp) for the class place it in lib/Expr/. You can confirm that the library in which your new class will be included is kleaverExpr by looking at the Makefile in lib/Expr.
+1. Create the header file (``.h``) for the class and place it somewhere inside ``include/`` (the location isn't really important except that ``#include`` is relative to the ``include/`` directory).
+2. Create the source file (``.cpp``) for the class place it in ``lib/Expr/``. You can confirm that the library in which your new class will be included is ``kleaverExpr`` by looking at the ``Makefile`` in ``lib/Expr``.
 
-That's it! Now LLVM's build system will detect the new .cpp file and add it to the library that is generated when you run make.
+That's it! Now LLVM's build system will detect the new `.cpp` file and add it to the library that is generated when you run make.
 
 ### Building code documentation
 
 KLEE uses [Doxygen](http://www.doxygen.org) to generate code documentation. To generate it yourself you can run the following from KLEE's build directory root.
 
 {% highlight bash %}
-$ make doxygen
+$ make docs
 {% endhighlight %}
 
-This will generate documentation in `path/to/build-dir/docs/doxygen/` folder. You can also find KLEE's latest official code documentation [here](http://test.minormatter.com/~ddunbar/klee-doxygen/index.html)
+This will generate documentation in `path/to/build-dir/docs/doxygen/` folder.
 
 ## Regression Testing Framework
 
@@ -158,11 +158,11 @@ These test use [Google's C++ testing framework](https://code.google.com/p/google
 
 ### Writing messages to standard error
 
-The kleeCore library (lib/Core) provides several functions that can be used similarly to `printf()` in C. See `lib/Core/Common.h` for more information.
+The kleeCore library (``lib/Core``) provides several functions that can be used similarly to `printf()` in C. See `lib/Core/Common.h` for more information.
 
 ### Adding a command line option to a tool
 
-KLEE uses LLVM's CommandLine library for adding options to tools in KLEE, which is well documented [here](http://llvm.org/docs/CommandLine.html). See lib/core/Executor.cpp for examples.
+KLEE uses LLVM's CommandLine library for adding options to tools in KLEE, which is well documented [here](http://llvm.org/docs/CommandLine.html). See ``lib/core/Executor.cpp`` for examples.
 
 ### Run-time libraries
 
