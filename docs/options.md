@@ -21,8 +21,9 @@ $ klee [klee-options] <program.bc> [program-options]
 The general form of a KLEE command-line is first the arguments for KLEE itself (`[klee-options]`), then the LLVM bitcode file to execute (`program.bc`), and then any arguments to pass to the application (`[program-options]`).
 In particular, the KLEE option `-posix-runtime` enables the use of the symbolic environment options as part of the program's options.
 
-To get a complete list of KLEE's command-line options run: `klee --help`. The remainder of this page illustrate KLEE's main command-line options.
+Note that to enable integer overlow detection, you need to have built `program.bc` using `clang` and with the option `-fsanitize=signed-integer-overflow` for signed integer overflow, and with the option `-fsanitize=unsigned-integer-overflow` for unsigned integer overflow. These `clang` options instrument `program.bc` with overflow checks that are used by KLEE.
 
+To get a complete list of KLEE's command-line options run: `klee --help`. The remainder of this page illustrate KLEE's main command-line options.
 
 ## KLEE Output
 
