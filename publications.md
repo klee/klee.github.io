@@ -219,6 +219,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   ACM Conference on Programming Language Design and Implementation (PLDI 2013)  
   June 16-22, 2013, Seattle, WA, USA  
 
+1. [CRAXweb: Automatic Web Application Testing and Attack Generation](http://ieeexplore.ieee.org/document/6571711/)  
+  Shih-Kun Huang, Han-Lin Lu, Wai-Meng Leong, Huan Liu  
+  International Conference on Software Security and Reliability (SERE 2013)  
+  June 18-20, 2013, Gaithersburg, USA
+
 1. [Redundant State Detection for Dynamic Symbolic Execution](http://www.stanford.edu/~suhabe/atc13-bugrara.pdf)  
   Suhabe Bugrara, Dawson Engler  
   USENIX Annual Technical Conference (USENIX ATC 2013)  
