@@ -312,6 +312,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   International Conference on Security and Privacy in Communication Networks (SecureComm 2014)  
   September 24-26, 2014, Beijing, China
 
+1. [Automated Software Testing of Memory Performance in Embedded GPUs](http://ieeexplore.ieee.org/abstract/document/6986125/)  
+  Sudipta Chattopadhyay, Petru Eles, Zebo Peng  
+  International Conference on Embedded Software (EMSOFT 2014)  
+  October 12-17, 2014, Jaypee Greens, India
+
 1. [Symbolic Execution of Multithreaded Programs from Arbitrary Program Contexts](https://dl.acm.org/citation.cfm?id=2660200)  
   Tom Bergan, Dan Grossman, Luis Ceze  
   ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2014)  
