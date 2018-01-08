@@ -14,9 +14,9 @@ If you have used or extended KLEE and would like to have your paper listed here,
   December 8-10, 2008, San Diego, CA, USA
 
 1. [HAMPI: A Solver for String Constraints](https://people.csail.mit.edu/akiezun/issta54-kiezun.pdf)  
-   Adam Kiezun, Vijay Ganesh, Philip Guo, Pieter Hooimeijer, Michael Ernst  
-   International Symposium on Software Testing and Analysis (ISSTA 2009)  
-   July 19-23, 2009, Chicago, IL, USA
+  Adam Kiezun, Vijay Ganesh, Philip Guo, Pieter Hooimeijer, Michael Ernst  
+  International Symposium on Software Testing and Analysis (ISSTA 2009)  
+  July 19-23, 2009, Chicago, IL, USA
 
 1. [Server-side Verification of Client Behavior in Online Games](http://www.isoc.org/isoc/conferences/ndss/10/pdf/01.pdf)  
   Darrell Bethea, Robert Cochran, Michael Reiter  
@@ -54,7 +54,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Network and Distributed System Security Symposium (NDSS 2011)  
   February 6-9, 2011, San Diego, CA, USA
 
-9. [Howard: A Dynamic Excavator for Reverse Engineering Data Structures](http://www.cs.vu.nl/%7Eherbertb/papers/dde_ndss11-preprint.pdf)  
+1. [Howard: A Dynamic Excavator for Reverse Engineering Data Structures](http://www.cs.vu.nl/%7Eherbertb/papers/dde_ndss11-preprint.pdf)  
   Asia Slowinska, Traian Stancescu, Herbert Bos  
   Network and Distributed System Security Symposium (NDSS 2011)  
   February 6-9, 2011, San Diego, CA, USA
@@ -76,25 +76,25 @@ If you have used or extended KLEE and would like to have your paper listed here,
   ACM SIGOPS/EuroSys European Conference on Computer Systems (EuroSys 2011)  
   April 10-13, 2011, Salzburg, Austria
 
-1. [Practical, Low-Effort Equivalence Verification of Real Code](http://www.pgbovine.net/PhD-memoir/ucklee-cav-2011.pdf)  
-  David Ramos, Dawson Engler  
-  Computer Aided Verification (CAV 2011)  
-  July 16-20, 2011, Snowbird, UT, USA
-
 1. [Scalable Symbolic Execution of Distributed Systems](http://www.comsys.rwth-aachen.de/fileadmin/papers/2011/2011-06-icdcs-sasnauskas-sde.pdf)  
   Raimondas Sasnauskas, Oscar Dustmann, Benjamin Lucien Kaminski, Carsten Weise, Stefan Kowalewski, Klaus Wehrle  
   IEEE International Conference on Distributed Computing Systems (ICDCS 2011)  
   June 20-24, 2011, Minneapolis, MN, USA
 
+1. [KLOVER: A Symbolic Execution and Automatic Test Generation Tool for C++ Programs](http://www.cs.utah.edu/~ligd/publications/KLOVER-CAV11.pdf)  
+  Guodong Li, Indradeep Ghosh, Sreeranga Rajan  
+  International Conference on Computer Aided Verification (CAV 2011)  
+  July 14-20, 2011, Cliff Lodge, Snowbird, UT, USA
+
+1. [Practical, Low-Effort Equivalence Verification of Real Code](http://www.pgbovine.net/PhD-memoir/ucklee-cav-2011.pdf)  
+  David Ramos, Dawson Engler  
+  International Conference on Computer Aided Verification (CAV 2011)  
+  July 16-20, 2011, Snowbird, UT, USA
+
 1. [Efficient Deterministic Multithreading through Schedule Relaxation](http://www.cs.columbia.edu/~huayang/files/peregrine.pdf)  
   Heming Cui, Jingyue Wu, John Gallagher, Huayang Guo, Junfeng Yang  
   ACM Symposium on Operating Systems Principles (SOSP 2011)  
   October 23-26, 2011, Cascais, Portugal
-
-1. [KLOVER: A Symbolic Execution and Automatic Test Generation Tool for C++ Programs](http://www.cs.utah.edu/~ligd/publications/KLOVER-CAV11.pdf)  
-  Guodong Li, Indradeep Ghosh and Sreeranga Rajan  
-  International Conference on Computer Aided Verification (CAV 2011)  
-  July 14-20, 2011, Cliff Lodge, Snowbird, UT, USA
 
 1. [Symbolic Testing of OpenCL Code](http://srg.doc.ic.ac.uk/publications/kleecl-hvc-11.html)  
   Peter Collingbourne, Cristian Cadar, Paul H. J. Kelly  
@@ -114,19 +114,19 @@ If you have used or extended KLEE and would like to have your paper listed here,
 
 1. [make test-zesti: A Symbolic Execution Solution for Improving Regression Testing](http://srg.doc.ic.ac.uk/publications/zesti-icse-12.html)  
   Paul Dan Marinescu, Cristian Cadar  
-  International Conference on Software Engineering (ICSE 2012)  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2012)  
   June 2-9, 2012, Zurich, Switzerland  
   **ZESTI is available [here](http://srg.doc.ic.ac.uk/projects/zesti/).**  
 
 1. [BugRedux: Reproducing Field Failures for In-House Debugging](http://www.cc.gatech.edu/~orso/papers/jin.orso.ICSE12.pdf)  
   Wei Jin, Alessandro Orso  
-  International Conference on Software Engineering (ICSE 2012)  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2012)  
   June 2-9, 2012, Zurich, Switzerland  
   **BugRedux is available [here](https://github.com/gatech/bugredux).**  
 
 1. [Efficient State Merging in Symbolic Execution](http://dslab.epfl.ch/pubs/stateMerging.pdf)  
   Volodymyr Kuznetsov, Johannes Kinder, Stefan Bucur, George Candea  
-  Programming Language Design and Implementation (PLDI)  
+  ACM Conference on Programming Language Design and Implementation (PLDI 2012)  
   June 11-16, 2012, Beijing, China
 
 1. [Noninterference via Symbolic Execution](https://lirias.kuleuven.be/bitstream/123456789/346050/1/LiriasEntry.pdf)  
@@ -141,7 +141,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
 
 1. [Checking Properties Described by State Machines: On Synergy of Instrumentation, Slicing, and Symbolic Execution](http://is.muni.cz/repo/984069/sse.pdf)  
   Jiri Slaby, Jan Strejcek, Marek Trtík  
-  Formal Methods for Industrial Critical Systems (FMICS 2012)  
+  International Workshop on Formal Methods for Industrial Critical Systems (FMICS 2012)  
   August 27-28, 2012, Paris, France
 
 1. [SymDrive: Testing Drivers without Devices](https://www.usenix.org/system/files/conference/osdi12/osdi12-final-4.pdf)  
@@ -151,7 +151,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
 
 1. [Scaling Symbolic Execution Using Ranged Analysis](https://dl.acm.org/citation.cfm?id=2384654)  
   Junaid Haroon Siddiqui, Sarfraz Khurshid  
-  ACM International Conference on Object Oriented Programming Systems Languages & Applications (OOPSLA 2012)  
+  ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2012)  
   October 19-26, 2012, Tucson, Arizona, USA
 
 1. [Enhancing Symbolic Execution to Test the Compatibility of Re-engineered Industrial Software](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6462670)  
@@ -166,7 +166,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
 
 1. [Automatic Detection of Floating-Point Exceptions](http://earlbarr.com/publications/ariadne.pdf)  
   Peter C. Rigby, Earl T. Barr, Christian Bird, Premkumar Devanbu, Daniel M. German  
-  Principles of Programming Languages (POPL)  
+  ACM Symposium on Principles of Programming Languages (POPL 2013)  
   January 23-25, 2013, Rome, Italy
 
 1. [Symbiotic: Synergy of Instrumentation, Slicing, and Symbolic Execution (Competition Contribution)](http://is.muni.cz/repo/1078253/77950621.pdf)  
@@ -174,26 +174,25 @@ If you have used or extended KLEE and would like to have your paper listed here,
   International Conference on Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2013)  
   March 16-24, 2013, Rome, Italy
 
+1. [SemFix: Program Repair via Semantic Analysis](https://www.comp.nus.edu.sg/~abhik/pdf/ICSE13-SEMFIX.pdf)  
+  Hoang Duong Thien Nguyen, Dawei Qi, Abhik Roychoudhury, Satish Chandra  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2013)  
+  May 18-26, 2013, San Francisco, CA, USA
+
 1. [Post-silicon Conformance Checking with Virtual Prototypes](http://web.cecs.pdx.edu/~leil/pub/Conformance.pdf)  
-  Li Lei and Fei Xie and Kai Cong  
-  Annual Design Automation Conference (DAC 2013)  
+  Li Lei, Fei Xie, Kai Cong  
+  Design Automation Conference (DAC 2013)  
   June 1-5, 2013, San Francisco, CA, USA
 
 1. [CLAP: Recording Local Executions to Reproduce Concurrency Failures](https://parasol.tamu.edu/~jeff/academic/clap.pdf)  
-   Jeff Huang, Charles Zhang, Julian Dolby  
-   ACM SIGPLAN Conference on Programming Language Design and
-   Implementation (PLDI 2013)  
-   June 16-22, 2013, Seattle, WA, USA  
+  Jeff Huang, Charles Zhang, Julian Dolby  
+  ACM Conference on Programming Language Design and Implementation (PLDI 2013)  
+  June 16-22, 2013, Seattle, WA, USA  
 
 1. [Redundant State Detection for Dynamic Symbolic Execution](http://www.stanford.edu/~suhabe/atc13-bugrara.pdf)  
   Suhabe Bugrara, Dawson Engler  
   USENIX Annual Technical Conference (USENIX ATC 2013)  
   June 26-28, 2013, San Jose, California
-
-1. [KATCH: High-Coverage Testing of Software Patches](http://srg.doc.ic.ac.uk/publications/katch-fse-13.html)  
-  Paul Dan Marinescu, Cristian Cadar  
-  Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2013)  
-  August 18-26, 2013, St Petersburg, Russia
 
 1. [Multi-solver Support in Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/klee-multisolver-cav-13.pdf)  
   Hristina Palikareva, Cristian Cadar  
@@ -202,15 +201,24 @@ If you have used or extended KLEE and would like to have your paper listed here,
   **KLEE-Multisolver is available [here](https://srg.doc.ic.ac.uk/projects/klee-multisolver/).**
 
 1. [F3: Fault Localization for Field Failures](https://ai2-s2-pdfs.s3.amazonaws.com/15c8/9fcd08f82da14b98c94449b6c396e1e4423a.pdf)  
-   Wei Jin, Alessandro Orso  
-   International Symposium on Software Testing and Analysis (ISSTA
-   2013)  
-   July 15-20, 2013, Lugano, Switzerland  
+  Wei Jin, Alessandro Orso  
+  International Symposium on Software Testing and Analysis (ISSTA 2013)  
+  July 15-20, 2013, Lugano, Switzerland  
+
+1. [FIE on Firmware: Finding Vulnerabilities in Embedded Systems using Symbolic Execution](https://www.usenix.org/system/files/conference/usenixsecurity13/sec13-paper_davidson.pdf)  
+  Drew Davidson, Benjamin Moench, Somesh Jha, Thomas Ristenpart  
+  22nd USENIX Security Symposium (USENIX Security '13)  
+  August 14–16, 2013, Washington, D.C., USA
+
+1. [KATCH: High-Coverage Testing of Software Patches](http://srg.doc.ic.ac.uk/publications/katch-fse-13.html)  
+  Paul Dan Marinescu, Cristian Cadar  
+  Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2013)  
+  August 18-26, 2013, St Petersburg, Russia
 
 1. [Steering Symbolic Execution to Less Traveled Paths](http://web.cs.ucdavis.edu/~su/publications/oopsla13-pgse.pdf)  
-   You Li, Zhendong Su, Linzhang Wang, Xuandong Li  
-   ACM International Conference on Object Oriented Programming
-   Systems Languages & Applications (OOPSLA 2013)  
+  You Li, Zhendong Su, Linzhang Wang, Xuandong Li  
+  ACM International Conference on Object Oriented Programming, Systems, Languages, and Applications (OOPSLA 2013)  
+  October 26-31, 2013, Indianapolis, USA
 
 1. [Automatic Concolic Test Generation with Virtual Prototypes for Post-silicon Validation](http://web.cecs.pdx.edu/~congkai/papers/actg.pdf)  
   Kai Cong, Fei Xie, Li Lei  
@@ -228,18 +236,8 @@ If you have used or extended KLEE and would like to have your paper listed here,
   International Symposium on NASA Formal Methods (NFM 2014)  
   April 29 - May 1, 2014, Houston, TX, USA
 
-1. [SemFix: Program Repair via Semantic Analysis](https://www.comp.nus.edu.sg/~abhik/pdf/ICSE13-SEMFIX.pdf)  
-  Hoang Duong Thien Nguyen, Dawei Qi, Abhik Roychoudhury, Satish Chandra  
-  ACM/IEEE International Conference on Software Engineering (ICSE 2013)  
-  May 18-26, 2013, San Francisco, CA, USA
-
-1. [FIE on Firmware: Finding Vulnerabilities in Embedded Systems using Symbolic Execution](https://www.usenix.org/system/files/conference/usenixsecurity13/sec13-paper_davidson.pdf)  
-  Drew Davidson, Benjamin Moench, Somesh Jha, Thomas Ristenpart  
-  22nd USENIX Security Symposium (USENIX Security '13)  
-  August 14–16, 2013, Washington, D.C., USA
-
 1. [Practical Use of Formal Verification for Safety Critical Cyber-Physical Systems: A Case Study](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6961235)  
-  Tasuku Ishigooka, Habib Saissi, Thorsten Piper, Stefan Winter and Neeraj Suri  
+  Tasuku Ishigooka, Habib Saissi, Thorsten Piper, Stefan Winter, Neeraj Suri  
   IEEE International Conference on Cyber-Physical Systems, Networks, and Applications (CPSNA 2014)  
   August 25-26, 2014, Hong Kong, China
 
@@ -251,8 +249,8 @@ If you have used or extended KLEE and would like to have your paper listed here,
 
 1. [Symbolic Execution of Multithreaded Programs from Arbitrary Program Contexts](https://dl.acm.org/citation.cfm?id=2660200)  
   Tom Bergan, Dan Grossman, Luis Ceze  
-  ACM International Conference on Object Oriented Programming Systems Languages & Applications (OOPSLA 2014)  
-  October 20–24, 2014, Portland, USA
+  ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2014)  
+  October 20-24, 2014, Portland, USA
 
 1. [Frog Program Bug Finder](http://www.frog-test.com/)  
   Qirong Wang, 2015  
@@ -264,10 +262,9 @@ If you have used or extended KLEE and would like to have your paper listed here,
   April 13-17, 2015, Graz, Austria  
 
 1. [Generating Succinct Test Cases Using Don't Care Analysis](https://pdfs.semanticscholar.org/f50a/223cc1e63aa7f59b77576f035dee0bd834b2.pdf)  
-   Cuong Nguyen, Hiroaki Yoshida, Mukul Prasad, Indradeep Ghosh, Koushik Sen  
-   IEEE International Conference on Software Testing, Verification and
-   Validation (ICST 2015)  
-   April 13-17, 2015, Graz, Austria
+  Cuong Nguyen, Hiroaki Yoshida, Mukul Prasad, Indradeep Ghosh, Koushik Sen  
+  IEEE International Conference on Software Testing, Verification and Validation (ICST 2015)  
+  April 13-17, 2015, Graz, Austria
 
 1. [The Use of Symbolic Execution for Testing of Real-Time Safety-Related Software](https://pdfs.semanticscholar.org/5740/17e5ec589b21de1ad5756da8b49bf7727cc2.pdf)  
   Martin Hořeňovský  
@@ -291,10 +288,9 @@ If you have used or extended KLEE and would like to have your paper listed here,
   May 17, 2015, Florence, Italy
 
 1. [Symbolic Execution for BIOS Security](https://www.usenix.org/system/files/conference/woot15/woot15-paper-bazhaniuk.pdf)  
-   Oleksandr Bazhaniuk, John Loucaides, Lee Rosenbaum, Mark R. Tuttle,
-   Vincent Zimmer  
-   USENIX Workshop on Offensive Technologies (WOOT 2015)  
-   August 10-11, 2015, Washington D.C., USA  
+  Oleksandr Bazhaniuk, John Loucaides, Lee Rosenbaum, Mark R. Tuttle, Vincent Zimmer  
+  USENIX Workshop on Offensive Technologies (WOOT 2015)  
+  August 10-11, 2015, Washington D.C., USA  
 
 1. [Parallel SMT Solving and Concurrent Symbolic Execution](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7345624)  
   Emil Rakadjiev, Taku Shimosawa, Hiroshi Mine, Satoshi Oshima  
@@ -334,7 +330,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
 
 1. [Shadow of a Doubt: Testing for Divergences Between Software Versions](https://srg.doc.ic.ac.uk/publications/shadow-icse-16.html)  
   Hristina Palikareva, Tomasz Kuchta, Cristian Cadar  
-  International Conference on Software Engineering (ICSE 2016)  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2016)  
   May 14-22, 2016, Austin, Texas, USA  
   **Shadow is available [here](https://srg.doc.ic.ac.uk/projects/shadow/).**
 
@@ -395,7 +391,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
 
 1. [pbSE: Phase-Based Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/8023117/)  
   Qixue Xiao, Yu Chen, Chengang Wu, Kang Li, Junjie Mao  
-  Annual IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2017)  
+  IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2017)  
   June 26-19, 2017, Denver, CO, USA
 
 1. [Accelerating Array Constraints in Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/klee-array-17.pdf)  
@@ -405,9 +401,9 @@ If you have used or extended KLEE and would like to have your paper listed here,
   **KLEE-Array is available [here](https://srg.doc.ic.ac.uk/projects/klee-array/).**
 
 1. [Automatic Detection and Validation of Race Conditions in Interrupt-Driven Embedded Software](https://dl.acm.org/citation.cfm?id=3092724)  
-   Yu Wang, Linzhang Wang, Tingting Yu, Jianhua Zhao, Xuandong Li  
-   International Symposium on Software Testing and Analysis (ISSTA 2017)  
-   July 10-14, 2017, Santa Barbara, CA, USA  
+  Yu Wang, Linzhang Wang, Tingting Yu, Jianhua Zhao, Xuandong Li  
+  International Symposium on Software Testing and Analysis (ISSTA 2017)  
+  July 10-14, 2017, Santa Barbara, CA, USA  
 
 1. [Failure-Directed Program Trimming](https://dl.acm.org/citation.cfm?id=3106249)  
   Kostas Ferles, Valentin Wüstholz, Maria Christakis, Isil Dillig  
