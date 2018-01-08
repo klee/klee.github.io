@@ -63,7 +63,7 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Vitaly Chipounov, Volodymyr Kuznetsov, George Candea  
   International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS 2011)  
   March 5-11, 2011, Newport Beach, CA  
-  **S2E is available [here](http://s2e.epfl.ch/).**
+  **S2E is available at [EPFL](http://s2e.epfl.ch/) and [GitHub](https://github.com/S2E/).**
 
 1. [Parallel Symbolic Execution for Automated Real-World Software Testing](http://dslab.epfl.ch/pubs/cloud9.pdf?attredirects=0)  
   Stefan Bucur, Vlad Ureche, Cristian Zamfir, George Candea  
