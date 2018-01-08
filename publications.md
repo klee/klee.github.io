@@ -265,6 +265,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Haifa Verification Conference (HVC 2013)  
   November 5-7, 2013, Haifa, Israel
 
+1. [Chaining Test Cases for Reactive System Testing](https://link.springer.com/chapter/10.1007/978-3-642-41707-8_9)  
+  Peter Schrammel, Tom Melham, Daniel Kroening  
+  IFIP International Conference on Testing Software and Systems (ICTSS 2013)  
+  November 13-15, 2013, Istanbul, Turkey
+
 1. [Automatic Concolic Test Generation with Virtual Prototypes for Post-silicon Validation](http://web.cecs.pdx.edu/~congkai/papers/actg.pdf)  
   Kai Cong, Fei Xie, Li Lei  
   International Conference on Computer-aided Design (ICCAD 2013)  
