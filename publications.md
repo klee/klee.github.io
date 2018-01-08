@@ -96,6 +96,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2011)  
   July 17-21, 2011, Toronto, CA
 
+1. [Directed Symbolic Execution](https://link.springer.com/chapter/10.1007/978-3-642-23702-7_11)  
+  Kin-Keung Ma, Khoo Yit Phang, Jeffrey S. Foster, Michael Hicks  
+  International Conference on Static Analysis (SAS 2011)  
+  September 14-16, 2011, Venice, Italy
+
 1. [Efficient Deterministic Multithreading through Schedule Relaxation](http://www.cs.columbia.edu/~huayang/files/peregrine.pdf)  
   Heming Cui, Jingyue Wu, John Gallagher, Huayang Guo, Junfeng Yang  
   ACM Symposium on Operating Systems Principles (SOSP 2011)  
