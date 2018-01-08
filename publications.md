@@ -139,6 +139,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   June 2-9, 2012, Zurich, Switzerland  
   **BugRedux is available [here](https://github.com/gatech/bugredux).**  
 
+1. [Industrial Application of Concolic Testing Approach: A Case Study on libexif by Using CREST-BV and KLEE](http://ieeexplore.ieee.org/document/6227105/)  
+  Yunho Kim, Moonzoo Kim, YoungJoo Kim, Yoonkyu Jang  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2012)  
+  June 2-9, 2012, Zurich, Switzerland
+
 1. [Efficient State Merging in Symbolic Execution](http://dslab.epfl.ch/pubs/stateMerging.pdf)  
   Volodymyr Kuznetsov, Johannes Kinder, Stefan Bucur, George Candea  
   ACM Conference on Programming Language Design and Implementation (PLDI 2012)  
