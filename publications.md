@@ -286,6 +286,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   March 2014, Vancouver, CA  
   **KITE is available [here](http://www.cs.ubc.ca/labs/isd/Projects/Kite/).**
 
+1. [Reproducing Field Failures for Programs with Complex Grammar-Based Input](http://ieeexplore.ieee.org/document/6823878/)  
+  Fitsum Meshesha Kifetew, Wei Jin, Roberto Tiella, Alessandro Orso, Paolo Tonella  
+  IEEE International Conference on Software Testing, Verification and Validation (ICST 2014)  
+  March 31 - April 4, 2014, Cleveland, USA
+
 1. [Automated Testcase Generation for Numerical Support Functions in Embedded Systems](https://ti.arc.nasa.gov/publications/13554/download/)  
   Johann Schumann, Stefan-Alexander Schneider  
   International Symposium on NASA Formal Methods (NFM 2014)  
