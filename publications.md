@@ -174,6 +174,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2012)  
   October 19-26, 2012, Tucson, Arizona, USA
 
+1. [Detecting Problematic Message Sequences and Frequencies in Distributed Systems](https://dl.acm.org/citation.cfm?id=2384683)  
+  Charles Lucas, Sebastian Elbaum, David S. Rosenblum  
+  ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2012)  
+  October 19-26, Tucson, USA
+
 1. [Enhancing Symbolic Execution to Test the Compatibility of Re-engineered Industrial Software](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6462670)  
   Susumu Tokumoto, Tadahiro Uehara, Kazuki Munakata, Haruyuki Ishida, Toru Eguchi, Masafumi Baba  
   Asia-Pacific Software Engineering Conference  
