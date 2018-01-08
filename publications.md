@@ -260,6 +260,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   ACM International Conference on Object Oriented Programming, Systems, Languages, and Applications (OOPSLA 2013)  
   October 26-31, 2013, Indianapolis, USA
 
+1. [Modeling Firmware as Service Functions and Its Application to Test Generation](https://link.springer.com/chapter/10.1007/978-3-319-03077-7_5)  
+  Sunha Ahn, Sharad Malik  
+  Haifa Verification Conference (HVC 2013)  
+  November 5-7, 2013, Haifa, Israel
+
 1. [Automatic Concolic Test Generation with Virtual Prototypes for Post-silicon Validation](http://web.cecs.pdx.edu/~congkai/papers/actg.pdf)  
   Kai Cong, Fei Xie, Li Lei  
   International Conference on Computer-aided Design (ICCAD 2013)  
