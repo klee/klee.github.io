@@ -275,6 +275,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   International Conference on Computer-aided Design (ICCAD 2013)  
   November 18-21, 2013, San Jose, CA, USA
 
+1. [Static Analysis Driven Cache Performance Testing](http://ieeexplore.ieee.org/abstract/document/6728886/)  
+  Abhijeet Banerjee, Sudipta Chattopadhyay, Abhik Roychoudhury  
+  IEEE Real-Time Systems Symposium (RTSS 2013)  
+  December 3-6, 2013, Vancouver, CA
+
 1. [Conflict-Driven Symbolic Execution](file:///data/downloads/ubc_2014_spring_val_celina.pdf)  
   Celina Gomes do Val  
   Master Thesis, University of British Columbia  
