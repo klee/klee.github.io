@@ -184,6 +184,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Asia-Pacific Software Engineering Conference  
   December 4-7, 2012, Hong Kong, China
 
+1. [A SOFT Way for OpenFlow Switch Interoperability Testing](http://conferences.sigcomm.org/co-next/2012/eproceedings/conext/p265.pdf)  
+  Maciej Kuzniar, Peter Peresini, Marco Canini, Daniele Venzano, Dejan Kostic  
+  International Conference on emerging Networking EXperiments and Technologies (CoNEXT 2012)  
+  December 10-13, 2012, Nice, France
+
 1. [Symbolic Simulation for Debugging and Analysis of REKO Models Using KLEE](http://www.diva-portal.org/smash/get/diva2:1016124/FULLTEXT02.pdf)  
   Marta Vicente Romero  
   Master Thesis, Luleå University of Technology  
