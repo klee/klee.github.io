@@ -122,6 +122,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   ACM Symposium on Applied Computing (SAC 2012)  
   March 26-30, 2012, Trento, Italy
 
+1. [Scalable Testing of File System Checkers](https://dl.acm.org/citation.cfm?id=2168861)  
+  João Carlos Menezes Carreira, Rodrigo Rodrigues, George Candea, Rupak Majumdar  
+  ACM SIGOPS/EuroSys European Conference on Computer Systems (EuroSys 2012)  
+  April 10-13, Bern, Switzerland
+
 1. [make test-zesti: A Symbolic Execution Solution for Improving Regression Testing](http://srg.doc.ic.ac.uk/publications/zesti-icse-12.html)  
   Paul Dan Marinescu, Cristian Cadar  
   ACM/IEEE International Conference on Software Engineering (ICSE 2012)  
