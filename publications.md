@@ -307,6 +307,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   September 15-19, 2014, Vasteras, Sweden  
   **Docovery is available [here](https://srg.doc.ic.ac.uk/projects/docovery/).**
 
+1. [Control Flow Obfuscation using Neural Network to Fight Concolic Testing](http://ink.library.smu.edu.sg/sis_research/2260/)  
+  Haoyu Ma, Xinjie Ma, Weijie Liu, Zhipeng Huang, Debin GAO, Chunfu Jia  
+  International Conference on Security and Privacy in Communication Networks (SecureComm 2014)  
+  September 24-26, 2014, Beijing, China
+
 1. [Symbolic Execution of Multithreaded Programs from Arbitrary Program Contexts](https://dl.acm.org/citation.cfm?id=2660200)  
   Tom Bergan, Dan Grossman, Luis Ceze  
   ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2014)  
