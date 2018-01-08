@@ -250,6 +250,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2013)  
   August 18-26, 2013, St Petersburg, Russia
 
+1. [Symbolic Software Model Validation](http://ieeexplore.ieee.org/document/6670946/)  
+  Cynthia Sturton, Rohit Sinha, Thurston H.Y. Dang, Sakshi Jain, Michael McCoyd, Wei Yang Tan, Petros Maniatis, Sanjit A. Seshia, David Wagner  
+  ACM-IEEE International Conference on Formal Methods and Models for System Design (MEMOCON 2013)  
+  October 18-20, 2013, Portland, USA
+
 1. [Steering Symbolic Execution to Less Traveled Paths](http://web.cs.ucdavis.edu/~su/publications/oopsla13-pgse.pdf)  
   You Li, Zhendong Su, Linzhang Wang, Xuandong Li  
   ACM International Conference on Object Oriented Programming, Systems, Languages, and Applications (OOPSLA 2013)  
