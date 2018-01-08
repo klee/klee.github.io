@@ -91,6 +91,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   International Conference on Computer Aided Verification (CAV 2011)  
   July 16-20, 2011, Snowbird, UT, USA
 
+1. [Selecting Peers for Execution Comparison](https://dl.acm.org/citation.cfm?id=2001420.2001458)  
+  William N. Sumner, Tao Bao, Xiangyu Zhang  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2011)  
+  July 17-21, 2011, Toronto, CA
+
 1. [Efficient Deterministic Multithreading through Schedule Relaxation](http://www.cs.columbia.edu/~huayang/files/peregrine.pdf)  
   Heming Cui, Jingyue Wu, John Gallagher, Huayang Guo, Junfeng Yang  
   ACM Symposium on Operating Systems Principles (SOSP 2011)  
