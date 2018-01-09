@@ -154,6 +154,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   In: Giese H., Rosu G. (eds) Formal Techniques for Distributed Systems. Lecture Notes in Computer Science, vol 7273. Springer, Berlin, Heidelberg (FMOODS/FORTE 2012)  
   June 13-16, 2012, Stockholm, Sweden
 
+1. [CRAX: Software Crash Analysis for Automatic Exploit Generation by Modeling Attacks as Symbolic Continuations](http://ieeexplore.ieee.org/abstract/document/6258297/)  
+  Shih-Kun Huang, Min-Hsiang Huang, Po-Yen Huang, Chung-Wei Lai, Han-Lin Lu, Wai-Meng Leong  
+  International Conference on Software Security and Reliability (SERE 2012)  
+  June 20-22, 2012, Gaithersburg, USA
+
 1. [High-Coverage Symbolic Patch Testing](http://srg.doc.ic.ac.uk/publications/highcovpatch-spin-12.html)  
   Paul Dan Marinescu, Cristian Cadar  
   SPIN Workshop on Model Checking of Software (SPIN 2012)  
