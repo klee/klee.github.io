@@ -474,6 +474,11 @@ If you have used or extended KLEE and would like to have your paper listed here,
   IEEE Symposium on Security and Privacy (S&P 2017)  
   May 22-24, 2017, San Jose, CA, USA
 
+1. [Analyzing Operational Behavior of Stateful Protocol Implementations for Detecting Semantic Bugs](http://ieeexplore.ieee.org/document/8023160/)  
+  Endadul Hoque, Omar Chowdhury, Sze Yiu Chau, Cristina Nita-Rotaru, Ninghui Li  
+  IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2017)  
+  June 26-19, 2017, Denver, CO, USA
+
 1. [pbSE: Phase-Based Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/8023117/)  
   Qixue Xiao, Yu Chen, Chengang Wu, Kang Li, Junjie Mao  
   IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2017)  
