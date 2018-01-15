@@ -4,7 +4,18 @@ The KLEE website, built using [Web Starter Kit](http://developers.google.com/web
 
 ## Quickstart
 
-You should have a reasonably recent version of Ruby (use [RVM](http://rvm.io/) or [rbenv](https://github.com/sstephenson/rbenv) to get one) and [Bundler](http://bundler.io/) (included in RVM and rbenv, by default). You also have to install Node.js. If you get errors like `Liquid Exception: EPIPE` when you try to run Jekyll, set python 2.x as default (instead of 3.x).
+### Dependencies
+
+* [Ruby](https://www.ruby-lang.org/) ≥ 2.0.0.  You can use [RVM](http://rvm.io/) or [rbenv](https://github.com/sstephenson/rbenv) to install it.
+
+* [Node.js](https://www.ruby-lang.org/)
+
+* [Bundler](http://bundler.io/).  You can use `gem install bundle` to install it.
+
+* [Python](https://nodejs.org/). If you get errors such `Liquid Exception: EPIPE` when you try to run Jekyll, set Python 2.x as default (instead of Python 3.x).
+
+
+### Installation
 
 Clone this repository and install all dependencies using:
 
