@@ -50,14 +50,7 @@ KLEE provides several options as part of its symbolic environment:
 7.  `-max-fail <N>` - Allow up to N injected failures.
 8.  `-fd-fail` - Shortcut for '-max-fail 1'.
 
-Some usage examples:
-
-{% highlight bash %}
-$ klee -posix-runtime <program.bc> -sym-arg 16
-{% endhighlight %}
-{% highlight bash %}
-$ klee -posix-runtime <program.bc> -sym-files 2 30 -sym-stdin
-{% endhighlight %}
+Usage examples for `-sym-arg` and `-sym-files` are provided in [this tutorial]({{site.baseurl}}/tutorials/using-symbolic/).
 
 ## Search Heuristics
 
