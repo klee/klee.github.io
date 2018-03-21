@@ -498,6 +498,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Symposium on Software Testing and Analysis (ISSTA 2017)  
   July 10-14, 2017, Santa Barbara, CA, USA  
 
+1. [Effectiveness of Synthesis in Concolic Deobfuscation](http://www.sciencedirect.com/science/article/pii/S0167404817301475)  
+  Fabrizio Biondi, Sébastien Josse, Axel Legay, Thomas Sirvent  
+  Computers & Security (Volume: 70, 2017)  
+  September 2017
+
 1. [Failure-Directed Program Trimming](https://dl.acm.org/citation.cfm?id=3106249)  
   Kostas Ferles, Valentin Wüstholz, Maria Christakis, Isil Dillig  
   Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017)  
@@ -518,10 +523,6 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE Software (Volume: 34, Issue: 5, 2017)  
   September 22, 2017
 
-1. [Effectiveness of Synthesis in Concolic Deobfuscation](http://www.sciencedirect.com/science/article/pii/S0167404817301475)  
-  Fabrizio Biondi, Sébastien Josse, Axel Legay, Thomas Sirvent  
-  Computers & Security (Volume: 70, 2017)  
-  September 2017
 
 1. [Automatic Testing of Symbolic Execution Engines via Program Generation and Differential Testing](https://srg.doc.ic.ac.uk/files/papers/symex-engine-tester-ase-17.pdf)  
   Timotej Kapus, Cristian Cadar  
