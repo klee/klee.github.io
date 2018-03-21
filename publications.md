@@ -536,3 +536,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Daniel Liew, Daniel Schemmel, Cristian Cadar, Alastair Donaldson, Rafael Zähl, Klaus Wehrle  
   IEEE/ACM International conference on Automated Software Engineering (ASE 2017)  
   October 30 - November 3, 2017, Urbana-Champaign, IL, USA
+
+1. [Resilience Evaluation via Symbolic Fault Injection on Intermediate Code](http://www.informatik.uni-bremen.de/agra/doc/konf/DATE18_symbolic-swifi-llvm.pdf)  
+  Hoang M. Le, Vladimir Herdt, Daniel Große, Rolf Drechsler  
+  Design, Automation and Test in Europe (DATE 2018)  
+  March 19 - 23, 2018, Dresden, Germany  
