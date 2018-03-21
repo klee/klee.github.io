@@ -546,3 +546,9 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Lucas Freire, Miguel Neves, Lucas Leal, Kirill Levchenko, Alberto Schaeffer-Filho, Marinho Barcellos  
   Symposium on SDN Research (SOSR 2018)  
   March 28-29, 2018, Los Angeles, USA
+
+1. [Chopped Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/chopper-icse-18.pdf)  
+  David Trabish, Andrea Mattavelli, Noam Rinetzky, Cristian Cadar  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
+  May 27 - June 3, 2018, Gothenburg, Sweden  
+  **Chopper is available [here](https://srg.doc.ic.ac.uk/projects/chopper/artifact.html).**
