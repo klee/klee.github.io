@@ -522,6 +522,10 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE Software (Volume: 34, Issue: 5, 2017)  
   September 22, 2017
 
+1. [Quantifying the Information Leak in Cache Attacks via Symbolic Execution](https://dl.acm.org/citation.cfm?id=3127044)  
+  Sudipta Chattopadhyay, Moritz Beck, Ahmed Rezine, Andreas Zeller  
+  ACM-IEEE International Conference on Formal Methods and Models for System Design (MEMOCODE 2017)  
+  September 29 - October 2, 2017, Vienna, Austria
 
 1. [Automatic Testing of Symbolic Execution Engines via Program Generation and Differential Testing](https://srg.doc.ic.ac.uk/files/papers/symex-engine-tester-ase-17.pdf)  
   Timotej Kapus, Cristian Cadar  
