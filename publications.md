@@ -498,6 +498,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Symposium on Software Testing and Analysis (ISSTA 2017)  
   July 10-14, 2017, Santa Barbara, CA, USA  
 
+1. [Effectiveness of Synthesis in Concolic Deobfuscation](http://www.sciencedirect.com/science/article/pii/S0167404817301475)  
+  Fabrizio Biondi, Sébastien Josse, Axel Legay, Thomas Sirvent  
+  Computers & Security (Volume: 70, 2017)  
+  September 2017
+
 1. [Failure-Directed Program Trimming](https://dl.acm.org/citation.cfm?id=3106249)  
   Kostas Ferles, Valentin Wüstholz, Maria Christakis, Isil Dillig  
   Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017)  
@@ -513,15 +518,14 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   arXiv, September 5, 2017
 
 1. [KLOVER: Automatic Test Generation for C and C++ Programs, Using Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/8048666/)  
-  Guodong Li, Takuki Kamiya, Indradeep Ghosh, Sreeranga Rajan, Susumu
-  Tokumoto, Kazuki Munakata, Tadahiro Uehara  
+  Guodong Li, Takuki Kamiya, Indradeep Ghosh, Sreeranga Rajan, Susumu Tokumoto, Kazuki Munakata, Tadahiro Uehara  
   IEEE Software (Volume: 34, Issue: 5, 2017)  
   September 22, 2017
 
-1. [Effectiveness of Synthesis in Concolic Deobfuscation](http://www.sciencedirect.com/science/article/pii/S0167404817301475)  
-  Fabrizio Biondi, Sébastien Josse, Axel Legay, Thomas Sirvent  
-  Computers & Security (Volume: 70, 2017)  
-  September 2017
+1. [Quantifying the Information Leak in Cache Attacks via Symbolic Execution](https://dl.acm.org/citation.cfm?id=3127044)  
+  Sudipta Chattopadhyay, Moritz Beck, Ahmed Rezine, Andreas Zeller  
+  ACM-IEEE International Conference on Formal Methods and Models for System Design (MEMOCODE 2017)  
+  September 29 - October 2, 2017, Vienna, Austria
 
 1. [Automatic Testing of Symbolic Execution Engines via Program Generation and Differential Testing](https://srg.doc.ic.ac.uk/files/papers/symex-engine-tester-ase-17.pdf)  
   Timotej Kapus, Cristian Cadar  
@@ -532,3 +536,19 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Daniel Liew, Daniel Schemmel, Cristian Cadar, Alastair Donaldson, Rafael Zähl, Klaus Wehrle  
   IEEE/ACM International conference on Automated Software Engineering (ASE 2017)  
   October 30 - November 3, 2017, Urbana-Champaign, IL, USA
+
+1. [Resilience Evaluation via Symbolic Fault Injection on Intermediate Code](http://www.informatik.uni-bremen.de/agra/doc/konf/DATE18_symbolic-swifi-llvm.pdf)  
+  Hoang M. Le, Vladimir Herdt, Daniel Große, Rolf Drechsler  
+  Design, Automation and Test in Europe (DATE 2018)  
+  March 19 - 23, 2018, Dresden, Germany  
+
+1. [Uncovering Bugs in P4 Programs with Assertion-based Verification](http://conferences.sigcomm.org/sosr/2018/sosr18-finals/sosr18-final78.pdf)  
+  Lucas Freire, Miguel Neves, Lucas Leal, Kirill Levchenko, Alberto Schaeffer-Filho, Marinho Barcellos  
+  Symposium on SDN Research (SOSR 2018)  
+  March 28-29, 2018, Los Angeles, USA
+
+1. [Chopped Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/chopper-icse-18.pdf)  
+  David Trabish, Andrea Mattavelli, Noam Rinetzky, Cristian Cadar  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
+  May 27 - June 3, 2018, Gothenburg, Sweden  
+  **Chopper is available [here](https://srg.doc.ic.ac.uk/projects/chopper/artifact.html).**
