@@ -10,6 +10,7 @@ slug: documentation
 
 1. [Using KLEE Docker image]({{site.baseurl}}/docker/): Instructions on how to use the KLEE Docker image.
 1. [Building KLEE (LLVM 3.4)]({{site.baseurl}}/build-llvm34/): Instructions on how to build KLEE from source using LLVM 3.4 and CMake.
+1. [Building KLEE (LLVM 3.8 - experimental)]({{site.baseurl}}/build-llvm38/): Instructions on how to build KLEE from source using LLVM 3.4 and CMake.
 1. [Building STP]({{site.baseurl}}/build-stp/): Instructions on how to build STP, KLEE's default constraint solver.
 1. [Solver Chain]({{site.baseurl}}/docs/solver-chain/): Overview of the solver chain and related command line arguments.
 1. [KLEE Options]({{site.baseurl}}/docs/options/): Overview of KLEE's main command-line options.
