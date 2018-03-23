@@ -111,10 +111,8 @@ The current procedure for building KLEE with LLVM 3.8 (experimental) is outlined
    Get the relevant pull requests:
 
    ```bash
-   $ 
-     git fetch origin pull/605/head:pull605 ;\
-     git fetch origin pull/729/head:pull729 ;\
-     git fetch origin pull/780/head:pull780
+   $ git fetch origin pull/605/head:pull605 ;\
+     git fetch origin pull/729/head:pull729 
    ```
 
    And merge them in:
@@ -123,21 +121,15 @@ The current procedure for building KLEE with LLVM 3.8 (experimental) is outlined
    $ git merge pull605 ;\
      git merge pull729 
    ```
-
-   Fix the trivial merge conflict in `test/Runtime/POSIX/DirSeek.c`, by removing the diff boilerplat lines : `47, 48, 51`.
+    
+   Finally fix the trivial merge conflict in `test/Runtime/POSIX/DirSeek.c`, 
+   by removing the diff boilerplate lines: `47, 48, 51`.
 
    ```bash
    $ git add test/Runtime/POSIX/DirSeek.c
    $ git commit
    ```
 
-
-   ```bash
-   $ git merge pull780 
-   ```
-
-     git merge pull669 ;\
-   git fetch origin pull/669/head:pull669 ;\
 9. **Configure KLEE:**
 
    KLEE must be built "out of source" so first make a binary build directory. You can create this where ever you like.
