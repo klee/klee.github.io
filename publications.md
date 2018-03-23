@@ -330,6 +330,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2014)  
   October 20-24, 2014, Portland, USA
 
+1. [Methods for Binary Symbolic Execution](https://searchworks.stanford.edu/view/10701369)  
+  Anthony Romano  
+  Dissertation, Stanford University, Department of Computer Science  
+  December 2014, Stanford, USA
+
 1. [Frog Program Bug Finder](http://www.frog-test.com/)  
   Qirong Wang, 2015  
   Software testing and debugging tool combining KLEE test generation with fault localization
