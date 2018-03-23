@@ -557,3 +557,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
   May 27 - June 3, 2018, Gothenburg, Sweden  
   **Chopper is available [here](https://srg.doc.ic.ac.uk/projects/chopper/artifact.html).**
+
+1. [Semantic Program Repair Using a Reference Implementation](https://comp.nus.edu/~abhik/pdf/ICSE18-SEMGRAFT.pdf)  
+  Sergey Mechtaev, Manh-Dung Nguyen, Yannic Noller, Lars Grunske, Abhik Roychoudhury  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
+  May 27 - June 3, 2018, Gothenburg, Sweden
