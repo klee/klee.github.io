@@ -332,6 +332,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2014)  
   October 20-24, 2014, Portland, USA
 
+1. [Methods for Binary Symbolic Execution](https://searchworks.stanford.edu/view/10701369)  
+  Anthony Romano  
+  Dissertation, Stanford University, Department of Computer Science  
+  December 2014, Stanford, USA
+
 1. [Frog Program Bug Finder](http://www.frog-test.com/)  
   Qirong Wang, 2015  
   Software testing and debugging tool combining KLEE test generation with fault localization
@@ -554,3 +559,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
   May 27 - June 3, 2018, Gothenburg, Sweden  
   **Chopper is available [here](https://srg.doc.ic.ac.uk/projects/chopper/artifact.html).**
+
+1. [Semantic Program Repair Using a Reference Implementation](https://comp.nus.edu/~abhik/pdf/ICSE18-SEMGRAFT.pdf)  
+  Sergey Mechtaev, Manh-Dung Nguyen, Yannic Noller, Lars Grunske, Abhik Roychoudhury  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
+  May 27 - June 3, 2018, Gothenburg, Sweden
