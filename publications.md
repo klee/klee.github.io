@@ -3,8 +3,10 @@ layout: default
 title: Publications
 subtitle: Publications and Systems Using KLEE
 slug: publications
-lead: Below you can find a list of papers and systems that either use or extend KLEE. They are listed in chronological order.
+lead: Below you can find a list of 100+ papers and systems that either use or extend KLEE. They are listed in chronological order.
 ---
+
+Additional information about systems and research based on KLEE can be found on the website of the [1st International KLEE Workshop on Symbolic Execution](https://srg.doc.ic.ac.uk/klee18/).
 
 If you have used or extended KLEE and would like to have your paper
 listed here, please open a pull request at
