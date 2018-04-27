@@ -554,6 +554,18 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Symposium on SDN Research (SOSR 2018)  
   March 28-29, 2018, Los Angeles, USA
 
+1. [CRETE: A Versatile Binary-Level Concolic Testing Framework](https://link.springer.com/chapter/10.1007%2F978-3-319-89363-1_16)  
+  Bo Chen, Christopher Havlicek, Zhenkun Yang, Kai Cong, Raghudeep Kannavara, Fei Xie  
+  International Conference on Fundamental Approaches to Software Engineering (FASE 2018)  
+  April 14-20, 2018, Thessaloniki, Greece  
+  **CRETE is available [here](https://github.com/SVL-PSU/crete-dev).**
+
+1. [Map2Check Using LLVM and KLEE](https://link.springer.com/chapter/10.1007%2F978-3-319-89963-3_28)  
+  Rafael Menezes, Herbert Rocha, Lucas Cordeiro, Raimundo Barreto  
+  International Conference on Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2018)  
+  April 14-20, 2018, Thessaloniki, Greece  
+  **Map2Check is available [here](https://github.com/hbgit/Map2Check).**
+
 1. [Chopped Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/chopper-icse-18.pdf)  
   David Trabish, Andrea Mattavelli, Noam Rinetzky, Cristian Cadar  
   ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
