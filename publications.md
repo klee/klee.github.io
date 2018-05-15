@@ -571,6 +571,10 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   April 14-20, 2018, Thessaloniki, Greece  
   **Map2Check is available [here](https://github.com/hbgit/Map2Check).**
 
+1. [Evaluating Manual Intervention to Address the Challenges of Bug Finding with KLEE](https://arxiv.org/pdf/1805.03450.pdf)  
+  John Galea, Sean Heelan, Daniel Neville, Daniel Kroening  
+  arXiv, May 9, 2018
+
 1. [Chopped Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/chopper-icse-18.pdf)  
   David Trabish, Andrea Mattavelli, Noam Rinetzky, Cristian Cadar  
   ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
