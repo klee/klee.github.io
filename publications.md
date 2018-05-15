@@ -547,8 +547,13 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Resilience Evaluation via Symbolic Fault Injection on Intermediate Code](http://www.informatik.uni-bremen.de/agra/doc/konf/DATE18_symbolic-swifi-llvm.pdf)  
   Hoang M. Le, Vladimir Herdt, Daniel Große, Rolf Drechsler  
   Design, Automation and Test in Europe (DATE 2018)  
-  March 19 - 23, 2018, Dresden, Germany  
+  March 19 - 23, 2018, Dresden, Germany
 
+1. [Symbolic Assertion Mining for Security Validation](https://ieeexplore.ieee.org/abstract/document/8342262/)  
+  Alessandro Danese, Valeria Bertacco, Graziano Pravadelli  
+  Design, Automation & Test in Europe (DATE 2018)  
+  March 19 - 23, 2018, Dresden, Germany
+  
 1. [Uncovering Bugs in P4 Programs with Assertion-based Verification](http://conferences.sigcomm.org/sosr/2018/sosr18-finals/sosr18-final78.pdf)  
   Lucas Freire, Miguel Neves, Lucas Leal, Kirill Levchenko, Alberto Schaeffer-Filho, Marinho Barcellos  
   Symposium on SDN Research (SOSR 2018)  
@@ -565,6 +570,10 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Conference on Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2018)  
   April 14-20, 2018, Thessaloniki, Greece  
   **Map2Check is available [here](https://github.com/hbgit/Map2Check).**
+
+1. [Evaluating Manual Intervention to Address the Challenges of Bug Finding with KLEE](https://arxiv.org/pdf/1805.03450.pdf)  
+  John Galea, Sean Heelan, Daniel Neville, Daniel Kroening  
+  arXiv, May 9, 2018
 
 1. [Chopped Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/chopper-icse-18.pdf)  
   David Trabish, Andrea Mattavelli, Noam Rinetzky, Cristian Cadar  
