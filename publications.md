@@ -547,8 +547,13 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Resilience Evaluation via Symbolic Fault Injection on Intermediate Code](http://www.informatik.uni-bremen.de/agra/doc/konf/DATE18_symbolic-swifi-llvm.pdf)  
   Hoang M. Le, Vladimir Herdt, Daniel Große, Rolf Drechsler  
   Design, Automation and Test in Europe (DATE 2018)  
-  March 19 - 23, 2018, Dresden, Germany  
+  March 19 - 23, 2018, Dresden, Germany
 
+1. [Symbolic Assertion Mining for Security Validation](https://ieeexplore.ieee.org/abstract/document/8342262/)  
+  Alessandro Danese, Valeria Bertacco, Graziano Pravadelli  
+  Design, Automation & Test in Europe (DATE 2018)  
+  March 19 - 23, 2018, Dresden, Germany
+  
 1. [Uncovering Bugs in P4 Programs with Assertion-based Verification](http://conferences.sigcomm.org/sosr/2018/sosr18-finals/sosr18-final78.pdf)  
   Lucas Freire, Miguel Neves, Lucas Leal, Kirill Levchenko, Alberto Schaeffer-Filho, Marinho Barcellos  
   Symposium on SDN Research (SOSR 2018)  
