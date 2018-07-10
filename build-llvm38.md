@@ -7,12 +7,12 @@ slug: build-llvm38
 
 {% include version_warning.md %}
 
-The current procedure for building KLEE with LLVM 3.8 (experimental) is outlined below. As we are having some issues with CI systems, it still requires manual merging of pull requests. See [#669](https://github.com/klee/klee/pull/669) if you would like to help.
+The current procedure for building KLEE with LLVM 3.8 (experimental) is outlined below. As of writing this still requires manual merging of a pull request.
 
 1. **Install dependencies:** KLEE requires all the dependencies of LLVM, which are discussed [here](http://llvm.org/docs/GettingStarted.html#requirements). In particular, you should install the following programs and libraries, listed below as Ubuntu packages:  
 
    ```bash
-   $ sudo apt-get install build-essential curl libcap-dev git cmake libncurses5-dev python-minimal python-pip unzip
+   $ sudo apt-get install build-essential curl libcap-dev git cmake libncurses5-dev python-minimal python-pip unzip libtcmalloc-minimal4 libgoogle-perftools-dev
    ```
 
    You will need gcc/g++ 4.8 or later installed on your system. For Ubuntu 12.04 and 13.04, you can follow the instructions [here](http://ubuntuhandbook.org/index.php/2013/08/install-gcc-4-8-via-ppa-in-ubuntu-12-04-13-04/).   
@@ -85,17 +85,6 @@ The current procedure for building KLEE with LLVM 3.8 (experimental) is outlined
    $ pip install lit
    ```
 
-7. **(Optional) Install tcmalloc:**
-
-   By default, KLEE uses `malloc_info()` to observe and to restrict its memory usage.
-   Due to limitations of `malloc_info()`, the maximum limit is set to 2 GB. To support bigger limits, KLEE can use TCMalloc as an alternative allocator. It is thus necessary to install TCMalloc:
-
-   ```bash
-   $ sudo apt-get install libtcmalloc-minimal4 libgoogle-perftools-dev
-   ```
-
-   When configuring KLEE in step 9 pass `-DENABLE_TCMALLOC=ON` to CMake when configuring KLEE.
-
 8. **Get KLEE source:**  
 
    ```bash
@@ -108,27 +97,18 @@ The current procedure for building KLEE with LLVM 3.8 (experimental) is outlined
    $ cd klee
    ```
 
-   Get the relevant pull requests:
+   Get the relevant pull request:
 
    ```bash
-   $ git fetch origin pull/605/head:pull605 ;\
-     git fetch origin pull/729/head:pull729 
+   $ git fetch origin pull/900/head:pull900
    ```
 
    And merge them in:
 
    ```bash
-   $ git merge pull605 ;\
-     git merge pull729 
+   $ git merge pull900
    ```
     
-   Finally fix the trivial merge conflict in `test/Runtime/POSIX/DirSeek.c`, 
-   by removing the diff boilerplate lines: `47, 48, 51`.
-
-   ```bash
-   $ git add test/Runtime/POSIX/DirSeek.c
-   $ git commit
-   ```
 
 9. **Configure KLEE:**
 
@@ -172,6 +152,8 @@ The current procedure for building KLEE with LLVM 3.8 (experimental) is outlined
 
    **NOTE:** If LLVM is not found or you need a particular version to be used you can pass `-DLLVM_CONFIG_BINARY=<LLVM_CONFIG_BINARY>` to CMake where `<LLVM_CONFIG_BINARY>` is the absolute path to the
    relevant `llvm-config` binary. Similarly KLEE needs a C and C++ compiler that can create LLVM bitcode that is compatible with the version of LLVM KLEE is using. If these are not detected automatically `-DLLVMCC=<PATH_TO_CLANG>` and `-DLLVMCXX=<PATH_TO_CLANG++>` can be passed to explicitly set these compilers where `<PATH_TO_CLANG>` is the absolute path to `clang` and `<PATH_TO_CLANG++>` is the absolute path to `clang++`.
+
+   **NOTE II:** By default, KLEE uses tcmalloc as the allocator to support reporting of memory usage above 2GB. If you don't want to install tcmalloc (`libtcmalloc-minimal4 libgoogle-perftools-dev` Ubuntu packages) on your system or prefer to use glibc allocator, pass `-DENABLE_TCMALLOC=OFF` to CMake when configuring KLEE.
 
 
 9. **Build KLEE:**
