@@ -212,7 +212,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Symbiotic: Synergy of Instrumentation, Slicing, and Symbolic Execution (Competition Contribution)](http://is.muni.cz/repo/1078253/77950621.pdf)  
   Jiri Slaby, Jan Strejcek, Marek Trtík  
   International Conference on Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2013)  
-  March 16-24, 2013, Rome, Italy
+  March 16-24, 2013, Rome, Italy  
+  **Symbiotic is available [here](https://github.com/staticafi/symbiotic).**
 
 1. [SemFix: Program Repair via Semantic Analysis](https://www.comp.nus.edu.sg/~abhik/pdf/ICSE13-SEMFIX.pdf)  
   Hoang Duong Thien Nguyen, Dawei Qi, Abhik Roychoudhury, Satish Chandra  
