@@ -581,6 +581,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   May 27 - June 3, 2018, Gothenburg, Sweden  
   **Chopper is available [here](https://srg.doc.ic.ac.uk/projects/chopper/artifact.html).**
 
+1. [SAFL: Increasing and Accelerating Testing Coverage with Symbolic Execution and Guided Fuzzing](https://dl.acm.org/citation.cfm?id=3183494)  
+  Mingzhe Wang, Jie Liang, Yuanliang Chen, Yu Jiang, Xun Jiao, Han Liu, Xibin Zhao, Jiaguang Sun  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2018 Companion)  
+  May 27 - June 3, 2018, Gothenburg, Sweden  
+  (Demo on [Youtube](https://youtu.be/LkiFLNMBhVE))
+
 1. [Semantic Program Repair Using a Reference Implementation](https://comp.nus.edu/~abhik/pdf/ICSE18-SEMGRAFT.pdf)  
   Sergey Mechtaev, Manh-Dung Nguyen, Yannic Noller, Lars Grunske, Abhik Roychoudhury  
   ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
