@@ -586,6 +586,10 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
   May 27 - June 3, 2018, Gothenburg, Sweden
 
+1. [Indexing Operators to Extend the Reach of Symbolic Execution](https://arxiv.org/abs/1806.10235)  
+  Earl T. Barr, David Clark, Mark Harman, Alexandru Marginean  
+  arXiv, June 26, 2018
+
 1. [Learning to Accelerate Symbolic Execution via Code Transformation](http://drops.dagstuhl.de/opus/volltexte/2018/9211/pdf/LIPIcs-ECOOP-2018-6.pdf)  
   Junjie Chen, Wenxiang Hu, Lingming Zhang, Dan Hao, Sarfraz Khurshid, Lu Zhang  
   European Conference on Object-Oriented Programming (ECOOP 2018)  
