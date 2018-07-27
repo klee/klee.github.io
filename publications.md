@@ -585,3 +585,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Sergey Mechtaev, Manh-Dung Nguyen, Yannic Noller, Lars Grunske, Abhik Roychoudhury  
   ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
   May 27 - June 3, 2018, Gothenburg, Sweden
+
+1. [Learning to Accelerate Symbolic Execution via Code Transformation](http://drops.dagstuhl.de/opus/volltexte/2018/9211/pdf/LIPIcs-ECOOP-2018-6.pdf)  
+  Junjie Chen, Wenxiang Hu, Lingming Zhang, Dan Hao, Sarfraz Khurshid, Lu Zhang  
+  European Conference on Object-Oriented Programming (ECOOP 2018)  
+  July 15-21, 2018, Amsterdam, Netherlands
