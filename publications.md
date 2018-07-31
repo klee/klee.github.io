@@ -212,7 +212,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Symbiotic: Synergy of Instrumentation, Slicing, and Symbolic Execution (Competition Contribution)](http://is.muni.cz/repo/1078253/77950621.pdf)  
   Jiri Slaby, Jan Strejcek, Marek Trtík  
   International Conference on Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2013)  
-  March 16-24, 2013, Rome, Italy
+  March 16-24, 2013, Rome, Italy  
+  **Symbiotic is available [here](https://github.com/staticafi/symbiotic).**
 
 1. [SemFix: Program Repair via Semantic Analysis](https://www.comp.nus.edu.sg/~abhik/pdf/ICSE13-SEMFIX.pdf)  
   Hoang Duong Thien Nguyen, Dawei Qi, Abhik Roychoudhury, Satish Chandra  
@@ -581,7 +582,22 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   May 27 - June 3, 2018, Gothenburg, Sweden  
   **Chopper is available [here](https://srg.doc.ic.ac.uk/projects/chopper/artifact.html).**
 
+1. [SAFL: Increasing and Accelerating Testing Coverage with Symbolic Execution and Guided Fuzzing](https://dl.acm.org/citation.cfm?id=3183494)  
+  Mingzhe Wang, Jie Liang, Yuanliang Chen, Yu Jiang, Xun Jiao, Han Liu, Xibin Zhao, Jiaguang Sun  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2018 Companion)  
+  May 27 - June 3, 2018, Gothenburg, Sweden  
+  (Demo on [Youtube](https://youtu.be/LkiFLNMBhVE))
+
 1. [Semantic Program Repair Using a Reference Implementation](https://comp.nus.edu/~abhik/pdf/ICSE18-SEMGRAFT.pdf)  
   Sergey Mechtaev, Manh-Dung Nguyen, Yannic Noller, Lars Grunske, Abhik Roychoudhury  
   ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
   May 27 - June 3, 2018, Gothenburg, Sweden
+
+1. [Indexing Operators to Extend the Reach of Symbolic Execution](https://arxiv.org/abs/1806.10235)  
+  Earl T. Barr, David Clark, Mark Harman, Alexandru Marginean  
+  arXiv, June 26, 2018
+
+1. [Learning to Accelerate Symbolic Execution via Code Transformation](http://drops.dagstuhl.de/opus/volltexte/2018/9211/pdf/LIPIcs-ECOOP-2018-6.pdf)  
+  Junjie Chen, Wenxiang Hu, Lingming Zhang, Dan Hao, Sarfraz Khurshid, Lu Zhang  
+  European Conference on Object-Oriented Programming (ECOOP 2018)  
+  July 15-21, 2018, Amsterdam, Netherlands
