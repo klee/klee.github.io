@@ -90,25 +90,6 @@ The current procedure for building KLEE with LLVM 3.8 (experimental) is outlined
    ```bash
    $ git clone https://github.com/klee/klee.git
    ```
-    
-   Go into the klee directory:
-   
-   ```bash
-   $ cd klee
-   ```
-
-   Get the relevant pull request:
-
-   ```bash
-   $ git fetch origin pull/900/head:pull900
-   ```
-
-   And merge them in:
-
-   ```bash
-   $ git merge pull900
-   ```
-    
 
 9. **Configure KLEE:**
 
