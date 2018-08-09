@@ -601,3 +601,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Junjie Chen, Wenxiang Hu, Lingming Zhang, Dan Hao, Sarfraz Khurshid, Lu Zhang  
   European Conference on Object-Oriented Programming (ECOOP 2018)  
   July 15-21, 2018, Amsterdam, Netherlands
+
+1. [Symbolic Execution of Security Protocol Implementations: Handling Cryptographic Primitives](https://papers.mathyvanhoef.com/woot2018.pdf)  
+  Mathy Vanhoef, Frank Piessens  
+  USENIX Workshop on Offensive Technologies (WOOT 2018)  
+  August 13-14, 2018, Baltimore, USA
