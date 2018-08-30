@@ -606,3 +606,9 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Mathy Vanhoef, Frank Piessens  
   USENIX Workshop on Offensive Technologies (WOOT 2018)  
   August 13-14, 2018, Baltimore, USA
+
+1. [Inception: System-Wide Security Testing of Real-World Embedded Systems Software](http://s3.eurecom.fr/docs/usenixsec18_corteggiani.pdf)  
+  Nassim Corteggiani, Giovanni Camurati, Aurélien Francillon  
+  USENIX Security Symposium (Security 2018)  
+  August 15-17, 2018, Baltimore, USA  
+  **Inception is available [here](https://inception-framework.github.io/inception/).**
