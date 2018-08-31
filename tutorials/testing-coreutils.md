@@ -6,10 +6,10 @@ slug: tutorials
 ---
 
 As a more detailed explanation of using KLEE, we will look at how we did our testing of [GNU Coreutils](http://www.gnu.org/software/coreutils/) using KLEE.
+Please follow the instructions in our [OSDI'08 coreutils experiment description]({{site.baseurl}}/docs/coreutils-experiments) to reproduce the experiment setup from the paper.
+This tutorial assumes that you have configured and [built KLEE]({{site.baseurl}}/getting-started) with `uclibc` and `POSIX` runtime support.
+All tests were done on a 64-bit Linux machine.
 
-This tutorial assumes that you have configured and built KLEE with `uclibc` and `POSIX` runtime support.
-
-These tests were done on a 64-bit Linux machine.
 
 ## Step 1: Build coreutils with gcov
 
