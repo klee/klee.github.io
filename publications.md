@@ -607,8 +607,14 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   USENIX Workshop on Offensive Technologies (WOOT 2018)  
   August 13-14, 2018, Baltimore, USA
 
-1. [Inception: System-Wide Security Testing of Real-World Embedded Systems Software](http://s3.eurecom.fr/docs/usenixsec18_corteggiani.pdf)  
+1. [Inception: System-Wide Security Testing of Real-World Embedded Systems Software](https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-corteggiani.pdf)  
   Nassim Corteggiani, Giovanni Camurati, Aurélien Francillon  
   USENIX Security Symposium (Security 2018)  
   August 15-17, 2018, Baltimore, USA  
   **Inception is available [here](https://inception-framework.github.io/inception/).**
+
+1. [CPA-SymExec: Efficient Symbolic Execution in CPAchecker](https://www.sosy-lab.org/research/pub/2018-ASE.CPA-SymExec_Efficient_Symbolic_Execution_in_CPAchecker.pdf)  
+  Dirk Beyer, Thomas Lemberger  
+  International Conference on Automated Software Engineering (ASE 2018)  
+  September 3-7, 2018, Montpellier, France
+
