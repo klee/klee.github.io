@@ -33,6 +33,8 @@ int main() {
 }
 {% endhighlight %}
 
+The function `klee_make_symbolic` is defined in `klee/klee.h`. Therefore, we need to put `#include <klee/klee.h>` in the source code file in order for the compiler to load it.
+
 ## Compiling to LLVM bitcode
 
 KLEE operates on LLVM bitcode. To run a program with KLEE, you first compile it to LLVM bitcode using `clang -emit-llvm`.
