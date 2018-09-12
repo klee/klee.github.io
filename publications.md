@@ -597,6 +597,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Earl T. Barr, David Clark, Mark Harman, Alexandru Marginean  
   arXiv, June 26, 2018
 
+1. [StatSym: Vulnerable Path Discovery through Statistics-Guided Symbolic Execution](https://ieeexplore.ieee.org/document/8023115/)  
+  Fan Yao, Yongbo Li, Yurong Chen  
+  IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2018)  
+  June 26-29, Denver, USA
+
 1. [Learning to Accelerate Symbolic Execution via Code Transformation](http://drops.dagstuhl.de/opus/volltexte/2018/9211/pdf/LIPIcs-ECOOP-2018-6.pdf)  
   Junjie Chen, Wenxiang Hu, Lingming Zhang, Dan Hao, Sarfraz Khurshid, Lu Zhang  
   European Conference on Object-Oriented Programming (ECOOP 2018)  
