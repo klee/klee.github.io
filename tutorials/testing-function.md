@@ -23,7 +23,7 @@ You can find the entire code for this example in the source tree under `examples
 
 ## Marking input as symbolic
 
-In order to test this function with KLEE, we need to run it on _symbolic_ input. To mark a variable as symbolic, we use the `klee_make_symbolic()` function, which takes three arguments: the address of the variable (memory location) that we want to treat as symbolic, its size, and a name (which can be anything). Here is a simple `main()`: function that marks a variable a as symbolic and uses it to call `get_sign()`:
+In order to test this function with KLEE, we need to run it on _symbolic_ input. To mark a variable as symbolic, we use the `klee_make_symbolic()` function (defined in `klee/klee.h`), which takes three arguments: the address of the variable (memory location) that we want to treat as symbolic, its size, and a name (which can be anything). Here is a simple `main()`: function that marks a variable `a` as symbolic and uses it to call `get_sign()`:
 
 {% highlight c %}
 int main() {
@@ -32,6 +32,7 @@ int main() {
   return get_sign(a);
 }
 {% endhighlight %}
+
 
 ## Compiling to LLVM bitcode
 
@@ -53,12 +54,12 @@ To run KLEE on the bitcode file simply execute:
 $ klee get_sign.bc
 {% endhighlight %}
 
-You should see the following output (assumes LLVM 2.8):
+You should see the following output (assumes LLVM 3.4):
 
 {% highlight bash %}
 KLEE: output directory = "klee-out-0"
 
-KLEE: done: total instructions = 51
+KLEE: done: total instructions = 31
 KLEE: done: completed paths = 3
 KLEE: done: generated tests = 3
 {% endhighlight %}
