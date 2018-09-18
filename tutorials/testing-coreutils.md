@@ -13,7 +13,7 @@ All tests were done on a 64-bit Linux machine.
 
 ## Step 1: Build coreutils with gcov
 
-First you will need to download and unpack the source for [coreutils](http://www.gnu.org/software/coreutils/). In this example we use version 6.11 (one version later than what was used for our OSDI paper).
+First you will need to download and unpack the source for [coreutils](http://www.gnu.org/software/coreutils/). In this example we use version 6.11 (one version later than what was used for our OSDI paper) but you can use any version of Coreutils. However, for recent versions the `make -C src arch hostname` step can be skipped.
 
 Before we build with LLVM, let's build a version of _coreutils_ with _gcov_ support. We will use this later to get coverage information on the test cases produced by KLEE.
 
