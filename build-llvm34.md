@@ -37,6 +37,10 @@ The current procedure for building KLEE with LLVM 3.4 (recommended) is outlined 
    ```
 
    Finally, make sure llvm-config is in your path:   
+   
+   ```bash
+   $ sudo ln -sf /usr/bin/llvm-config-3.4 /usr/bin/llvm-config
+   ```   
 
    That's it for LLVM. If you want to install it manually, please refer to the official [LLVM Getting Started documentation](http://releases.llvm.org/3.4.2/docs/GettingStarted.html).
 
