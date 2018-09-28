@@ -624,7 +624,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   September 3-7, 2018, Montpellier, France
 
 1. [Symbolic Liveness Analysis for Real-World Software](https://dx.doi.org/10.1007/978-3-319-96142-2_27)  
-  Daniel Schemmel, Julian Büning, Oscar Soria Dustmann, Thomas Noll, Klaus Wehrle
+  Daniel Schemmel, Julian Büning, Oscar Soria Dustmann, Thomas Noll, Klaus Wehrle  
   International Conference on Computer Aided Verification (CAV 2018)  
-  July 14-17, 2018, Oxford, Great Britain
+  July 14-17, 2018, Oxford, UK  
   **Implementation is available [here](https://github.com/COMSYS/SymbolicLivenessAnalysis/).**
