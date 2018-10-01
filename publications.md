@@ -488,12 +488,17 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Analyzing Operational Behavior of Stateful Protocol Implementations for Detecting Semantic Bugs](http://ieeexplore.ieee.org/document/8023160/)  
   Endadul Hoque, Omar Chowdhury, Sze Yiu Chau, Cristina Nita-Rotaru, Ninghui Li  
   IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2017)  
-  June 26-19, 2017, Denver, CO, USA
+  June 26-29, 2017, Denver, CO, USA
 
 1. [pbSE: Phase-Based Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/8023117/)  
   Qixue Xiao, Yu Chen, Chengang Wu, Kang Li, Junjie Mao  
   IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2017)  
-  June 26-19, 2017, Denver, CO, USA
+  June 26-29, 2017, Denver, CO, USA
+
+1. [StatSym: Vulnerable Path Discovery through Statistics-Guided Symbolic Execution](https://ieeexplore.ieee.org/document/8023115/)  
+  Fan Yao, Yongbo Li, Yurong Chen  
+  IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2017)  
+  June 26-29, 2017, Denver, USA
 
 1. [Accelerating Array Constraints in Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/klee-array-17.pdf)  
   David M. Perry, Andrea Mattavelli, Xiangyu Zhang, Cristian Cadar  
@@ -544,6 +549,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Daniel Liew, Daniel Schemmel, Cristian Cadar, Alastair Donaldson, Rafael Zähl, Klaus Wehrle  
   IEEE/ACM International conference on Automated Software Engineering (ASE 2017)  
   October 30 - November 3, 2017, Urbana-Champaign, IL, USA
+
+1. [New Directions for Container Debloating](https://tc.gtisc.gatech.edu/feast17/papers/p51-rastogiA.pdf)  
+  Vaibhav Rastogi, Chaitra Niddodi, Sibin Mohan, Somesh Jha  
+  Workshop on Forming an Ecosystem Around Software Transformation (FEAST 2017)  
+  November 3, 2017, Dallas, USA
 
 1. [Resilience Evaluation via Symbolic Fault Injection on Intermediate Code](http://www.informatik.uni-bremen.de/agra/doc/konf/DATE18_symbolic-swifi-llvm.pdf)  
   Hoang M. Le, Vladimir Herdt, Daniel Große, Rolf Drechsler  
@@ -597,10 +607,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Earl T. Barr, David Clark, Mark Harman, Alexandru Marginean  
   arXiv, June 26, 2018
 
-1. [StatSym: Vulnerable Path Discovery through Statistics-Guided Symbolic Execution](https://ieeexplore.ieee.org/document/8023115/)  
-  Fan Yao, Yongbo Li, Yurong Chen  
-  IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2018)  
-  June 26-29, Denver, USA
+1. [Symbolic Liveness Analysis for Real-World Software](https://dx.doi.org/10.1007/978-3-319-96142-2_27)  
+  Daniel Schemmel, Julian Büning, Oscar Soria Dustmann, Thomas Noll, Klaus Wehrle  
+  International Conference on Computer Aided Verification (CAV 2018)  
+  July 14-17, 2018, Oxford, UK  
+  **Implementation is available [here](https://github.com/COMSYS/SymbolicLivenessAnalysis/).**
 
 1. [Learning to Accelerate Symbolic Execution via Code Transformation](http://drops.dagstuhl.de/opus/volltexte/2018/9211/pdf/LIPIcs-ECOOP-2018-6.pdf)  
   Junjie Chen, Wenxiang Hu, Lingming Zhang, Dan Hao, Sarfraz Khurshid, Lu Zhang  
@@ -622,9 +633,3 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Dirk Beyer, Thomas Lemberger  
   International Conference on Automated Software Engineering (ASE 2018)  
   September 3-7, 2018, Montpellier, France
-
-1. [Symbolic Liveness Analysis for Real-World Software](https://dx.doi.org/10.1007/978-3-319-96142-2_27)  
-  Daniel Schemmel, Julian Büning, Oscar Soria Dustmann, Thomas Noll, Klaus Wehrle  
-  International Conference on Computer Aided Verification (CAV 2018)  
-  July 14-17, 2018, Oxford, UK  
-  **Implementation is available [here](https://github.com/COMSYS/SymbolicLivenessAnalysis/).**
