@@ -26,7 +26,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Server-side Verification of Client Behavior in Online Games](http://www.isoc.org/isoc/conferences/ndss/10/pdf/01.pdf)  
   Darrell Bethea, Robert Cochran, Michael Reiter  
   Network and Distributed System Security Symposium (NDSS 2010)  
-  February 28 - March 3, San Diego, CA, USA
+  February 28 - March 3, 2010, San Diego, CA, USA
 
 1. [KleeNet: Discovering Insidious Interaction Bugs in Wireless Sensor Networks Before Deployment](http://www.comsys.rwth-aachen.de/fileadmin/papers/2010/2010-04-ipsn-sasnauskas-KleeNet.pdf)  
   Raimondas Sasnauskas, Olaf Landsiedel, Muhammad Hamad Alizai, Carsten Weise, Stefan Kowalewski, Klaus Wehrle  
@@ -130,7 +130,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Scalable Testing of File System Checkers](https://dl.acm.org/citation.cfm?id=2168861)  
   João Carlos Menezes Carreira, Rodrigo Rodrigues, George Candea, Rupak Majumdar  
   ACM SIGOPS/EuroSys European Conference on Computer Systems (EuroSys 2012)  
-  April 10-13, Bern, Switzerland
+  April 10-13, 2012, Bern, Switzerland
 
 1. [make test-zesti: A Symbolic Execution Solution for Improving Regression Testing](http://srg.doc.ic.ac.uk/publications/zesti-icse-12.html)  
   Paul Dan Marinescu, Cristian Cadar  
@@ -187,7 +187,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Detecting Problematic Message Sequences and Frequencies in Distributed Systems](https://dl.acm.org/citation.cfm?id=2384683)  
   Charles Lucas, Sebastian Elbaum, David S. Rosenblum  
   ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2012)  
-  October 19-26, Tucson, USA
+  October 19-26, 2012, Tucson, USA
 
 1. [Enhancing Symbolic Execution to Test the Compatibility of Re-engineered Industrial Software](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6462670)  
   Susumu Tokumoto, Tadahiro Uehara, Kazuki Munakata, Haruyuki Ishida, Toru Eguchi, Masafumi Baba  
@@ -617,6 +617,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Junjie Chen, Wenxiang Hu, Lingming Zhang, Dan Hao, Sarfraz Khurshid, Lu Zhang  
   European Conference on Object-Oriented Programming (ECOOP 2018)  
   July 15-21, 2018, Amsterdam, Netherlands
+
+1. [No Panic! Verification of Rust Programs by Symbolic Execution](https://ieeexplore.ieee.org/abstract/document/8471992)  
+  Marcus Lindner, Jorge Aparicius, Per Lindgren  
+  IEEE International Conference on Industrial Informatics (INDIN 2018)  
+  July 18-20, 2018, Porto, Protugal
 
 1. [Symbolic Execution of Security Protocol Implementations: Handling Cryptographic Primitives](https://papers.mathyvanhoef.com/woot2018.pdf)  
   Mathy Vanhoef, Frank Piessens  
