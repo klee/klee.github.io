@@ -2,9 +2,11 @@
 layout: default
 title: Developer's Guide
 subtitle: Working with KLEE source code
-lead: This guide covers several areas of KLEE that may not be immediately obvious to new developers.
+lead: This guide is out of date and needs to be rewritten.  Any help would be appreciated.
 slug: developers-guide
 ---
+
+
 
 {: .toc }
 Contents
