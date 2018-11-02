@@ -8,12 +8,14 @@ slug: documentation
 {% include version_warning.md %}
 
 ---
+
 ### If you have a question on using KLEE:
 1. Please first check the documentation below
-1. Then check the searchable list archive at (http://www.mail-archive.com/klee-dev@imperial.ac.uk/)
+1. Then check the [searchable mailing list archive](http://www.mail-archive.com/klee-dev@imperial.ac.uk/)
 1. If this still doesn't answer your questions then:
    * If you think it is a bug, please open an [issue on GitHub](https://github.com/klee/klee/issues)
    * If it is a general question, then please send an email to the [klee-dev mailing list]({{site.baseurl}}/klee-dev/)
+
 ---
 
 
