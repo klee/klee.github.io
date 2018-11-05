@@ -331,12 +331,16 @@
   @mixin numbered-list() {
     &::before {
       counter-increment: list;
-      content: '0' counter(list);
+      content: counter(list);
       color: inherit;
-      font-weight: 400;
       display: inline-block;
+      direction: rtl;
+      font-weight: 400;
+      margin-left: -1.5em;
+      margin-right: 0.5em;
       position: absolute;
-      left: 0;
+      text-align: right;
+      width: 1em;
     }
   }
 
