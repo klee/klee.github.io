@@ -638,3 +638,13 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Dirk Beyer, Thomas Lemberger  
   International Conference on Automated Software Engineering (ASE 2018)  
   September 3-7, 2018, Montpellier, France
+
+1. [PARTI: A Multi-interval Theory Solver for Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/parti-ase-18.pdf)  
+  Oscar Soria Dustmann, Klaus Wehrle, Cristian Cadar  
+  International Conference on Automated Software Engineering (ASE 2018)  
+  September 3-7, 2018, Montpellier, France
+
+1. [Interoperability-Guided Testing of QUIC Implementations using Symbolic Execution](https://arxiv.org/pdf/1811.12099.pdf)  
+  Felix Rath, Daniel Schemmel, Klaus Wehrle  
+  Workshop on the Evolution, Performance, and Interoperability of QUIC (EPIQ 2018)  
+  December 4, 2018, Heraklion, Greece
