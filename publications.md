@@ -648,3 +648,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Felix Rath, Daniel Schemmel, Klaus Wehrle  
   Workshop on the Evolution, Performance, and Interoperability of QUIC (EPIQ 2018)  
   December 4, 2018, Heraklion, Greece
+
+1. [Boost Symbolic Execution Using Dynamic State Merging and Forking](https://www2.swc.rwth-aachen.de/docs/conferences/workshops/2018_QuASoQ/QuASoQ-2018-preprints.pdf#page=13)  
+  Chao Zhang Weiliang Yin Zhiqiang Lin  
+  International Workshop on Quantitative Approaches to Software Quality (QuASoQ 2018)  
+  December 4, 2018, Nara, Japan
