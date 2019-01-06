@@ -644,6 +644,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Conference on Automated Software Engineering (ASE 2018)  
   September 3-7, 2018, Montpellier, France
 
+1. [End-to-End Automated Exploit Generation for Validating the Security of Processor Designs](https://cs.unc.edu/~rzhang/files/MICRO2018.pdf)  
+  Rui Zhang, Calvin Deutschbein, Peng Huang, Cynthia Sturton  
+  IEEE/ACM International Symposium on Microarchitecture (MICRO 2018)  
+  October 20-24, 2018, Fukuoka, Japan  
+  **Coppelia is available [here](https://github.com/rzhang2285/Coppelia).**
+
 1. [Interoperability-Guided Testing of QUIC Implementations using Symbolic Execution](https://arxiv.org/pdf/1811.12099.pdf)  
   Felix Rath, Daniel Schemmel, Klaus Wehrle  
   Workshop on the Evolution, Performance, and Interoperability of QUIC (EPIQ 2018)  
