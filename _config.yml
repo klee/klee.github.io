@@ -14,7 +14,7 @@ permalink: pretty
 # exclude: ['README.md', 'COPYING', 'Gemfile', 'Gemfile.lock', 'releases']
 exclude: ['README.md', 'COPYING', 'Gemfile', 'Gemfile.lock']
 
-gems:
+plugins:
 - jekyll-sitemap
 
 project_title: KLEE
