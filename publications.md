@@ -650,6 +650,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   October 20-24, 2018, Fukuoka, Japan  
   **Coppelia is available [here](https://github.com/rzhang2285/Coppelia).**
 
+1. [Symbolic Execution with Existential Second-Order Constraints](https://es-static.fbk.eu/people/griggio/papers/fse18.pdf)  
+  Sergey Mechtaev, Alberto Griggio, Alessandro Cimatti, Abhik Roychoudhury  
+  Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2018)  
+  November 4-9, 2018, Lake Buena Vista, USA
+
 1. [Interoperability-Guided Testing of QUIC Implementations using Symbolic Execution](https://arxiv.org/pdf/1811.12099.pdf)  
   Felix Rath, Daniel Schemmel, Klaus Wehrle  
   Workshop on the Evolution, Performance, and Interoperability of QUIC (EPIQ 2018)  
