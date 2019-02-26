@@ -555,6 +555,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Workshop on Forming an Ecosystem Around Software Transformation (FEAST 2017)  
   November 3, 2017, Dallas, USA
 
+1. [Souper: A Synthesizing Superoptimizer](https://arxiv.org/abs/1711.04422)  
+  Raimondas Sasnauskas, Yang Chen, Peter Collingbourne, Jeroen Ketema, Gratian Lup, Jubi Taneja, John Regehr  
+  arXiv, November 13, 2017  
+  **Souper is available [here](https://github.com/google/souper).**
+
 1. [Resilience Evaluation via Symbolic Fault Injection on Intermediate Code](http://www.informatik.uni-bremen.de/agra/doc/konf/DATE18_symbolic-swifi-llvm.pdf)  
   Hoang M. Le, Vladimir Herdt, Daniel Große, Rolf Drechsler  
   Design, Automation and Test in Europe (DATE 2018)  
