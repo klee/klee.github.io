@@ -655,6 +655,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   October 20-24, 2018, Fukuoka, Japan  
   **Coppelia is available [here](https://github.com/rzhang2285/Coppelia).**
 
+1. [Automata Learning for Symbolic Execution](https://www.cs.utexas.edu/users/hunt/FMCAD/FMCAD18/papers/paper33.pdf)  
+  Bernhard K. Aichernig, Roderick Bloem, Masoud Ebrahimi, Martin Tappler, Johannes Winter  
+  Formal Methods in Computer Aided Design (FMCAD 2018)  
+  October 30 - November 2, 2018, Austin, USA
+
 1. [Symbolic Execution with Existential Second-Order Constraints](https://es-static.fbk.eu/people/griggio/papers/fse18.pdf)  
   Sergey Mechtaev, Alberto Griggio, Alessandro Cimatti, Abhik Roychoudhury  
   Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2018)  
