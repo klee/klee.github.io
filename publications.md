@@ -381,7 +381,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Symbolic Execution for BIOS Security](https://www.usenix.org/system/files/conference/woot15/woot15-paper-bazhaniuk.pdf)  
   Oleksandr Bazhaniuk, John Loucaides, Lee Rosenbaum, Mark R. Tuttle, Vincent Zimmer  
   USENIX Workshop on Offensive Technologies (WOOT 2015)  
-  August 10-11, 2015, Washington D.C., USA  
+  August 10-11, 2015, Washington D.C., USA
+
+1. [Under-Constrained Symbolic Execution: Correctness Checking for Real Code](https://www.usenix.org/node/190952)  
+  David A. Ramos, Dawson Engler  
+  USENIX Security Symposium (SEC 2015)  
+  August 12-14, 2015, Washington D.C., USA
 
 1. [Parallel SMT Solving and Concurrent Symbolic Execution](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7345624)  
   Emil Rakadjiev, Taku Shimosawa, Hiroshi Mine, Satoshi Oshima  
@@ -678,4 +683,4 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Analyzing Semantic Correctness with Symbolic Execution: A Case Study on PKCS#1 v1.5 Signature Verification](https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04A-4_Chau_paper.pdf)  
   Sze Yiu Chau, Moosa Yahyazadeh, Omar Chowdhury, Aniket Kate, Ninghui Li  
   Network and Distributed System Security Symposium (NDSS 2019)  
-  February 24-27, 2019, San Diego, CA, USA
+  February 24-27, 2019, San Diego, USA
