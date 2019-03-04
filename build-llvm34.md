@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Building KLEE (recommended)
+title: Building KLEE (deprecated)
 subtitle: with LLVM 3.4
 slug: build-llvm34
 ---
 
 {% include version_warning.md %}
 
-The current procedure for building KLEE with LLVM 3.4 (recommended) is outlined below.
+The current procedure for building KLEE with LLVM 3.4 (deprecated) is outlined below.
 
 1. **Install dependencies:** KLEE requires all the dependencies of LLVM, which are discussed [here](http://llvm.org/docs/GettingStarted.html#requirements). In particular, you should install the following programs and libraries, listed below as Ubuntu packages:  
 
@@ -73,13 +73,13 @@ The current procedure for building KLEE with LLVM 3.4 (recommended) is outlined 
 
    To tell KLEE to use klee-uclibc and use the POSIX runtime pass
    `-DENABLE_POSIX_RUNTIME=ON` and `-DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR>`
-   to CMake when configuring KLEE in step 9 where `<KLEE_UCLIBC_SOURCE_DIR>` is
+   to CMake when configuring KLEE in step 8 where `<KLEE_UCLIBC_SOURCE_DIR>` is
    the absolute path to the cloned `klee-uclibc` git repository.<br/><br/>  
 
 5. **(Optional) Get Google test sources:**
 
    For unit tests we use the Google test libraries. If you don't want to run the unit tests you can skip this step but you will
-   need to pass `-DENABLE_UNIT_TESTS=OFF` to CMake when configuring KLEE in step 9.
+   need to pass `-DENABLE_UNIT_TESTS=OFF` to CMake when configuring KLEE in step 8.
 
    We depend on a version `1.7.0` right now so grab the sources for it.
 
@@ -98,19 +98,19 @@ The current procedure for building KLEE with LLVM 3.4 (recommended) is outlined 
 
    If you don't want to run the tests you can skip this step but you will need
    to pass `-DENABLE_UNIT_TESTS=OFF` and `-DENABLE_SYSTEM_TESTS=OFF` to CMake
-   when configuring KLEE in step 9.
+   when configuring KLEE in step 8.
 
    ```bash
    $ pip install lit
    ```
 
-8. **Get KLEE source:**  
+7. **Get KLEE source:**  
 
    ```bash
    $ git clone https://github.com/klee/klee.git
    ```
 
-9. **Configure KLEE:**
+8. **Configure KLEE:**
 
    KLEE must be built "out of source" so first make a binary build directory. You can create this where ever you like.
 
@@ -119,7 +119,7 @@ The current procedure for building KLEE with LLVM 3.4 (recommended) is outlined 
    ```
 
    Now `cd` into the build directory and run CMake to configure KLEE where `<KLEE_SRC_DIRECTORY>` is the path
-   to the KLEE git repository you cloned in step 8.
+   to the KLEE git repository you cloned in step 7.
 
    ```bash
    $ cd klee_build_dir
