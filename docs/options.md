@@ -129,9 +129,17 @@ Warnings about external calls can be controlled via:
 * **--all-external-warnings**: Issue a warning everytime an external call is made, as opposed to once per function (default=off)
 * **--suppress-external-warnings**: Supress warnings about calling external functions
 
-## Entry Point
 
-To change the entry point you can use the option `-entry-point=FUNCTION_NAME`, where **FUNCTION_NAME** is the name of the function to use as the entry point for execution.
+## Startup Options  
+
+These following options affect how execution is started:
+
+1. `--entry-point=<function_name>`: Execution will start from this function instead of `main`
+2. `--env-file=<file_name>`: Execution will start by initializing the environment from the given file (in "env" format)
+3. `--optimize`: optimizes the code before execution by running various compiler optimization passes (default=false)
+4. `--output-dir=<dir_name>`: Directory in which to write results (default=klee-out-<N>)
+5. `--run-in-dir=<dir_name>`: Change to the given directory before starting execution (default=location of tested file).
+
 
 ## Calls to `klee-assume`
 
