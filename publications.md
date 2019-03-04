@@ -519,7 +519,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Failure-Directed Program Trimming](https://dl.acm.org/citation.cfm?id=3106249)  
   Kostas Ferles, Valentin Wüstholz, Maria Christakis, Isil Dillig  
   Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017)  
-  September 4-8, 2017, Paderborn, Germany
+  September 4-8, 2017, Paderborn, Germany  
 
 1. [Symbolic Execution of Programmable Logic Controller Code](https://pdfs.semanticscholar.org/6abb/1a0a4031d1e4e81b5aee041ffb438c55c5b2.pdf)  
   Shengjian Guo, Meng Wu, Chao Wang  
@@ -674,3 +674,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Chao Zhang Weiliang Yin Zhiqiang Lin  
   International Workshop on Quantitative Approaches to Software Quality (QuASoQ 2018)  
   December 4, 2018, Nara, Japan
+  
+1. [Analyzing Semantic Correctness with Symbolic Execution: A Case Study on PKCS#1 v1.5 Signature Verification](https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04A-4_Chau_paper.pdf)
+  Sze Yiu Chau, Moosa Yahyazadeh, Omar Chowdhury, Aniket Kate, Ninghui Li
+  Network and Distributed System Security Symposium (NDSS 2019)
+  February 24-27, 2019, San Diego, CA, USA
