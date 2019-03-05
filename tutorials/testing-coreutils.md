@@ -97,14 +97,21 @@ As before, we will build in a separate directory so we can easily access both th
 {% highlight bash %}
 coreutils-6.11$ mkdir obj-llvm
 coreutils-6.11$ cd obj-llvm
-obj-llvm$ CC=wllvm ../configure --disable-nls CFLAGS="-g"
+obj-llvm$ CC=wllvm ../configure --disable-nls CFLAGS="-g -O1 -Xclang -disable-llvm-passes"
 ... verify that configure worked ...
-obj-llvm$ CC=wllvm make
-obj-llvm$ CC=wllvm make -C src arch hostname
+obj-llvm$ make
+obj-llvm$ make -C src arch hostname
 ... verify that make worked ...
 {% endhighlight %}
 
-Notice that we made two changes. First, we don't want to add _gcov_ instrumentation in the binary we are going to test using KLEE, so we left of the `-fprofile-arcs -ftest-coverage` flags. Second, when running make, we set the `CC` variable to point to `wllvm`.
+Notice that we made two changes. First, we don't want to add _gcov_
+instrumentation in the binary we are going to test using KLEE, so we left of
+the `-fprofile-arcs -ftest-coverage` flags.  Second we added the `-O1 -Xclang
+-disable-llvm-passes` flags to `CFLAGS`. This similar to adding `-O0`, however
+in LLVM 5.0 and later compiling with `-O0`  prevents KLEE from performing its
+own optimisations (which we will do later), therefore we compile with `-O1`,
+but explicitly disable all optimisations. See this
+[issue](https://github.com/klee/klee/issues/902) for more details.
 
 If all went well, you should now have Coreutils _executables_. For example:
 
