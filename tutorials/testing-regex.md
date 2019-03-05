@@ -21,7 +21,7 @@ generate object files in LLVM bitcode format.
 From within the `examples/regexp` directory:
 
 {% highlight bash %}
-$ clang -I ../../include -emit-llvm -c -g -O1 -Xclang -disable-llvm-passes Regexp.c
+$ clang -I ../../include -emit-llvm -c -g -O0 -Xclang -disable-O0-optnone Regexp.c
 {% endhighlight %}
 
 which should create a Regexp.bc file in LLVM bitcode format. The `-I` argument
@@ -31,9 +31,9 @@ which contains definitions for the intrinsic functions used to interact with
 the KLEE virtual machine. `-c` is used because we only want to compile the code
 to an object file (not a native executable), and finally `-g` causes additional
 debug information to be stored in the object file, which KLEE will use to
-determine source line number information. `-O1 -Xclang -disable-llvm-passes` is
+determine source line number information. `-O0 -Xclang -disable-O0-optnone` is
 used to compile without any optimisation, but without preventing KLEE from
-performing its own optimisation, which compiling with `-O0` would.
+performing its own optimisations, which compiling with `-O0` would.
 
 If you have the LLVM tools installed in your path, you can verify that this step worked by running llvm-nm on the generated file:
 

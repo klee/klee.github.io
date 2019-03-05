@@ -106,12 +106,17 @@ obj-llvm$ make -C src arch hostname
 
 Notice that we made two changes. First, we don't want to add _gcov_
 instrumentation in the binary we are going to test using KLEE, so we left of
-the `-fprofile-arcs -ftest-coverage` flags.  Second we added the `-O1 -Xclang
--disable-llvm-passes` flags to `CFLAGS`. This similar to adding `-O0`, however
+the `-fprofile-arcs -ftest-coverage` flags.  Second, we added the `-O1 -Xclang
+-disable-llvm-passes` flags to `CFLAGS`. This is similar to adding `-O0`, however
 in LLVM 5.0 and later compiling with `-O0`  prevents KLEE from performing its
-own optimisations (which we will do later), therefore we compile with `-O1`,
+own optimisations (which we will do later). Therefore, we compile with `-O1`
 but explicitly disable all optimisations. See this
-[issue](https://github.com/klee/klee/issues/902) for more details.
+[issue](https://github.com/klee/klee/issues/902) for more details. 
+
+Note that we could have used `-O0 -Xclang -disable-O0-optnone` as well but
+because we are going to run Coreutils with optimisations later, it is better to
+compile with `-O1 -Xclang -disable-llvm-passes`. The `-O1` version emits
+bitcode that is more suited for optimisation, so we prefer to use that in this case.
 
 If all went well, you should now have Coreutils _executables_. For example:
 
