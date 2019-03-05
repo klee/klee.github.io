@@ -235,3 +235,23 @@ KLEE uses LLVM's CommandLine library for adding options to tools in KLEE, which 
 ### Run-time libraries
 
 KLEE searches for run-time libraries in install and build paths. These are hard-coded to the binary, so if the filesystem tree changes, KLEE will not find them until recompiled. This behaviour can be overridden by setting KLEE_RUNTIME_LIBRARY_PATH environment variable to the path to the libraries.
+
+### KLEE statistics
+
+
+KLEE uses [SQLite3](https://www.sqlite.org) to store the statistics of its runs
+in the `<klee-out-dir>/run.stats` file.  `klee-stats` can be used to give an
+overview of the statics with
+
+```
+klee-stats <klee-out-dirs>
+```
+
+However, since we use SQLite3 a normal sqlite client can be used to open the file
+and run arbitrary SQL queries on the data:
+
+```
+$ sqlite <klee-out-dir>/run.stats
+> SELECT * FROM stats
+```
+
