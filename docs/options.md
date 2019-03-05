@@ -18,10 +18,10 @@ Contents
 $ klee [klee-options] <program.bc> [program-options]
 {% endhighlight %}
 
-The general form of a KLEE command-line is first the arguments to KLEE itself (`[klee-options]`), then the LLVM bitcode file to execute (`program.bc`), and then any arguments to pass to the application (`[program-options]`).
+The general form of a KLEE command-line is: first the arguments to KLEE itself (`[klee-options]`), then the LLVM bitcode file to execute (`program.bc`), followed by any arguments to pass to the application (`[program-options]`).
 In particular, the KLEE option `-posix-runtime` enables the use of the symbolic environment options as part of the program's options.
 
-Note that to enable integer overlow detection, you need to have built `program.bc` using `clang` and with the option `-fsanitize=signed-integer-overflow` for signed integer overflow, and with the option `-fsanitize=unsigned-integer-overflow` for unsigned integer overflow. These `clang` options instrument `program.bc` with overflow checks that are used by KLEE.
+Note that to enable integer overflow detection, you need to have built `program.bc` using `clang` with the option `-fsanitize=signed-integer-overflow` for signed integer overflow, and with the option `-fsanitize=unsigned-integer-overflow` for unsigned integer overflow. These `clang` options instrument `program.bc` with overflow checks that are used by KLEE.
 
 To get a complete list of KLEE's command-line options run: `klee --help`. The remainder of this page illustrate KLEE's main command-line options.
 
@@ -59,7 +59,7 @@ Usage examples for `-sym-arg` and `-sym-files` are provided in [this tutorial]({
 KLEE provides four main search heuristics:
 
 1.  **Depth-First Search (DFS):** Traverses states in depth-first order.
-2.  **Random State Search:**Randomly selects a state to explore.
+2.  **Random State Search:** Randomly selects a state to explore.
 3.  **Random Path Selection:** Described in our [KLEE OSDI'08](http://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf) paper.
 4.  **Non Uniform Random Search (NURS):** Selects a state randomly according to a given distribution. The distribution can be based on the minimum distance to an uncovered instruction (MD2U), the query cost, etc.
 
@@ -77,7 +77,7 @@ $ klee --search=random-path demo.o
 
 runs it using the random path selection strategy. The full list of options is shown in KLEE's help message:
 
-{% highlight bash %}
+```
 $ klee --help
 -search - Specify the search heuristic (default=random-path interleaved with nurs:covnew)
   =dfs - use Depth First Search (DFS)
@@ -89,7 +89,7 @@ $ klee --help
   =nurs:icnt - use NURS with Instr-Count heuristic
   =nurs:cpicnt - use NURS with CallPath-Instr-Count heuristic
   =nurs:qc - use NURS with Query-Cost heuristic
-{% endhighlight %}
+```
 
 ### Interleaving search heuristics
 
@@ -101,6 +101,11 @@ $ klee --search=random-state --search=nurs:md2u demo.o
 
 interleaves the Random State and the NURS:MD2U heuristics in a round robin fashion.  
 
+### Batching search heuristics
+
+The main interpreter loop in KLEE selects a new state after every executed instruction.
+To execute multiple instructions before selecting another state, the `-use-batching-search` flag can be enabled.
+Further options allow to specify the batch size by number of instructions (e.g. `-batch-instructions=1000`) or execution time (e.g. `-batch-time=5s`).
 
 ### Default search heuristics
 
@@ -116,7 +121,7 @@ The constraint solving options are documented separately on the [Solver Chain]({
 
 KLEE provides three policies for handling calls to external functions:
 
-1. **None**: No external function calls are allowed.  Note that KLEE always allows some external calls with concrete arguments to go through (in particular printf and puts), regardless of this option.
+1. **None**: No external function calls are allowed.  Note that KLEE always allows some external calls with concrete arguments to go through (in particular `printf` and `puts`), regardless of this option.
 
 2. **Concrete**:  Only external function calls with concrete arguments are allowed (default)
 
@@ -126,8 +131,8 @@ The external call policy can be specified with the option `--external-calls`, wh
 
 Warnings about external calls can be controlled via:
 
-* **--all-external-warnings**: Issue a warning everytime an external call is made, as opposed to once per function (default=off)
-* **--suppress-external-warnings**: Supress warnings about calling external functions
+* *--all-external-warnings*: Issue a warning every time an external call is made, as opposed to once per function (default=off)
+* *--suppress-external-warnings*: Suppress warnings about calling external functions
 
 
 ## Startup Options  
@@ -141,13 +146,13 @@ These following options affect how execution is started:
 5. `--run-in-dir=<dir_name>`: Change to the given directory before starting execution (default=location of tested file).
 
 
-## Calls to `klee-assume`
+## Calls to `klee_assume`
 
 By default, KLEE will report an error if the assumed condition is infeasible. The option `-silent-klee-assume` can be used to silently terminate the current path exploration in such cases.
 
 ## Statistics
 
-By default, KLEE generates two files containing statistics concerning the code exploration:
+KLEE generates two files containing statistics concerning the code exploration:
 
 * **run.stats**: This is a text file containing various statistics emitted by KLEE. While this file can be inspected manually, you should use the [klee-stats]({{site.baseurl}}/docs/tools) tool for that.
 * **run.istats**: This is a text file in Callgrind format containing global statistics emitted by KLEE for each line of code in the program. This file can be inspected with frontends which are able to read it (e.g. [kcachegrind](https://kcachegrind.github.io/))
@@ -166,7 +171,7 @@ There are several options to modify how KLEE outputs statistics:
 
 KLEE provides several debugging options:
 
-* `-debug-print-instructions=FORMAT`     - Log the LLVM instructions executed by KLEE (**default=off**).
+* `-debug-print-instructions=FORMAT`     - Log the LLVM instructions executed by KLEE (*default=off*).
 
   The output may include: the source code file and line (`src`), the instruction identifier as assigned by KLEE (`inst_id`), and the LLVM instruction with debugging informations (`llvm_inst`). The output format can be controlled with the following options:
   
@@ -177,18 +182,23 @@ KLEE provides several debugging options:
   - `=src:file`       - Log all instructions to file instructions.txt in format `[src, inst_id]`
   - `=compact:file`   - Log all instructions to file instructions.txt in format `[inst_id]`
 
-* `-debug-compress-instructions`  - Compress the `instructions.txt` file (**default=off**)
+* `-debug-compress-instructions`  - Compress the `instructions.txt` file (*default=off*)
 
 ## Memory Management
 
-KLEE explicitly intercepts calls for memory management (like `malloc()` and `free()`) and forwards to an existing memory allocators.
+KLEE explicitly intercepts calls for memory management (like `malloc()` and `free()`) and forwards them to a memory allocator.
 To change this behaviour, following options are provided:
 
 * `--allocate-determ`                  - Enable support to allocate memory deterministically for the executed application (*default=off*)
 * `--allocate-determ-size`             - For deterministic allocation, the buffer of the specified size is pre-allocated in MB (*default=100*)
-* `--allocate-determ-start-addres`     - Controls the required start address of the pre-allocated memory. This address has to be page aligned. If null is provided, the memory is mapped to an arbitrary address.
+* `--allocate-determ-start-address`    - Controls the required start address of the pre-allocated memory. This address has to be page aligned. If null is provided, the memory is mapped to an arbitrary address.
 * `--return-null-on-zero-malloc`       - Controls if a NULL pointer should be returned in case the size argument is zero (*default=off*)
 * `--red-zone-space`                   - Controls the space kept unused between two adjacent allocations in byte (*default=10*)
+
+_Deterministic allocation_ here means that KLEE internally uses `mmap` to pre-allocate memory at a fixed address.
+All allocations are then placed in this memory area.
+The advantage is that repeated executions of a program create the same addresses and the same queries.
+Obviously, this only works when the state selection heuristic between runs is identical and the same states are killed when KLEE runs out of memory.
 
 ## Making KLEE Exit on Events
 
