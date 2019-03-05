@@ -19,14 +19,16 @@
         </li>
       </ul>
       <div class="main-footer__klee-section">
-        <p style="text-align: center">
+        <div class="g--half">
 {% if site.is_release %}
 Documentation for KLEE v{{site.current_version}}
 {% else %}
 Documentation for KLEE master branch
 {% endif %}
-        </p>
-        <p>&copy; Copyright 2009-2017, The KLEE Team.</p>
+        </div>
+        <div  class="g--half g--last">
+         <p style="text-align: right; padding: 0 32px 0 0;">&copy; Copyright 2009-2019, The KLEE Team</p>
+        </div>
       </div>
     </div>
   </div>
