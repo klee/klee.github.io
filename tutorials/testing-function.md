@@ -41,10 +41,33 @@ KLEE operates on LLVM bitcode. To run a program with KLEE, you first compile it 
 From within the `examples/get_sign` directory:
 
 {% highlight bash %}
-$ clang -I ../../include -emit-llvm -c -g get_sign.c
+$ clang -I ../../include -emit-llvm -c -g -O1 -Xclang -disable-llvm-passes get_sign.c
 {% endhighlight %}
 
-which should create a `get_sign.bc` file in LLVM bitcode format. The -I argument is used so that the compiler can find klee/klee.h, which contains definitions for the intrinsic functions used to interact with the KLEE virtual machine. It is useful to (1) build with `-g` to add debug information to the bitcode file, which we use to generate source line level statistics information, and (2) not use any optimization flags. The code can be optimized later, as KLEE provides the `--optimize` command line option to run the optimizer internally.
+which should create a `get_sign.bc` file in LLVM bitcode format. The -I
+argument is used so that the compiler can find klee/klee.h, which contains
+definitions for the intrinsic functions used to interact with the KLEE virtual
+machine. It is useful to build with `-g` to add debug information to the
+bitcode file, which we use to generate source line level statistics
+information.
+
+The bitcode passed to KLEE should not be optimised, because we hand picked the
+correct optimisations for KLEE which can be enabled with KLEE's `--optimize`
+command line option. However in the later version of LLVM versions ( > 5.0)  the
+`-O0` zero flag should NOT be used when compiling for KLEE as it prevents KLEE
+from doing its own optimisations. `-O1 -Xclang -disable-llvm-passes` should be used
+instead, see [this issue](https://github.com/klee/klee/issues/902) for more
+details.
+
+Note that if you do not wish to replay the test cases as described latter and
+don't care about debug information and optimisation. You can delete the
+`klee/klee.h` include and then compile compile `get_sign.c` with:
+
+{% highlight bash %}
+$ clang -emit-llvm -c get_sign.c
+{% endhighlight %}
+
+However we recommend using the longer command above.
 
 ## Running KLEE
 
