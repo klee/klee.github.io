@@ -18,7 +18,7 @@ Contents
 $ klee [klee-options] <program.bc> [program-options]
 {% endhighlight %}
 
-The general form of a KLEE command-line is first the arguments for KLEE itself (`[klee-options]`), then the LLVM bitcode file to execute (`program.bc`), and then any arguments to pass to the application (`[program-options]`).
+The general form of a KLEE command-line is first the arguments to KLEE itself (`[klee-options]`), then the LLVM bitcode file to execute (`program.bc`), and then any arguments to pass to the application (`[program-options]`).
 In particular, the KLEE option `-posix-runtime` enables the use of the symbolic environment options as part of the program's options.
 
 Note that to enable integer overlow detection, you need to have built `program.bc` using `clang` and with the option `-fsanitize=signed-integer-overflow` for signed integer overflow, and with the option `-fsanitize=unsigned-integer-overflow` for unsigned integer overflow. These `clang` options instrument `program.bc` with overflow checks that are used by KLEE.
@@ -93,7 +93,7 @@ $ klee --help
 
 ### Interleaving search heuristics
 
-Search heuristics in KLEE can be interleaved in a round-robin fashion. To interleave several search heuristics to be interleaved, use the `--search` multiple times. For example:
+Search heuristics in KLEE can be interleaved in a round-robin fashion. To interleave several search heuristics, use the `--search` option multiple times. For example:
 
 {% highlight bash %}
 $ klee --search=random-state --search=nurs:md2u demo.o
@@ -101,17 +101,45 @@ $ klee --search=random-state --search=nurs:md2u demo.o
 
 interleaves the Random State and the NURS:MD2U heuristics in a round robin fashion.  
 
+
 ### Default search heuristics
 
 The default heuristics used by KLEE are `random-path` interleaved with `nurs:covnew`.
 
-## Query Logging
 
-To log the queries issued by KLEE during symbolic execution see [Solver Chain]({{site.baseurl}}/docs/solver-chain/).
+## Constraint Solving Options  
 
-## Entry Point
+The constraint solving options are documented separately on the [Solver Chain]({{site.baseurl}}/docs/solver-chain/) page.
 
-To change the entry point you can use the option `-entry-point=FUNCTION_NAME`, where **FUNCTION_NAME** is the name of the function to use as the entry point for execution.
+
+## External Call Policy
+
+KLEE provides three policies for handling calls to external functions:
+
+1. **None**: No external function calls are allowed.  Note that KLEE always allows some external calls with concrete arguments to go through (in particular printf and puts), regardless of this option.
+
+2. **Concrete**:  Only external function calls with concrete arguments are allowed (default)
+
+3. **All**: All external function calls are allowed.  This concretizes any symbolic arguments in calls to external functions.
+
+The external call policy can be specified with the option `--external-calls`, which can be set to one of `none`, `concrete` or `all` (e.g., `--external-calls=all`).
+
+Warnings about external calls can be controlled via:
+
+* **--all-external-warnings**: Issue a warning everytime an external call is made, as opposed to once per function (default=off)
+* **--suppress-external-warnings**: Supress warnings about calling external functions
+
+
+## Startup Options  
+
+These following options affect how execution is started:
+
+1. `--entry-point=<function_name>`: Execution will start from this function instead of `main`
+2. `--env-file=<file_name>`: Execution will start by initializing the environment from the given file (in "env" format)
+3. `--optimize`: optimizes the code before execution by running various compiler optimization passes (default=false)
+4. `--output-dir=<dir_name>`: Directory in which to write results (default=klee-out-<N>)
+5. `--run-in-dir=<dir_name>`: Change to the given directory before starting execution (default=location of tested file).
+
 
 ## Calls to `klee-assume`
 
