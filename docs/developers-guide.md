@@ -2,7 +2,6 @@
 layout: default
 title: Developer's Guide
 subtitle: Working with KLEE source code
-lead: This guide is out of date and needs to be rewritten.  Any help would be appreciated.
 slug: developers-guide
 ---
 
@@ -25,42 +24,102 @@ When submitting patches to KLEE, please open a separate pull request for each in
 
 ## Build System
 
-KLEE uses LLVM's ability to build third-party projects, which is described [here](http://llvm.org/docs/Projects.html). The build system uses [GNU Autoconf](http://www.gnu.org/software/autoconf/) and [AutoHeader](http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/autoheader-Invocation.html) to configure the build, but does not use the rest of GNU Autotools (e.g. automake).
+KLEE uses [cmake](https://cmake.org/) as the build system. The very basic build
+setup similar to what KLEE uses is presented in LLVM's [Writing an LLVM pass
+tutorial](http://llvm.org/docs/WritingAnLLVMPass.html#setting-up-the-build-environment).
 
-LLVM's build system supports out-of-source builds and therefore so does KLEE. It is highly recommended you take advantage of this. For example, you could create three builds (Release, Release with debug symbols, Debug) that all use the same source tree. This allows you keep your source tree clean and allows multiple configurations to be tested from a single source tree.
+
+LLVM's build system supports out-of-source builds and so does KLEE.  It is
+highly recommended you take advantage of this. For example, you could create
+three builds (Release, Release with debug symbols, Debug) that all use the same
+source tree. This allows you to keep your source tree clean and to build with
+multiple configurations from a single source tree.
 
 ### Setting up a debug build of KLEE
 
-Setting up a debug build of KLEE (we'll assume it is an out-of-source build) is very similar to the build process described in [Getting Started]({{site.baseurl}}/getting-started), with the exception of steps 6 and 7.
+Setting up a debug build of KLEE (we'll assume it is an out-of-source build) is
+very similar to the build process described in [Getting
+Started]({{site.baseurl}}/getting-started). KLEE uses standard [LLVM build type
+idioms](http://llvm.org/docs/CMake.html#frequently-used-cmake-variables), so
+building a Debug build means just setting the `CMAKE_BUILD_TYPE` variable to
+`Debug` for example:
 
-1.  Now we will configure KLEE. Notice that we are forcing the compiler to produce unoptimised code, this isn't the default behaviour.
+```bash
+   cmake \
+     -DCMAKE_BUILD_TYPE=Debug \
+     -DENABLE_SOLVER_STP=ON \
+     -DENABLE_POSIX_RUNTIME=ON \
+     -DENABLE_KLEE_UCLIBC=ON \
+     -DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR> \
+     -DGTEST_SRC_DIR=<GTEST_SOURCE_DIR> \
+     -DENABLE_SYSTEM_TESTS=ON \
+     -DENABLE_UNIT_TESTS=ON \
+     -DLLVM_CONFIG_BINARY=<PATH_TO_LLVM_llvm-config> \
+     -DLLVMCC=<PATH_TO_clang> \
+     -DLLVMCXX=<PATH_TO_clang++>
+     <KLEE_SRC_DIRECTORY>
+```
 
-    ```bash
-    $ mkdir path/to/build-dir  
-    $ cd path/to/build-dir  
-    $ CXXFLAGS="-g -O0" CFLAGS="-g -O0" path/to/source-dir/configure --with-llvm=path/to/llvm --with-stp=path/to/stp/install --with-uclibc=path/to/klee-uclibc --enable-posix-runtime --with-runtime=Debug+Asserts
-    ```
+The rest of the build process is exactly the same as in our build guides. Note
+that we only provide build guides for some popular LLVM versions, however KLEE
+builds with many more (at the time of writing LLVM 3.4 - LLVM 7).  The build
+process is exactly the same, cmake only needs `LLVM_CONFIG_BINARY`,
+`LLVMCC` and `LLVMCXX` to point to versions of LLVM you want to build with. 
 
-    Note if you're using an out-of-source build of LLVM you will need to use `--with-llvmsrc=` and `--with-llvmobj=` configure options instead of `--with-llvm=`
-    
-2.  Now we can build KLEE.
 
-    ```bash
-    $ make -j
-    ```
+Note that KLEE depends on LLVM and STP (and optionally Z3). If you need to
+debug KLEE's calls to that code, then you will need to build LLVM/STP/Z3 with
+debug support too.
 
-    Note that we are using the `-j` option of make to speed up the compilation process.
+## Source overview
 
-Note that KLEE depends on LLVM and STP. If you need to debug KLEE's calls to that code, then you will need to build LLVM/STP with debug support too.
+This section gives a brief overview of how KLEE's source code is structured:
+
+* `include/` Contains the publicly exported header files. That is header files
+  that are accessible throughout the source code.
+
+* `tools/` Has the `main` functions for all KLEE binaries in the `bin/`
+  directory. Note that some are Python scripts.
+
+* `lib/` Contains most of the code.
+    * `lib/Core` Contains code that interprets and executes the LLVM bitcode and
+      KLEE's memory model. The `Executor.cpp` class is usually a good starting
+      point for any KLEE extension.
+    * `lib/Expr` has KLEE's expression library.
+    * `lib/Solver` contains all the solvers (STP, Z3, MetaSMT) as well as all
+      the solvers in the solver chain (Independent Solver and Counterexample
+      Cache).
+    * `lib/Module` deals with manipulating the LLVM bitcode before it is
+      executed. It links in the (POSIX) runtime functions, runs
+      optimisations and other passes. Some of these put the LLVM bitcode in the state
+      KLEE expects and insert some runtime checks (such as instrumenting the
+      division operations to check for div by zero errors).
+
+* `runtime/` contains the various runtime KLEE supports. That is code that is
+  linked in with the program KLEE analyses before execution.
+
+* `tests/` contains small C programs and LLVM bitcode that is used as a
+  regression test suite for KLEE.
 
 ### Adding a class
 
-Because KLEE uses LLVM's build system, adding a class to an existing library in KLEE is very simple. For example, to add a class to libkleaverExpr, the following steps would be followed:
+Because KLEE uses LLVM's build system, adding a class to an existing library in
+KLEE is very simple. For example, to add a class to libkleaverExpr
+(``lib/Expr``), the
+following steps would be followed:
 
-1. Create the header file (``.h``) for the class and place it somewhere inside ``include/`` (the location isn't really important except that ``#include`` is relative to the ``include/`` directory).
-2. Create the source file (``.cpp``) for the class place it in ``lib/Expr/``. You can confirm that the library in which your new class will be included is ``kleaverExpr`` by looking at the ``Makefile`` in ``lib/Expr``.
+1. Create the header file (``.h``) for the class and place it somewhere inside
+``include/`` (the location isn't really important except that ``#include`` is
+relative to the ``include/`` directory). Note that if you only require the
+header in the same directory you can also put it next to the source file (ie.
+``lib/Expr/``).
 
-That's it! Now LLVM's build system will detect the new `.cpp` file and add it to the library that is generated when you run make.
+2. Create the source file (``.cpp``) for the class place it in ``lib/Expr/``.
+
+3. Add your ``.cpp`` file to the ``lib/Expr/CMakeLists.txt`` as an argument to
+the ``klee_add_component`` function.
+
+That's it! 
 
 ### Building code documentation
 
@@ -106,11 +165,18 @@ All ``llvm-lit`` configuration files are Python scripts loaded by ``llvm-lit`` s
 The actions performed in each test are specified by special comments in the file. For example, in ``test/Feature/ByteSwap.c`` the first two lines are:
 
 {% highlight c %}
-// RUN: %llvmgcc %s -emit-llvm -O0 -c -o %t1.bc
+// RUN: %llvmgcc %s -emit-llvm %O0opt -c -o %t1.bc
 // RUN: %klee --libc=klee --exit-on-error %t1.bc
 {% endhighlight %}
 
-This first runs ``llvm-gcc`` (or ``clang``) on the source file (``%s``) and generates a temporary file (``%t1.bc``). Then KLEE is executed on this generated temporary file. If either program returns a non-zero exit code (or crashes) then test is considered to have failed. More information on the available substitution variables (such as ``%s</tt>``) can be found (here)[http://llvm.org/docs/TestingGuide.html#variables-and-substitutions].
+This first runs ``llvm-gcc`` (or ``clang``) on the source file (``%s``) and generates a temporary file (``%t1.bc``). Then, KLEE symbolically executes this bitcode file with one of its runtimes (here ``--libc=klee``). If either program returns a non-zero exit code (or crashes), the test is considered to have failed. More information on the available substitution variables (such as ``%s</tt>``) can be found (here)[http://llvm.org/docs/TestingGuide.html#variables-and-substitutions].
+
+For LLVM versions greater than 5.0 programs that are to be analysed with KLEE
+should not be compiled with `-O0`, since it disables KLEE's ability to run
+optimisation passes. Therefore, we have the `%O0opt` variable, which
+substitutes to appropriate flags. At the time of writing these are: `-O0
+-Xclang -disable-O0-optnone`. For more details see this
+[issue](https://github.com/klee/klee/issues/902). 
 
 To run the entire test suite run:
 
@@ -168,4 +234,4 @@ KLEE uses LLVM's CommandLine library for adding options to tools in KLEE, which 
 
 ### Run-time libraries
 
-KLEE searches for run-time libraries in install and build paths. These are hard-coded to the binary, so if the filesystem tree changes, KLEE will not find them until recompiled. This behaviour can be overridden by setting _KLEE_RUNTIME_LIBRARY_PATH_ environment variable to the path to the libraries.
+KLEE searches for run-time libraries in install and build paths. These are hard-coded to the binary, so if the filesystem tree changes, KLEE will not find them until recompiled. This behaviour can be overridden by setting KLEE_RUNTIME_LIBRARY_PATH environment variable to the path to the libraries.
