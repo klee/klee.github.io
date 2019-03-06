@@ -18,71 +18,75 @@ KLEE provides a set of special functions which are useful in the context of symb
 
 ### Usage
 
-`klee_assume` is used to constrain the values symbolic variables can take. The remainder of the program's execution will only consider variable values which satisfy _condition_. Conceptually, `klee_assume(condition)` is equivalent to wrapping the rest of the program in an `if(condition) { }` statement, except that the former prints an error if the condition is unsatisfiable. Technically speaking, `klee_assume(condition)` adds _condition_ to the current path constraints.
+`klee_assume(condition)` is used to constrain the values symbolic variables can take. The remainder of the program's execution will only consider variable values which satisfy _condition_. Conceptually, `klee_assume(condition)` is equivalent to wrapping the rest of the program in an `if(condition){ }` statement, except that the former prints an error if the condition is unsatisfiable. Technically speaking, `klee_assume(condition)` adds _condition_ to the current path constraints.
 
 ### Interaction with short-circuit operators
 
-When _condition_ contains [short-circuit operators](https://en.wikipedia.org/wiki/Short-circuit_evaluation), the results of the `klee_assume` intrinsics may come unexpected. For example, consider the following code and the corresponding KLEE output: Note: the output was obtained after compilation with llvm-gcc 2.9. Other compilers/versions may yield slightly different results.
+When _condition_ contains [short-circuit operators](https://en.wikipedia.org/wiki/Short-circuit_evaluation), the results of the `klee_assume` intrinsics may come unexpected. For example, consider the following code and the corresponding KLEE output:
 
 {% highlight c %}
-int main()
-{
+#include "klee/klee.h"
+
+int main() {
   int c,d;
   klee_make_symbolic(&c, sizeof(c), "c");
   klee_make_symbolic(&d, sizeof(d), "d");
 
-  klee_assume((c==2)||(d==3));
+  klee_assume((c==2) && (d==3));
 
   return 0;
 }
 {% endhighlight %}
 
 {% highlight bash %}
-$ llvm-gcc -c -emit-llvm p.c -o p.bc
+$ clang -O0 -I klee_path/include/ -g -c -emit-llvm p.c -o p.bc
 $ klee p.bc
-KLEE: output directory = "klee-out-0"
-KLEE: ERROR: invalid klee_assume call (provably false)
+KLEE: output directory is "/path/klee-out-0"
+KLEE: Using STP solver backend
+KLEE: ERROR: /path/p.c:8: invalid klee_assume call (provably false)
 KLEE: NOTE: now ignoring this error at this location
 
-KLEE: done: total instructions = 53
-KLEE: done: completed paths = 3
-KLEE: done: generated tests = 3
+KLEE: done: total instructions = 23
+KLEE: done: completed paths = 2
+KLEE: done: generated tests = 2
 {% endhighlight %}
 
-One might reasonably expect a single path through the progam and no error reports, while KLEE finds 3 paths, one of which triggers an error. The reason lies in the way compilers handle short-circuit operators. Upon compilation, the above code is transformed into 
+One might reasonably expect a single path through the program, while KLEE finds 2 paths.
+The reason lies in the way compilers handle short-circuit operators.
+Upon compilation, the above code is transformed into LLVM bitcode similar to the following C code:
 
 {% highlight c %}
-int main()
-{
+#include "klee/klee.h"
+
+int main() {
   int c,d;
   klee_make_symbolic(&c, sizeof(c), "c");
   klee_make_symbolic(&d, sizeof(d), "d");
   
   int tmp;
   if (c == 2) {
-    tmp = 1;
-  } else if (d == 3) {
-    tmp = 1;
-  } else {
+    tmp = d == 3;
+  else
     tmp = 0;
-  }
+
   klee_assume(tmp);
-  
+
   return 0;
 }
 {% endhighlight %}
 
-Since the program contains 3 paths and all are feasible, `klee_assume` will be called 3 times with trivial arguments:
+Since the program contains two paths and both are feasible, `klee_assume` will be called two times: once with the comparison expression "d == 3" and once with the trivial constant argument "0".
+As "0" is equivalent to _false_ and no path can satisfy this condition, KLEE prints out an error message and terminates the corresponding path.
 
-{% highlight c %}
-klee_assume(1);
-klee_assume(1);
-klee_assume(0);
-{% endhighlight %}
+More aggressive optimisations (e.g. `-Os`) reduce the program to a single path and `klee_assume` is called once with the expression "c == 2 && d == 3" as expected.
+Remember, symbolic execution engines use expressions internally to represent computations over symbolic variables.
+The C API of `klee_assume` still requires a boolean condition.
 
-The first two paths go further while the 3rd is terminated with an error, which is the intended behavior, albeit in a rather non-straightforward way. Ideally the paths which satisfy the assume would be merged but klee currently has only some experimental support for path merging. 
+As a side note, it is also possible to obtain the 'one path'-behaviour by replacing the logical `&&` and `||` operators with their bitwise counterparts.
+To correctly do this, ensure that all operands have boolean values and no side effects.
 
-As a side note, it is possible to obtain the 'one path' behavior by replacing the logical `&&` and `||` operators with their bitwise counterparts. To correctly do this, ensure that all operands have boolean values and no side effects.
+Note: the output was obtained after compilation with Clang 6.
+Other compilers/versions may yield slightly different results.
 
 ## `klee_prefer_cex(object, condition)`
 
