@@ -301,7 +301,12 @@ main {
 }
 
 .main-footer__klee-section {
-  padding-left: 17px;
+  padding: 0 17px 0 17px;
+}
+
+.main-footer__klee-section p {
+  font-size: 13px;
+  padding: 0;
 }
 
 .main-footer__title {
