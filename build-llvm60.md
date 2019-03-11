@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Building KLEE (recommended)
-subtitle: with LLVM 6.0
+title: LLVM 6.0 (recommended)
+subtitle: Building KLEE with LLVM 6.0
 slug: build-llvm60
 ---
 

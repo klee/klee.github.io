@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Building KLEE
-subtitle: with LLVM 3.8
+title: LLVM 3.8
+subtitle: Building KLEE with LLVM 3.8
 slug: build-llvm38
 ---
 

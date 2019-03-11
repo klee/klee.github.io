@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Building KLEE (deprecated)
-subtitle: with LLVM 3.4
+title:  LLVM 3.4 (deprecated)
+subtitle: Building KLEE with LLVM 3.4
 slug: build-llvm34
 ---
 
