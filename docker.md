@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Using KLEE with Docker
-subtitle: using Docker Images
+title: Docker
+subtitle: Using KLEE with Docker
 slug: documentation
 ---
 # What is Docker?
