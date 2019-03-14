@@ -97,7 +97,7 @@ As before, we will build in a separate directory so we can easily access both th
 {% highlight bash %}
 coreutils-6.11$ mkdir obj-llvm
 coreutils-6.11$ cd obj-llvm
-obj-llvm$ CC=wllvm ../configure --disable-nls CFLAGS="-g -O1 -Xclang -disable-llvm-passes"
+obj-llvm$ CC=wllvm ../configure --disable-nls CFLAGS="-g -O1 -Xclang -disable-llvm-passes -D__NO_STRING_INLINES  -D_FORTIFY_SOURCE=0 -U__OPTIMIZE__"
 ... verify that configure worked ...
 obj-llvm$ make
 obj-llvm$ make -C src arch hostname
@@ -117,6 +117,9 @@ Note that we could have used `-O0 -Xclang -disable-O0-optnone` as well but
 because we are going to run Coreutils with optimisations later, it is better to
 compile with `-O1 -Xclang -disable-llvm-passes`. The `-O1` version emits
 bitcode that is more suited for optimisation, so we prefer to use that in this case.
+
+`-D__NO_STRING_INLINES  -D_FORTIFY_SOURCE=0 -U__OPTIMIZE__` is another set of **important flags**.
+In later versions of LLVM, `clang` emits safe version of certain library functions. For example it replaces `fprintf` with `__fprintf_chk`, which KLEE does not model. That means it will treat it as an external function and concretize state. It will lead to *unexpected results*.
 
 If all went well, you should now have Coreutils _executables_. For example:
 
