@@ -41,8 +41,6 @@ The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined 
 
 4. **(Optional) Build uclibc and the POSIX environment model:** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
 
-   **To build klee-uclibc run:**
-
    ```bash
    $ git clone https://github.com/klee/klee-uclibc.git  
    $ cd klee-uclibc  
@@ -54,12 +52,27 @@ The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined 
 
    To tell KLEE to use both klee-uclibc and the POSIX runtime, pass
    `-DENABLE_POSIX_RUNTIME=ON` and `-DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR>`
-   to CMake when configuring KLEE in step 8 where `<KLEE_UCLIBC_SOURCE_DIR>` is
+   to CMake when configuring KLEE in step 9 where `<KLEE_UCLIBC_SOURCE_DIR>` is
    the absolute path to the cloned `klee-uclibc` git repository.<br/><br/>  
 
-5. **(Optional) Get Google test sources:**
+5. **(Optional) Build LibC++:** To be able to run C++ code, you also need to enable support for the C++ standard library.
 
-   For unit tests we use the Google test libraries. If you want to run the unit tests you need to perform this step and also pass `-DENABLE_UNIT_TESTS=ON` to CMake when configuring KLEE in step 8.
+   Run from the main KLEE source directory:
+
+   ```bash
+   $ LLVM_VERSION=6.0 SANITIZER_BUILD= BASE=<LIBCXX_INSTALL_DIR> ./scripts/build/build.sh libcxx
+   ```
+   where `<LIBCXX_INSTALL_DIR>` is the directory where you want to install libcxx.
+
+   To tell KLEE to use libcxx, pass the following flags to CMake when you configure KLEE in step 9:
+
+   ```bash
+   -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-60/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-60/include/c++/v1/
+   ```
+
+6. **(Optional) Get Google test sources:**
+
+   For unit tests we use the Google test libraries. If you want to run the unit tests you need to perform this step and also pass `-DENABLE_UNIT_TESTS=ON` to CMake when configuring KLEE in step 9.
 
    We depend on a version `1.7.0` right now so grab the sources for it.
 
@@ -70,7 +83,7 @@ The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined 
 
    This will create a directory called `googletest-release-1.7.0`.
 
-6. **(Optional) Install lit:**
+7. **(Optional) Install lit:**
 
    For testing, the `lit` tool is used. If you installed LLVM from a build tree, you can
    skip this step as the build system will try to use `llvm-lit` in the
@@ -85,14 +98,14 @@ The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined 
    ```
    (use `--user` to install it for the current user only)
 
-7. **Get KLEE source:**  
+8. **Get KLEE source:**  
 
    ```bash
    $ git clone https://github.com/klee/klee.git
    ```
    
 
-8. **Configure KLEE:**  
+9. **Configure KLEE:**  
 
    KLEE must be built "out of source", so first create a build directory. You can create this wherever you like.  Below, we assume you create this directory inside KLEE's repository.
 
