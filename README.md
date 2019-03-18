@@ -41,24 +41,23 @@ Contributions, both to content and design are welcome and encouraged. To contrib
 
 ## Adding Release Documentation
 
-The repository has old versions of the documentation in `releases/docs/`. To generate documentation for a release
-do the following.
+The repository has old versions of the documentation in `releases/docs/`. To generate documentation for a new release, do the following:
 
 1. Open `_config.yml` and
- - Use `excludes` that excludes the `releases` folder.
- - Change `is_release` to `true`.
- - Set `current_version` to the KLEE version.
+ - Change `is_release` to `true`
+ - Add the `releases` folder to `excludes`
+ - Set `current_version` to the new KLEE version
 
-2. Run the following command where `<VERSION>` is the KLEE version.
+2. Run the following command, where `<VERSION>` is the KLEE version:
 
 ```
 $ jekyll build -d releases/docs/<VERSION> --baseurl /releases/docs/<VERSION>
 ```
 
-3. Clear the changes made to `_config.yml` (e.g. by doing `git reset --hard`).
-4. Add `releases/docs/<VERSION>` to the repository.
-5. Add an entry for the release in `releases/index.md`.
-6. Commit the changes.
+3. Clear the changes made to `_config.yml` (e.g. by doing `git reset --hard`)
+4. Add `releases/docs/<VERSION>` to the repository
+5. Add an entry for the release in `releases/index.md`
+6. Commit the changes
 
 ## License
 
