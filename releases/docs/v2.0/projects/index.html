@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Projects &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v2.0/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v2.0/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v2.0/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v2.0/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v2.0/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v2.0/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v2.0/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v2.0/">
+        <img alt="KLEE" src="/releases/docs/v2.0/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer" role="navigation">
+  <h4>Navigation</h3>
+  <ul>
+    <li>
+      <a href="/releases/docs/v2.0/getting-started">Getting Started</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.0/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.0/tutorials">Tutorials</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.0/publications">Publications</a>
+    </li>
+    <li class="active">
+      <a href="/releases/docs/v2.0/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.0/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v2.0">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 2.0
+</div>
+</a>
+
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Projects</h1>
+        <h2 class="editorial-header__subtitle">KLEE Open Projects</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <p>This page lists a variety of open projects that are natural (and tractable) extensions of KLEE and things that we would love to see people work on. If you are interested in tackling any of the projects, please mail <a href="/klee-dev/">klee-dev</a> with your ideas – or even better, your patches!</p>
+
+<ul>
+  <li>
+    <p><em>Implement SMT support for Kleaver:</em></p>
+
+    <p>We would like to make Kleaver (KLEE’s constraint solver) a more viable standalone product. One of the steps in this direction is to implement SMT support. This would also allow us to enter Kleaver into the <a href="http://www.smtcomp.org/2011/">SMT-COMP</a> theorem prover competition, which would be a good proving ground for our optimizations and benchmarking our underlying constraint solver (STP, currently) against other implementations.</p>
+  </li>
+  <li>
+    <p><em>Distributed Constraint Solving:</em></p>
+
+    <p>Much of the execution time of KLEE is spent inside the constraint solver. A natural extension would be to implement support for a distributed constraint solver, which would run KLEE on a single machine, but would farm out the constraints to be solved on a network of machines.</p>
+  </li>
+  <li>
+    <p><em>Improve User Interface:</em></p>
+
+    <p>This is not a very glamorous project, but it is still important. Currently, KLEE has a myriad of command line options and flags, most of which are left over from its research project roots. In order to promote KLEE’s use as a user tool, we would like to clean up most of the UI so that the default behavior matches best practice, and so that more arcane or research-only options are hidden by default.</p>
+  </li>
+  <li>
+    <p><em>Implement Expression Level Constraint Optimization:</em></p>
+
+    <p>KLEE does not currently do much optimization of constraint expressions before sending them to the constraint solver. We would like to have an internal framework for doing optimization of constraint expressions(e.g., (A &amp; ~A) =&gt; 0) so that these optimizations are only done once instead of on every solver query.</p>
+
+    <p>In general, because KLEE is dealing with expressions which result from dynamic execution traces, many expressions end up having constant components. This means we can frequently apply the same optimizations a compiler would do, but to much greater effect because we are more likely to see constant values. For reference, see the kinds of optimizations done by LLVM’s <code class="highlighter-rouge">InstCombine</code> pass <a href="http://llvm.org/viewvc/llvm-project/llvm/trunk/lib/Transforms/InstCombine/">here</a>.</p>
+
+    <p>The bulk of this project involves defining a good framework for us to apply optimizations to expressions, and for deciding when to attempt to optimize expressions.</p>
+  </li>
+</ul>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--web sitemap__item--home">
+          <strong>Resources</strong>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent"href="/releases/docs/v2.0/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent"href="http://www.doc.ic.ac.uk/~dsl11/klee-doxygen/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent"href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent"href="https://travis-ci.org/klee/klee/branches">TravisCI</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v2.0
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2019, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v2.0/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
