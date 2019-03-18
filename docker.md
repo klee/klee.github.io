@@ -4,6 +4,16 @@ title: Docker
 subtitle: Using KLEE with Docker
 slug: documentation
 ---
+# Quick Start
+
+Assuming you have Docker installed, you can run the following to try
+the latest release of KLEE:
+
+```bash
+$ docker pull klee/klee:2.0
+$ docker run --rm -ti --ulimit='stack=-1:-1' klee/klee:2.0
+```
+
 # What is Docker?
 
 [Docker](https://www.docker.com/) provides tools for deploying applications within containers. Containers are (mostly) isolated from each other and the underlying system. This allows you to make a KLEE container, tinker with it and then throw it away when you're done without affecting the underlying system or other containers.
@@ -35,7 +45,7 @@ If you want to use a tagged revision of KLEE you should instead run:
 $ docker pull klee/klee:<TAG>
 ```
 
-Where ``<TAG>`` is [one of the tags listed on the DockerHub](https://hub.docker.com/r/klee/klee/tags/). Typically this is either ``latest`` (corresponds to the ``master`` branch) or a version number (e.g. ``1.0.0``).
+Where ``<TAG>`` is [one of the tags listed on the DockerHub](https://hub.docker.com/r/klee/klee/tags/). Typically this is either ``latest`` (corresponds to the ``master`` branch) or a version number (e.g. ``2.0``).
 
 **Note this process pulls images containing code compiled by a third-party service. We do not accept responsibility for the contents of the image.**
 
@@ -73,31 +83,30 @@ klee
 klee@3c098b05ca85:~$
 ```
 
-You can now try running KLEE inside the container
+You can now try running KLEE inside the container, where you should
+see an output similar to:
 
 ```bash
 klee@3c098b05ca85:~$ klee --version
-KLEE 1.0.0 (https://klee.github.io)
-  Built Sep 21 2015 (17:03:14)
-  Build mode: Release+Asserts
-  Build revision: unknown
+KLEE 2.0 (https://klee.github.io)
+  Build mode: RelWithDebInfo (Asserts: ON)
+  Build revision: 938434b2521d4c1ec11af31f1e5e5fbafd2cb2cd
 
 LLVM (http://llvm.org/):
-  LLVM version 3.4
-  
-  Optimized build.
-  Built Mar  5 2014 (17:05:10).
-  Default target: x86_64-pc-linux-gnu
-  Host CPU: core-avx2
+  LLVM version 6.0.1
+  Optimized build with assertions.
+  Default target: x86_64-unknown-linux-gnu
+  Host CPU: skylake
 ```
 
 and Clang
 
 ```bash
 $ clang --version
-Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
-Target: x86_64-pc-linux-gnu
+clang version 6.0.1 (branches/release_60 355598)
+Target: x86_64-unknown-linux-gnu
 Thread model: posix
+InstalledDir: /tmp/llvm-60-install_O_D_A/bin
 ```
 
 Now exit the container
