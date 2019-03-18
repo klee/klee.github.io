@@ -6,10 +6,15 @@ kramdown:
 highlighter: rouge
 permalink: pretty
 
+# This variable controls changes the behaviour of the banner in
+# `_includes/version_warning.md`. When generating documentation
+# for a release this should be set to true.
+is_release: false
+
 # When doing a release make sure you exclude the releases folder by replacing
 # the `exclude` declaration with the version that is currently commented out.
 #
-# It would be nice if we could just the right thing if `is_release` is set to
+# It would be nice if we could just do the right thing if `is_release` is set to
 # `true` but we can't do this in YAML.
 # exclude: ['README.md', 'COPYING', 'Gemfile', 'Gemfile.lock', 'releases']
 exclude: ['README.md', 'COPYING', 'Gemfile', 'Gemfile.lock']
@@ -20,8 +25,3 @@ plugins:
 project_title: KLEE
 current_version: 1.4.0
 repository: https://github.com/klee/klee
-
-# This variable controls changes the behaviour of the banner in
-# `_includes/version_warning.md`. When generating documentation
-# for a release this should be set to true.
-is_release: false
