@@ -266,11 +266,10 @@ klee@1c408467bdf7:~<span class="nv">$ </span><span class="nb">exit</span>
 <p>There are a few useful things to know about KLEE Docker containers created using the KLEE Docker image.</p>
 
 <ul>
-  <li>The Docker image is based on an Ubuntu 14.04 LTS image.</li>
+  <li>The Docker image is based on an Ubuntu 16.04 LTS image.</li>
   <li>Inside the Docker image the <code class="highlighter-rouge">klee</code> user has sudo access (password is <code class="highlighter-rouge">klee</code>) so that you can install other applications inside the container (e.g. a text editor). Given that the default user has sudo access this image <strong>should never be used in a production environment</strong>.</li>
   <li>You may want files on your native filesystem available in the container. By default the host filesystem is not visible inside the container.  You can use the <code class="highlighter-rouge">--volume=</code> option to <code class="highlighter-rouge">docker run</code> to mount directories on the host filesystem into the container.</li>
-  <li>These Docker images use LLVM 3.4 so you need to use <code class="highlighter-rouge">clang</code> to create LLVM bitcode.</li>
-  <li><code class="highlighter-rouge">gcc</code> is not installed in the Docker image. If you need to build native code inside the container just use <code class="highlighter-rouge">clang</code>.</li>
+  <li>These Docker images use LLVM 6.0 so you need to use <code class="highlighter-rouge">clang</code> to create LLVM bitcode.</li>
   <li><code class="highlighter-rouge">/home/klee/klee_src</code> contains the source code used to build KLEE.</li>
   <li><code class="highlighter-rouge">/home/klee/klee_build</code> contains the build of KLEE built from <code class="highlighter-rouge">/home/klee/klee_src</code></li>
   <li>All the previous examples implicitly run <code class="highlighter-rouge">/bin/bash</code> inside the container. This is the default but it is also possible to run KLEE directly (useful for scripting) by specifying the command line to use to <code class="highlighter-rouge">docker run</code>.</li>
