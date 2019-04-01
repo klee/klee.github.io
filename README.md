@@ -6,7 +6,7 @@ The KLEE website, built using [Web Starter Kit](http://developers.google.com/web
 
 ### Dependencies
 
-* [Ruby](https://www.ruby-lang.org/) ≥ 2.0.0.  You can use [RVM](http://rvm.io/) or [rbenv](https://github.com/sstephenson/rbenv) to install it.
+* [Ruby](https://www.ruby-lang.org/) ≥ 2.0.0.  You can use [RVM](http://rvm.io/) or [rbenv](https://github.com/sstephenson/rbenv) to install it. (A Ruby DevKit is required to build dependencies with native extensions.)
 
 * [Node.js](https://www.ruby-lang.org/)
 
