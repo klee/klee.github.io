@@ -57,18 +57,26 @@ The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined 
 
 5. **(Optional) Build LibC++:** To be able to run C++ code, you also need to enable support for the C++ standard library.
 
+   [https://github.com/travitch/whole-program-llvm](`wllvm`) is required to build libcxx through the build script:
+
+   ```bash
+   $ sudo pip install wllvm
+   ```
+
    Run from the main KLEE source directory:
 
    ```bash
    $ LLVM_VERSION=6.0 SANITIZER_BUILD= BASE=<LIBCXX_INSTALL_DIR> ./scripts/build/build.sh libcxx
    ```
-   where `<LIBCXX_INSTALL_DIR>` is the directory where you want to install libcxx.
+   where `<LIBCXX_INSTALL_DIR>` is an _absolute_ directory where you want to install libcxx.
 
    To tell KLEE to use libcxx, pass the following flags to CMake when you configure KLEE in step 9:
 
    ```bash
    -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-60/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-60/include/c++/v1/
    ```
+
+   Note that `<LIBCXX_INSTALL_DIR>` must currently be an _absolute_ directory, i.e., no relative paths or `~` is allowed.
 
 6. **(Optional) Get Google test sources:**
 
