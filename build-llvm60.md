@@ -68,7 +68,7 @@ The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined 
    ```bash
    $ LLVM_VERSION=6.0 SANITIZER_BUILD= BASE=<LIBCXX_INSTALL_DIR> ./scripts/build/build.sh libcxx
    ```
-   where `<LIBCXX_INSTALL_DIR>` is an _absolute_ directory where you want to install libcxx.
+   where `<LIBCXX_INSTALL_DIR>` is the absolute path where `libcxx` should be installed.
 
    To tell KLEE to use libcxx, pass the following flags to CMake when you configure KLEE in step 9:
 
@@ -76,7 +76,9 @@ The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined 
    -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-60/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-60/include/c++/v1/
    ```
 
-   Note that `<LIBCXX_INSTALL_DIR>` must currently be an _absolute_ directory, i.e., no relative paths or `~` is allowed.
+   Note that `<LIBCXX_INSTALL_DIR>` must currently be an absolute path. Note that if you want to 
+   build `libcxx` in your user home path, that in some enviornments (such as Ubuntu 18.04), `~` 
+   may not be an absolute path, but you can use `$HOME` instead. 
 
 6. **(Optional) Get Google test sources:**
 
