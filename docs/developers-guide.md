@@ -236,7 +236,7 @@ KLEE uses LLVM's CommandLine library for adding options to tools in KLEE, which 
 
 KLEE searches for run-time libraries in install and build paths. These are hard-coded to the binary, so if the filesystem tree changes, KLEE will not find them until recompiled. This behaviour can be overridden by setting KLEE_RUNTIME_LIBRARY_PATH environment variable to the path to the libraries.
 
-### KLEE statistics
+## KLEE statistics
 
 
 KLEE uses [SQLite3](https://www.sqlite.org) to store the statistics of its runs
@@ -251,7 +251,56 @@ However, since we use SQLite3 a normal sqlite client can be used to open the fil
 and run arbitrary SQL queries on the data:
 
 ```
-$ sqlite <klee-out-dir>/run.stats
+$ sqlite3 <klee-out-dir>/run.stats
 > SELECT * FROM stats
 ```
+
+### Grafana
+
+`klee-stats` can also be used as a Grafana data-source. This enables you to
+create Grafana dashboards for live monitoring of your KLEE process. First
+`klee-stats` needs to be started with `-grafana` flag to start serving the
+data:
+
+```
+klee-stats --grafana <klee-out-dir>
+```
+
+Which starts on port 5000 by default. Then you need a Grafana instance with
+`simple-json-data-source` plugin enabled. You can start a local one via Docker
+with:
+
+```
+docker run \
+  -d \
+  -p 3000:3000 \
+  --net=host \
+  --name=grafana \
+  -e "GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource" \
+  grafana/grafana
+```
+
+Which will create a daemon container running Grafana on port 3000. You then need
+to add the `klee-stats` data source started above to Grafana.
+
+Go to `localhost:3000` and login with `admin`,`admin` username and password.
+Click `Add data source` -> `SimpleJson` and add the HTTP url to point to
+`http://localhost:5000` and click `Save and test`. If successful the whole
+screen should look like:
+
+
+[![]({{site.url}}/content/AddDatasource.png){:.wide}]({{site.url}}/content/AddDatasource.png)
+
+Now you are ready to create a Grafana dashboard showing the statistics. Create a
+new dashboard by clicking the plus on the side bar and select `Dashboard` and
+click `Add Query`:
+
+[![]({{site.url}}/content/AddDashboard.png){:.wide}]({{site.url}}/content/AddDashboard.png)
+
+Finally select the statistic you want to plot as shown below:
+
+[![]({{site.url}}/content/AddStatistic.png){:.wide}]({{site.url}}/content/AddStatistic.png)
+
+You can then of course customize your dashboard, add more panels change time
+ranges and enjoy the live monitoring of KLEE
 
