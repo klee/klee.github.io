@@ -124,7 +124,7 @@ The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined 
    ```
 
    Now `cd` into the build directory and run CMake to configure KLEE where `<KLEE_SRC_DIRECTORY>` is the path
-   to the KLEE git repository you cloned in step 7.
+   to the KLEE git repository you cloned in step 8.
    
    ```bash
    $ cd build
