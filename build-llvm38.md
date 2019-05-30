@@ -16,8 +16,6 @@ The current procedure for building KLEE with LLVM 3.8 is outlined below.
    $ pip3 install tabulate
    ```
 
-   You will need gcc/g++ 4.8 or later installed on your system. For Ubuntu 12.04 and 13.04, you can follow the instructions [here](http://ubuntuhandbook.org/index.php/2013/08/install-gcc-4-8-via-ppa-in-ubuntu-12-04-13-04/).   
-
 2. **Install LLVM 3.8:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
    **NOTE:** KLEE is currently tested on **Linux x86-64**, and might break on x86-32.
