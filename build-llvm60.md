@@ -18,8 +18,6 @@ The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined 
    $ pip3 install tabulate
    ```
 
-   You will need gcc/g++ 4.8 or later installed on your system. For Ubuntu 12.04 and 13.04, you can follow the instructions [here](http://ubuntuhandbook.org/index.php/2013/08/install-gcc-4-8-via-ppa-in-ubuntu-12-04-13-04/).   
-
 2. **Install LLVM 6.0:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
    If you are using a recent Ubuntu (e.g. 18.04 LTS) or Debian, we recommend you to use the LLVM packages provided by LLVM itself. 
