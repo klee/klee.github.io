@@ -378,6 +378,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Workshop on Software Protection (SPRO 2015)  
   May 17, 2015, Florence, Italy
 
+1. [Explaining Software Failures by Cascade Fault Localization](https://dl.acm.org/citation.cfm?id=2738038)  
+  Qiuping Yi, Zijiang Yang, Jian Liu, Chen Zhao, Chao Wang  
+  ACM Transactions on Design Automation of Electronic Systems, Volume 20 Issue 3 (TODAES)  
+  June, 2015
+
 1. [Symbolic Execution for BIOS Security](https://www.usenix.org/system/files/conference/woot15/woot15-paper-bazhaniuk.pdf)  
   Oleksandr Bazhaniuk, John Loucaides, Lee Rosenbaum, Mark R. Tuttle, Vincent Zimmer  
   USENIX Workshop on Offensive Technologies (WOOT 2015)  
