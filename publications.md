@@ -699,3 +699,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Mazen Ahmed, Mona Safar  
   International Conference on Design and Technology of Integrated Systems in Nanoscale Era (DTIS 2019)  
   April 16-18, 2019, Mykonos, Greece
+
+1. [Zero-Overhead Path Prediction with Progressive Symbolic Execution](https://dl.acm.org/citation.cfm?id=3339537)  
+  Richard Rutledge, Sunjae Park, Haider Khan, Alessandro Orso, Milos Prvulovic, Alenka Zajic  
+  IEEE/ACM International Conference on Software Engineering (ICSE 2019)  
+  May 25-31, 2019, Montreal, Canada
