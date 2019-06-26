@@ -708,3 +708,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Richard Rutledge, Sunjae Park, Haider Khan, Alessandro Orso, Milos Prvulovic, Alenka Zajic  
   IEEE/ACM International Conference on Software Engineering (ICSE 2019)  
   May 25-31, 2019, Montreal, Canada
+
+1. [Computing Summaries of String Loops in C for Better Testing and Refactoring](https://srg.doc.ic.ac.uk/files/papers/loops-pldi-19.pdf)  
+  Timotej Kapus, Oren Ish-Shalom, Shachar Itzhaky  
+  ACM Conference on Programming Language Design and Implementation (PLDI 2019)  
+  June 24-26, 2019, Phoenix, USA
