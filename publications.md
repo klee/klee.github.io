@@ -689,3 +689,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Sze Yiu Chau, Moosa Yahyazadeh, Omar Chowdhury, Aniket Kate, Ninghui Li  
   Network and Distributed System Security Symposium (NDSS 2019)  
   February 24-27, 2019, San Diego, USA
+
+1. [Symbolic Execution based Verification of Compliance with the ISO 26262 Functional Safety Standard](https://ieeexplore.ieee.org/abstract/document/8735046)  
+  Mazen Ahmed, Mona Safar  
+  International Conference on Design and Technology of Integrated Systems in Nanoscale Era (DTIS 2019)  
+  April 16-18, 2019, Mykonos, Greece
