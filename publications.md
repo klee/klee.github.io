@@ -684,7 +684,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Chao Zhang Weiliang Yin Zhiqiang Lin  
   International Workshop on Quantitative Approaches to Software Quality (QuASoQ 2018)  
   December 4, 2018, Nara, Japan
-  
+
+1. [Quantifying the Information Leakage in Cache Attacks via Symbolic Execution](https://dl.acm.org/citation.cfm?id=3288758)  
+  Moritz Beck, Ahmed Rezine, Andreas Zeller  
+  ACM Transactions on Embedded Computing Systems, Volume 18, Issue: 1 (TECS)  
+  February, 2019
+
 1. [Analyzing Semantic Correctness with Symbolic Execution: A Case Study on PKCS#1 v1.5 Signature Verification](https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04A-4_Chau_paper.pdf)  
   Sze Yiu Chau, Moosa Yahyazadeh, Omar Chowdhury, Aniket Kate, Ninghui Li  
   Network and Distributed System Security Symposium (NDSS 2019)  
