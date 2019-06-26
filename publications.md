@@ -695,6 +695,10 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Network and Distributed System Security Symposium (NDSS 2019)  
   February 24-27, 2019, San Diego, USA
 
+1. [Compositional Fuzzing Aided by Targeted Symbolic Execution](https://arxiv.org/abs/1903.02981)  
+  Saahil Ognawala, Fabian Kilger, Alexander Pretschner  
+  arXiv, March 7, 2019
+
 1. [Symbolic Execution based Verification of Compliance with the ISO 26262 Functional Safety Standard](https://ieeexplore.ieee.org/abstract/document/8735046)  
   Mazen Ahmed, Mona Safar  
   International Conference on Design and Technology of Integrated Systems in Nanoscale Era (DTIS 2019)  
