@@ -714,3 +714,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Timotej Kapus, Oren Ish-Shalom, Shachar Itzhaky  
   ACM Conference on Programming Language Design and Implementation (PLDI 2019)  
   June 24-26, 2019, Phoenix, USA
+
+1. [Deferred Concretization in Symbolic Execution via Fuzzing](https://dl.acm.org/citation.cfm?id=3330554)  
+  Awanish Pandey, Phani Raj Goutham Kotcharlakota, Subhajit Roy  
+  ACM International Symposium on Software Testing and Analysis (ISSTA 2019)  
+  July 15-19, 2019, Beijing, China
