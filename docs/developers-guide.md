@@ -239,27 +239,33 @@ KLEE searches for run-time libraries in install and build paths. These are hard-
 ## KLEE statistics
 
 
-KLEE uses [SQLite3](https://www.sqlite.org) to store the statistics of its runs
-in the `<klee-out-dir>/run.stats` file.  `klee-stats` can be used to give an
-overview of the statics with
-
-```
-klee-stats <klee-out-dirs>
-```
-
-However, since we use SQLite3 a normal sqlite client can be used to open the file
-and run arbitrary SQL queries on the data:
+Starting with version 2.0, KLEE switched from csv to [SQLite3](https://www.sqlite.org) to store statistics in `<klee-out-dir>/run.stats` files.
+Of course, these files can be opened and queried with any SQLite client, e.g.:
 
 ```
 $ sqlite3 <klee-out-dir>/run.stats
 > SELECT * FROM stats
 ```
 
+For a more user-friendly experience, KLEE still comes with [klee-stats]({{site.baseurl}}/docs/tools/#klee-stats), a tool that summarises statistics of one or more output directories in table form.
+
+### CSV
+
+The easiest way to convert all statistics to comma-separated values (csv) is to use `klee-stats` with `--to-csv` flag.
+If the output needs to be modified or limited to specific columns and rows an SQLite client such as `sqlite3` comes handy:
+
+```
+$ sqlite3 -csv -header run.stats "select Instructions,printf(\"%.2f\",100.0*CoveredInstructions/(CoveredInstructions+UncoveredInstructions)) AS 'Icov(%)',printf(\"%.2f\",1.0*SolverTime/60000000) AS 'SolverTime(min)',NumQueries from stats ORDER BY WallTime DESC LIMIT 1" 
+Instructions,Icov(%),SolverTime(min),NumQueries
+2376923,3.96,51.77,514
+```
+
+
 ### Grafana
 
-`klee-stats` can also be used as a Grafana data-source. This enables you to
-create Grafana dashboards for live monitoring of your KLEE process. First
-`klee-stats` needs to be started with `-grafana` flag to start serving the
+`klee-stats` can also be used as a [Grafana](https://grafana.com/) data-source. This enables you to
+create Grafana dashboards for live monitoring of your KLEE process. First,
+`klee-stats` needs to be started with the `-grafana` flag to start serving the
 data:
 
 ```
@@ -304,3 +310,8 @@ Finally select the statistic you want to plot as shown below:
 You can then of course customize your dashboard, add more panels change time
 ranges and enjoy the live monitoring of KLEE
 
+
+### Granularity
+
+The intervals at which KLEE writes its statistics are [configurable]({{site.baseurl}}/docs/options/#statistics).
+All times are lower bounds and a long running solver query might prevent KLEE from writing new entries.

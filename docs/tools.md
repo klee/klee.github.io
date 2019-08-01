@@ -49,8 +49,12 @@ In order to limit printed information only to the values of measured times, the 
 
 The `--precision` option can be used to configure the number of fractional digits displayed in floating point values. By default, 2 fractional digits are displayed, but in some cases that might be not sufficient—if the value is very small, e.g. 0.0001, with 2-digits precision it will be printed as 0.00.
 
+Several table styles are supported, e.g. `latex_booktabs` or `html`, and can be enabled with `--table-format=<format>`.
+
 Various other options can be used to specify what values are displayed and how they are displayed. Options for comparison of statistics are also provided. More information about available options can be obtained using the command:
 
 {% highlight bash %}
 $ klee-stats --help
 {% endhighlight %}
+
+For advanced use cases, such as data conversion to comma-separated values (csv) or live monitoring with Grafana, see the [Developer documentation]({{site.baseurl}}/docs/developers-guide/#klee-statistics).
