@@ -11,6 +11,17 @@ KLEE is a symbolic execution framework that can be built with a multitude of dif
 
 Managing and building the different combinations of dependencies can be tedious. Moreover, not all the different requested versions of each dependency are available for every system. To simplify this process, we provide a build script `scripts/build/build.sh` that allows you to manage those tasks automatically.
 
+## TL; DR
+
+To locally build our standard configuration, use the following option:
+* LLVM: 6.0 - optimised
+* Solvers: STP and Z3
+* uclibc: to test applications with systems interaction
+* libc++: to test C++ application
+
+```
+COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=6.0 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.7.0 UCLIBC_VERSION=klee_uclibc_v1.2 LLVM_VERSION=6.0 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= LLVM_VERSION=6.0 STP_VERSION=2.3.3 MINISAT_VERSION=master Z3_VERSION=4.8.4 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee --install-system-deps
+```
 
 ## Users
 
