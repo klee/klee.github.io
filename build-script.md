@@ -7,9 +7,9 @@ slug: build-klee-script
 
 # Building KLEE and its Dependencies
 
-KLEE is a symbolic execution framework that can be built with a multitude of different components (compiler infrastructure: LLVM 3.8 - ..., solvers: STP, Z3, MetaSMT) and run on a variety of systems (e.g. Ubuntu XX, Mac OS X, FreeBSD).
+KLEE is a symbolic execution framework that can be built with a multitude of different components (compiler infrastructure: LLVM 3.8 - ..., solvers: STP, Z3, MetaSMT) and run on a variety of systems (e.g. Linux (Ubuntu), Mac OS X, FreeBSD).
 
-Managing and building the different combinations of dependencies can be tedious. Moreover, not all the different requested version of each dependency is available for every system. To simplify this process, we provide a build script `scripts/build/build.sh` that allows you to manage those tasks automatically.
+Managing and building the different combinations of dependencies can be tedious. Moreover, not all the different requested versions of each dependency are available for every system. To simplify this process, we provide a build script `scripts/build/build.sh` that allows you to manage those tasks automatically.
 
 
 ## Users
@@ -46,7 +46,7 @@ z3
 
 The script builds components (e.g. `solver`), and their dependencies. KLEE is handled as one component as well (i.e. `klee`).
 
-Every component might require configuration options. If the script is invoked but not all the necessary options provided, the user is informed.
+Every component might require configuration options. If the script is invoked but not all the necessary options are provided, the user is informed.
 
 `./scripts/build/build.sh solvers` generates:
 
@@ -81,13 +81,21 @@ Everything under `global` specifies the default configuration we use.
 Every line under `matrix` overrides a specific option.
 Use those options to mix and match the setup towards your requirements.
 
+To locally build our standard configuration, use the following option:
+
+```
+COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=6.0 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.7.0 UCLIBC_VERSION=klee_uclibc_v1.2 LLVM_VERSION=6.0 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= LLVM_VERSION=6.0 STP_VERSION=2.3.3 MINISAT_VERSION=master Z3_VERSION=4.8.4 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee
+```
+
 For example, to have address sanitized builds with LLVM 7.0 use:
-`SANITIZER_BUILD=address DISABLE_ASSERTIONS=0 ENABLE_OPTIMIZED=0 USE_TCMALLOC=0 SOLVERS=STP USE_LIBCXX=0 LLVM_VERSION=7.0 STP_VERSION="2.3.3" ENABLE_DEBUG=1 UCLIBC_VERSION=klee_uclibc_v1.2 REQUIRES_RTTI=0 ./scripts/build/build.sh klee`
+```
+SANITIZER_BUILD=address DISABLE_ASSERTIONS=0 ENABLE_OPTIMIZED=0 USE_TCMALLOC=0 SOLVERS=STP USE_LIBCXX=0 LLVM_VERSION=7.0 STP_VERSION="2.3.3" ENABLE_DEBUG=1 UCLIBC_VERSION=klee_uclibc_v1.2 REQUIRES_RTTI=0 ./scripts/build/build.sh klee
+```
 
 #### Mix and Match
 
 Different versions and build setups can be built and used in parallel.
-Every component gets a version and build-type suffix. This allows to re-use and combine different setups and use KLEE with varying versions of any component.
+Every component gets a version and build-type suffix. This allows you to re-use and combine different setups and use KLEE with varying versions of any component.
 
 ### Docker
 
