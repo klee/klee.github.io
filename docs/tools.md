@@ -14,6 +14,25 @@ Contents
  
 ## ktest-tool
 
+KLEE can be configured to output `.ktest` [files]({{site.baseurl}}/docs/files) whenever it finds an error, covers new code or terminates a path.
+The content of a `.ktest` file describes the program input that is needed to guide a concrete execution exactly along the corresponding execution path.
+Typically, it comprises concrete values for symbolic input files, symbolic arguments, and symbolic variables introduced with `klee_make_symbolic`.
+The `ktest-tool` is a Python script that converts the contents of a `.ktest` file into human-readable form.
+For instance for the [get_sign.c](https://github.com/klee/klee/blob/f9aa2a3534ac47e07cd1f8b21bafb784b7a0c6c6/examples/get_sign/get_sign.c#L19) example from the KLEE directory it would print a concrete value for the symbolic 32bit integer `a` in different representations (Python byte string, hexadecimal, little-endian uint/int, ...):
+```
+$ ktest-tool klee-last/test000003.ktest
+ktest file : 'klee-last/test000003.ktest'
+args       : ['get_sign.bc']
+num objects: 1
+object 0: name: 'a'
+object 0: size: 4
+object 0: data: b'\\x00\\x00\\x00\\x80'
+object 0: hex : 0x00000080
+object 0: int : -2147483648
+object 0: uint: 2147483648
+object 0: text: ....
+```
+
 ## klee-stats
 
 _klee-stats_ is a Python script used to extract and present in a tabular form runtime statistics for a KLEE execution. The runtime statistics include:
