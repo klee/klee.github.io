@@ -720,6 +720,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM International Symposium on Software Testing and Analysis (ISSTA 2019)  
   July 15-19, 2019, Beijing, China
 
+1. [A Segmented Memory Model for Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/segmem-esecfse-19.pdf)  
+  Timotej Kapus, Cristian Cadar  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2019)  
+  August 26-30, 2019, Tallin, Estonia  
+  **The implementation is available [here](https://github.com/kren1/klee/tree/segmented_mem7.0).**
+
 1. [Target-Driven Compositional Concolic Testing with Function Summary Refinement for Effective Bug Detection](http://swtv.kaist.ac.kr/publications/fse2019-focal.pdf)  
   Yunho Kim, Shin Hong, Moonzoo Kim  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2019)  
