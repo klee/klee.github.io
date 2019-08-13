@@ -719,3 +719,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Awanish Pandey, Phani Raj Goutham Kotcharlakota, Subhajit Roy  
   ACM International Symposium on Software Testing and Analysis (ISSTA 2019)  
   July 15-19, 2019, Beijing, China
+
+1. [Target-Driven Compositional Concolic Testing with Function Summary Refinement for Effective Bug Detection](http://swtv.kaist.ac.kr/publications/fse2019-focal.pdf)  
+  Yunho Kim, Shin Hong, Moonzoo Kim  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2019)  
+  August 26-30, 2019, Tallin, Estonia
