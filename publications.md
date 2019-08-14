@@ -695,6 +695,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Network and Distributed System Security Symposium (NDSS 2019)  
   February 24-27, 2019, San Diego, USA
 
+1. [Neuro-Symbolic Execution: Augmenting Symbolic Execution with Neural Constraints](https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_11-3_Shiqi_paper.pdf)  
+  Shen Shiqi, Shweta Shinde, Soundarya Ramesh, Abhik Roychoudhury, Prateek Saxena  
+  Network and Distributed System Security Symposium (NDSS 2019)  
+  February 24-27, 2019, San Diego, USA
+
 1. [Compositional Fuzzing Aided by Targeted Symbolic Execution](https://arxiv.org/abs/1903.02981)  
   Saahil Ognawala, Fabian Kilger, Alexander Pretschner  
   arXiv, March 7, 2019
