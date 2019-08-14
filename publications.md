@@ -711,7 +711,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   **pg-klee is available [here](https://hub.docker.com/r/naegling/icse19-zop2).**
 
 1. [Computing Summaries of String Loops in C for Better Testing and Refactoring](https://srg.doc.ic.ac.uk/files/papers/loops-pldi-19.pdf)  
-  Timotej Kapus, Oren Ish-Shalom, Shachar Itzhaky  
+  Timotej Kapus, Oren Ish-Shalom, Shachar Itzhaky, Noam Rinetzky, Cristian Cadar  
   ACM Conference on Programming Language Design and Implementation (PLDI 2019)  
   June 24-26, 2019, Phoenix, USA
 
