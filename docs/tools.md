@@ -108,44 +108,34 @@ data:
 klee-stats --grafana <klee-out-dir>
 ```
 
-Which starts on port 5000 by default. Then you need a Grafana instance with
-`simple-json-data-source` plugin enabled. You can start a local one via Docker
-with:
+Which starts on port 5000 by default. Then you can start the preconfigured
+Grafana Docker image with:
 
 ```
 docker run \
   -d \
-  -p 3000:3000 \
   --net=host \
   --name=grafana \
-  -e "GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource" \
-  grafana/grafana
+  klee/grafana
 ```
 
-Which will create a daemon container running Grafana on port 3000. You then need
-to add the `klee-stats` data source started above to Grafana.
+This will create a daemon container running Grafana on port 3000. Go to
+<http://localhost:3000>, then click on 'Home' in the top left hand corner and
+select the dashboard named 'KLEE' from the dropdown.
 
-Go to `localhost:3000` and login with `admin`,`admin` username and password.
-Click `Add data source` -> `SimpleJson` and add the HTTP url to point to
-`http://localhost:5000` and click `Save and test`. If successful the whole
-screen should look like:
-
-
-[![]({{site.url}}/content/AddDatasource.png){:.wide}]({{site.url}}/content/AddDatasource.png)
-
-Now you are ready to create a Grafana dashboard showing the statistics. Create a
-new dashboard by clicking the plus on the side bar and select `Dashboard` and
-click `Add Query`:
-
-[![]({{site.url}}/content/AddDashboard.png){:.wide}]({{site.url}}/content/AddDashboard.png)
-
-Finally select the statistic you want to plot as shown below:
-
-[![]({{site.url}}/content/AddStatistic.png){:.wide}]({{site.url}}/content/AddStatistic.png)
+If you are using Grafana to view the statistics of a KLEE run that has already
+finished, make sure to select a time range that includes the time when KLEE was
+running. The time range can be changed by with the dropdown in the top right
+corner.
 
 You can then of course customize your dashboard, add more panels change time
-ranges and enjoy the live monitoring of KLEE
+ranges and enjoy the live monitoring of KLEE.
 
+To stop Grafana:
+
+```
+docker stop grafana
+```
 
 ### Logging granularity
 
