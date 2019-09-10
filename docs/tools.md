@@ -112,16 +112,20 @@ Which starts on port 5000 by default. Then you can start the preconfigured
 Grafana Docker image with:
 
 ```
-docker run \
-  -d \
-  --net=host \
-  --name=grafana \
-  klee/grafana
+docker run -d --net=host --name=grafana klee/grafana
 ```
 
-This will create a daemon container running Grafana on port 3000. Go to
-<http://localhost:3000>, then click on 'Home' in the top left hand corner and
-select the dashboard named 'KLEE' from the dropdown.
+This will create a daemon container running Grafana on port 3000. The image may
+take half a minute or so to start up. Go to <http://localhost:3000>, then click
+on 'Home' in the top left hand corner and select the dashboard named 'KLEE' from
+the dropdown.
+
+If you would like to see the progress as Grafana starts, you can instead run
+Grafana in the foreground by omitting the ```-d``` flag. Grafana is ready when
+the output stops and you see a line like this:
+```
+t=... lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+```
 
 If you are using Grafana to view the statistics of a KLEE run that has already
 finished, make sure to select a time range that includes the time when KLEE was
@@ -136,6 +140,7 @@ To stop Grafana:
 ```
 docker stop grafana
 ```
+Or if Grafana is running in the foreground then use Ctrl-C.
 
 ### Logging granularity
 
