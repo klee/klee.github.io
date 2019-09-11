@@ -730,6 +730,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM International Symposium on Software Testing and Analysis (ISSTA 2019)  
   July 15-19, 2019, Beijing, China
 
+1. [SCSE: Boosting Symbolic Execution via State Concretization](https://www.jstage.jst.go.jp/article/transinf/E102.D/8/E102.D_2018EDP7298/_pdf)  
+  Huibin Wang, Chunqiang Li, Jianyi Meng, Xiaoyan Xiang  
+  IEICE Transactions on Information and Systems (Issue 8)  
+  August 2019
+
 1. [A Segmented Memory Model for Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/segmem-esecfse-19.pdf)  
   Timotej Kapus, Cristian Cadar  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2019)  
