@@ -720,6 +720,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   May 25-31, 2019, Montreal, Canada  
   **pg-klee is available [here](https://hub.docker.com/r/naegling/icse19-zop2).**
 
+1. [ApproxSymate: Path Sensitive Program Approximation using Symbolic Execution](https://dl.acm.org/citation.cfm?id=3326341)  
+  Himeshi De Silva, Andrew E. Santosa, Nhut-Minh Ho, Weng-Fai Wong  
+  ACM International Conference on Languages, Compilers, and Tools for Embedded Systems (LCTES 2019)  
+  June 23, 2019, Phoenix, USA  
+  **ApproxSymate is available [here](https://github.com/ApproxSymate/klee).**
+
 1. [Computing Summaries of String Loops in C for Better Testing and Refactoring](https://srg.doc.ic.ac.uk/files/papers/loops-pldi-19.pdf)  
   Timotej Kapus, Oren Ish-Shalom, Shachar Itzhaky, Noam Rinetzky, Cristian Cadar  
   ACM Conference on Programming Language Design and Implementation (PLDI 2019)  
