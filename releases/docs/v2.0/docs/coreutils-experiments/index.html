@@ -145,17 +145,17 @@ uptime users wc whoami who yes
 
     <p>We used the following options (the command below is for paste):</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>klee <span class="nt">--simplify-sym-indices</span> <span class="nt">--write-cvcs</span> <span class="nt">--write-cov</span> <span class="nt">--output-module</span> <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-max-memory</span><span class="o">=</span>1000 <span class="nt">--disable-inlining</span> <span class="nt">--optimize</span> <span class="nt">--use-forked-solver</span> <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-use-cex-cache</span> <span class="nt">--with-libc</span> <span class="nt">--with-file-model</span><span class="o">=</span>release <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-allow-external-sym-calls</span> <span class="nt">--only-output-states-covering-new</span> <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-exclude-libc-cov</span> <span class="nt">--exclude-cov-file</span><span class="o">=</span>./../lib/functions.txt <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-environ</span><span class="o">=</span>test.env <span class="nt">--run-in</span><span class="o">=</span>/tmp/sandbox <span class="nt">--output-dir</span><span class="o">=</span>paste-data-1h <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-max-sym-array-size</span><span class="o">=</span>4096 <span class="nt">--max-instruction-time</span><span class="o">=</span>10. <span class="nt">--max-time</span><span class="o">=</span>3600. <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-watchdog</span> <span class="nt">--max-memory-inhibit</span><span class="o">=</span><span class="nb">false</span> <span class="nt">--max-static-fork-pct</span><span class="o">=</span>1 <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-max-static-solve-pct</span><span class="o">=</span>1 <span class="nt">--max-static-cpfork-pct</span><span class="o">=</span>1 <span class="nt">--switch-type</span><span class="o">=</span>internal <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-randomize-fork</span> <span class="nt">--use-random-path</span> <span class="nt">--use-interleaved-covnew-NURS</span> <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-use-batching-search</span> <span class="nt">--batch-instructions</span> 10000 <span class="nt">--init-env</span> <span class="se">\ </span> 
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>klee <span class="nt">--simplify-sym-indices</span> <span class="nt">--write-cvcs</span> <span class="nt">--write-cov</span> <span class="nt">--output-module</span> <span class="se">\</span>
+<span class="nt">--max-memory</span><span class="o">=</span>1000 <span class="nt">--disable-inlining</span> <span class="nt">--optimize</span> <span class="nt">--use-forked-solver</span> <span class="se">\</span>
+<span class="nt">--use-cex-cache</span> <span class="nt">--with-libc</span> <span class="nt">--with-file-model</span><span class="o">=</span>release <span class="se">\</span>
+<span class="nt">--allow-external-sym-calls</span> <span class="nt">--only-output-states-covering-new</span> <span class="se">\</span>
+<span class="nt">--exclude-libc-cov</span> <span class="nt">--exclude-cov-file</span><span class="o">=</span>./../lib/functions.txt <span class="se">\</span>
+<span class="nt">--environ</span><span class="o">=</span>test.env <span class="nt">--run-in</span><span class="o">=</span>/tmp/sandbox <span class="nt">--output-dir</span><span class="o">=</span>paste-data-1h <span class="se">\</span>
+<span class="nt">--max-sym-array-size</span><span class="o">=</span>4096 <span class="nt">--max-instruction-time</span><span class="o">=</span>10. <span class="nt">--max-time</span><span class="o">=</span>3600. <span class="se">\</span>
+<span class="nt">--watchdog</span> <span class="nt">--max-memory-inhibit</span><span class="o">=</span><span class="nb">false</span> <span class="nt">--max-static-fork-pct</span><span class="o">=</span>1 <span class="se">\</span>
+<span class="nt">--max-static-solve-pct</span><span class="o">=</span>1 <span class="nt">--max-static-cpfork-pct</span><span class="o">=</span>1 <span class="nt">--switch-type</span><span class="o">=</span>internal <span class="se">\</span>
+<span class="nt">--randomize-fork</span> <span class="nt">--use-random-path</span> <span class="nt">--use-interleaved-covnew-NURS</span> <span class="se">\</span>
+<span class="nt">--use-batching-search</span> <span class="nt">--batch-instructions</span> 10000 <span class="nt">--init-env</span> <span class="se">\</span>
 ./paste.bc <span class="nt">--sym-args</span> 0 1 10 <span class="nt">--sym-args</span> 0 2 2 <span class="nt">--sym-files</span> 1 8 <span class="nt">--sym-stdout</span>
 </code></pre></div>    </div>
 
@@ -168,16 +168,16 @@ uptime users wc whoami who yes
 
     <p>Try the following:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>klee <span class="nt">--simplify-sym-indices</span> <span class="nt">--write-cvcs</span> <span class="nt">--write-cov</span> <span class="nt">--output-module</span> <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-max-memory</span><span class="o">=</span>1000 <span class="nt">--disable-inlining</span> <span class="nt">--optimize</span> <span class="nt">--use-forked-solver</span> <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-use-cex-cache</span> <span class="nt">--libc</span><span class="o">=</span>uclibc <span class="nt">--posix-runtime</span> <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-allow-external-sym-calls</span> <span class="nt">--only-output-states-covering-new</span> <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-environ</span><span class="o">=</span>test.env <span class="nt">--run-in</span><span class="o">=</span>/tmp/sandbox <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-max-sym-array-size</span><span class="o">=</span>4096 <span class="nt">--max-instruction-time</span><span class="o">=</span>30. <span class="nt">--max-time</span><span class="o">=</span>3600. <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-watchdog</span> <span class="nt">--max-memory-inhibit</span><span class="o">=</span><span class="nb">false</span> <span class="nt">--max-static-fork-pct</span><span class="o">=</span>1 <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-max-static-solve-pct</span><span class="o">=</span>1 <span class="nt">--max-static-cpfork-pct</span><span class="o">=</span>1 <span class="nt">--switch-type</span><span class="o">=</span>internal <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-search</span><span class="o">=</span>random-path <span class="nt">--search</span><span class="o">=</span>nurs:covnew <span class="se">\ </span> 
-<span class="se">\-</span><span class="nt">-use-batching-search</span> <span class="nt">--batch-instructions</span><span class="o">=</span>10000 <span class="se">\ </span> 
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>klee <span class="nt">--simplify-sym-indices</span> <span class="nt">--write-cvcs</span> <span class="nt">--write-cov</span> <span class="nt">--output-module</span> <span class="se">\</span>
+<span class="nt">--max-memory</span><span class="o">=</span>1000 <span class="nt">--disable-inlining</span> <span class="nt">--optimize</span> <span class="nt">--use-forked-solver</span> <span class="se">\</span>
+<span class="nt">--use-cex-cache</span> <span class="nt">--libc</span><span class="o">=</span>uclibc <span class="nt">--posix-runtime</span> <span class="se">\</span>
+<span class="nt">--external-calls</span><span class="o">=</span>all <span class="nt">--only-output-states-covering-new</span> <span class="se">\</span>
+<span class="nt">--env-file</span><span class="o">=</span>test.env <span class="nt">--run-in-dir</span><span class="o">=</span>/tmp/sandbox <span class="se">\</span>
+<span class="nt">--max-sym-array-size</span><span class="o">=</span>4096 <span class="nt">--max-instruction-time</span><span class="o">=</span>30s <span class="nt">--max-time</span><span class="o">=</span>60min <span class="se">\</span>
+<span class="nt">--watchdog</span> <span class="nt">--max-memory-inhibit</span><span class="o">=</span><span class="nb">false</span> <span class="nt">--max-static-fork-pct</span><span class="o">=</span>1 <span class="se">\</span>
+<span class="nt">--max-static-solve-pct</span><span class="o">=</span>1 <span class="nt">--max-static-cpfork-pct</span><span class="o">=</span>1 <span class="nt">--switch-type</span><span class="o">=</span>internal <span class="se">\</span>
+<span class="nt">--search</span><span class="o">=</span>random-path <span class="nt">--search</span><span class="o">=</span>nurs:covnew <span class="se">\</span>
+<span class="nt">--use-batching-search</span> <span class="nt">--batch-instructions</span><span class="o">=</span>10000 <span class="se">\</span>
 ./paste.bc <span class="nt">--sym-args</span> 0 1 10 <span class="nt">--sym-args</span> 0 2 2 <span class="nt">--sym-files</span> 1 8 <span class="nt">--sym-stdin</span> 8 <span class="nt">--sym-stdout</span>
 </code></pre></div>    </div>
   </li>
