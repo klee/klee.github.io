@@ -94,17 +94,19 @@ This function tells KLEE to prefer certain values when generating test cases as 
 
 {% highlight c %}
 char input[4];
-klee_make_symbolic(input, sizeof input);
+klee_make_symbolic(input, sizeof(input), "input");
 assert(input[0] == 'Q');
 {% endhighlight %}
 
-KLEE will have a single failing state that corresponds to `input = "aaaa"`, `input = "1234"`, and every other input that fails the assertion. Normally, when KLEE generates a test case for this failure, it chooses an arbitrary one of these inputs. The result could be `input = "\0\0\0\0"` or `input = "\xff\xff\xff\xff"` or some other ugly value. We can make it more readable by using `klee_prefer_cex` after `klee_make_symbolic`:
+KLEE will have a single failing state that corresponds to `input = "aaaa"`, `input = "1234"`, and every other input that fails the assertion. Normally, when KLEE generates a test case for this failure, it can choose any of these valid inputs. The result could be `input = "\0\0\0\0"` or `input = "\xff\xff\xff\xff"` or some other unreadable value. We can make it more readable by using `klee_prefer_cex` after `klee_make_symbolic`:
 
 {% highlight c %}
 for (int i = 0; i < 4; i++)
   klee_prefer_cex(input, 32 <= input[i] && input[i] <= 126); // assume ASCII
 {% endhighlight %}
 
-Now, when KLEE has a choice between many equivalent test cases, it will prefer to use printable characters when possible. When KLEE finds paths that conflict with the `klee_prefer_cex` condition, it will ignore the preference and generate (ugly) test cases anyway. Thus, the generated test cases will follow exactly the same paths and trigger exactly the same crashes as before, but some of them will look nicer.
+**NOTE:** Only use `klee_prefer_cex` immediately after a `klee_make_symbolic` call.  It currently cannot be used after a `klee_range` call.
 
-The POSIX runtime uses `klee_prefer_cex` in a few places, for instance to prefer printable characters in symbolic command-line arguments. You can cause KLEE to ignore all preferences by giving it the `--no-prefer-cex` option.
+Now, when KLEE has a choice between many possible test cases, it will prefer to use printable characters when possible. When KLEE finds paths that conflict with the `klee_prefer_cex` condition, it will ignore the preference and generate (potentially unreadable) test cases anyway.
+
+The POSIX runtime uses `klee_prefer_cex` internally, in particular to prefer printable characters in symbolic command-line arguments.  To enable this option, use `-readable-posix-inputs`.  It is disabled by default, as `klee_prefer_cex` can be expensive when used extensively.
