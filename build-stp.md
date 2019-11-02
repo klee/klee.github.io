@@ -7,13 +7,19 @@ slug: build-stp
 
 STP is the recommended solver in KLEE.  The instructions below are for release 2.3.3. If you would like to use the upstream version, do not perform the checkout command `git checkout tags/2.3.3` in the instructions below.
 
-STP has a few external dependencies that are listed here as an install command for Ubuntu 18.04:  
+STP has a few external dependencies that are first listed here as an install command for Ubuntu 18.04:  
 
 ```bash
 sudo apt-get install cmake bison flex libboost-all-dev python perl zlib1g-dev minisat
 ```
 
-The line above installs MiniSAT. If you need to install MiniSAT manually, run:  
+Under macOS, you can run:
+
+```bash
+brew install cmake bison flex python perl
+```
+
+If your distribution does not offer MiniSAT, you need to install it manually:
 
 ```bash
 $ git clone https://github.com/stp/minisat.git
@@ -36,10 +42,21 @@ $ cmake ..
 $ make
 $ sudo make install
 ```
-Before running KLEE with STP on larger benchmarks, it is essential to run the following command:  
+Before running KLEE with STP on larger benchmarks, it is essential to
+set the size of the stack to a very large value:
 
 ```bash
 $ ulimit -s unlimited
 ```
 
-You can make this persistent by editing the `/etc/security/limits.conf` file.<br/><br/>  
+On macOS, you'll likely have to run:
+```bash
+$ ulimit -s 65532
+```
+
+
+You can make this persistent by editing the
+`/etc/security/limits.conf` file or adding the `ulimit` command into
+e.g, `.bashrc`.
+
+<br/><br/>  

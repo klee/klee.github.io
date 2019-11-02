@@ -7,25 +7,43 @@ slug: build-llvm60
 
 {% include version_warning.md %}
 
-The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined below. 
+The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined below.
 
-**NOTE:** KLEE is currently tested on **Linux x86-64**, and might break on x86-32.
 
-1. **Install dependencies:** KLEE requires all the dependencies of LLVM (see [here](http://llvm.org/docs/GettingStarted.html#requirements), and some more. In particular, you should install the following programs and libraries, listed below as Ubuntu packages:
+**NOTE:** KLEE is currently tested on Linux x86-64 (particularly
+Ubuntu), FreeBSD and macOS.  There is no support for uClibc and the
+POSIX environment under macOS. KLEE might not work under x86-32.
 
+1. **Install dependencies:** KLEE requires all the dependencies of LLVM (see [here](http://llvm.org/docs/GettingStarted.html#requirements), and some more. In particular, you should install the programs and libraries listed below.
+
+   Under Ubuntu, use:
    ```bash
    $ sudo apt-get install build-essential curl libcap-dev git cmake libncurses5-dev python-minimal python-pip unzip libtcmalloc-minimal4 libgoogle-perftools-dev libsqlite3-dev doxygen
    $ pip3 install tabulate
+   ```
+   Under macOS, run:
+   ```bash
+   $ brew install curl git cmake python unzip gperftools sqlite3 doxygen bash
+   $ pip3 install tabulate
+   ```
+   If you run into issues with the compiler not finding standard
+   headers under macOS, try running:
+   ```bash
+   $ open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg # modify for your version
    ```
 
 2. **Install LLVM 6.0:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
    If you are using a recent Ubuntu (e.g. 18.04 LTS) or Debian, we recommend you to use the LLVM packages provided by LLVM itself. 
 
-
    ```bash
    $ sudo apt-get install clang-6.0 llvm-6.0 llvm-6.0-dev llvm-6.0-tools  
    ```
+
+   If you are using macOS, you can install older LLVM packages using brew:
+   ```bash
+   $ brew install llvm@6  
+   ```   
 
    That's it for LLVM. If you want to install it manually, please refer to the official [LLVM Getting Started documentation](http://releases.llvm.org/3.8.0/docs/GettingStarted.html).
 
@@ -38,7 +56,7 @@ The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined 
    * [metaSMT](https://github.com/agra-uni-bremen/metaSMT) supports
      various solvers, including Boolector, CVC4, STP, Z3 and Yices.  We recommend branch v4.rc1 (`git clone -b v4.rc1 ...`). For build instructions, see [here](https://github.com/agra-uni-bremen/metaSMT).
 
-4. **(Optional) Build uclibc and the POSIX environment model:** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
+4. **(Optional) Build uClibc and the POSIX environment model: (not supported on macOS)** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
 
    ```bash
    $ git clone https://github.com/klee/klee-uclibc.git  
