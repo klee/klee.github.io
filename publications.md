@@ -450,6 +450,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE/ACM International conference on Automated Software Engineering (ASE 2016)  
   September 3-7, 2016, Singapore, Singapore
 
+1. [LLSPLAT: Improving Concolic Testing by Bounded Model Checking](https://ieeexplore.ieee.org/document/7781806)  
+  Min Gao, Lei He, Rupak Majumdar, Zilong Wang  
+  IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM 2016)  
+  October 2-3, 2016, Raleigh, NC, USA
+
 1. [Building Robust Distributed Systems and Network Protocols by Using Adversarial Testing and Behavioral Analysis](http://ieeexplore.ieee.org/abstract/document/7839807/)  
   Endadul Hoque, Cristina Nita-Rotaru  
   IEEE Cybersecurity Development (SecDev 2016)  
