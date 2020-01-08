@@ -769,3 +769,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [SpecuSym: Speculative Symbolic Execution for Cache Timing Leak Detection](https://arxiv.org/abs/1911.00507)  
   Shengjian Guo, Yueqi Chen, Peng Li, Yueqiang Cheng, Huibo Wang, Meng Wu, Zhiqiang Zuo  
   arXiv, November 4, 2019
+
+1. [Fine-grain Memory Object Representation in Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/ngmem-ase-2019.pdf)  
+  Martin Nowack  
+  International Conference on Automated Software Engineering (ASE 2019)  
+  November 10-15, 2019, San Diego, USA
