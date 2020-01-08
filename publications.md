@@ -659,6 +659,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Conference on Automated Software Engineering (ASE 2018)  
   September 3-7, 2018, Montpellier, France
 
+1. [Loop Path Reduction by State Pruning](https://dl.acm.org/doi/10.1145/3238147.3240731)  
+  Jianxiong Gao, Steven S. Lumetta  
+  International Conference on Automated Software Engineering (ASE 2018)  
+  September 3-7, 2018, Montpellier, France
+
 1. [PARTI: A Multi-interval Theory Solver for Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/parti-ase-18.pdf)  
   Oscar Soria Dustmann, Klaus Wehrle, Cristian Cadar  
   International Conference on Automated Software Engineering (ASE 2018)  
