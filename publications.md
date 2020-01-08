@@ -760,3 +760,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [KLEESPECTRE: Detecting Information Leakage through Speculative Cache Attacks via Symbolic Execution](https://arxiv.org/abs/1909.00647)  
   Guanhua Wang, Sudipta Chattopadhyay, Arnab Kumar Biswas, Tulika Mitra, Abhik Roychoudhury  
   arXiv, September 2, 2019
+
+1. [SpecuSym: Speculative Symbolic Execution for Cache Timing Leak Detection](https://arxiv.org/abs/1911.00507)  
+  Shengjian Guo, Yueqi Chen, Peng Li, Yueqiang Cheng, Huibo Wang, Meng Wu, Zhiqiang Zuo  
+  arXiv, November 4, 2019
