@@ -761,6 +761,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Guanhua Wang, Sudipta Chattopadhyay, Arnab Kumar Biswas, Tulika Mitra, Abhik Roychoudhury  
   arXiv, September 2, 2019
 
+1. [Constraints in Dynamic Symbolic Execution: Bitvectors or Integers?](https://srg.doc.ic.ac.uk/files/papers/intbv-tap-19.pdf)  
+  Timotej Kapus, Martin Nowack, Cristian Cadar  
+  International Conference on Tests and Proofs (TAP 2019)  
+  October 9-11, 2019, Porto, Portugal
+
 1. [SpecuSym: Speculative Symbolic Execution for Cache Timing Leak Detection](https://arxiv.org/abs/1911.00507)  
   Shengjian Guo, Yueqi Chen, Peng Li, Yueqiang Cheng, Huibo Wang, Meng Wu, Zhiqiang Zuo  
   arXiv, November 4, 2019
