@@ -445,6 +445,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE Conference on Industrial Electronics and Applications (ICIEA 2016)  
   June 5-7, 2016, Hefei, China
 
+1. [Automated Feedback Framework for Introductory Programming Courses](https://dl.acm.org/doi/10.1145/2899415.2899440)  
+  Jianxiong Gao, Bei Pang, Steven S. Lumetta  
+  Annual Conference on Innovation and Technology in Computer Science Education (ITiCSE 2016)  
+  July 11-13, 2016, Arequipa, Peru
+
 1. [MACKE: Compositional Analysis of Low-level Vulnerabilities with Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7582815/)  
   Saahil Ognawala, Martín Ochoa, Alexander Pretschner, Tobias Limmer  
   IEEE/ACM International conference on Automated Software Engineering (ASE 2016)  
