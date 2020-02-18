@@ -784,3 +784,9 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Martin Nowack  
   International Conference on Automated Software Engineering (ASE 2019)  
   November 10-15, 2019, San Diego, USA
+
+1. [SAVIOR: Towards Bug-Driven Hybrid Testing](https://arxiv.org/abs/1906.07327)  
+  Yaohui Chen, Peng Li, Jun Xu, Shengjian Guo, Rundong Zhou, Yulong Zhang, Taowei, Long Lu  
+  IEEE Symposium on Security and Privacy (S&P 2020)  
+  May 18-20, 2020, San Francisco, USA  
+  **SAVIOR is available [here](https://github.com/evanmak/savior-source).**
