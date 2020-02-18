@@ -685,6 +685,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Formal Methods in Computer Aided Design (FMCAD 2018)  
   October 30 - November 2, 2018, Austin, USA
 
+1. [Adversarial Symbolic Execution for Detecting Concurrency-Related Cache Timing Leaks](https://dl.acm.org/doi/10.1145/3236024.3236028)  
+  Shengjian Guo, Meng Wu, Chao Wang  
+  Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2018)  
+  November 4-9, 2018, Lake Buena Vista, USA
+
 1. [Symbolic Execution with Existential Second-Order Constraints](https://es-static.fbk.eu/people/griggio/papers/fse18.pdf)  
   Sergey Mechtaev, Alberto Griggio, Alessandro Cimatti, Abhik Roychoudhury  
   Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2018)  
