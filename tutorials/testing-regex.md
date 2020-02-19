@@ -68,7 +68,7 @@ KLEE: done: generated tests = 22
 
 On startup, KLEE prints the directory used to store output (in this case `klee-out-1`). By default klee will use the first free `klee-out-N` directory and also create a `klee-last` symlink which will point to the most recent created directory. You can specify a directory to use for outputs using the `-output-dir=path` command line argument.
 
-While KLEE is running, it will print status messages for "important" events, for example when it finds an error in the program. In this case, KLEE detected to invalid memory accesses on lines 23 and 25 of our test program. We'll look more at this in a moment.
+While KLEE is running, it will print status messages for "important" events, for example when it finds an error in the program. In this case, KLEE detected two invalid memory accesses on lines 23 and 25 of our test program. We'll look more at this in a moment.
 
 Finally, when KLEE finishes execution it prints out a few statistics about the run. Here we see that KLEE executed a total of ~6 million instructions, explored 7,692 paths, and generated 22 test cases.
 
