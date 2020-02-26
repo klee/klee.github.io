@@ -774,7 +774,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [KLEESPECTRE: Detecting Information Leakage through Speculative Cache Attacks via Symbolic Execution](https://arxiv.org/abs/1909.00647)  
   Guanhua Wang, Sudipta Chattopadhyay, Arnab Kumar Biswas, Tulika Mitra, Abhik Roychoudhury  
-  arXiv, September 2, 2019
+  arXiv, September 2, 2019  
+  **KLEESpectre is available [here](https://github.com/winter2020/kleespectre).**
 
 1. [Constraints in Dynamic Symbolic Execution: Bitvectors or Integers?](https://srg.doc.ic.ac.uk/files/papers/intbv-tap-19.pdf)  
   Timotej Kapus, Martin Nowack, Cristian Cadar  
