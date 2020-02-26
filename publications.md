@@ -646,7 +646,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [No Panic! Verification of Rust Programs by Symbolic Execution](https://ieeexplore.ieee.org/abstract/document/8471992)  
   Marcus Lindner, Jorge Aparicius, Per Lindgren  
   IEEE International Conference on Industrial Informatics (INDIN 2018)  
-  July 18-20, 2018, Porto, Protugal
+  July 18-20, 2018, Porto, Protugal  
+  **cargo-klee is available [here](https://gitlab.henriktjader.com/pln/cargo-klee).**
 
 1. [Symbolic Execution of Security Protocol Implementations: Handling Cryptographic Primitives](https://papers.mathyvanhoef.com/woot2018.pdf)  
   Mathy Vanhoef, Frank Piessens  
@@ -755,6 +756,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Awanish Pandey, Phani Raj Goutham Kotcharlakota, Subhajit Roy  
   ACM International Symposium on Software Testing and Analysis (ISSTA 2019)  
   July 15-19, 2019, Beijing, China
+
+1. [Verification of Safety Functions Implemented in Rust - a Symbolic Execution based approach](https://ieeexplore.ieee.org/abstract/document/8972014)  
+  Marcus Lindner, Nils Fitinghoff, Johan Eriksson, Per Lindgren  
+  IEEE International Conference on Industrial Informatics (INDIN 2019)  
+  July 22-25, Helsinki, Finland
 
 1. [SCSE: Boosting Symbolic Execution via State Concretization](https://www.jstage.jst.go.jp/article/transinf/E102.D/8/E102.D_2018EDP7298/_pdf)  
   Huibin Wang, Chunqiang Li, Jianyi Meng, Xiaoyan Xiang  
