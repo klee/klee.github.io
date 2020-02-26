@@ -795,3 +795,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE Symposium on Security and Privacy (S&P 2020)  
   May 18-20, 2020, San Francisco, USA  
   **SAVIOR is available [here](https://github.com/evanmak/savior-source).**
+
+1. [MEUZZ: Smart Seed Scheduling for Hybrid Fuzzing](https://arxiv.org/abs/2002.08568)  
+  Yaohui Chen, Mansour Ahmadi, Reza Mirzazade farkhani, Boyu Wang, Long Lu  
+  arXiv, February 20, 2020
