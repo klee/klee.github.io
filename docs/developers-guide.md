@@ -24,7 +24,7 @@ When submitting patches to KLEE, please open a separate pull request for each in
 
 ## Build System
 
-KLEE uses [cmake](https://cmake.org/) as the build system. The very basic build
+KLEE uses [cmake](https://cmake.org/) as build system. The very basic build
 setup similar to what KLEE uses is presented in LLVM's [Writing an LLVM pass
 tutorial](http://llvm.org/docs/WritingAnLLVMPass.html#setting-up-the-build-environment).
 
@@ -62,7 +62,7 @@ building a Debug build means just setting the `CMAKE_BUILD_TYPE` variable to
 
 The rest of the build process is exactly the same as in our build guides. Note
 that we only provide build guides for some popular LLVM versions, however KLEE
-builds with many more (at the time of writing LLVM 3.4 - LLVM 7).  The build
+builds with many more (at the time of writing LLVM 3.4 - LLVM 10).  The build
 process is exactly the same, cmake only needs `LLVM_CONFIG_BINARY`,
 `LLVMCC` and `LLVMCXX` to point to versions of LLVM you want to build with. 
 
@@ -75,14 +75,14 @@ debug support too.
 
 This section gives a brief overview of how KLEE's source code is structured:
 
-* `include/` Contains the publicly exported header files. That is header files
+* `include/` contains the publicly exported header files. That is header files
   that are accessible throughout the source code.
 
-* `tools/` Has the `main` functions for all KLEE binaries in the `bin/`
+* `tools/` has the `main` functions for all KLEE binaries in the `bin/`
   directory. Note that some are Python scripts.
 
-* `lib/` Contains most of the code.
-    * `lib/Core` Contains code that interprets and executes the LLVM bitcode and
+* `lib/` contains most of the code.
+    * `lib/Core` contains code that interprets and executes the LLVM bitcode and
       KLEE's memory model. The `Executor.cpp` class is usually a good starting
       point for any KLEE extension.
     * `lib/Expr` has KLEE's expression library.
@@ -129,7 +129,7 @@ KLEE uses [Doxygen](http://www.doxygen.org) to generate code documentation. To g
 $ make docs
 {% endhighlight %}
 
-This will generate documentation in `path/to/build-dir/docs/doxygen/` folder.
+This will generate the documentation in `path/to/build-dir/docs/doxygen/`.
 
 ## Regression Testing Framework
 
@@ -226,11 +226,11 @@ These test use [Google's C++ testing framework](https://code.google.com/p/google
 
 ### Writing messages to standard error
 
-The kleeCore library (``lib/Core``) provides several functions that can be used similarly to `printf()` in C. See `lib/Core/Common.h` for more information.
+The kleeCore library (``lib/Core``) provides several functions that can be used similarly to `printf()` in C. See `include/klee/Internal/Support/ErrorHandling.h` for more information.
 
 ### Adding a command line option to a tool
 
-KLEE uses LLVM's CommandLine library for adding options to tools in KLEE, which is well documented [here](http://llvm.org/docs/CommandLine.html). See ``lib/core/Executor.cpp`` for examples.
+KLEE uses LLVM's CommandLine library for adding options to tools in KLEE, which is well documented [here](http://llvm.org/docs/CommandLine.html). See ``lib/Core/Executor.cpp`` for examples.
 
 ### Run-time libraries
 
