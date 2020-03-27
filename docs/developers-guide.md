@@ -169,7 +169,7 @@ The actions performed in each test are specified by special comments in the file
 // RUN: %klee --libc=klee --exit-on-error %t1.bc
 {% endhighlight %}
 
-This first runs ``clang`` on the source file (``%s``) and generates a temporary file (``%t1.bc``). Then, KLEE symbolically executes this bitcode file with one of its runtimes (here ``--libc=klee``). If either program returns a non-zero exit code (or crashes), the test is considered to have failed. More information on the available substitution variables (such as ``%s</tt>``) can be found (here)[http://llvm.org/docs/TestingGuide.html#variables-and-substitutions].
+This first runs ``clang`` on the source file (``%s``) and generates a temporary file (``%t1.bc``). Then, KLEE symbolically executes this bitcode file with one of its runtimes (here ``--libc=klee``). If either program returns a non-zero exit code (or crashes), the test is considered to have failed. More information on the available substitution variables (such as ``%s``) can be found (here)[http://llvm.org/docs/TestingGuide.html#variables-and-substitutions].
 
 For LLVM versions greater than 5.0 programs that are to be analysed with KLEE
 should not be compiled with `-O0`, since it disables KLEE's ability to run
