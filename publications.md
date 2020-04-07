@@ -797,12 +797,17 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Conference on Automated Software Engineering (ASE 2019)  
   November 10-15, 2019, San Diego, USA
 
+1. [MEUZZ: Smart Seed Scheduling for Hybrid Fuzzing](https://arxiv.org/abs/2002.08568)  
+  Yaohui Chen, Mansour Ahmadi, Reza Mirzazade farkhani, Boyu Wang, Long Lu  
+  arXiv, February 20, 2020
+
+1. [Mousse: A System for Selective Symbolic Execution of Programs with Untamed Environments](https://www.ics.uci.edu/~ardalan/papers/Liu_EuroSys20.pdf)  
+  Yingtong Liu, Hsin-Wei Hung, Ardalan Amiri Sani  
+  April 27-30, 2020, Heraklion, Greece  
+  **Mousse is available [here](https://trusslab.github.io/mousse/).**
+
 1. [SAVIOR: Towards Bug-Driven Hybrid Testing](https://arxiv.org/abs/1906.07327)  
   Yaohui Chen, Peng Li, Jun Xu, Shengjian Guo, Rundong Zhou, Yulong Zhang, Taowei, Long Lu  
   IEEE Symposium on Security and Privacy (S&P 2020)  
   May 18-20, 2020, San Francisco, USA  
   **SAVIOR is available [here](https://github.com/evanmak/savior-source).**
-
-1. [MEUZZ: Smart Seed Scheduling for Hybrid Fuzzing](https://arxiv.org/abs/2002.08568)  
-  Yaohui Chen, Mansour Ahmadi, Reza Mirzazade farkhani, Boyu Wang, Long Lu  
-  arXiv, February 20, 2020
