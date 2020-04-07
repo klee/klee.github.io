@@ -797,6 +797,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Conference on Automated Software Engineering (ASE 2019)  
   November 10-15, 2019, San Diego, USA
 
+1. [Reinforcement Learning Guided Symbolic Execution](https://ieeexplore.ieee.org/abstract/document/9054815)  
+  Jie Wu, Chengyu Zhang, Geguang Pu  
+  IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER 2020)  
+  February 18-21, 2020, London, Canada
+
 1. [MEUZZ: Smart Seed Scheduling for Hybrid Fuzzing](https://arxiv.org/abs/2002.08568)  
   Yaohui Chen, Mansour Ahmadi, Reza Mirzazade farkhani, Boyu Wang, Long Lu  
   arXiv, February 20, 2020
