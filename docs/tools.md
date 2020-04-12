@@ -146,3 +146,28 @@ Or if Grafana is running in the foreground then use Ctrl-C.
 
 The intervals at which KLEE writes its statistics are [configurable]({{site.baseurl}}/docs/options/#statistics).
 All times are lower bounds and a long running solver query might prevent KLEE from writing new entries.
+
+## gen-bout
+
+A tool for generating a `.ktest` [file]({{site.baseurl}}/docs/files) from a concrete input.
+The contents and format of the generated `.ktest` is the same as that described above (similarly, it can be converted into a human-readable form using `ktest-tool`).
+The `.ktest` file can be replayed in KLEE (e.g., to generate the path conditions for a concrete input) and used as an interesting seed.
+
+For example, suppose that you had previous fuzzed a target application with the [American Fuzzy Lop](https://github.com/google/AFL) (AFL) fuzzer.
+After fuzzing, the input `queue/` contains the set of testcases that produced new state transitions.
+The testcases in the queue can be converted to `.ktest` files so that they can be further-explored in KLEE:
+
+```bash
+# Assumes that you are in the AFL output directory (specified via the `-o` option when fuzzing.
+# Ignores hidden directories.
+# AFL-generated testcases always begin with 'id:'
+
+find ./queue -not -path '*/\.*' -type f -name 'id:*'    \
+    -exec gen-bout --bout-file {}.ktest --sym-file {} \;
+```
+
+KLEE can subsequently be run with the `-seed-dir` option to seed further exploration.
+
+## gen-random-bout
+
+Similar to `gen-bout`, except that it generates random data for the `.ktest` file.
