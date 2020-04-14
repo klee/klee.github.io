@@ -206,10 +206,8 @@ is `--use-query-log=TYPE:FORMAT`, where:
 
 In addition there are several options that change how these queries are logged.
 
-- `--min-query-time-to-log=TIME` (in ms) is used to log only queries that exceed a certain time limit. **TIME** can be:
-    - **0** (default): to log all queries
-    - **&lt;0**: a negative value specifies that only queries that timed out should be logged. The timeout value is specified via the `--max-solver-time` option.
-    - **&gt;0**: only queries that took more that **TIME** milliseconds should be logged.
--  `--log-partial-queries-early=true` is used to dump the query to the log file before the next part of the solver chain is called.  Normally, KLEE prints the query and its solution after it has been solved. But if KLEE crashes inside the solver chain, the suspicious query will not be logged. Enable this option to debug such cases. This option comes with a performance penalty as the log buffer gets always flushed.
--  `--compress-query-log` is used to compress query log files (**default=off**)
+- `--min-query-time-to-log=TIME` is used to log only queries that exceed a certain time limit (default=0s)
+- `--log-timed-out-queries` is used to log queries that exceed `--max-solver-time` (default=true)
+- `--log-partial-queries-early=true` is used to dump the query to the log file before the next part of the solver chain is called.  Normally, KLEE prints the query and its solution after it has been solved. But if KLEE crashes inside the solver chain, the suspicious query will not be logged. Enable this option to debug such cases. This option comes with a performance penalty as the log buffer gets always flushed.
+- `--compress-query-log` is used to compress query log files (default=off)
 
