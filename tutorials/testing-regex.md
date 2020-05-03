@@ -9,7 +9,7 @@ This is an example of using KLEE to test a simple regular expression matching fu
 
 `Regexp.c` contains a simple regular expression matching function, and the bare bones testing harness (in `main()`) needed to explore this code with KLEE. You can see a version of the source code [here]({{site.baseurl}}/resources/Regexp.c.html).
 
-This example will show to build and run the example using KLEE, as well as how to interpret the output, and some additional KLEE features that can be used when writing a test driver by hand.
+This example shows how to build and run the example using KLEE, as well as how to interpret the output, and some additional KLEE features that can be used when writing a test driver by hand.
 
 We'll start by showing how to build and run the example, and then explain how the test harness works in more detail.
 
@@ -18,7 +18,7 @@ We'll start by showing how to build and run the example, and then explain how th
 The first step is to compile the source code using a compiler which can
 generate object files in LLVM bitcode format. 
 
-From within the `examples/regexp` directory:
+From within the `examples/regexp` directory execute:
 
 {% highlight bash %}
 $ clang -I ../../include -emit-llvm -c -g -O0 -Xclang -disable-O0-optnone Regexp.c
@@ -26,10 +26,10 @@ $ clang -I ../../include -emit-llvm -c -g -O0 -Xclang -disable-O0-optnone Regexp
 
 which should create a Regexp.bc file in LLVM bitcode format. The `-I` argument
 is used so that the compiler can find
-[`klee/klee.h`](http://t1.minormatter.com/~ddunbar/klee-doxygen/klee_8h-source.html),
+[`klee/klee.h`](https://github.com/klee/klee/blob/master/include/klee/klee.h),
 which contains definitions for the intrinsic functions used to interact with
 the KLEE virtual machine. `-c` is used because we only want to compile the code
-to an object file (not a native executable), and finally `-g` causes additional
+to an object file (not to a native executable), and finally `-g` causes additional
 debug information to be stored in the object file, which KLEE will use to
 determine source line number information. `-O0 -Xclang -disable-O0-optnone` is
 used to compile without any optimisation, but without preventing KLEE from
@@ -37,24 +37,22 @@ performing its own optimisations, which compiling with `-O0` would.
 
 If you have the LLVM tools installed in your path, you can verify that this step worked by running llvm-nm on the generated file:
 
-{% highlight bash %}
+```
 $ llvm-nm Regexp.bc
-        t matchstar
-        t matchhere
-        T match
-        T main
-        U klee_make_symbolic_name
-        d LC
-        d LC1
-{% endhighlight %}
+                 U klee_make_symbolic
+---------------- T main
+---------------- T match
+---------------- t matchhere
+---------------- t matchstar
+```
 
-Normally before running this program we would need to link it to create a native executable. However, KLEE runs directly on LLVM bitcode files -- since this program only has a single file there is no need to link. For "real" programs with multiple inputs, the [llvm-link](http://llvm.org/cmds/llvm-link.html) tools can be used in place of the regular link step to merge multiple LLVM bitcode files into a single module which can be executed by KLEE.
+Normally, before running this program, we would need to link it to create a native executable. However, KLEE runs directly on LLVM bitcode files. Since this program only has a single file there is no need for linking. For "real" programs with multiple inputs, the [llvm-link](http://llvm.org/cmds/llvm-link.html) tools can be used in place of the regular link step to merge multiple LLVM bitcode files into a single module which can be executed by KLEE.
 
 ## Executing the code with KLEE
 
 The next step is to execute the code with KLEE:
 
-{% highlight bash %}
+```
 $ klee --only-output-states-covering-new Regexp.bc
 KLEE: output directory = "klee-out-1"
 KLEE: ERROR: .../klee/examples/regexp/Regexp.c:23: memory error: out of bound pointer
@@ -64,17 +62,17 @@ KLEE: NOTE: now ignoring this error at this location
 KLEE: done: total instructions = 6334861
 KLEE: done: completed paths = 7692
 KLEE: done: generated tests = 22
-{% endhighlight %}
+```
 
-On startup, KLEE prints the directory used to store output (in this case `klee-out-1`). By default klee will use the first free `klee-out-N` directory and also create a `klee-last` symlink which will point to the most recent created directory. You can specify a directory to use for outputs using the `-output-dir=path` command line argument.
+On startup, KLEE prints the directory used to store output (in this case `klee-out-1`). By default KLEE will use the first free `klee-out-N` directory and also create a `klee-last` symlink which will point to the most recent created directory. You can specify a directory to use for outputs using the `-output-dir=path` command line argument.
 
-While KLEE is running, it will print status messages for "important" events, for example when it finds an error in the program. In this case, KLEE detected two invalid memory accesses on lines 23 and 25 of our test program. We'll look more at this in a moment.
+While KLEE is running, it will print status messages for "important" events, for example when it finds an error in the program. In this case, KLEE detected two invalid memory accesses on lines 23 and 25 of our test program. We'll look closer at this in a moment.
 
-Finally, when KLEE finishes execution it prints out a few statistics about the run. Here we see that KLEE executed a total of ~6 million instructions, explored 7,692 paths, and generated 22 test cases.
+Finally, when KLEE finishes execution it prints out a few statistics about the run. Here we see that KLEE executed a total of ~6 million instructions, explored 7,692 paths, and generated 22 test cases. KLEE only generates 22 test cases because we limited the test generation to states that actually covered new code with `--only-output-states-covering-new`. If we would omit this flag, KLEE would create 6,578 test cases! Still, KLEE does not create a test case for every path. Whenever it finds a bug, it creates a test case for the first state that reaches the bug. All other paths that reach the bug at the same location are terminated silently. If you don't mind the duplication of error cases, use `--emit-all-errors` to generate test cases for all 7,692 paths.
 
 Note that many realistic programs have an infinite (or extremely large) number of paths through them, and it is common that KLEE will not terminate. By default KLEE will run until the user presses Control-C (i.e. klee gets a `SIGINT`), but there are additional options to limit KLEE's runtime and memory usage:
 
-* `-max-time=seconds`: Halt execution after the given number of seconds.
+* `-max-time=<time span>`: Halt execution after the given amount of time, e.g. `10min` or `1h5s`.
 * `-max-forks=N`: Stop forking after `N` symbolic branches, and run the
 remaining paths to termination.
 * `-max-memory=N`: Try to limit memory consumption to `N` megabytes.
@@ -143,7 +141,7 @@ int main() {
 
 Making a buffer symbolic just initializes the contents to refer to symbolic variables, we are still free to modify the memory as we wish. If you recompile and run klee on this test program, the memory errors should now be gone.
 
-Another way to accomplish the same effect is to use the `klee_assume` intrinsic function. `klee_assume` takes a single argument (an unsigned integer) which generally should some kind of conditional expression, and "assumes" that expression to be true on the current path (if that can never happen, i.e. the expression is provably false, KLEE will report an error).
+Another way to accomplish the same effect is to use the `klee_assume` intrinsic function. `klee_assume` takes a single argument (an unsigned integer) which generally should be some kind of conditional expression, and "assumes" that expression to be true on the current path (if that can never happen, i.e. the expression is provably false, KLEE will report an error).
 
 We can use `klee_assume` to cause KLEE to only explore states where the string is null terminated by writing the driver like this:
 
@@ -163,9 +161,9 @@ int main() {
 }
 {% endhighlight %}
 
-In this particular example, both solutions work fine, but in general `klee_assume` is more flexible:
+In this particular example both solutions work fine but in general `klee_assume` is more flexible:
 
 * By explicitly declaring the constraint, this will force test cases to have the `'\0'` in them. In the first example where we write the terminating null explicitly, it doesn't matter what the last byte of the symbolic input is and KLEE is free to generate any value. In some cases where you want to inspect the test cases by hand, it is more convenient for the test case to show all the values that matter.
 * `klee_assume` can be used to encode more complicated constraints. For example, we could use `klee_assume(re[0] != '^')` to cause KLEE to only explore states where the first byte is not `'^'`.
 
-**NOTE**: One important caveat when using `klee_assume` with multiple conditions; remember that boolean conditionals like `'&&'` and `'||'` may be compiled into code which branches before computing the result of the expression. In such situations KLEE will branch the process *before* it reaches the call to `klee_assume`, which may result in exploring unnecessary additional states. For this reason it is good to use as simple expressions as possible to `klee_assume` (for example splitting a single call into multiple ones), and to use the `'&'` and `'|'` operators instead of the short-circuiting ones.
+**NOTE**: There is one important caveat when using `klee_assume` with multiple conditions. Remember that boolean conditionals like `'&&'` and `'||'` may be compiled into code which branches before computing the result of the expression. In such situations KLEE will branch the process *before* it reaches the call to `klee_assume`, which may result in exploring unnecessary additional states. For this reason it is good to use as simple expressions as possible to `klee_assume` (for example splitting a single call into multiple ones), and to use the `'&'` and `'|'` operators instead of the short-circuiting ones.
