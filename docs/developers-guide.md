@@ -226,7 +226,7 @@ These test use [Google's C++ testing framework](https://code.google.com/p/google
 
 ### Writing messages to standard error
 
-The kleeCore library (``lib/Core``) provides several functions that can be used similarly to `printf()` in C. See `include/klee/Internal/Support/ErrorHandling.h` for more information.
+The kleeCore library (`lib/Core`) provides several functions that can be used similarly to `printf()` in C. See `include/klee/Support/ErrorHandling.h` for more information.
 
 ### Adding a command line option to a tool
 
@@ -234,4 +234,4 @@ KLEE uses LLVM's CommandLine library for adding options to tools in KLEE, which 
 
 ### Run-time libraries
 
-KLEE searches for run-time libraries in install and build paths. These are hard-coded to the binary, so if the filesystem tree changes, KLEE will not find them until recompiled. This behaviour can be overridden by setting KLEE_RUNTIME_LIBRARY_PATH environment variable to the path to the libraries.
+KLEE searches for run-time libraries in install and build paths. These are hard-coded to the binary, so if the filesystem tree changes, KLEE will not find them until recompiled. This behaviour can be overridden by setting `KLEE_RUNTIME_LIBRARY_PATH` environment variable to the path to the libraries.
