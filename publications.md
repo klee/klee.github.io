@@ -338,6 +338,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2014)  
   October 20-24, 2014, Portland, USA
 
+1. [A Comparative Study of Incremental Constraint Solving Approaches in Symbolic Execution](https://link.springer.com/chapter/10.1007/978-3-319-13338-6_21)  
+  Tianhai Liu, Mateus Araújo, Marcelo d’Amorim, Mana Taghdiri  
+  International Haifa Verification Conference (HVC 2014)  
+  November 18-20, 2014, Haifa, Israel
+
 1. [Methods for Binary Symbolic Execution](https://searchworks.stanford.edu/view/10701369)  
   Anthony Romano  
   Dissertation, Stanford University, Department of Computer Science  
