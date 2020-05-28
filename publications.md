@@ -189,6 +189,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2012)  
   October 19-26, 2012, Tucson, USA
 
+1. [Taint Analysis of Security Code in the KLEE Symbolic Execution Engine](https://link.springer.com/chapter/10.1007/978-3-642-34129-8_23)  
+  Ricardo Corin, Felipe Andrés Manzano  
+  International Conference on Information and Communications Security (ICICS 2012)  
+  October 29-31, 2012, Hong Kong, China
+
 1. [Enhancing Symbolic Execution to Test the Compatibility of Re-engineered Industrial Software](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6462670)  
   Susumu Tokumoto, Tadahiro Uehara, Kazuki Munakata, Haruyuki Ishida, Toru Eguchi, Masafumi Baba  
   Asia-Pacific Software Engineering Conference  
