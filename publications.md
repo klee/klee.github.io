@@ -818,6 +818,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Mousse: A System for Selective Symbolic Execution of Programs with Untamed Environments](https://www.ics.uci.edu/~ardalan/papers/Liu_EuroSys20.pdf)  
   Yingtong Liu, Hsin-Wei Hung, Ardalan Amiri Sani  
+  ACM SIGOPS/EuroSys European Conference on Computer Systems (EuroSys 2020)  
   April 27-30, 2020, Heraklion, Greece  
   **Mousse is available [here](https://trusslab.github.io/mousse/).**
 
