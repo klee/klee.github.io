@@ -22,7 +22,7 @@ A Docker container is built from a Docker image. A Docker image encapsulates an 
 
 # Installing Docker
 
-To run Docker natively on your machine you need to be using a Linux distribution with Docker installed.   Follow these links for installation instructions on [Ubuntu](https://docs.docker.com/installation/ubuntulinux/), [OS X](https://docs.docker.com/installation/mac/) and [Windows](https://docs.docker.com/installation/windows/).
+To run Docker natively on your machine you need to be using a Linux distribution with Docker installed.   Follow these links for installation instructions on [Ubuntu](https://docs.docker.com/engine/install/ubuntu/), [OS X](https://docs.docker.com/installation/mac/) and [Windows](https://docs.docker.com/installation/windows/).
 
 
 # Getting the KLEE Docker image
