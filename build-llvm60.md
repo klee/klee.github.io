@@ -83,9 +83,9 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    Run from the main KLEE source directory:
 
    ```bash
-   $ LLVM_VERSION=6.0 SANITIZER_BUILD= BASE=<LIBCXX_INSTALL_DIR> ./scripts/build/build.sh libcxx
+   $ LLVM_VERSION=6.0 SANITIZER_BUILD= BASE=<LIBCXX_INSTALL_DIR> REQUIRES_RTTI=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 ENABLE_OPTIMIZED=1 ./scripts/build/build.sh libcxx
    ```
-   where `<LIBCXX_INSTALL_DIR>` is the absolute path where `libcxx` should be installed.
+   where `<LIBCXX_INSTALL_DIR>` is the absolute path where `libcxx` should be installed. Make sure that `clang++-6.0` is available in the path.
 
    To tell KLEE to use libcxx, pass the following flags to CMake when you configure KLEE in step 9:
 
