@@ -10,8 +10,8 @@ Assuming you have Docker installed, you can run the following to try
 the latest release of KLEE:
 
 ```bash
-$ docker pull klee/klee:2.0
-$ docker run --rm -ti --ulimit='stack=-1:-1' klee/klee:2.0
+$ docker pull klee/klee:2.1
+$ docker run --rm -ti --ulimit='stack=-1:-1' klee/klee:2.1
 ```
 
 # What is Docker?
@@ -45,7 +45,7 @@ If you want to use a tagged revision of KLEE you should instead run:
 $ docker pull klee/klee:<TAG>
 ```
 
-Where ``<TAG>`` is [one of the tags listed on the DockerHub](https://hub.docker.com/r/klee/klee/tags/). Typically this is either ``latest`` (corresponds to the ``master`` branch) or a version number (e.g. ``2.0``).
+Where ``<TAG>`` is [one of the tags listed on the DockerHub](https://hub.docker.com/r/klee/klee/tags/). Typically this is either ``latest`` (corresponds to the ``master`` branch) or a version number (e.g. ``2.1``).
 
 **Note this process pulls images containing code compiled by a third-party service. We do not accept responsibility for the contents of the image.**
 
@@ -88,7 +88,7 @@ see an output similar to:
 
 ```bash
 klee@3c098b05ca85:~$ klee --version
-KLEE 2.0 (https://klee.github.io)
+KLEE 2.1 (https://klee.github.io)
   Build mode: RelWithDebInfo (Asserts: ON)
   Build revision: 938434b2521d4c1ec11af31f1e5e5fbafd2cb2cd
 
@@ -190,7 +190,7 @@ to remove it.
 
 There are a few useful things to know about KLEE Docker containers created using the KLEE Docker image.
 
-* The Docker image is based on an Ubuntu 16.04 LTS image.
+* The Docker image is based on an Ubuntu 18.04 LTS image.
 * Inside the Docker image the ``klee`` user has sudo access (password is ``klee``) so that you can install other applications inside the container (e.g. a text editor). Given that the default user has sudo access this image **should never be used in a production environment**.
 * You may want files on your native filesystem available in the container. By default the host filesystem is not visible inside the container.  You can use the ``--volume=`` option to ``docker run`` to mount directories on the host filesystem into the container.
 * These Docker images use LLVM 6.0 so you need to use ``clang`` to create LLVM bitcode.
