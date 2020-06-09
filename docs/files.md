@@ -42,7 +42,7 @@ These are global files are always generated on a KLEE execution:
 2.  **warnings.txt**: This is a text file containing all warnings emitted by KLEE.
 3.  **messages.txt**: This is a text file containing all other messages emitted by KLEE.
 4.  **assembly.ll**: This file contains a human readable version of the LLVM bitcode executed by KLEE
-5.  **run.stats**: This is a text file containing various statistics emitted by KLEE. While this file can be inspected manually, you should use the [klee-stats]({{site.baseurl}}/docs/tools/#klee-stats) tool for that.
+5.  **run.stats**: This is a [SQLite](https://www.sqlite.org) file containing various statistics emitted by KLEE. While this file can be inspected manually, you should use the [klee-stats]({{site.baseurl}}/docs/tools/#klee-stats) tool for that.
 6.  **run.istats**: This is a binary file containing global statistics emitted by KLEE for each line of code in the program.
 
 ## Other Global Files
