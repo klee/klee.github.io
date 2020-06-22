@@ -49,6 +49,8 @@ The current procedure for building KLEE with LLVM 3.8 is outlined below.
    $ make -j2  
    $ cd .. 
    ```
+   When `clang` or `llvm-config` are not in your `PATH` or have a custom prefix/suffix, `configure` may fail to detect their location. You can use the `--with-cc` and `--with-llvm-config` flags to set the paths manually.
+
    **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run make config and select the correct target. The defaults for the other uClibc configuration variables should be fine.  <br/><br/>  
 
    To tell KLEE to use klee-uclibc and use the POSIX runtime pass
