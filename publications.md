@@ -3,7 +3,7 @@ layout: default
 title: Publications
 subtitle: Publications and Systems Using KLEE
 slug: publications
-lead: Below you can find a list of 100+ papers and systems that either use or extend KLEE. They are listed in chronological order.
+lead: Below you can find a list of 150+ papers and systems that either use or extend KLEE. They are listed in chronological order.
 ---
 
 Additional information about systems and research based on KLEE can be found on the website of the [1st International KLEE Workshop on Symbolic Execution](https://srg.doc.ic.ac.uk/klee18/).
@@ -819,11 +819,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Mousse: A System for Selective Symbolic Execution of Programs with Untamed Environments](https://www.ics.uci.edu/~ardalan/papers/Liu_EuroSys20.pdf)  
   Yingtong Liu, Hsin-Wei Hung, Ardalan Amiri Sani  
   ACM SIGOPS/EuroSys European Conference on Computer Systems (EuroSys 2020)  
-  April 27-30, 2020, Heraklion, Greece  
+  April 27-30, 2020, Virtual Conference, Greece  
   **Mousse is available [here](https://trusslab.github.io/mousse/).**
 
 1. [SAVIOR: Towards Bug-Driven Hybrid Testing](https://arxiv.org/abs/1906.07327)  
   Yaohui Chen, Peng Li, Jun Xu, Shengjian Guo, Rundong Zhou, Yulong Zhang, Taowei, Long Lu  
   IEEE Symposium on Security and Privacy (S&P 2020)  
-  May 18-20, 2020, San Francisco, USA  
+  May 18-20, 2020, Virtual Conference, USA  
   **SAVIOR is available [here](https://github.com/evanmak/savior-source).**
