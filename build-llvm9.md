@@ -1,13 +1,13 @@
 ---
 layout: default
-title: LLVM 6.0 (recommended)
-subtitle: Building KLEE with LLVM 6.0
-slug: build-llvm60
+title: LLVM 9 (recommended)
+subtitle: Building KLEE with LLVM 9
+slug: build-llvm9
 ---
 
 {% include version_warning.md %}
 
-The current procedure for building KLEE with LLVM 6.0 (recommended) is outlined below.
+The current procedure for building KLEE with LLVM 9 (recommended) is outlined below.
 
 
 **NOTE:** KLEE is currently tested on Linux x86-64 (particularly
@@ -32,17 +32,17 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    $ open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg # modify for your version
    ```
 
-2. **Install LLVM 6.0:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
+2. **Install LLVM 9:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
    If you are using a recent Ubuntu (e.g. 18.04 LTS) or Debian, we recommend you to use the LLVM packages provided by LLVM itself. 
 
    ```bash
-   $ sudo apt-get install clang-6.0 llvm-6.0 llvm-6.0-dev llvm-6.0-tools  
+   $ sudo apt-get install clang-9 llvm-9 llvm-9-dev llvm-9-tools  
    ```
 
    If you are using macOS, you can install older LLVM packages using brew:
    ```bash
-   $ brew install llvm@6  
+   $ brew install llvm@9  
    ```   
 
    That's it for LLVM. If you want to install it manually, please refer to the official [LLVM Getting Started documentation](http://releases.llvm.org/3.8.0/docs/GettingStarted.html).
@@ -67,7 +67,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    ```
    When `clang` or `llvm-config` are not in your `PATH` or have a custom prefix/suffix, `configure` may fail to detect their location. You can use the `--with-cc` and `--with-llvm-config` flags to set the paths manually.
 
-   **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run make config and select the correct target. The defaults for the other uClibc configuration variables should be fine.  <br/><br/>  
+   **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run `make config` and select the correct target. The defaults for the other uClibc configuration variables should be fine.  <br/><br/>  
 
    To tell KLEE to use both klee-uclibc and the POSIX runtime, pass
    `-DENABLE_POSIX_RUNTIME=ON` and `-DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR>`
@@ -85,14 +85,14 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    Run from the main KLEE source directory:
 
    ```bash
-   $ LLVM_VERSION=6.0 SANITIZER_BUILD= BASE=<LIBCXX_INSTALL_DIR> REQUIRES_RTTI=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 ENABLE_OPTIMIZED=1 ./scripts/build/build.sh libcxx
+   $ LLVM_VERSION=9 SANITIZER_BUILD= BASE=<LIBCXX_INSTALL_DIR> REQUIRES_RTTI=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 ENABLE_OPTIMIZED=1 ./scripts/build/build.sh libcxx
    ```
-   where `<LIBCXX_INSTALL_DIR>` is the absolute path where `libcxx` should be installed. Make sure that `clang++-6.0` is available in the path.
+   where `<LIBCXX_INSTALL_DIR>` is the absolute path where `libcxx` should be installed. Make sure that `clang++-9` is available in the path.
 
    To tell KLEE to use libcxx, pass the following flags to CMake when you configure KLEE in step 9:
 
    ```bash
-   -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-60/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-60/include/c++/v1/
+   -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-9/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-9/include/c++/v1/
    ```
 
    Note that `<LIBCXX_INSTALL_DIR>` must currently be an absolute path. Note that if you want to 
@@ -163,9 +163,9 @@ POSIX environment under macOS. KLEE might not work under x86-32.
      -DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR> \
      -DENABLE_UNIT_TESTS=ON \
      -DGTEST_SRC_DIR=<GTEST_SOURCE_DIR> \
-     -DLLVM_CONFIG_BINARY=<PATH_TO_llvm-config-6.0> \
-     -DLLVMCC=<PATH_TO_clang-6.0> \
-     -DLLVMCXX=<PATH_TO_clang++-6.0>
+     -DLLVM_CONFIG_BINARY=<PATH_TO_llvm-config-9> \
+     -DLLVMCC=<PATH_TO_clang-9> \
+     -DLLVMCXX=<PATH_TO_clang++-9>
      <KLEE_SRC_DIRECTORY>
    ```
 
