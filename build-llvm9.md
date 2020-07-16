@@ -19,12 +19,12 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    Under Ubuntu, use:
    ```bash
    $ sudo apt-get install build-essential curl libcap-dev git cmake libncurses5-dev python-minimal python-pip unzip libtcmalloc-minimal4 libgoogle-perftools-dev libsqlite3-dev doxygen
-   $ pip3 install tabulate
+   $ pip3 install tabulate wllvm
    ```
    Under macOS, run:
    ```bash
    $ brew install curl git cmake python unzip gperftools sqlite3 doxygen bash
-   $ pip3 install tabulate
+   $ pip3 install tabulate wllvm
    ```
    If you run into issues with the compiler not finding standard
    headers under macOS, try running:
@@ -75,12 +75,6 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    the absolute path to the cloned `klee-uclibc` git repository.<br/><br/>  
 
 5. **(Optional) Build LibC++:** To be able to run C++ code, you also need to enable support for the C++ standard library.
-
-   [https://github.com/travitch/whole-program-llvm](`wllvm`) is required to build libcxx through the build script:
-
-   ```bash
-   $ sudo pip install wllvm
-   ```
 
    Run from the main KLEE source directory:
 
