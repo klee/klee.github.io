@@ -827,3 +827,9 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE Symposium on Security and Privacy (S&P 2020)  
   May 18-20, 2020, Virtual Conference, USA  
   **SAVIOR is available [here](https://github.com/evanmak/savior-source).**
+
+1. [Running Symbolic Execution Forever](https://srg.doc.ic.ac.uk/files/papers/moklee-issta-20.pdf)  
+  Frank Busse, Martin Nowack, Cristian Cadar  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2020)  
+  July 18–22, 2020, Virtual Event, USA  
+  **MoKlee is available [here](https://srg.doc.ic.ac.uk/projects/moklee/).**
