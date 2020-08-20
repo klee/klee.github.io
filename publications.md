@@ -828,6 +828,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   May 18-20, 2020, Virtual Conference, USA  
   **SAVIOR is available [here](https://github.com/evanmak/savior-source).**
 
+1. [Relocatable Addressing Model for Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3395363.3397363)  
+  David Trabish, Noam Rinetzky  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2020)  
+  July 18–22, 2020, Virtual Event, USA  
+  **klee-ram is available [here](https://github.com/davidtr1037/klee-ram).**
+
 1. [Running Symbolic Execution Forever](https://srg.doc.ic.ac.uk/files/papers/moklee-issta-20.pdf)  
   Frank Busse, Martin Nowack, Cristian Cadar  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2020)  
