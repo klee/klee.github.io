@@ -798,6 +798,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Conference on Tests and Proofs (TAP 2019)  
   October 9-11, 2019, Porto, Portugal
 
+1. [KLUZZER: Whitebox Fuzzing on Top of LLVM](https://link.springer.com/chapter/10.1007/978-3-030-31784-3_14)  
+  Hoang M. Le  
+  International Symposium on Automated Technology for Verification and Analysis (ATVA 2019)  
+  October 27-31, 2019, Taipai, Taiwan
+
 1. [SpecuSym: Speculative Symbolic Execution for Cache Timing Leak Detection](https://arxiv.org/abs/1911.00507)  
   Shengjian Guo, Yueqi Chen, Peng Li, Yueqiang Cheng, Huibo Wang, Meng Wu, Zhiqiang Zuo  
   arXiv, November 4, 2019
