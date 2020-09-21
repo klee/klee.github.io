@@ -310,7 +310,7 @@
     &::before {
       @if $icon {
         font-family: $fontIcon;
-        @extend .#{$icon}::before;
+        @extend .#{$icon}, ::before;
         font-size: $fontSmall;
       }
       @else {
