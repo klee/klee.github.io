@@ -5,22 +5,22 @@ subtitle: The build infrastructure for KLEE
 slug: build-klee-script
 ---
 
-# Building KLEE and its Dependencies
+# Building KLEE and its dependencies
 
-KLEE is a symbolic execution framework that can be built with a multitude of different components (compiler infrastructure: LLVM 3.8 - ..., solvers: STP, Z3, MetaSMT) and run on a variety of systems (e.g., Linux (Ubuntu), Mac OS X, FreeBSD).
+KLEE is a symbolic execution framework that can be built with a multitude of different components (compiler infrastructure: multiple LLVM versions, solvers: STP, Z3, MetaSMT) and run on a variety of systems (e.g., Linux (Ubuntu), macOS, FreeBSD).
 
 Managing and building the different combinations of dependencies can be tedious. Moreover, not all the different requested versions of each dependency are available for every system. To simplify this process, we provide a build script `scripts/build/build.sh` that allows you to manage those tasks automatically.
 
 ## TL; DR
 
 To locally build our standard configuration, use the following option:
-* LLVM: 6.0 - optimized
+* LLVM: 9.0 - optimized with debug information
 * Solvers: STP and Z3
 * uclibc: to test applications with systems interaction
-* libc++: to test C++ application
+* libc++: to test C++ applications
 
 ```
-COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=6.0 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.7.0 UCLIBC_VERSION=klee_uclibc_v1.2 LLVM_VERSION=6.0 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= LLVM_VERSION=6.0 STP_VERSION=2.3.3 MINISAT_VERSION=master Z3_VERSION=4.8.4 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee --install-system-deps
+COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=9.0 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.7.0 UCLIBC_VERSION=klee_uclibc_v1.2 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= LLVM_VERSION=6.0 STP_VERSION=2.3.3 MINISAT_VERSION=master Z3_VERSION=4.8.4 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee --install-system-deps
 ```
 
 ## Users
@@ -53,7 +53,7 @@ uclibc
 z3
 ```
 
-### Invoking the script - Installing a solver
+### Invoking the script - installing a solver
 
 The script builds components (e.g., `solver`) and their dependencies. KLEE is handled as one component as well (i.e., `klee`).
 
@@ -85,7 +85,7 @@ To fix this - assuming your system is supported - the script can be suffixed wit
 In this case, the required packages will be installed.
 Similarly, if specific packages for the system are available, the script will try to install them instead of compiling them from scratch.
 
-#### Getting inspired by the Travis builds
+#### Getting inspired by the Travis Builds
 To test KLEE, we build different software combinations. The `.travis.yml` reflects those combinations.
 
 Everything under `global` specifies the default configuration we use.
@@ -95,7 +95,7 @@ Use those options to mix and match your required setup.
 To locally build our standard configuration, use the following option:
 
 ```
-COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=6.0 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.7.0 UCLIBC_VERSION=klee_uclibc_v1.2 LLVM_VERSION=6.0 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= LLVM_VERSION=6.0 STP_VERSION=2.3.3 MINISAT_VERSION=master Z3_VERSION=4.8.4 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee
+COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=9.0 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.7.0 UCLIBC_VERSION=klee_uclibc_v1.2 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= STP_VERSION=2.3.3 MINISAT_VERSION=master Z3_VERSION=4.8.4 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee
 ```
 
 For example, to have address sanitized builds with LLVM 7.0 use:
@@ -132,11 +132,11 @@ The main build script `build.sh` automatically uses components that are availabl
 
 A component consists of two parts: a required virtual description (`v-COMPONENT.inc`) and optional build description that are platform-specific (`p-COMPONENT-PLATFORM.inc`).
 
-The build script automatically detects under which platform it runs (e.g., Linux, Mac OS X, ...), which platform-specific versions (e.g., Debian, Ubuntu, ...), and which version number (e.g., Ubuntu 16.04, Ubuntu 18.04, ...).
+The build script automatically detects under which platform it runs (e.g., Linux, macOS, ...), which platform-specific versions (e.g., Debian, Ubuntu, ...), and which version number (e.g., Ubuntu 16.04, Ubuntu 18.04, ...).
 
 This platform information is used to resort to required build instructions from the most platform-specific version to the least.
 
-As example, to build the __STP__ solver, `build.sh` finds the general component information in `v-stp.inc`. To build STP under an Linux Ubuntu 20.04, the build script will try to acquire information from `p-stp-linux-ubuntu-20.04.inc`, which it won't find. In subsequent steps, it will try to resolve functionality from `p-stp-linux-ubuntu.inc`, then `p-stp-linux.inc` and last `p-stp.inc`.
+As example, to build the __STP__ solver, `build.sh` finds the general component information in `v-stp.inc`. To build STP under a Linux Ubuntu 20.04, the build script will try to acquire information from `p-stp-linux-ubuntu-20.04.inc`, which it won't find. In subsequent steps, it will try to resolve functionality from `p-stp-linux-ubuntu.inc`, then `p-stp-linux.inc` and last `p-stp.inc`.
 
 Due to the nature of bash, all component-specific functions are suffixed with `_COMPONENT` to avoid name clashes and re-definitions.
 
@@ -174,7 +174,7 @@ For example, for the meta-package __SOLVERS__, which references potential solver
 
 To specify the dependencies of components, `artifact_dependency_COMPONENT` should be used. In the case of __SOLVERS__, the selected solvers become dependents.
 
-#### Providing Build Instructions
+#### Providing build instructions
 
 Build instructions define how a component is provided.
 
@@ -191,7 +191,7 @@ It uses the following steps that can be customized as described later:
 
 In a nutshell, if the component is not available, try to get a pre-built version or built it.
 
-##### Building from Source
+##### Building from source
 
 Let's start with the case that the package has to be built from scratch. For this, the last four steps are needed, and the associated functions should be added to the `p-COMPONENT.inc` file if needed.
 
@@ -242,7 +242,7 @@ install_build_dependencies_stp() {
 }
 ```
 
-* Mac OS X: `p-stp-osx.inc`
+* macOS: `p-stp-osx.inc`
 ```
 install_build_dependencies_stp() {
   brew install clang@8 cmake
@@ -252,7 +252,7 @@ install_build_dependencies_stp() {
 The install script tries to find a satisfying function depending on the system and the provided instructions by evaluating the most specific to the least specific version. With the previously defined functions, on Ubuntu 20.04, the script will use the more general `p-stp-linux-ubuntu.inc` as a `p-stp-linux-ubuntu-20.04.inc` is not available.
 
 To foster reusability, source-built components should not be installed into systems directories, instead, they should be kept in separate directories.
-For example, for __STP__, it is build in something like `STP_BUILD_PATH="${BASE}/stp-${STP_VERSION}-build"` directory and installed into `STP_INSTALL_PATH="${BASE}/stp-${STP_VERSION}-install`. This allows us to have multiple software versions and differently optimized versions simultaneously on a system and link them appropriately.
+For example, for __STP__, it is build in something like `STP_BUILD_PATH="${BASE}/stp-${STP_VERSION}-build"` and installed into `STP_INSTALL_PATH="${BASE}/stp-${STP_VERSION}-install`. This allows us to have multiple software versions and differently optimized versions simultaneously on a system and link them appropriately.
 
 ##### Using pre-built packages
 
@@ -286,7 +286,7 @@ is_installed_stp() {
 }
 ```
 
-### Dockerizing Components
+### Dockerizing components
 
 To save time re-compiling code, components can be dockerized:
 If `build.sh` is executed with `--docker`, the script will use dockerized components if possible; otherwise, it will install or compile components inside the docker environment.
