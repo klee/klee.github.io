@@ -845,6 +845,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   July 18–22, 2020, Virtual Event, USA  
   **MoKlee is available [here](https://srg.doc.ic.ac.uk/projects/moklee/).**
 
+1. [Analyzing System Software Components Using API Model Guided Symbolic Execution](https://link.springer.com/article/10.1007/s10515-020-00276-5)  
+  Tuba Yavuz, Ken (Yihang) Bai  
+  Automated Software Engineering (AUSE)  
+  September 19, 2020  
+  **PROMPT is available [here](https://github.com/sysrel/PROMPT).**
+
 1. [Pending Constraints in Symbolic Execution for Better Exploration and Seeding](https://srg.doc.ic.ac.uk/files/papers/pending-ase-20.pdf)  
   Timotej Kapus, Frank Busse, Cristian Cadar  
   IEEE/ACM International Conference on Automated Software Engineering (ASE 2020)  
