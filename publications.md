@@ -214,6 +214,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM Symposium on Principles of Programming Languages (POPL 2013)  
   January 23-25, 2013, Rome, Italy
 
+1. [Verifying Systems Rules Using Rule-Directed Symbolic Execution](https://dl.acm.org/doi/10.1145/2451116.2451152)  
+  Heming Cui, Gang Hu, Jingyue Wu, Junfeng Yang  
+  International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS 2013)  
+  March 16-20, 2013, Houston, USA  
+  **Woodpecker is available [here](https://github.com/columbia/woodpecker).**
+
 1. [Symbiotic: Synergy of Instrumentation, Slicing, and Symbolic Execution (Competition Contribution)](http://is.muni.cz/repo/1078253/77950621.pdf)  
   Jiri Slaby, Jan Strejcek, Marek Trtík  
   International Conference on Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2013)  
