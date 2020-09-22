@@ -10,9 +10,9 @@ The KLEE website, built using [Web Starter Kit](http://developers.google.com/web
 
 * [Node.js](https://nodejs.org/)
 
-* [Bundler](http://bundler.io/).  You can use `gem install bundle` to install it.
+* [Bundler](https://bundler.io/).  You can use `gem install bundle` to install it.
 
-* [Python](https://nodejs.org/). If you get errors such `Liquid Exception: EPIPE` when you try to run Jekyll, set Python 2.x as default (instead of Python 3.x).
+* [Python](https://www.python.org/)
 
 
 ### Installation
