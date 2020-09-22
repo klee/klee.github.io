@@ -844,3 +844,9 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2020)  
   July 18–22, 2020, Virtual Event, USA  
   **MoKlee is available [here](https://srg.doc.ic.ac.uk/projects/moklee/).**
+
+1. [Pending Constraints in Symbolic Execution for Better Exploration and Seeding](https://srg.doc.ic.ac.uk/files/papers/pending-ase-20.pdf)  
+  Timotej Kapus, Frank Busse, Cristian Cadar  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2020)  
+  September 21-25, 2020, Virtual Event, AU  
+  **The artefact is available [here](https://srg.doc.ic.ac.uk/projects/pending-constraints/).**
