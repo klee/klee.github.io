@@ -19,11 +19,11 @@ This document is structured as a series of FAQs:
 
 3.  What version of STP was used in the OSDI paper?  
 
-    An old version of STP, which is still available as part of KLEE's repository, in revisions up to r161056.
+    An old version of STP, which is still available as part of KLEE's repository, in revisions up to `r161056`.
 
 4.  On what OS did you run your experiments?  
 
-    We ran most experiments on a 32-bit Fedora machine with SELinux support. The most important aspect is that this was a 32-bit system: the constraints generated on a 64-bit system are typically more complex and memory consumption might also increase.
+    We ran most experiments on a 32-bit Fedora machine with SELinux support. The most important aspect is that this was a 32-bit system: the constraints generated on a 64-bit system are typically more complex and memory consumption might also increase. Recent versions of KLEE do not support 32-bit host systems anymore.
 
 5.  What are the 89 Coreutils applications that you tested?   
 
@@ -65,7 +65,7 @@ This document is structured as a series of FAQs:
 
     Some of these options have been renamed or removed in the current version of KLEE. Most notably, the options `--exclude-libc-cov` and `--exclude-cov-file` were implemented in a fragile way and we decided to remove them from KLEE. The idea was to treat the functions in libc or specified in a text file as "covered". (For the Coreutils experiments, we were interested in covering the code in the tools themselves, as opposed to library code, see the paper for more details). If you plan to reimplement these options in a clean way, please consider contributing your code to the mainline.
 
-    Option `--randomize-fork` was used in the experiments but recently removed (commit [`5133b98`](https://github.com/klee/klee/commit/5133b98f1d989af94902366c6d02eb6447458aa1)).
+    Option `--randomize-fork` was used in the experiments but recently removed (commit [`5133b98`](https://github.com/klee/klee/commit/5133b98f1d989af94902366c6d02eb6447458aa1)) as well as `-max-instruction-time` (PR [`1114`](https://github.com/klee/klee/pull/1114)).
 
 
 8.  What are the options closest to the ones above that work with the current version of KLEE?
@@ -78,7 +78,7 @@ This document is structured as a series of FAQs:
     --use-cex-cache --libc=uclibc --posix-runtime \
     --external-calls=all --only-output-states-covering-new \
     --env-file=test.env --run-in-dir=/tmp/sandbox \
-    --max-sym-array-size=4096 --max-instruction-time=30s --max-time=60min \
+    --max-sym-array-size=4096 --max-solver-time=30s --max-time=60min \
     --watchdog --max-memory-inhibit=false --max-static-fork-pct=1 \
     --max-static-solve-pct=1 --max-static-cpfork-pct=1 --switch-type=internal \
     --search=random-path --search=nurs:covnew \
@@ -122,6 +122,8 @@ This document is structured as a series of FAQs:
     * **od:** `--sym-args 0 3 10 --sym-files 2 12 --sym-stdin 12 --sym-stdout`
     * **pathchk:** `--sym-args 0 1 2 --sym-args 0 1 300 --sym-files 1 8 --sym-stdin 8 --sym-stdout`
     * **printf:** `--sym-args 0 3 10 --sym-files 2 12 --sym-stdin 12 --sym-stdout`
+
+    After publication, thread support in `sort` was enabled by default by the Coreutils maintainers. KLEE currently does not support threads and `--parallel=1` should be added as command line flag for `sort`.
 
 1. How did you measure coverage?
 
