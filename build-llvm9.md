@@ -19,12 +19,12 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    Under Ubuntu, use:
    ```bash
    $ sudo apt-get install build-essential curl libcap-dev git cmake libncurses5-dev python-minimal python-pip unzip libtcmalloc-minimal4 libgoogle-perftools-dev libsqlite3-dev doxygen
-   $ pip3 install tabulate wllvm
+   $ pip3 install tabulate wllvm lit
    ```
    Under macOS, run:
    ```bash
    $ brew install curl git cmake python unzip gperftools sqlite3 doxygen bash
-   $ pip3 install tabulate wllvm
+   $ pip3 install tabulate wllvm lit
    ```
    If you run into issues with the compiler not finding standard
    headers under macOS, try running:
@@ -56,7 +56,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    * [metaSMT](https://github.com/agra-uni-bremen/metaSMT) supports
      various solvers, including Boolector, CVC4, STP, Z3 and Yices.  We recommend branch v4.rc1 (`git clone -b v4.rc1 ...`). For build instructions, see [here](https://github.com/agra-uni-bremen/metaSMT).
 
-4. **(Optional) Build uClibc and the POSIX environment model: (not supported on macOS)** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
+4. **(Optional) Build uClibc and the POSIX environment model: (not supported on macOS)** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library. 
 
    ```bash
    $ git clone https://github.com/klee/klee-uclibc.git  
@@ -65,7 +65,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    $ make -j2  
    $ cd .. 
    ```
-   When `clang` or `llvm-config` are not in your `PATH` or have a custom prefix/suffix, `configure` may fail to detect their location. You can use the `--with-cc` and `--with-llvm-config` flags to set the paths manually.
+   When `clang` or `llvm-config` are not in your `PATH` or have a custom prefix/suffix, `configure` may fail to detect their location. You can use the `--with-cc` and `--with-llvm-config` flags to set the paths manually. Alternately, you can install it via `sudo apt-get install llvm`.
 
    **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run `make config` and select the correct target. The defaults for the other uClibc configuration variables should be fine.  <br/><br/>  
 
