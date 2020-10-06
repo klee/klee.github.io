@@ -121,6 +121,25 @@ the ``klee_add_component`` function.
 
 That's it! 
 
+### Tracing
+
+KLEE provides macros that aid with tracing or "print debugging".
+
+`KLEE_DEBUG_WITH_TYPE(type, code);` which can be used as follows:
+
+```C
+#include "klee/Support/Debug.h"
+...
+KLEE_DEBUG_WITH_TYPE("my-feature",
+  llvm::errs() << "Currently there are " << states.size() << "states\n";
+);
+```
+
+This code will be a noop unless `-debug-only=my-feature` flag is passed to KLEE, for example
+`klee -debug-only=my-feature myprog.bc`. Multiple types can be passed in a comma separated list: `-debug-only=my-feature1,my-feature2`.
+
+
+
 ### Building code documentation
 
 KLEE uses [Doxygen](http://www.doxygen.org) to generate code documentation. To generate it yourself you can run the following from KLEE's build directory root.
