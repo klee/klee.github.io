@@ -18,53 +18,90 @@ title: KLEE
         href="http://llvm.org/pubs/2008-12-OSDI-KLEE.html">OSDI 2008</a> paper.
       </p>
     </header>
-    <ul class="guides-list container-medium">
-      <li class="guides-list__item g--half">
+    <ul class="guides-list container">
+      <li class="guides-list__item g-full g--centered">
         <div class="primary-content">
-          <h3 class="xlarge">
-            <a href="{{site.baseurl}}/docs" title="Documentation" class="themed">Documentation</a>
-          </h3>
-          <p>Learn how to use KLEE</p>
+          <h3>Getting Started with KLEE</h3>
         </div>
         <div class="secondary-content">
-          <span class="icon-circle themed--background">
+	  <span class="icon-circle themed--background">
             <i class="icon icon-lessons"></i>
           </span>
 	  <ol class="list-links list-links--secondary">
+	    <li><a href="http://klee.doc.ic.ac.uk/">Run small examples in your browser</a></li>
 	    <li><a href="{{site.baseurl}}/docker">Run KLEE via Docker</a></li>
             <li><a href="{{site.baseurl}}/build-llvm9/">Build from source (with LLVM 9)</a></li>
-            <li><a href="{{site.baseurl}}/docs/options/">Command-line options</a></li>
-            <li><a href="{{site.baseurl}}/docs/intrinsics/">Intrinsic functions</a></li>
-            <li><a href="{{site.baseurl}}/docs/files/">Generated files</a></li>
-            <li><a href="{{site.baseurl}}/docs/tools/">Auxiliary tools</a></li>
-            <li><a href="{{site.baseurl}}/docs/kquery/">KQuery language</a></li>
-            <li><a href="{{site.baseurl}}/docs/developers-guide/">Developer's guide</a></li>
-            {% for doc in site.docs %}
-              <li>
-              <a href="{{doc.url}}">{{doc.title}}</a>
-              </li>
-            {% endfor %}
-          </ol>
-        </div>
-      </li>
-      <li class="guides-list__item g--half g--last">
+            <li><a href="{{site.baseurl}}/getting-started/">&amp; other ways to get started</a></li>
+	  </ol>
+	</div>
+	</li>
+
+	<li class="guides-list__item g-full g--centered">
         <div class="primary-content">
-          <h3 class="xlarge">
-            <a href="{{site.baseurl}}/tutorials" title="Documentation" class="themed">Tutorials</a>
-          </h3>
-          <p>Try KLEE for Yourself</p>
+          <h3>Learn How to Use KLEE</h3>
         </div>
         <div class="secondary-content">
-          <span class="icon-circle themed--background">
+	  <span class="icon-circle themed--background">
             <i class="icon icon-lessons"></i>
           </span>
-          <ol class="list-links list-links--secondary">
-            <li><a href="{{site.baseurl}}/tutorials/testing-function/">Testing a small function</a></li>
+	  <ol class="list-links list-links--secondary">
+	    <li><a href="{{site.baseurl}}/tutorials/testing-function/">Testing a small function</a></li>
             <li><a href="{{site.baseurl}}/tutorials/testing-regex/">Testing simple regular expression library</a></li>
-            <li><a href="{{site.baseurl}}/tutorials/testing-coreutils/">Testing Coreutils</a></li>
-          </ol>
+	    <li><a href="{{site.baseurl}}/tutorials/testing-coreutils/">Testing Coreutils</a></li>
+	    <li><a href="{{site.baseurl}}/tutorials/">&amp; several other resources</a></li>
+	  </ol>
+        </div>
+	</li>
+
+	<li class="guides-list__item g-full g--centered">
+	<div class="primary-content">
+	  <h3>Understanding KLEE's Components</h3>
+	</div>
+        <div class="secondary-content">
+	  <span class="icon-circle themed--background">
+            <i class="icon icon-lessons"></i>
+          </span>
+	  <ol class="list-links list-links--secondary">
+	    <li><a href="{{site.baseurl}}/docs/intrinsics/">Intrinsic functions</a></li>
+	    <li><a href="{{site.baseurl}}/docs/options/">Command-line options</a></li>
+	    <li><a href="{{site.baseurl}}/docs/tools/">Auxiliary tools</a></li>
+	    <li><a href="{{site.baseurl}}/docs/">&amp; several other components</a></li>
+	  </ol>
         </div>
       </li>
+
+      <li class="guides-list__item g-full g--centered">
+	<div class="primary-content">
+	  <h3>KLEE-related Publications</h3>
+	</div>
+        <div class="secondary-content">
+	  <span class="icon-circle themed--background">
+            <i class="icon icon-lessons"></i>
+          </span>
+	  <ol class="list-links list-links--secondary">
+	    <li><a href="https://www.usenix.org/legacy/event/osdi08/tech/full_papers/cadar/cadar.pdf">Read the original KLEE paper</a></li>
+	    <li><a href="{{site.baseurl}}/publications/">Find out about the many ways in which KLEE was used and extended</a></li>
+	  </ol>
+        </div>
+	</li>
+
+	<li class="guides-list__item g-full g--centered">
+	<div class="primary-content">
+	  <h3>Getting Involved</h3>
+	</div>
+        <div class="secondary-content">
+	  <span class="icon-circle themed--background">
+            <i class="icon icon-lessons"></i>
+          </span>
+	  <ol class="list-links list-links--secondary">
+	    <li><a href="{{site.baseurl}}/klee-dev/">Subscribe to KLEE's mailing list and ask questions</a></li>
+	    <li><a href="https://github.com/klee/klee/issues/new/choose">Report bugs and request new features</a></li>
+	    <li><a href="{{site.baseurl}}/docs/developers-guide/">Read the developer's guide and contribute code</a></li>
+	    <li><a href="{{site.baseurl}}/getting-involved/">&amp; find out more about getting involved</a></li>
+	  </ol>
+        </div>
+	</li>
+
     </ul>
 
     <br/>
