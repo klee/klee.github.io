@@ -839,6 +839,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   May 18-20, 2020, Virtual Conference, USA  
   **SAVIOR is available [here](https://github.com/evanmak/savior-source).**
 
+1. [PG-KLEE: Trading Soundness for Coverage](https://dl.acm.org/doi/abs/10.1145/3377812.3382148)  
+  Richard Rutledge, Alessandro Orso  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2020 Companion)  
+  May 23-29, 2020, Seoul, Republic of Korea 
+
 1. [Relocatable Addressing Model for Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3395363.3397363)  
   David Trabish, Noam Rinetzky  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2020)  
