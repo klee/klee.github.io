@@ -2,7 +2,7 @@
 layout: default
 title: LLVM 9 (recommended)
 subtitle: Building KLEE with LLVM 9
-slug: build-llvm9
+slug: getting-started
 ---
 
 {% include version_warning.md %}

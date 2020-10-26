@@ -2,7 +2,7 @@
 layout: default
 title: Options
 subtitle: Overview of KLEE’s main command-line options
-slug: options
+slug: documentation
 ---
 
 {:.toc}

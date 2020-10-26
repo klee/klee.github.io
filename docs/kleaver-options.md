@@ -2,7 +2,7 @@
 layout: default
 title: Kleaver's Options
 subtitle: Overview of Kleaver’s main command-line options
-slug: kleaver-options
+slug: documentation
 ---
 
 {:.toc}

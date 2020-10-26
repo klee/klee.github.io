@@ -2,7 +2,7 @@
 layout: default
 title: Developer's Guide
 subtitle: Working with KLEE source code
-slug: developers-guide
+slug: documentation
 ---
 
 

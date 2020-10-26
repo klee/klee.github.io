@@ -2,7 +2,7 @@
 layout: default
 title: Docker
 subtitle: Using KLEE with Docker
-slug: documentation
+slug: getting-started
 ---
 # Quick Start
 

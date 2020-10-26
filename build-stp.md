@@ -2,7 +2,7 @@
 layout: default
 title: Building KLEE
 subtitle: Building STP
-slug: build-stp
+slug: getting-started
 ---
 
 STP is the recommended solver in KLEE.  The instructions below are for release 2.3.3. If you would like to use the upstream version, do not perform the checkout command `git checkout tags/2.3.3` in the instructions below.
