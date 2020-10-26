@@ -867,3 +867,8 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE/ACM International Conference on Automated Software Engineering (ASE 2020)  
   September 21-25, 2020, Virtual Event, AU  
   **The artefact is available [here](https://srg.doc.ic.ac.uk/projects/pending-constraints/).**
+
+1. [On Symbolic Execution of Decompiled Programs](https://qrs20.techconf.org/QRS2020_FULL/pdfs/QRS2020-4LGdOos7NAbR8M2s6S6ezE/891300a265/891300a265.pdf)  
+  Lukáš Korenčik, Petr Ročkai  
+  IEEE International Conference on Software Quality, Reliability and Security (QRS 2020)  
+  Dezember 11-14, 2020, Macau, China
