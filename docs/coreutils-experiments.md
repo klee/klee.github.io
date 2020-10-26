@@ -2,7 +2,7 @@
 layout: default
 title: Coreutils Experiments
 subtitle: OSDI'08 Coreutils Experiments
-slug: coreutils-experiment
+slug: documentation
 ---
 
 This document is meant to give additional information regarding the Coreutils experiments discussed in our [KLEE OSDI'08 paper](http://llvm.org/pubs/2008-12-OSDI-KLEE.html). However, please note that in the last several years, KLEE and its dependencies (particularly LLVM and STP), have undergone major changes, which have resulted in considerable different behavior on several benchmarks, including Coreutils.

@@ -2,7 +2,7 @@
 layout: default
 title: LLVM 3.8
 subtitle: Building KLEE with LLVM 3.8
-slug: build-llvm38
+slug: getting-started
 ---
 
 {% include version_warning.md %}

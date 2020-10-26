@@ -2,7 +2,7 @@
 layout: default
 title: Building KLEE and its Dependencies
 subtitle: The build infrastructure for KLEE
-slug: build-klee-script
+slug: getting-started
 ---
 
 # Building KLEE and its dependencies

@@ -2,7 +2,7 @@
 layout: default
 title: Solver Chain
 subtitle: Overview of solver chain and related command-line options
-slug: solver-chain
+slug: documentation
 ---
 
 {:.toc}
