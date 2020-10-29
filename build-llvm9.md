@@ -51,7 +51,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    * [metaSMT](https://github.com/agra-uni-bremen/metaSMT) supports
      various solvers, including Boolector, CVC4, STP, Z3 and Yices.  We recommend branch v4.rc1 (`git clone -b v4.rc1 ...`). For build instructions, see [here](https://github.com/agra-uni-bremen/metaSMT).
 
-4. **(Optional) Build uClibc and the POSIX environment model: (not supported on macOS)** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
+4. **(Optional) Build uClibc and the POSIX environment model (not supported on macOS):** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
 
    ```bash
    $ git clone https://github.com/klee/klee-uclibc.git  
