@@ -19,13 +19,20 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    Under Ubuntu, use:
    ```bash
    $ sudo apt-get install build-essential curl libcap-dev git cmake libncurses5-dev python-minimal python-pip unzip libtcmalloc-minimal4 libgoogle-perftools-dev libsqlite3-dev doxygen
-   $ pip3 install tabulate wllvm
    ```
    Under macOS, run:
    ```bash
    $ brew install curl git cmake python unzip gperftools sqlite3 doxygen bash
-   $ pip3 install tabulate wllvm
    ```
+
+	You should also install `lit` to enable testing, `tabulate` to
+    support additional features in `klee-stats` and `wllvm` to
+    make it easier to compile programs to LLVM bitcode:
+
+	```bash
+	$ pip3 install lit tabulate wllvm
+	```
+	(use `--user` to install it for the current user only)
 
 2. **Install LLVM 9:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
@@ -66,7 +73,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
 
    To tell KLEE to use both klee-uclibc and the POSIX runtime, pass
    `-DENABLE_POSIX_RUNTIME=ON` and `-DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR>`
-   to CMake when configuring KLEE in step 9 where `<KLEE_UCLIBC_SOURCE_DIR>` is
+   to CMake when configuring KLEE in step 8 where `<KLEE_UCLIBC_SOURCE_DIR>` is
    the absolute path to the cloned `klee-uclibc` git repository.<br/><br/>  
 
 5. **(Optional) Build LibC++:** To be able to run C++ code, you also need to enable support for the C++ standard library.
@@ -78,7 +85,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    ```
    where `<LIBCXX_INSTALL_DIR>` is the absolute path where `libcxx` should be installed. Make sure that `clang++-9` is available in the path.
 
-   To tell KLEE to use libcxx, pass the following flags to CMake when you configure KLEE in step 9:
+   To tell KLEE to use libcxx, pass the following flags to CMake when you configure KLEE in step 8:
 
    ```bash
    -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-9/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-9/include/c++/v1/
@@ -90,7 +97,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
 
 6. **(Optional) Get Google test sources:**
 
-   For unit tests we use the Google test libraries. If you want to run the unit tests you need to perform this step and also pass `-DENABLE_UNIT_TESTS=ON` to CMake when configuring KLEE in step 9.
+   For unit tests we use the Google test libraries. If you want to run the unit tests you need to perform this step and also pass `-DENABLE_UNIT_TESTS=ON` to CMake when configuring KLEE in step 8.
 
    We depend on a version `1.7.0` right now so grab the sources for it.
 
@@ -101,29 +108,15 @@ POSIX environment under macOS. KLEE might not work under x86-32.
 
    This will create a directory called `googletest-release-1.7.0`.
 
-7. **(Optional) Install lit:**
 
-   For testing, the `lit` tool is used. If you installed LLVM from a build tree, you can
-   skip this step as the build system will try to use `llvm-lit` in the
-   directory containing the LLVM binaries.
-
-   If you don't want to run the tests you can skip this step but you will need
-   to pass `-DENABLE_UNIT_TESTS=OFF` and `-DENABLE_SYSTEM_TESTS=OFF` to CMake
-   when configuring KLEE in step 9.
-
-   ```bash
-   $ pip install lit
-   ```
-   (use `--user` to install it for the current user only)
-
-8. **Get KLEE source:**  
+7. **Get KLEE source:**  
 
    ```bash
    $ git clone https://github.com/klee/klee.git
    ```
    
 
-9. **Configure KLEE:**  
+8. **Configure KLEE:**  
 
    KLEE must be built "out of source", so first create a build directory. You can create this wherever you like.  Below, we assume you create this directory inside KLEE's repository.
 
@@ -131,8 +124,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    $ mkdir build
    ```
 
-   Now `cd` into the build directory and run CMake to configure KLEE where `<KLEE_SRC_DIRECTORY>` is the path
-   to the KLEE git repository you cloned in step 8.
+   Now `cd` into the build directory and run CMake to configure KLEE where `<KLEE_SRC_DIRECTORY>` is the path to the KLEE git repository you cloned in the previous step.
    
    ```bash
    $ cd build
@@ -169,7 +161,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    **NOTE 3:** By default, KLEE uses tcmalloc as its allocator, to support reporting of memory usage above 2GB. If you don't want to install tcmalloc (`libtcmalloc-minimal4 libgoogle-perftools-dev` Ubuntu packages) on your system or prefer to use glibc allocator, pass `-DENABLE_TCMALLOC=OFF` to CMake when configuring KLEE.
 
 
-9. **Build KLEE:**
+9. **Build KLEE:**  
 
    From the ``build`` directory created in the previous step run.
 
