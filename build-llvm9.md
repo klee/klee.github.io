@@ -26,11 +26,6 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    $ brew install curl git cmake python unzip gperftools sqlite3 doxygen bash
    $ pip3 install tabulate wllvm
    ```
-   If you run into issues with the compiler not finding standard
-   headers under macOS, try running:
-   ```bash
-   $ open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg # modify for your version
-   ```
 
 2. **Install LLVM 9:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
