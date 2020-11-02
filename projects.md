@@ -46,4 +46,8 @@ This page lists a variety of open projects that are natural (and tractable) exte
 	KLEE currently relies on ucLibC, which is not maintained anymore.  The project would add support for another libc, e.g., see this [attempt to add musl](https://github.com/klee/klee/pull/483).
 
 
+* _Support for Floating-point Arithmetic:_
+
+	KLEE lacks support for symbolic floating-point computation.  An extension of KLEE for floating point exists (see [KLEE-Float](https://srg.doc.ic.ac.uk/projects/klee-float/)), but it makes intrusive changes to the expression representation and relies on constraint solvers for floating point, which are slow.  In this project, you would add support for floating-point computations using fixed-point arithmetic.  While this approach has obvious limitations, it should be relatively easy to add to KLEE and lead to significantly higher performance in many cases.
+
 For other project suggestions, see [Suggestions for improvement and possible KLEE enhancements](https://github.com/klee/klee/projects/2), [KLEE Extensions](https://github.com/klee/klee/projects/4) and [KLEE's Issues](https://github.com/klee/klee/issues).
