@@ -241,6 +241,68 @@ $ make unittests
 
 These test use [Google's C++ testing framework](https://code.google.com/p/googletest/) and is well [documented](https://code.google.com/p/googletest/wiki/Documentation).
 
+## Run-time libraries
+
+KLEE provides a set of different run-time libraries that can be selected to augment the software under test. To support this, runtime libraries are meant to be independent of the actual architecture KLEE is running on.
+Therefore, when KLEE is built, a set of differently configured runtime libraries is built as well.
+Currently, every combination of the supported architectures (32bit x86, 64bit x86) and different optimisations: `Release`, `Release+Debug`, `Release+Debug+Asserts`, `Debug+Asserts`, and `Debug` is pre-built.
+
+These pre-built libraries can be found in the build directory (`build/runtime/lib`) and have the following pattern: `libklee`+`MyLibrary`+`architecture`+`optimisation`+`.bca`.
+
+During runtime, KLEE detects for which platform the software under test was compiled and the user can select the level of optimisation to link with and override the default with `klee --runtime-build=Release+Debug`. During startup, KLEE links against this specific setup.
+
+### Adding new run-time libraries
+
+To add a new library (e.g, `MyLibrary`), place the directory containing the library below the `runtime/` directory, e.g. `runtime/MyLibrary`.
+
+Add the following code to `runtime/CMakeLists.txt` to make CMake aware of additional subdirectories:
+```
+add_subdirectory(MyLibrary)
+```
+
+and add the same library to the list of `RUNTIME_LIBRARIES`, i.e.:
+`list(APPEND RUNTIME_LIBRARIES MyLibrary)`
+
+Add a file `CMakeLists.txt` to `runtime/MyLibrary` that follows a similar structure as `CMakeLists.txt` in other sub-directories of `runtime/MyLibrary`, e.g.:
+
+* set `LIB_PREFIX` to the name of your library:
+  ```
+  set(LIB_PREFIX "MyLibrary")
+  ```
+
+* set `SRC_FILES` to all `.c` or `.cpp` files that are part of this library
+
+* set additional flags, if needed, as arguments of the  `add_bitcode_library_targets` function call
+
+### Add new architectures
+
+Modify `runtime/CMakeLists.txt` to add a new architecture at `bc_architecture` and add specific compiler flags int the following `foreach` loop.
+
+Modify `tools/klee/main.cpp` to add appropriate architecture detection as well.
+
+### Add new optimizations
+
+Fancy a new way the provided runtime libraries should be pre-compiled (e.g., `MyFancyOptimization`)?
+
+Add the name for the new optimization at the beginning of `runtime/CMakeLists.txt`:
+
+```
+list(APPEND available_klee_runtime_build_types MyFancyOptimization)
+```
+
+And add the specific optimization inside of the `foreach` loop at the beginning of the file:
+
+```
+elseif (bc_optimization STREQUAL "MyFancyOptimization")
+            list(APPEND local_flags -O42 -g)
+```
+
+### External bitcode libraries: `uclibc`, `libc++`
+
+KLEE utilizes bitcode libraries that are not generating while compiling KLEE, e.g. `libc++` or `uclibc`.
+KLEE searches for run-time libraries in install and build paths. These are hard-coded to the binary, so if the filesystem tree changes, KLEE will not find them until recompiled. This behaviour can be overridden by setting KLEE_RUNTIME_LIBRARY_PATH environment variable to the path to the libraries.
+
+
 ## Miscellaneous
 
 ### Writing messages to standard error
@@ -250,7 +312,3 @@ The kleeCore library (`lib/Core`) provides several functions that can be used si
 ### Adding a command line option to a tool
 
 KLEE uses LLVM's CommandLine library for adding options to tools in KLEE, which is well documented [here](http://llvm.org/docs/CommandLine.html). See ``lib/Core/Executor.cpp`` for examples.
-
-### Run-time libraries
-
-KLEE searches for run-time libraries in install and build paths. These are hard-coded to the binary, so if the filesystem tree changes, KLEE will not find them until recompiled. This behaviour can be overridden by setting `KLEE_RUNTIME_LIBRARY_PATH` environment variable to the path to the libraries.
