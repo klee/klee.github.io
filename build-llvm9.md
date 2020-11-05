@@ -20,6 +20,10 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    ```bash
    $ sudo apt-get install build-essential curl libcap-dev git cmake libncurses5-dev python-minimal python-pip unzip libtcmalloc-minimal4 libgoogle-perftools-dev libsqlite3-dev doxygen
    ```
+   For Ubuntu >= 18.04, some additional packages may be required along with the ones mentioned above:
+   ```bash
+   $ sudo apt-get install python3 python3-pip gcc-multilib g++-multilib 
+   ```
    Under macOS, run:
    ```bash
    $ brew install curl git cmake python unzip gperftools sqlite3 doxygen bash
