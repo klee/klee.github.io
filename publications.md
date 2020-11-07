@@ -20,7 +20,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [HAMPI: A Solver for String Constraints](https://people.csail.mit.edu/akiezun/issta54-kiezun.pdf)  
   Adam Kiezun, Vijay Ganesh, Philip Guo, Pieter Hooimeijer, Michael Ernst  
-  International Symposium on Software Testing and Analysis (ISSTA 2009)  
+  ACM International Symposium on Software Testing and Analysis (ISSTA 2009)  
   July 19-23, 2009, Chicago, IL, USA
 
 1. [Server-side Verification of Client Behavior in Online Games](http://www.isoc.org/isoc/conferences/ndss/10/pdf/01.pdf)  
@@ -151,7 +151,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Efficient State Merging in Symbolic Execution](http://dslab.epfl.ch/pubs/stateMerging.pdf)  
   Volodymyr Kuznetsov, Johannes Kinder, Stefan Bucur, George Candea  
-  ACM Conference on Programming Language Design and Implementation (PLDI 2012)  
+  ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2012)  
   June 11-16, 2012, Beijing, China
 
 1. [Noninterference via Symbolic Execution](https://lirias.kuleuven.be/bitstream/123456789/346050/1/LiriasEntry.pdf)  
@@ -181,12 +181,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Scaling Symbolic Execution Using Ranged Analysis](https://dl.acm.org/citation.cfm?id=2384654)  
   Junaid Haroon Siddiqui, Sarfraz Khurshid  
-  ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2012)  
+  ACM SIGPLAN International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2012)  
   October 19-26, 2012, Tucson, Arizona, USA
 
 1. [Detecting Problematic Message Sequences and Frequencies in Distributed Systems](https://dl.acm.org/citation.cfm?id=2384683)  
   Charles Lucas, Sebastian Elbaum, David S. Rosenblum  
-  ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2012)  
+  ACM SIGPLAN International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2012)  
   October 19-26, 2012, Tucson, USA
 
 1. [Taint Analysis of Security Code in the KLEE Symbolic Execution Engine](https://link.springer.com/chapter/10.1007/978-3-642-34129-8_23)  
@@ -196,12 +196,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Enhancing Symbolic Execution to Test the Compatibility of Re-engineered Industrial Software](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6462670)  
   Susumu Tokumoto, Tadahiro Uehara, Kazuki Munakata, Haruyuki Ishida, Toru Eguchi, Masafumi Baba  
-  Asia-Pacific Software Engineering Conference  
+  Asia-Pacific Software Engineering Conference (APSEC 2012)  
   December 4-7, 2012, Hong Kong, China
 
 1. [A SOFT Way for OpenFlow Switch Interoperability Testing](http://conferences.sigcomm.org/co-next/2012/eproceedings/conext/p265.pdf)  
   Maciej Kuzniar, Peter Peresini, Marco Canini, Daniele Venzano, Dejan Kostic  
-  International Conference on emerging Networking EXperiments and Technologies (CoNEXT 2012)  
+  ACM International Conference on emerging Networking EXperiments and Technologies (CoNEXT 2012)  
   December 10-13, 2012, Nice, France
 
 1. [Symbolic Simulation for Debugging and Analysis of REKO Models Using KLEE](http://www.diva-portal.org/smash/get/diva2:1016124/FULLTEXT02.pdf)  
@@ -238,7 +238,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [CLAP: Recording Local Executions to Reproduce Concurrency Failures](https://parasol.tamu.edu/~jeff/academic/clap.pdf)  
   Jeff Huang, Charles Zhang, Julian Dolby  
-  ACM Conference on Programming Language Design and Implementation (PLDI 2013)  
+  ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2013)  
   June 16-22, 2013, Seattle, WA, USA  
 
 1. [CRAXweb: Automatic Web Application Testing and Attack Generation](http://ieeexplore.ieee.org/document/6571711/)  
@@ -264,22 +264,22 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [FIE on Firmware: Finding Vulnerabilities in Embedded Systems using Symbolic Execution](https://www.usenix.org/system/files/conference/usenixsecurity13/sec13-paper_davidson.pdf)  
   Drew Davidson, Benjamin Moench, Somesh Jha, Thomas Ristenpart  
-  22nd USENIX Security Symposium (USENIX Security '13)  
+  USENIX Security Symposium (USENIX Security '13)  
   August 14–16, 2013, Washington, D.C., USA
 
 1. [KATCH: High-Coverage Testing of Software Patches](http://srg.doc.ic.ac.uk/publications/katch-fse-13.html)  
   Paul Dan Marinescu, Cristian Cadar  
-  Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2013)  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2013)  
   August 18-26, 2013, St Petersburg, Russia
 
 1. [Symbolic Software Model Validation](http://ieeexplore.ieee.org/document/6670946/)  
   Cynthia Sturton, Rohit Sinha, Thurston H.Y. Dang, Sakshi Jain, Michael McCoyd, Wei Yang Tan, Petros Maniatis, Sanjit A. Seshia, David Wagner  
-  ACM-IEEE International Conference on Formal Methods and Models for System Design (MEMOCON 2013)  
+  ACM/IEEE International Conference on Formal Methods and Models for System Design (MEMOCON 2013)  
   October 18-20, 2013, Portland, USA
 
 1. [Steering Symbolic Execution to Less Traveled Paths](http://web.cs.ucdavis.edu/~su/publications/oopsla13-pgse.pdf)  
   You Li, Zhendong Su, Linzhang Wang, Xuandong Li  
-  ACM International Conference on Object Oriented Programming, Systems, Languages, and Applications (OOPSLA 2013)  
+  ACM SIGPLAN International Conference on Object Oriented Programming, Systems, Languages, and Applications (OOPSLA 2013)  
   October 26-31, 2013, Indianapolis, USA
 
 1. [Modeling Firmware as Service Functions and Its Application to Test Generation](https://link.springer.com/chapter/10.1007/978-3-319-03077-7_5)  
@@ -294,7 +294,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Automatic Concolic Test Generation with Virtual Prototypes for Post-silicon Validation](http://web.cecs.pdx.edu/~congkai/papers/actg.pdf)  
   Kai Cong, Fei Xie, Li Lei  
-  International Conference on Computer-aided Design (ICCAD 2013)  
+  IEEE/ACM International Conference on Computer-aided Design (ICCAD 2013)  
   November 18-21, 2013, San Jose, CA, USA
 
 1. [Static Analysis Driven Cache Performance Testing](http://ieeexplore.ieee.org/abstract/document/6728886/)  
@@ -325,7 +325,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Docovery: Toward Generic Automatic Document Recovery](https://srg.doc.ic.ac.uk/publications/docovery-ase-14.html)  
   Tomasz Kuchta, Cristian Cadar, Miguel Castro, Manuel Costa  
-  International Conference on Automated Software Engineering (ASE 2014)  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2014)  
   September 15-19, 2014, Vasteras, Sweden  
   **Docovery is available [here](https://srg.doc.ic.ac.uk/projects/docovery/).**
 
@@ -341,12 +341,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Symbolic Execution of Multithreaded Programs from Arbitrary Program Contexts](https://dl.acm.org/citation.cfm?id=2660200)  
   Tom Bergan, Dan Grossman, Luis Ceze  
-  ACM International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2014)  
+  ACM SIGPLAN International Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA 2014)  
   October 20-24, 2014, Portland, USA
 
 1. [A Comparative Study of Incremental Constraint Solving Approaches in Symbolic Execution](https://link.springer.com/chapter/10.1007/978-3-319-13338-6_21)  
   Tianhai Liu, Mateus Araújo, Marcelo d’Amorim, Mana Taghdiri  
-  International Haifa Verification Conference (HVC 2014)  
+  Haifa Verification Conference (HVC 2014)  
   November 18-20, 2014, Haifa, Israel
 
 1. [Methods for Binary Symbolic Execution](https://searchworks.stanford.edu/view/10701369)  
@@ -386,7 +386,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [DASE: Document-Assisted Symbolic Execution for Improving Automated Software Testing](https://ece.uwaterloo.ca/~lintan/publications/dase-icse15.pdf)  
   Edmund Wong, Lei Zhang, Song Wang, Taiyue Liu, Lin Tan  
-  International Conference on Software Engineering (ICSE 2015)  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2015)  
   May 16-24, 2015, Florence, Italy
 
 1. [A Framework for Measuring Software Obfuscation Resilience Against Automated Attacks](https://rawgit.com/alexxnica/publications-clones/master/PID3580639.pdf)  
@@ -453,7 +453,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [On the Techniques We Create, the Tools We Build, and Their Misalignments: A Study of KLEE](http://ieeexplore.ieee.org/abstract/document/7886898/)  
    Eric F. Rizzi, Sebastian Elbaum, Matthew B. Dwyer  
-  International Conference on Software Engineering (ICSE 2016)  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2016)  
   May 14-22, 2016, Austin, Texas, USA
 
 1. [Automatic Generation of High-coverage Tests for RTL Designs Using Software Techniques and Tools](http://ieeexplore.ieee.org/abstract/document/7603701/)  
@@ -488,12 +488,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Eliminating Path Redundancy via Postconditioned Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7835264/)  
   Qiuping Yi, Zijiang Yang, Shengjian Guo, Chao Wang, Jian Liu, Chen Zhao  
-  IEEE Transactions on Software Engineering, Volume: PP, Issue: 99  
+  IEEE Transactions on Software Engineering, Volume: 44, Issue: 99  
   January 26, 2017
 
 1. [Patch-related Vulnerability Detection Based on Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7867765/)  
   Weizhong Qiang, Yuehua Liao, Guozhong Sun, Laurence T. Yang, Deqing Zou, Hai Jin  
-  IEEE Access, vol. PP, no. 99  
+  IEEE Access, vol. 5, no. 99  
   March 1, 2017
 
 1. [Case Study on LLVM as Suitable Intermediate Language for Binary Analysis](https://www.metallic.software/publications#casestudyonllvm)  
@@ -538,13 +538,13 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Accelerating Array Constraints in Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/klee-array-17.pdf)  
   David M. Perry, Andrea Mattavelli, Xiangyu Zhang, Cristian Cadar  
-  International Symposium on Software Testing and Analysis (ISSTA 2017)  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2017)  
   July 10-14, 2017, Santa Barbara, CA, USA  
   **KLEE-Array is available [here](https://srg.doc.ic.ac.uk/projects/klee-array/).**
 
 1. [Automatic Detection and Validation of Race Conditions in Interrupt-Driven Embedded Software](https://dl.acm.org/citation.cfm?id=3092724)  
   Yu Wang, Linzhang Wang, Tingting Yu, Jianhua Zhao, Xuandong Li  
-  International Symposium on Software Testing and Analysis (ISSTA 2017)  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2017)  
   July 10-14, 2017, Santa Barbara, CA, USA  
 
 1. [Effectiveness of Synthesis in Concolic Deobfuscation](http://www.sciencedirect.com/science/article/pii/S0167404817301475)  
@@ -554,12 +554,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Failure-Directed Program Trimming](https://dl.acm.org/citation.cfm?id=3106249)  
   Kostas Ferles, Valentin Wüstholz, Maria Christakis, Isil Dillig  
-  Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017)  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2017)  
   September 4-8, 2017, Paderborn, Germany  
 
 1. [Symbolic Execution of Programmable Logic Controller Code](https://pdfs.semanticscholar.org/6abb/1a0a4031d1e4e81b5aee041ffb438c55c5b2.pdf)  
   Shengjian Guo, Meng Wu, Chao Wang  
-  Joint Meeting on Foundations of Software Engineering (ESEC/FSE 2017)  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2017)  
   September 4-8, 2017, Paderborn, Germany
 
 1. [Did we Learn from LLC Side Channel Attacks? A Cache Leakage Detection Tool for Crypto Libraries](https://arxiv.org/abs/1709.01552)  
@@ -573,7 +573,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Quantifying the Information Leak in Cache Attacks via Symbolic Execution](https://dl.acm.org/citation.cfm?id=3127044)  
   Sudipta Chattopadhyay, Moritz Beck, Ahmed Rezine, Andreas Zeller  
-  ACM-IEEE International Conference on Formal Methods and Models for System Design (MEMOCODE 2017)  
+  ACM/IEEE International Conference on Formal Methods and Models for System Design (MEMOCODE 2017)  
   September 29 - October 2, 2017, Vienna, Austria
 
 1. [Automatic Testing of Symbolic Execution Engines via Program Generation and Differential Testing](https://srg.doc.ic.ac.uk/files/papers/symex-engine-tester-ase-17.pdf)  
@@ -603,7 +603,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Symbolic Assertion Mining for Security Validation](https://ieeexplore.ieee.org/abstract/document/8342262/)  
   Alessandro Danese, Valeria Bertacco, Graziano Pravadelli  
-  Design, Automation & Test in Europe (DATE 2018)  
+  Design, Automation and Test in Europe (DATE 2018)  
   March 19 - 23, 2018, Dresden, Germany
   
 1. [Uncovering Bugs in P4 Programs with Assertion-based Verification](http://conferences.sigcomm.org/sosr/2018/sosr18-finals/sosr18-final78.pdf)  
@@ -678,17 +678,17 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [CPA-SymExec: Efficient Symbolic Execution in CPAchecker](https://www.sosy-lab.org/research/pub/2018-ASE.CPA-SymExec_Efficient_Symbolic_Execution_in_CPAchecker.pdf)  
   Dirk Beyer, Thomas Lemberger  
-  International Conference on Automated Software Engineering (ASE 2018)  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2018)  
   September 3-7, 2018, Montpellier, France
 
 1. [Loop Path Reduction by State Pruning](https://dl.acm.org/doi/10.1145/3238147.3240731)  
   Jianxiong Gao, Steven S. Lumetta  
-  International Conference on Automated Software Engineering (ASE 2018)  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2018)  
   September 3-7, 2018, Montpellier, France
 
 1. [PARTI: A Multi-interval Theory Solver for Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/parti-ase-18.pdf)  
   Oscar Soria Dustmann, Klaus Wehrle, Cristian Cadar  
-  International Conference on Automated Software Engineering (ASE 2018)  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2018)  
   September 3-7, 2018, Montpellier, France
 
 1. [End-to-End Automated Exploit Generation for Validating the Security of Processor Designs](https://cs.unc.edu/~rzhang/files/MICRO2018.pdf)  
@@ -704,12 +704,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Adversarial Symbolic Execution for Detecting Concurrency-Related Cache Timing Leaks](https://dl.acm.org/doi/10.1145/3236024.3236028)  
   Shengjian Guo, Meng Wu, Chao Wang  
-  Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2018)  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2018)  
   November 4-9, 2018, Lake Buena Vista, USA
 
 1. [Symbolic Execution with Existential Second-Order Constraints](https://es-static.fbk.eu/people/griggio/papers/fse18.pdf)  
   Sergey Mechtaev, Alberto Griggio, Alessandro Cimatti, Abhik Roychoudhury  
-  Joint meeting of the European Software Engineering Conference and the Symposium on the Foundations of Software Engineering (ESEC/FSE 2018)  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2018)  
   November 4-9, 2018, Lake Buena Vista, USA
 
 1. [Interoperability-Guided Testing of QUIC Implementations using Symbolic Execution](https://arxiv.org/pdf/1811.12099.pdf)  
@@ -765,12 +765,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Computing Summaries of String Loops in C for Better Testing and Refactoring](https://srg.doc.ic.ac.uk/files/papers/loops-pldi-19.pdf)  
   Timotej Kapus, Oren Ish-Shalom, Shachar Itzhaky, Noam Rinetzky, Cristian Cadar  
-  ACM Conference on Programming Language Design and Implementation (PLDI 2019)  
+  ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2019)  
   June 24-26, 2019, Phoenix, USA
 
 1. [Deferred Concretization in Symbolic Execution via Fuzzing](https://dl.acm.org/citation.cfm?id=3330554)  
   Awanish Pandey, Phani Raj Goutham Kotcharlakota, Subhajit Roy  
-  ACM International Symposium on Software Testing and Analysis (ISSTA 2019)  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2019)  
   July 15-19, 2019, Beijing, China
 
 1. [Verification of Safety Functions Implemented in Rust - a Symbolic Execution based approach](https://ieeexplore.ieee.org/abstract/document/8972014)  
@@ -815,7 +815,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Fine-grain Memory Object Representation in Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/ngmem-ase-2019.pdf)  
   Martin Nowack  
-  International Conference on Automated Software Engineering (ASE 2019)  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2019)  
   November 10-15, 2019, San Diego, USA
 
 1. [Reinforcement Learning Guided Symbolic Execution](https://ieeexplore.ieee.org/abstract/document/9054815)  
