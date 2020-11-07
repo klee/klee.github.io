@@ -868,6 +868,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   September 21-25, 2020, Virtual Event, AU  
   **The artefact is available [here](https://srg.doc.ic.ac.uk/projects/pending-constraints/).**
 
+1. [Past-Sensitive Pointer Analysis for Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/pastsensitive-fse-20.pdf)  
+  David Trabish, Timotej Kapus, Noam Rinetzky, Cristian Cadar  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
+  November 8-13, 2020, Virtual Event, USA  
+  **PSPA is available [here](http://srg.doc.ic.ac.uk/projects/pspa/).**
+
 1. [On Symbolic Execution of Decompiled Programs](https://qrs20.techconf.org/QRS2020_FULL/pdfs/QRS2020-4LGdOos7NAbR8M2s6S6ezE/891300a265/891300a265.pdf)  
   Lukáš Korenčik, Petr Ročkai  
   IEEE International Conference on Software Quality, Reliability and Security (QRS 2020)  
