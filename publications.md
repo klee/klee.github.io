@@ -23,7 +23,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM International Symposium on Software Testing and Analysis (ISSTA 2009)  
   July 19-23, 2009, Chicago, IL, USA
 
-1. [Server-side Verification of Client Behavior in Online Games](http://www.isoc.org/isoc/conferences/ndss/10/pdf/01.pdf)  
+1. [Server-side Verification of Client Behavior in Online Games](https://dl.acm.org/doi/10.1145/2043628.2043633)  
   Darrell Bethea, Robert Cochran, Michael Reiter  
   Network and Distributed System Security Symposium (NDSS 2010)  
   February 28 - March 3, 2010, San Diego, CA, USA
@@ -86,12 +86,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE International Conference on Distributed Computing Systems (ICDCS 2011)  
   June 20-24, 2011, Minneapolis, MN, USA
 
-1. [KLOVER: A Symbolic Execution and Automatic Test Generation Tool for C++ Programs](http://www.cs.utah.edu/~ligd/publications/KLOVER-CAV11.pdf)  
+1. [KLOVER: A Symbolic Execution and Automatic Test Generation Tool for C++ Programs](https://link.springer.com/chapter/10.1007/978-3-642-22110-1_49)  
   Guodong Li, Indradeep Ghosh, Sreeranga Rajan  
   International Conference on Computer Aided Verification (CAV 2011)  
   July 14-20, 2011, Cliff Lodge, Snowbird, UT, USA
 
-1. [Practical, Low-Effort Equivalence Verification of Real Code](http://www.pgbovine.net/PhD-memoir/ucklee-cav-2011.pdf)  
+1. [Practical, Low-Effort Equivalence Verification of Real Code](https://link.springer.com/chapter/10.1007/978-3-642-22110-1_55)  
   David Ramos, Dawson Engler  
   International Conference on Computer Aided Verification (CAV 2011)  
   July 16-20, 2011, Snowbird, UT, USA
@@ -138,7 +138,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   June 2-9, 2012, Zurich, Switzerland  
   **ZESTI is available [here](http://srg.doc.ic.ac.uk/projects/zesti/).**  
 
-1. [BugRedux: Reproducing Field Failures for In-House Debugging](http://www.cc.gatech.edu/~orso/papers/jin.orso.ICSE12.pdf)  
+1. [BugRedux: Reproducing Field Failures for In-House Debugging](https://ieeexplore.ieee.org/document/6227168)  
   Wei Jin, Alessandro Orso  
   ACM/IEEE International Conference on Software Engineering (ICSE 2012)  
   June 2-9, 2012, Zurich, Switzerland  
@@ -231,12 +231,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM/IEEE International Conference on Software Engineering (ICSE 2013)  
   May 18-26, 2013, San Francisco, CA, USA
 
-1. [Post-silicon Conformance Checking with Virtual Prototypes](http://web.cecs.pdx.edu/~leil/pub/Conformance.pdf)  
+1. [Post-silicon Conformance Checking with Virtual Prototypes](https://ieeexplore.ieee.org/document/6560622)  
   Li Lei, Fei Xie, Kai Cong  
   Design Automation Conference (DAC 2013)  
   June 1-5, 2013, San Francisco, CA, USA
 
-1. [CLAP: Recording Local Executions to Reproduce Concurrency Failures](https://parasol.tamu.edu/~jeff/academic/clap.pdf)  
+1. [CLAP: Recording Local Executions to Reproduce Concurrency Failures](https://dl.acm.org/doi/10.1145/2491956.2462167)  
   Jeff Huang, Charles Zhang, Julian Dolby  
   ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2013)  
   June 16-22, 2013, Seattle, WA, USA  
@@ -246,7 +246,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Conference on Software Security and Reliability (SERE 2013)  
   June 18-20, 2013, Gaithersburg, USA
 
-1. [Redundant State Detection for Dynamic Symbolic Execution](http://www.stanford.edu/~suhabe/atc13-bugrara.pdf)  
+1. [Redundant State Detection for Dynamic Symbolic Execution](https://www.usenix.org/system/files/conference/atc13/atc13-bugrara.pdf)  
   Suhabe Bugrara, Dawson Engler  
   USENIX Annual Technical Conference (USENIX ATC 2013)  
   June 26-28, 2013, San Jose, California
@@ -302,7 +302,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE Real-Time Systems Symposium (RTSS 2013)  
   December 3-6, 2013, Vancouver, CA
 
-1. [Conflict-Driven Symbolic Execution](file:///data/downloads/ubc_2014_spring_val_celina.pdf)  
+1. [Conflict-Driven Symbolic Execution](http://hdl.handle.net/2429/46226)  
   Celina Gomes do Val  
   Master Thesis, University of British Columbia  
   March 2014, Vancouver, CA  
@@ -354,10 +354,6 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Dissertation, Stanford University, Department of Computer Science  
   December 2014, Stanford, USA
 
-1. [Frog Program Bug Finder](http://www.frog-test.com/)  
-  Qirong Wang, 2015  
-  Software testing and debugging tool combining KLEE test generation with fault localization
-
 1. [Postconditioned Symbolic Execution](http://www-bcf.usc.edu/~wang626/pubDOC/YiYGWLZ15.pdf)  
   Qiuping Yi, Zijiang Yang, Shengjian Guo, Chao Wang, Jian Liu, Chen Zhao  
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2015)  
@@ -368,7 +364,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2015)  
   April 13-17, 2015, Graz, Austria
 
-1. [The Use of Symbolic Execution for Testing of Real-Time Safety-Related Software](https://pdfs.semanticscholar.org/5740/17e5ec589b21de1ad5756da8b49bf7727cc2.pdf)  
+1. [The Use of Symbolic Execution for Testing of Real-Time Safety-Related Software](https://dspace.cvut.cz/bitstream/handle/10467/61474/F3-BP-2015-Horenovsky-Martin-thesis.pdf)  
   Martin Hořeňovský  
   Bachelor Thesis, Czech Technical University in Prague  
   May 2015, Prague, CZ
@@ -384,7 +380,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM/IEEE International Conference on Software Engineering (ICSE 2015)  
   May 16-24, 2015, Florence, Italy
 
-1. [DASE: Document-Assisted Symbolic Execution for Improving Automated Software Testing](https://ece.uwaterloo.ca/~lintan/publications/dase-icse15.pdf)  
+1. [DASE: Document-Assisted Symbolic Execution for Improving Automated Software Testing](https://ieeexplore.ieee.org/document/7194611)  
   Edmund Wong, Lei Zhang, Song Wang, Taiyue Liu, Lin Tan  
   ACM/IEEE International Conference on Software Engineering (ICSE 2015)  
   May 16-24, 2015, Florence, Italy
@@ -409,7 +405,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   USENIX Security Symposium (SEC 2015)  
   August 12-14, 2015, Washington D.C., USA
 
-1. [Parallel SMT Solving and Concurrent Symbolic Execution](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7345624)  
+1. [Parallel SMT Solving and Concurrent Symbolic Execution](https://ieeexplore.ieee.org/document/7345624)  
   Emil Rakadjiev, Taku Shimosawa, Hiroshi Mine, Satoshi Oshima  
   IEEE Trustcom/BigDataSE/ISPA 2015  
   August 20-22, 2015, Helsinki, Finland
@@ -586,7 +582,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE/ACM International conference on Automated Software Engineering (ASE 2017)  
   October 30 - November 3, 2017, Urbana-Champaign, IL, USA
 
-1. [New Directions for Container Debloating](https://tc.gtisc.gatech.edu/feast17/papers/p51-rastogiA.pdf)  
+1. [New Directions for Container Debloating](https://dl.acm.org/doi/abs/10.1145/3141235.3141241)  
   Vaibhav Rastogi, Chaitra Niddodi, Sibin Mohan, Somesh Jha  
   Workshop on Forming an Ecosystem Around Software Transformation (FEAST 2017)  
   November 3, 2017, Dallas, USA
@@ -639,7 +635,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   May 27 - June 3, 2018, Gothenburg, Sweden  
   (Demo on [Youtube](https://youtu.be/LkiFLNMBhVE))
 
-1. [Semantic Program Repair Using a Reference Implementation](https://comp.nus.edu/~abhik/pdf/ICSE18-SEMGRAFT.pdf)  
+1. [Semantic Program Repair Using a Reference Implementation](https://dl.acm.org/doi/10.1145/3180155.3180247)  
   Sergey Mechtaev, Manh-Dung Nguyen, Yannic Noller, Lars Grunske, Abhik Roychoudhury  
   ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
   May 27 - June 3, 2018, Gothenburg, Sweden
@@ -717,7 +713,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Workshop on the Evolution, Performance, and Interoperability of QUIC (EPIQ 2018)  
   December 4, 2018, Heraklion, Greece
 
-1. [Boost Symbolic Execution Using Dynamic State Merging and Forking](https://www2.swc.rwth-aachen.de/docs/conferences/workshops/2018_QuASoQ/QuASoQ-2018-preprints.pdf#page=13)  
+1. [Boost Symbolic Execution Using Dynamic State Merging and Forking](http://ceur-ws.org/Vol-2273/QuASoQ-02.pdf)  
   Chao Zhang Weiliang Yin Zhiqiang Lin  
   International Workshop on Quantitative Approaches to Software Quality (QuASoQ 2018)  
   December 4, 2018, Nara, Japan
