@@ -864,6 +864,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   September 21-25, 2020, Virtual Event, AU  
   **The artefact is available [here](https://srg.doc.ic.ac.uk/projects/pending-constraints/).**
 
+1. [Making Symbolic Execution Promising by Learning Aggressive State-Pruning Strategy](https://dl.acm.org/doi/10.1145/3368089.3409755)  
+  Sooyoung Cha, Hakjoo Oh  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
+  November 8-13, 2020, Virtual Event, USA  
+  **HOMI is available [here](https://github.com/kupl/HOMI_public).**
+
 1. [Past-Sensitive Pointer Analysis for Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/pastsensitive-fse-20.pdf)  
   David Trabish, Timotej Kapus, Noam Rinetzky, Cristian Cadar  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
