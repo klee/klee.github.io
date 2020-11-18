@@ -62,7 +62,20 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    * [metaSMT](https://github.com/agra-uni-bremen/metaSMT) supports
      various solvers, including Boolector, CVC4, STP, Z3 and Yices.  We recommend branch v4.rc1 (`git clone -b v4.rc1 ...`). For build instructions, see [here](https://github.com/agra-uni-bremen/metaSMT).
 
-4. **(Optional) Build uClibc and the POSIX environment model (not supported on macOS):** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
+4. **(Optional) Get Google test sources:**
+
+   For unit tests we use the Google test libraries. If you want to run the unit tests you need to perform this step and also pass `-DENABLE_UNIT_TESTS=ON` to CMake when configuring KLEE in step 8.
+
+   We depend on a version `1.7.0` right now so grab the sources for it.
+
+   ```bash
+   $ curl -OL https://github.com/google/googletest/archive/release-1.7.0.zip
+   $ unzip release-1.7.0.zip
+   ```
+
+   This will create a directory called `googletest-release-1.7.0`.
+
+5. **(Optional) Build uClibc and the POSIX environment model (not supported on macOS):** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
 
    ```bash
    $ git clone https://github.com/klee/klee-uclibc.git  
@@ -80,7 +93,13 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    to CMake when configuring KLEE in step 8 where `<KLEE_UCLIBC_SOURCE_DIR>` is
    the absolute path to the cloned `klee-uclibc` git repository.<br/><br/>  
 
-5. **(Optional) Build LibC++:** To be able to run C++ code, you also need to enable support for the C++ standard library.
+6. **Get KLEE source:**
+
+   ```bash
+   $ git clone https://github.com/klee/klee.git
+   ```
+
+7. **(Optional) Build LibC++:** To be able to run C++ code, you also need to enable support for the C++ standard library.
 
    Run from the main KLEE source directory:
 
@@ -99,28 +118,9 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    build `libcxx` in your user home path, that in some enviornments (such as Ubuntu 18.04), `~` 
    may not be an absolute path, but you can use `$HOME` instead. 
 
-6. **(Optional) Get Google test sources:**
-
-   For unit tests we use the Google test libraries. If you want to run the unit tests you need to perform this step and also pass `-DENABLE_UNIT_TESTS=ON` to CMake when configuring KLEE in step 8.
-
-   We depend on a version `1.7.0` right now so grab the sources for it.
-
-   ```bash
-   $ curl -OL https://github.com/google/googletest/archive/release-1.7.0.zip
-   $ unzip release-1.7.0.zip
-   ```
-
-   This will create a directory called `googletest-release-1.7.0`.
 
 
-7. **Get KLEE source:**  
-
-   ```bash
-   $ git clone https://github.com/klee/klee.git
-   ```
-   
-
-8. **Configure KLEE:**  
+8. **Configure KLEE:**
 
    KLEE must be built "out of source", so first create a build directory. You can create this wherever you like.  Below, we assume you create this directory inside KLEE's repository.
 
@@ -165,7 +165,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    **NOTE 3:** By default, KLEE uses tcmalloc as its allocator, to support reporting of memory usage above 2GB. If you don't want to install tcmalloc (`libtcmalloc-minimal4 libgoogle-perftools-dev` Ubuntu packages) on your system or prefer to use glibc allocator, pass `-DENABLE_TCMALLOC=OFF` to CMake when configuring KLEE.
 
 
-9. **Build KLEE:**  
+9. **Build KLEE:**
 
    From the ``build`` directory created in the previous step run.
 
@@ -210,7 +210,7 @@ CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1390): undefined reference to `type
    ```
 
 
-9. **(Optional) Run the main regression test suite**
+10. **(Optional) Run the main regression test suite**
 
    If KLEE was configured with system tests enabled
    then you can run them like this.
@@ -231,7 +231,7 @@ CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1390): undefined reference to `type
    $ lit test/regression
    ```
    
-9. **(Optional) Build and run the unit tests:**
+11. **(Optional) Build and run the unit tests:**
 
    If KLEE was configured with unit tests enabled then you can build and run the
    unit tests like this.
@@ -242,6 +242,6 @@ CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1390): undefined reference to `type
    
    **NOTE:** You can run both the system and unit tests with `make check`
 
-9. **You're ready to go! Check the [Tutorials]({{site.baseurl}}/tutorials) page to try KLEE.**
+12. **You're ready to go! Check the [Tutorials]({{site.baseurl}}/tutorials) page to try KLEE.**
 
 **NOTE:** For testing real applications (e.g. Coreutils), you may need to increase your system's open file limit (ulimit -n). Something between 10000 and 999999 should work. In most cases, the hard limit will have to be increased first, so it is best to directly edit the corresponding configuration file (e.g., `/etc/security/limits.conf`).<br/><br/>
