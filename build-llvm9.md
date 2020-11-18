@@ -89,9 +89,9 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run `make config` and select the correct target. The defaults for the other uClibc configuration variables should be fine.  <br/><br/>  
 
    To tell KLEE to use both klee-uclibc and the POSIX runtime, pass
-   `-DENABLE_POSIX_RUNTIME=ON` and `-DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR>`
+   `-DENABLE_POSIX_RUNTIME=ON`, `-DENABLE_KLEE_UCLIBC=ON` and `-DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR>`
    to CMake when configuring KLEE in step 8 where `<KLEE_UCLIBC_SOURCE_DIR>` is
-   the absolute path to the cloned `klee-uclibc` git repository.<br/><br/>  
+   the absolute path to the cloned `klee-uclibc` git repository.<br/><br/>
 
 6. **Get KLEE source:**
 
@@ -157,7 +157,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    Where `<KLEE_UCLIBC_SOURCE_DIR>` is the absolute path to the klee-uclibc source tree,
    `<GTEST_SOURCE_DIR>` is the absolute path to the Google Test source tree.
 
-   **NOTE 1:** You can simply type `cmake ..` to use the default options for KLEE (but note that these will not include support for uClibC and the POSIX runtime.
+   **NOTE 1:** You can simply type `cmake ..` to use the default options for KLEE (but note that these will not include support for uClibC and the POSIX runtime).
 
    **NOTE 2:** If LLVM is not found or you need a particular version to be used, you can pass `-DLLVM_CONFIG_BINARY=<LLVM_CONFIG_BINARY>` to CMake where `<LLVM_CONFIG_BINARY>` is the absolute path to the
    relevant `llvm-config` binary. Similarly, KLEE needs a C and C++ compiler that can create LLVM bitcode that is compatible with the LLVM version KLEE is using. If these are not detected automatically, `-DLLVMCC=<PATH_TO_CLANG>` and `-DLLVMCXX=<PATH_TO_CLANG++>` can be passed to explicitly set these compilers, where `<PATH_TO_CLANG>` is the absolute path to `clang` and `<PATH_TO_CLANG++>` is the absolute path to `clang++`.
