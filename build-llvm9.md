@@ -99,26 +99,30 @@ POSIX environment under macOS. KLEE might not work under x86-32.
    $ git clone https://github.com/klee/klee.git
    ```
 
-7. **(Optional) Build LibC++:** To be able to run C++ code, you also need to enable support for the C++ standard library.
+7. **(Optional) Build libc++:** To be able to run C++ code, you also need to enable support for the C++ standard library.
 
-   Run from the main KLEE source directory:
-
-   ```bash
-   $ LLVM_VERSION=9 SANITIZER_BUILD= BASE=<LIBCXX_INSTALL_DIR> REQUIRES_RTTI=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 ENABLE_OPTIMIZED=1 ./scripts/build/build.sh libcxx
-   ```
-   where `<LIBCXX_INSTALL_DIR>` is the absolute path where `libcxx` should be installed. Make sure that `clang++-9` is available in the path.
-
-   To tell KLEE to use libcxx, pass the following flags to CMake when you configure KLEE in step 8:
+   Make sure that `clang++-9` is in your path. Then, run from the main KLEE source directory:
 
    ```bash
-   -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-9/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_INSTALL_DIR>/libc++-install-9/include/c++/v1/
+   $ LLVM_VERSION=9 SANITIZER_BUILD= BASE=<LIBCXX_DIR> REQUIRES_RTTI=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 ENABLE_OPTIMIZED=1 ./scripts/build/build.sh libcxx
+   ```
+   where `<LIBCXX_DIR>` is the absolute path where libc++ should be cloned and built.
+
+   To tell KLEE to use libc++, pass the following flags to CMake when you configure KLEE in step 8:
+
+   ```bash
+   -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_DIR>/libc++-install-9/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_DIR>/libc++-install-9/include/c++/v1/
    ```
 
-   Note that `<LIBCXX_INSTALL_DIR>` must currently be an absolute path. Note that if you want to 
-   build `libcxx` in your user home path, that in some enviornments (such as Ubuntu 18.04), `~` 
-   may not be an absolute path, but you can use `$HOME` instead. 
+   To additionally enable KLEE's exception handling support for C++, pass the following flags to CMake when you configure KLEE in step 8:
 
+   ```bash
+   -DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=<LIBCXX_DIR>/llvm-9/libcxxabi/
+   ```
 
+   Note that `<LIBCXX_DIR>` must currently be an absolute path. Note that if you want to
+   build libc++ in your user home path, that in some environments (such as Ubuntu 18.04), `~`
+   may not be an absolute path, but you can use `$HOME` instead.
 
 8. **Configure KLEE:**
 
@@ -150,7 +154,7 @@ POSIX environment under macOS. KLEE might not work under x86-32.
      -DGTEST_SRC_DIR=<GTEST_SOURCE_DIR> \
      -DLLVM_CONFIG_BINARY=<PATH_TO_llvm-config-9> \
      -DLLVMCC=<PATH_TO_clang-9> \
-     -DLLVMCXX=<PATH_TO_clang++-9>
+     -DLLVMCXX=<PATH_TO_clang++-9> \
      <KLEE_SRC_DIRECTORY>
    ```
 
