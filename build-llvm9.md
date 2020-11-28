@@ -214,7 +214,7 @@ CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1390): undefined reference to `type
    ```
 
 
-10. **(Optional) Run the main regression test suite**
+9. **(Optional) Run the main regression test suite**
 
    If KLEE was configured with system tests enabled
    then you can run them like this.
@@ -235,7 +235,7 @@ CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1390): undefined reference to `type
    $ lit test/regression
    ```
    
-11. **(Optional) Build and run the unit tests:**
+9. **(Optional) Build and run the unit tests:**
 
    If KLEE was configured with unit tests enabled then you can build and run the
    unit tests like this.
@@ -246,6 +246,6 @@ CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1390): undefined reference to `type
    
    **NOTE:** You can run both the system and unit tests with `make check`
 
-12. **You're ready to go! Check the [Tutorials]({{site.baseurl}}/tutorials) page to try KLEE.**
+9. **You're ready to go! Check the [Tutorials]({{site.baseurl}}/tutorials) page to try KLEE.**
 
 **NOTE:** For testing real applications (e.g. Coreutils), you may need to increase your system's open file limit (ulimit -n). Something between 10000 and 999999 should work. In most cases, the hard limit will have to be increased first, so it is best to directly edit the corresponding configuration file (e.g., `/etc/security/limits.conf`).<br/><br/>
