@@ -18,11 +18,11 @@ $ docker run --rm -ti --ulimit='stack=-1:-1' klee/klee:2.1
 
 [Docker](https://www.docker.com/) provides tools for deploying applications within containers. Containers are (mostly) isolated from each other and the underlying system. This allows you to make a KLEE container, tinker with it and then throw it away when you're done without affecting the underlying system or other containers.
 
-A Docker container is built from a Docker image. A Docker image encapsulates an application which in this case is KLEE. This application level encapsulation is useful because it provides a "portable" and reproducible environment to run KLEE in.
+A Docker container is built from a Docker image. A Docker image encapsulates an application, which in this case is KLEE. This application-level encapsulation is useful because it provides a "portable" and reproducible environment in which to run KLEE.
 
 # Installing Docker
 
-To run Docker natively on your machine you need to be using a Linux distribution with Docker installed.   Follow these links for installation instructions on [Ubuntu](https://docs.docker.com/engine/install/ubuntu/), [OS X](https://docs.docker.com/installation/mac/) and [Windows](https://docs.docker.com/installation/windows/).
+Follow these links for installation instructions on [Ubuntu](https://docs.docker.com/engine/install/ubuntu/), [OS X](https://docs.docker.com/installation/mac/) and [Windows](https://docs.docker.com/installation/windows/).
 
 
 # Getting the KLEE Docker image
