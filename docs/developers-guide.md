@@ -20,7 +20,29 @@ KLEE's codebase is currently hosted on [GitHub](https://github.com/klee/klee). F
 
 We are using a fork & pull model in KLEE, based on pull requests. For those of you unfamiliar with the process, you can find more information [here](https://help.github.com/articles/using-pull-requests).
 
-When submitting patches to KLEE, please open a separate pull request for each independent feature or bug fix. This makes it easier to review and approve patches.
+### Pull Requests
+
+When making a pull request, please ensure the following:
+
+1. **PR addresses a single issue.** In other words, if some parts of a PR could form another independent PR, you should break this PR into multiple smaller PRs.  This makes it easier to review and approve patches.
+
+2. **There are no unnecessary commits.** For instance, commits that fix issues with a previous commit in this PR are unnecessary and should be removed (you can find documentation on squashing commits [here](https://github.com/edx/edx-platform/wiki/How-to-Rebase-a-Pull-Request#squash-your-changes)).
+
+3. **Larger PRs are divided into a logical sequence of commits.** Large PRs are much easier to review if they are broken down into a sequence of commits.
+
+4. **Each commit has a meaningful message documenting what it does.**  The commit message should add as a summary of its changes. Generic commits such as "More work" are obviously unhelpful.
+
+5. **The code is commented.** In particular, newly added classes and functions should be documented. New files should also include the standard KLEE header. 
+
+6. **The patch is formatted via clang-format.** KLEE uses the LLVM style guide, which can be applied via [clang-format](https://clang.llvm.org/docs/ClangFormat.html). You might also want to use [git-clang-format](https://raw.githubusercontent.com/llvm/llvm-project/master/clang/tools/clang-format/git-clang-format) for Git integration.
+Please only format the patch itself and code surrounding the patch, not entire files.
+However, if the patch touches most of the code in a function, or most of the code in a file, it is fine (and recommended) to format the entire file.
+Divergences from clang-formatting are only rarely accepted, and only if they clearly improve code readability.
+
+7. **Add test cases exercising the code you added or modified.** We expect system and/or unit test cases for all non-trivial changes. After you submit your PR, you will be able to see a Codecov report telling you which parts of your patch are not covered by the regression test suite.  You will also be able to see if the Github Actions CI and Cirrus CI tests have passed. If they don't, you should examine the failures and address them before the PR can be reviewed.
+
+8. **Spellcheck all messages added to the codebase, all comments, as well as commit messages.**  Make sure all messages added to the code (e.g. error messages, command-line options), all comments, and commit messages are spellchecked.
+
 
 ## Build System
 
