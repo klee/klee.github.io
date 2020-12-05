@@ -858,6 +858,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   September 19, 2020  
   **PROMPT is available [here](https://github.com/sysrel/PROMPT).**
 
+1. [Multiplex Symbolic Execution: Exploring Multiple Paths by
+Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution%3A-Exploring-Multiple-by-Zhang-Zhang/86b12c075d1340b410225c353775a38d85a47ed3)  
+  Yufeng Zhang, Zhenbang Chen, Ziqi Shuai, Tianqi Zhang, Kenli Li, Ji Wang  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2020)  
+  September 21-25, 2020, Virtual Event, AU
+
 1. [Pending Constraints in Symbolic Execution for Better Exploration and Seeding](https://srg.doc.ic.ac.uk/files/papers/pending-ase-20.pdf)  
   Timotej Kapus, Frank Busse, Cristian Cadar  
   IEEE/ACM International Conference on Automated Software Engineering (ASE 2020)  
