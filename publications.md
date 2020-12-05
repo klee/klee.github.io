@@ -882,6 +882,10 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   November 8-13, 2020, Virtual Event, USA  
   **PSPA is available [here](http://srg.doc.ic.ac.uk/projects/pspa/).**
 
+1. [TracerX: Dynamic Symbolic Execution with Interpolation](https://arxiv.org/abs/2012.00556)  
+  Joxan Jaffar, Rasool Maghareh, Sangharatna Godboley, Xuan-Linh Ha  
+  arXiv, December 1, 2020
+
 1. [On Symbolic Execution of Decompiled Programs](https://qrs20.techconf.org/QRS2020_FULL/pdfs/QRS2020-4LGdOos7NAbR8M2s6S6ezE/891300a265/891300a265.pdf)  
   Lukáš Korenčik, Petr Ročkai  
   IEEE International Conference on Software Quality, Reliability and Security (QRS 2020)  
