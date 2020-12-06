@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Projects &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v2.2/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v2.2/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v2.2/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v2.2/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v2.2/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v2.2/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v2.2/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v2.2/">
+        <img alt="KLEE" src="/releases/docs/v2.2/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li>
+      <a href="/releases/docs/v2.2/getting-started">Getting Started</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/tutorials">Tutorials</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/publications">Publications</a>
+    </li>
+    <li class="active">
+      <a href="/releases/docs/v2.2/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v2.2">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 2.2
+</div>
+</a>
+
+
+    <!-- remove me after workshop -->
+<div class="workshop">
+	<p>
+		The 2<sup>nd</sup> <a href="https://srg.doc.ic.ac.uk/klee21/">International KLEE Workshop on Symbolic Execution</a> is coming!<br />
+		Join us from 22-23 April 2021 in London.
+	</p>
+</div>
+<!-- end -->
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Projects</h1>
+        <h2 class="editorial-header__subtitle">KLEE Open Projects</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <p>This page lists a variety of open projects that are natural (and tractable) extensions of KLEE and things that we would love to see people work on. If you are interested in tackling any of the projects, please mail <a href="/klee-dev/">klee-dev</a> with your ideas – or even better, submit your PRs directly on GitHub!</p>
+
+<ul>
+  <li>
+    <p><em>Package KLEE for Ubuntu and Other Distributions:</em></p>
+
+    <p>KLEE is already packaged for <a href="https://www.freshports.org/security/klee">FreeBSD</a>.  We would like to find maintainers for other popular distributions, particularly Ubuntu, but also macOS, Arch Linux, Gentoo Linux, OpenSUSE etc.</p>
+  </li>
+  <li>
+    <p><em>Implement SMT Support for Kleaver:</em></p>
+
+    <p>We would like to make Kleaver (KLEE’s constraint solver) a more viable standalone product. One of the steps in this direction is to implement <a href="http://smtlib.cs.uiowa.edu/">SMT-LIB</a> support, in particular a parser for .smt2 files. This would also allow us to enter Kleaver into the <a href="https://smt-comp.github.io/">SMT-COMP</a> constraint solving competition, which would be a good proving ground for our optimizations and benchmarking our underlying constraint solvers.</p>
+  </li>
+  <li>
+    <p><em>Improve KLEE Web:</em></p>
+
+    <p><a href="http://klee.doc.ic.ac.uk/">KLEE Web</a> makes it possible for users to quickly try KLEE in the browser.  Currently, the project lacks an active maintainers, and there are many features which would be useful to have, such as a better UI for retrieving results, better usage tracking, more examples and support for C++.  KLEE Web is hosted <a href="https://github.com/klee/klee-web">here</a>.</p>
+  </li>
+  <li>
+    <p><em>Implement Expression-Level Constraint Optimization:</em></p>
+
+    <p>KLEE performs limited optimizations of constraints before sending them to the constraint solver. We would like to have an internal framework for doing optimization of constraint expressions (e.g., (A &amp; ~A) =&gt; 0) so that these optimizations are only done once instead of on every solver query.  In general, because KLEE is dealing with expressions which result from dynamic execution traces, many expressions end up having constant components. This means we can frequently apply the same optimizations a compiler would do, but to much greater effect because we are more likely to see constant values. For reference, see the kinds of optimizations done by LLVM’s <code class="language-plaintext highlighter-rouge">InstCombine</code> pass <a href="http://llvm.org/viewvc/llvm-project/llvm/trunk/lib/Transforms/InstCombine/">here</a>.  The bulk of this project involves defining a good framework for us to apply optimizations to expressions, and for deciding when to attempt to optimize expressions.</p>
+  </li>
+  <li>
+    <p><em>Add Support for Missing LLVM Intrinsics:</em></p>
+
+    <p>There are various LLVM intrinsics which KLEE still doesn’t support.  We track them <a href="https://github.com/klee/klee/issues/678">here</a>.</p>
+  </li>
+  <li>
+    <p><em>Add Support for Multithreaded Applications:</em></p>
+
+    <p>KLEE lacks support for multi-threaded applications, although other extensions of KLEE provide such support, particularly <a href="http://cloud9.epfl.ch/">Cloud9</a>.  An attempt to add such support can be found <a href="https://github.com/klee/klee/pull/240">here</a>.</p>
+  </li>
+  <li>
+    <p><em>More Sophisticated Logging Support:</em></p>
+
+    <p>Currently, most of the log data dumped to files (info, run.stats, .kquery files) is not necessarily easy to parse. Allowing more sophisticated logging mechanisms (e.g. based on YAML) would allow us to combine readability and parseability.</p>
+  </li>
+  <li>
+    <p><em>Support for Another LibC:</em></p>
+
+    <p>KLEE currently relies on ucLibC, which is not maintained anymore.  The project would add support for another libc, e.g., see this <a href="https://github.com/klee/klee/pull/483">attempt to add musl</a>.</p>
+  </li>
+  <li>
+    <p><em>Support for Floating-point Arithmetic:</em></p>
+
+    <p>KLEE lacks support for symbolic floating-point computation.  An extension of KLEE for floating point exists (see <a href="https://srg.doc.ic.ac.uk/projects/klee-float/">KLEE-Float</a>), but it makes intrusive changes to the expression representation and relies on constraint solvers for floating point, which are slow.  In this project, you would add support for floating-point computations using fixed-point arithmetic.  While this approach has obvious limitations, it should be relatively easy to add to KLEE and lead to significantly higher performance in many cases.</p>
+  </li>
+</ul>
+
+<p>For other project suggestions, see <a href="https://github.com/klee/klee/projects/2">Suggestions for improvement and possible KLEE enhancements</a>, <a href="https://github.com/klee/klee/projects/4">KLEE Extensions</a> and <a href="https://github.com/klee/klee/issues">KLEE’s Issues</a>.</p>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v2.2/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="http://www.doc.ic.ac.uk/~dsl11/klee-doxygen/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://travis-ci.org/klee/klee/branches">TravisCI</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v2.2
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2020, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v2.2/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

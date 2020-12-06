@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Docker &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v2.2/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v2.2/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v2.2/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v2.2/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v2.2/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v2.2/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v2.2/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v2.2/">
+        <img alt="KLEE" src="/releases/docs/v2.2/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li class="active">
+      <a href="/releases/docs/v2.2/getting-started">Getting Started</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/tutorials">Tutorials</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v2.2">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 2.2
+</div>
+</a>
+
+
+    <!-- remove me after workshop -->
+<div class="workshop">
+	<p>
+		The 2<sup>nd</sup> <a href="https://srg.doc.ic.ac.uk/klee21/">International KLEE Workshop on Symbolic Execution</a> is coming!<br />
+		Join us from 22-23 April 2021 in London.
+	</p>
+</div>
+<!-- end -->
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Docker</h1>
+        <h2 class="editorial-header__subtitle">Using KLEE with Docker</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <h1 id="quick-start">Quick Start</h1>
+
+<p>Assuming you have Docker installed, you can run the following to try
+the latest release of KLEE:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker pull klee/klee:2.1
+<span class="nv">$ </span>docker run <span class="nt">--rm</span> <span class="nt">-ti</span> <span class="nt">--ulimit</span><span class="o">=</span><span class="s1">'stack=-1:-1'</span> klee/klee:2.1
+</code></pre></div></div>
+
+<h1 id="what-is-docker">What is Docker?</h1>
+
+<p><a href="https://www.docker.com/">Docker</a> provides tools for deploying applications within containers. Containers are (mostly) isolated from each other and the underlying system. This allows you to make a KLEE container, tinker with it and then throw it away when you’re done without affecting the underlying system or other containers.</p>
+
+<p>A Docker container is built from a Docker image. A Docker image encapsulates an application, which in this case is KLEE. This application-level encapsulation is useful because it provides a “portable” and reproducible environment in which to run KLEE.</p>
+
+<h1 id="installing-docker">Installing Docker</h1>
+
+<p>To run Docker natively on your machine, you need to be using a distribution with Docker installed.   Follow these links for installation instructions on <a href="https://docs.docker.com/engine/install/ubuntu/">Ubuntu</a>, <a href="https://docs.docker.com/installation/mac/">OS X</a> and <a href="https://docs.docker.com/installation/windows/">Windows</a>.</p>
+
+<h1 id="getting-the-klee-docker-image">Getting the KLEE Docker image</h1>
+
+<p>There are two ways of obtaining the <a href="https://hub.docker.com/r/klee/klee/">KLEE Docker image</a>.</p>
+
+<h2 id="pulling-from-the-docker-hub">Pulling from the Docker Hub</h2>
+
+<p>Our GitHub repository is linked to the DockerHub so that changes to particular branches trigger an automatic rebuild of the corresponding Docker image.</p>
+
+<p>To pull down the latest build of a particular Docker image run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker pull klee/klee
+</code></pre></div></div>
+
+<p>If you want to use a tagged revision of KLEE you should instead run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker pull klee/klee:&lt;TAG&gt;
+</code></pre></div></div>
+
+<p>Where <code class="language-plaintext highlighter-rouge">&lt;TAG&gt;</code> is <a href="https://hub.docker.com/r/klee/klee/tags/">one of the tags listed on the DockerHub</a>. Typically this is either <code class="language-plaintext highlighter-rouge">latest</code> (corresponds to the <code class="language-plaintext highlighter-rouge">master</code> branch) or a version number (e.g. <code class="language-plaintext highlighter-rouge">2.1</code>).</p>
+
+<p><strong>Note this process pulls images containing code compiled by a third-party service. We do not accept responsibility for the contents of the image.</strong></p>
+
+<h2 id="building-the-docker-image-locally">Building the Docker image locally</h2>
+
+<p>If you want to build the Docker image manually instead of pulling the image from DockerHub you can do so by running:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/klee/klee.git
+<span class="nv">$ </span><span class="nb">cd </span>klee
+<span class="nv">$ </span>docker build <span class="nt">-t</span> klee/klee <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>This will use the contents of the <code class="language-plaintext highlighter-rouge">Dockerfile</code> in the root of the repository to build the Docker image.</p>
+
+<h1 id="creating-a-klee-docker-container">Creating a KLEE Docker container</h1>
+
+<p>Now that you have a KLEE Docker image you can try creating a container from the image.</p>
+
+<p>The simplest thing to try is creating a temporary container and gain shell access. To do this run</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--rm</span> <span class="nt">-ti</span> <span class="nt">--ulimit</span><span class="o">=</span><span class="s1">'stack=-1:-1'</span> klee/klee
+</code></pre></div></div>
+
+<p><strong>Note if you wanted to use a tagged KLEE image replace</strong> <code class="language-plaintext highlighter-rouge">klee/klee</code> <strong>with</strong> <code class="language-plaintext highlighter-rouge">klee/klee:&lt;TAG&gt;</code> <strong>where</strong> <code class="language-plaintext highlighter-rouge">&lt;TAG&gt;</code> <strong>is the tag you wish to use</strong></p>
+
+<p><strong>Note the <code class="language-plaintext highlighter-rouge">--ulimit</code> option sets an unlimited stack size inside the container. This is to avoid stack overflow issues when running KLEE.</strong></p>
+
+<p>If this worked correctly your shell prompt will have changed and you will be the <code class="language-plaintext highlighter-rouge">klee</code> user.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>klee@3c098b05ca85:~<span class="nv">$ </span><span class="nb">whoami
+</span>klee
+klee@3c098b05ca85:~<span class="err">$</span>
+</code></pre></div></div>
+
+<p>You can now try running KLEE inside the container, where you should
+see an output similar to:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>klee@3c098b05ca85:~<span class="nv">$ </span>klee <span class="nt">--version</span>
+KLEE 2.1 <span class="o">(</span>https://klee.github.io<span class="o">)</span>
+  Build mode: RelWithDebInfo <span class="o">(</span>Asserts: ON<span class="o">)</span>
+  Build revision: 938434b2521d4c1ec11af31f1e5e5fbafd2cb2cd
+
+LLVM <span class="o">(</span>http://llvm.org/<span class="o">)</span>:
+  LLVM version 6.0.1
+  Optimized build with assertions.
+  Default target: x86_64-unknown-linux-gnu
+  Host CPU: skylake
+</code></pre></div></div>
+
+<p>and Clang</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>clang <span class="nt">--version</span>
+clang version 6.0.1 <span class="o">(</span>branches/release_60 355598<span class="o">)</span>
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /tmp/llvm-60-install_O_D_A/bin
+</code></pre></div></div>
+
+<p>Now exit the container</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>klee@3c098b05ca85:~<span class="nv">$ </span><span class="nb">exit</span>
+</code></pre></div></div>
+
+<p>Because the <code class="language-plaintext highlighter-rouge">--rm</code> flag was used with the <code class="language-plaintext highlighter-rouge">docker run</code> command the container was destroyed (not visible in <code class="language-plaintext highlighter-rouge">docker ps -a</code>) when the application running in the container (<code class="language-plaintext highlighter-rouge">/bin/bash</code>) terminated.</p>
+
+<h1 id="persistent-containers">Persistent Containers</h1>
+
+<p>The earlier example didn’t do anything interesting with KLEE and threw the created container away. Here is a simple
+example that does something slightly more interesting with KLEE and also shows how a container can be persisted.</p>
+
+<p>To create and enter the container run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-ti</span> <span class="nt">--name</span><span class="o">=</span>my_first_klee_container <span class="nt">--ulimit</span><span class="o">=</span><span class="s1">'stack=-1:-1'</span> klee/klee
+</code></pre></div></div>
+
+<p>Notice we didn’t use <code class="language-plaintext highlighter-rouge">--rm</code> so the container will not be destroyed when we exit it from it and we also gave the container a name using the <code class="language-plaintext highlighter-rouge">--name</code> flag.</p>
+
+<p>Now inside the container you can try running the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>klee@3c098b05ca85:~<span class="nv">$ </span><span class="nb">pwd</span>
+/home/klee
+klee@3c098b05ca85:~<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"int main(int argn, char** argv) { return 0; }"</span> <span class="o">&gt;</span> test.c
+klee@3c098b05ca85:~<span class="nv">$ </span>clang <span class="nt">-emit-llvm</span> <span class="nt">-g</span> <span class="nt">-c</span> test.c <span class="nt">-o</span> test.bc
+klee@3c098b05ca85:~<span class="nv">$ </span>klee <span class="nt">--libc</span><span class="o">=</span>uclibc <span class="nt">--posix-runtime</span> test.bc
+KLEE: NOTE: Using klee-uclibc : /home/klee/klee_build/klee/Release+Asserts/lib/klee-uclibc.bca
+KLEE: NOTE: Using model: /home/klee/klee_build/klee/Release+Asserts/lib/libkleeRuntimePOSIX.bca
+KLEE: output directory is <span class="s2">"/home/klee/klee-out-0"</span>
+KLEE: WARNING: undefined reference to <span class="k">function</span>: klee_posix_prefer_cex
+KLEE: WARNING ONCE: calling external: syscall<span class="o">(</span>16, 0, 21505, 44070352<span class="o">)</span>
+KLEE: WARNING ONCE: calling __user_main with extra arguments.
+
+KLEE: <span class="k">done</span>: total instructions <span class="o">=</span> 5047
+KLEE: <span class="k">done</span>: completed paths <span class="o">=</span> 1
+KLEE: <span class="k">done</span>: generated tests <span class="o">=</span> 1
+klee@3c098b05ca85:~<span class="nv">$ </span><span class="nb">ls
+</span>klee-last  klee-out-0  klee_build  klee_src  test.bc  test.c
+</code></pre></div></div>
+
+<p>Now exit the container</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>klee@3c098b05ca85:~<span class="nv">$ </span><span class="nb">exit</span>
+</code></pre></div></div>
+
+<p>We can check that the container still exists by running</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker ps <span class="nt">-a</span>
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS                     PORTS               NAMES
+1c408467bdf7        klee/klee           <span class="s2">"/bin/bash"</span>         About a minute ago   Exited <span class="o">(</span>0<span class="o">)</span> 2 seconds ago                       my_first_klee_container
+</code></pre></div></div>
+
+<p>You can restart the container by running</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker start <span class="nt">-ai</span> my_first_klee_container
+klee@1c408467bdf7:~<span class="nv">$ </span><span class="nb">ls
+</span>klee-last  klee-out-0  klee_build  klee_src  test.bc  test.c
+klee@1c408467bdf7:~<span class="nv">$ </span><span class="nb">exit</span>
+</code></pre></div></div>
+
+<p>As you can see the files we created earlier are still present.</p>
+
+<p>When you are finished with the container you can run</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">rm </span>my_first_klee_container
+</code></pre></div></div>
+
+<p>to remove it.</p>
+
+<h1 id="working-with-klee-containers-built-from-the-klee-docker-image">Working with KLEE containers built from the KLEE Docker image</h1>
+
+<p>There are a few useful things to know about KLEE Docker containers created using the KLEE Docker image.</p>
+
+<ul>
+  <li>The Docker image is based on an Ubuntu 18.04 LTS image.</li>
+  <li>Inside the Docker image the <code class="language-plaintext highlighter-rouge">klee</code> user has sudo access (password is <code class="language-plaintext highlighter-rouge">klee</code>) so that you can install other applications inside the container (e.g. a text editor). Given that the default user has sudo access this image <strong>should never be used in a production environment</strong>.</li>
+  <li>You may want files on your native filesystem available in the container. By default the host filesystem is not visible inside the container.  You can use the <code class="language-plaintext highlighter-rouge">--volume=</code> option to <code class="language-plaintext highlighter-rouge">docker run</code> to mount directories on the host filesystem into the container.</li>
+  <li>These Docker images use LLVM 6.0 so you need to use <code class="language-plaintext highlighter-rouge">clang</code> to create LLVM bitcode.</li>
+  <li><code class="language-plaintext highlighter-rouge">/home/klee/klee_src</code> contains the source code used to build KLEE.</li>
+  <li><code class="language-plaintext highlighter-rouge">/home/klee/klee_build</code> contains the build of KLEE built from <code class="language-plaintext highlighter-rouge">/home/klee/klee_src</code></li>
+  <li>All the previous examples implicitly run <code class="language-plaintext highlighter-rouge">/bin/bash</code> inside the container. This is the default but it is also possible to run KLEE directly (useful for scripting) by specifying the command line to use to <code class="language-plaintext highlighter-rouge">docker run</code>.</li>
+</ul>
+
+<p>This should give you everything you need to start playing with KLEE using Docker. If you are unfamiliar with Docker and wish to learn more a good place to start is <a href="https://docs.docker.com/">Docker’s documentation</a>.</p>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v2.2/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="http://www.doc.ic.ac.uk/~dsl11/klee-doxygen/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://travis-ci.org/klee/klee/branches">TravisCI</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v2.2
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2020, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v2.2/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
