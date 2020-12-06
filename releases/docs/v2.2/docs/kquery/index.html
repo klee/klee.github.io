@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    KQuery &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v2.2/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v2.2/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v2.2/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v2.2/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v2.2/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v2.2/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v2.2/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v2.2/">
+        <img alt="KLEE" src="/releases/docs/v2.2/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li>
+      <a href="/releases/docs/v2.2/getting-started">Getting Started</a>
+    </li>
+    <li class="active">
+      <a href="/releases/docs/v2.2/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/tutorials">Tutorials</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v2.2">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 2.2
+</div>
+</a>
+
+
+    <!-- remove me after workshop -->
+<div class="workshop">
+	<p>
+		The 2<sup>nd</sup> <a href="https://srg.doc.ic.ac.uk/klee21/">International KLEE Workshop on Symbolic Execution</a> is coming!<br />
+		Join us from 22-23 April 2021 in London.
+	</p>
+</div>
+<!-- end -->
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">KQuery</h1>
+        <h2 class="editorial-header__subtitle">The reference manual for the KQuery language</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <p class="toc toc__title no_toc">Contents</p>
+<ul class="toc__list list-anchor" id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#notation" id="markdown-toc-notation">Notation</a></li>
+  <li><a href="#structure" id="markdown-toc-structure">Structure</a>    <ul>
+      <li><a href="#expression-and-version-labels" id="markdown-toc-expression-and-version-labels">Expression and Version Labels</a></li>
+    </ul>
+  </li>
+  <li><a href="#literals" id="markdown-toc-literals">Literals</a>    <ul>
+      <li><a href="#identifiers" id="markdown-toc-identifiers">Identifiers</a></li>
+      <li><a href="#numbers" id="markdown-toc-numbers">Numbers</a></li>
+      <li><a href="#types" id="markdown-toc-types">Types</a></li>
+    </ul>
+  </li>
+  <li><a href="#declarations" id="markdown-toc-declarations">Declarations</a>    <ul>
+      <li><a href="#arrays" id="markdown-toc-arrays">Arrays</a></li>
+      <li><a href="#query-commands" id="markdown-toc-query-commands">Query Commands</a></li>
+    </ul>
+  </li>
+  <li><a href="#versions" id="markdown-toc-versions">Versions</a></li>
+  <li><a href="#expressions" id="markdown-toc-expressions">Expressions</a>    <ul>
+      <li><a href="#primitive-expressions" id="markdown-toc-primitive-expressions">Primitive Expressions</a></li>
+      <li><a href="#arithmetic-operations" id="markdown-toc-arithmetic-operations">Arithmetic Operations</a></li>
+      <li><a href="#bitwise-operations" id="markdown-toc-bitwise-operations">Bitwise Operations</a></li>
+      <li><a href="#comparisons" id="markdown-toc-comparisons">Comparisons</a></li>
+      <li><a href="#bitvector-manipulation" id="markdown-toc-bitvector-manipulation">Bitvector Manipulation</a></li>
+      <li><a href="#special-expressions" id="markdown-toc-special-expressions">Special Expressions</a></li>
+      <li><a href="#macro-expressions" id="markdown-toc-macro-expressions">Macro Expressions</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The KQuery language is the textual representation of constraint expressions and queries which is used as input to the Kleaver constraint solver.</p>
+
+<p>Currently the language is capable of representing quantifier free formulas over bitvectors and arrays, with direct support for all standard operations on bitvectors. The language has been designed to be compact and easy to read and write.</p>
+
+<p>The KQuery language is closely related to the C++ API for Exprs, see also the doxygen <a href="http://t1.minormatter.com/~ddunbar/klee- doxygen/classklee_1_1Expr.html">Expr</a> documentation.</p>
+
+<h2 id="notation">Notation</h2>
+
+<p>In this document, syntax is given in Extended Backus-Naur Form and appears as:</p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">"(" "Eq" [ type ] LHS RHS ")"</code></pre></figure>
+
+<p>Unless noted, the rules are described in terms of tokens not characters, and tokens can be separate by white space and comments.</p>
+
+<p>In some case, a production like <code class="language-plaintext highlighter-rouge">child-expression</code> is used as an alias for the <code class="language-plaintext highlighter-rouge">expression</code> production, when subsequent text needs to differentiate the expression.</p>
+
+<p>Examples are shown using:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Eq w32 a b)
+</code></pre></div></div>
+
+<h2 id="structure">Structure</h2>
+
+<p>A KQuery source file consists of a sequence of declarations.</p>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">kquery = { array-declaration | query-command }</code></pre></figure>
+
+<p>Currently, the language supports two kinds of declarations:</p>
+
+<ul>
+  <li><em>Array Declarations</em>: Use to declare an array of bitvectors for use in subsequent expressions.</li>
+  <li><em>Query Commands</em>: Used to define queries which should be executed by the constraint solver. A query consists of a set of constraints (assumptions), a query expression, and optionally expressions and arrays to compute values for if the query expression is invalid.</li>
+</ul>
+
+<p>Comments begin with “#” and continue until the end of line. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Add w32 1 1) # Two, hopefully
+</code></pre></div></div>
+
+<h3 id="expression-and-version-labels">Expression and Version Labels</h3>
+
+<p>Expressions are frequently shared among constraints and query expressions. In order to keep the output succinct and readable, expression labels can be used to introduce a lexical binding which can be used in subsequent expressions.  Expression labels are globally scoped through the entire source file, and a definition must preceed any use in the source file.</p>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = identifier ":" expression  </code></pre></figure>
+
+<p>Likewise, versions are frequently shared among reads and can be labelled in the same fashion.</p>
+
+<p><strong>Examples:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Add w32 N0:(Add w32 1 1) N0) # Four  
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array const_array[] : w32 -&gt; w8 = [5,6]  
+(Read w8 0 U0:[0=255] @ const_array) # U0 now refers to an array [255,6]  
+(Read w8 1 U0) # Read from byte offset 1 of [255,6]  
+</code></pre></div></div>
+
+<h2 id="literals">Literals</h2>
+
+<h3 id="identifiers">Identifiers</h3>
+
+<p>Identifiers are used for specifying array names and for expression labels.</p>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">identifier = "[a-zA-Z_][a-zA-Z0-9._]*"  </code></pre></figure>
+
+<p><strong>Examples:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_foo  
+arr10_20  
+</code></pre></div></div>
+
+<p>Note that in order to keep open the possibility to introduce explicit integral and floating-point types, the following identifiers are treated as reserved keywords:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>floating-point-type = "fp[0-9]+([.].*)?"  
+integer-type = "i[0-9]+"  
+</code></pre></div></div>
+
+<h3 id="numbers">Numbers</h3>
+
+<p>Numeric constants can be specified as follows.</p>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">number = "true" | "false" | signed-constant  
+signed-constant = [ "+" | "-" ] ( dec-constant | bin-constant | oct-constant |
+hex-constant )  
+dec-constant = "[0-9_]+"  
+bin-constant = "0b[01_]+"  
+oct-constant = "0o[0-7_]+"  
+hex-constant = "0x[0-9a-fA-F_]+"  </code></pre></figure>
+
+<p><strong>Examples:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>false  
+-10  
+0b1000_0001 # 129  
+</code></pre></div></div>
+
+<p>Non-decimal constants can be signed. The “_” character is ignored when evaluating constants, but is available for use as a separator.</p>
+
+<h3 id="types">Types</h3>
+
+<p>Types are explicit operands to most expressions, and indicate the bit-width of the type.</p>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">type = "w[0-9]+"  </code></pre></figure>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>w32  
+</code></pre></div></div>
+
+<p>The numeric portion of the token is taken to be a decimal integer specifying the bit-width of the type.</p>
+
+<h2 id="declarations">Declarations</h2>
+
+<h3 id="arrays">Arrays</h3>
+
+<p>Arrays are the basic type for defining symbolic variables (the language does not currently support simple variables).</p>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">array-declaration = "array" name "[" [ size ] "]" ":" domain "-&gt;" range "="
+array-initializer  
+array-initializer = "symbolic" | "[" number-list "]"  
+number-list = number | number "," number-list  </code></pre></figure>
+
+<p>Arrays can be initialized to be either symbolic, or to have a given list of constant values. For constant arrays, the initializer list must exactly match the size of the array (if the size was unspecified, it will be the number of constant values).</p>
+
+<p><strong>Examples:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array foo[10] : w32 -&gt; w8 = symbolic # A ten element symbolic array  
+array foo[] : w8 -&gt; w1 = [ true, false, false, true ] # A constant array of
+four booleans  
+</code></pre></div></div>
+
+<h3 id="query-commands">Query Commands</h3>
+
+<p>Query declarations describe the queries that the constraint solver should run, along with optional additional arguments to specify expressions and arrays for which counterexamples should be provided.</p>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">query-command = "(" "query" constraint-list query-expression [ eval-expr-list
+[ eval-array-list ] ] ")"  
+query-expression = expression  
+constraint-list = "[" { expression } "]"  
+eval-expr-list = "[" { expression } "]"  
+eval-array-list = "[" { identifier } "]"  </code></pre></figure>
+
+<p><strong>Examples:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(query [] false)  
+(query [(Eq w8 (Read w8 0 mem) 10)] false [] [ mem ])  
+</code></pre></div></div>
+
+<p>A query command consists a query, consisting of a constraint list and a query expression, and two optional lists for use when a counterexample is desired.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">constraint-list</code> is a list of expressions (with boolean type) which are assumed to hold. Although not required in the language, many solvers require that this set of constraints be consistent. The <code class="language-plaintext highlighter-rouge">query-expression</code> is the expression to determine the validity of.</p>
+
+<p>If a counterexample is desired for invalid queries, <code class="language-plaintext highlighter-rouge">eval-expr-list</code> is a list of expressions for which a possible value should be constructed, and <code class="language-plaintext highlighter-rouge">eval- array-list</code> is a list of arrays for which values for the entire array should be provided. All counterexamples results must be simultaneously feasible.</p>
+
+<h2 id="versions">Versions</h2>
+
+<p>Versions are used to refer to an array with an ordered sequence of writes to it.</p>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">version = identifier | "[" [ update-list ] "]" "@" version
+update-list = lhs-expression "=" rhs-expression [ "," update-list ]</code></pre></figure>
+
+<p><strong>Examples:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array small_array[2] : w32 -&gt; w8 = symbolic # The array we will read from  
+
+(Read w8 0 small_array) # No Updates to small_array
+(Read w8 1 [1=0xff] @ small_array) # Read from small_array at byte offset 1
+with update where byte 1 set to decimal 255
+</code></pre></div></div>
+
+<p>A version can be specified either by an identifier, which can refer to an array or a labelled version, or by an explicit list of writes which are to be concatenated to another version (the most recent writes are first).</p>
+
+<h2 id="expressions">Expressions</h2>
+
+<p>Expressions are strongly typed, and have the following general form:</p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">"(" EXPR_NAME EXPR_TYPE ... arguments ... ")"</code></pre></figure>
+
+<p>where <code class="language-plaintext highlighter-rouge">EXPR_NAME</code> is the expression name, <code class="language-plaintext highlighter-rouge">EXPR_TYPE</code> is the expression type (which may be optional), followed by any additional arguments.</p>
+
+<h3 id="primitive-expressions">Primitive Expressions</h3>
+
+<h4 id="expression-references">Expression References</h4>
+
+<p>An expression reference can be used to refer to a previously labelled expression.</p>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = identifier</code></pre></figure>
+
+<p>Expression and version labels are in separate namespaces, it is the users responsibility to use separate labels to preserve readability.</p>
+
+<h4 id="constants">Constants</h4>
+
+<p>Constants are specified by a numeric token or a type and numeric token.</p>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = number | "(" type number ")"</code></pre></figure>
+
+<p>When a constant is specified without a type, the resulting expression is only well-formed if its type can be inferred from the enclosing context. The <code class="language-plaintext highlighter-rouge">true</code> and <code class="language-plaintext highlighter-rouge">false</code> constants always have type <code class="language-plaintext highlighter-rouge">w1</code>.</p>
+
+<p><strong>Examples:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>true
+(w32 0)
+(Add w32 10 20) # The type for 10 and 20 is inferred to be w32.
+</code></pre></div></div>
+
+<h3 id="arithmetic-operations">Arithmetic Operations</h3>
+
+<h4 id="add-sub-mul-udiv-sdiv-urem-srem">Add, Sub, Mul, UDiv, SDiv, URem, SRem</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">arithmetic-expr-kind = ( "Add" | "Sub" | "Mul" | "UDiv" | "URem" | "SDiv" |
+"SRem" )  
+expression = "(" arithmetic-expr-kind type expression expression ")"  </code></pre></figure>
+
+<p>Arithmetic operations are always binary and the types of the left- and right- hand side expressions must match the expression type.</p>
+
+<h4 id="udiv">UDiv</h4>
+
+<p>Truncated unsigned division. Undefined if divisor is 0.</p>
+
+<h4 id="urem">URem</h4>
+
+<p>Unsigned remainder. Undefined if divisor is 0.</p>
+
+<h4 id="sdiv">SDiv</h4>
+
+<p>Signed division. Undefined if divisor is 0.</p>
+
+<h4 id="srem">SRem</h4>
+
+<p>Signed remainder. Undefined if divisor is 0. Sign of the remainder is the same
+as that of the dividend.</p>
+
+<h3 id="bitwise-operations">Bitwise Operations</h3>
+
+<h4 id="not">Not</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "Not" [ type ] expression ")"</code></pre></figure>
+
+<p>Bitwise negation. The result is the bitwise negation (one’s complement) of the input expression. If the type is specified, it must match the expression type.</p>
+
+<h4 id="and-or-xor-shl-lshr-ashr">And, Or, Xor, Shl, LShr, AShr</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">bitwise-expr-kind = ( "And" | "Or" | "Xor" | "Shl" | "LShr" | "AShr" )  
+expression = "(" bitwise-expr-kind type expression expression ")"  </code></pre></figure>
+
+<p>These bitwise operations are always binary and the types of the left- and right-hand side expressions must match the expression type.</p>
+
+<h4 id="shl">Shl</h4>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "Shl" type X Y ")"</code></pre></figure>
+
+<p>Logical shift left. Moves each bit of <code class="language-plaintext highlighter-rouge">X</code> to the left by <code class="language-plaintext highlighter-rouge">Y</code> positions. The <code class="language-plaintext highlighter-rouge">Y</code> right-most bits of <code class="language-plaintext highlighter-rouge">X</code> are replaced with zero, and the left-most bits discarded.</p>
+
+<h4 id="lshr">LShr</h4>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "LShr" type X Y ")"</code></pre></figure>
+
+<p>Logical shift right. Moves each bit of <code class="language-plaintext highlighter-rouge">X</code> to the right by <code class="language-plaintext highlighter-rouge">Y</code> positions. The <code class="language-plaintext highlighter-rouge">Y</code> left-most bits of <code class="language-plaintext highlighter-rouge">X</code> are replaced with zero, and the right-most bits discarded.</p>
+
+<h4 id="ashr">AShr</h4>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "AShr" type X Y ")"</code></pre></figure>
+
+<p>Arithmetic shift right. Behaves as <code class="language-plaintext highlighter-rouge">LShr</code> except that the left-most bits of <code class="language-plaintext highlighter-rouge">X</code> copy the initial left-most bit (the sign bit) of <code class="language-plaintext highlighter-rouge">X</code>.</p>
+
+<h3 id="comparisons">Comparisons</h3>
+
+<h4 id="eq-ne-ult-ule-ugt-uge-slt-sle-sgt-sge">Eq, Ne, Ult, Ule, Ugt, Uge, Slt, Sle, Sgt, Sge</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">comparison-expr-kind = ( "Eq" | "Ne" | "Ult" | "Ule" | "Ugt" | "Uge" | "Slt" |
+"Sle" | "Sgt" | "Sge" )  
+expression = "(" comparison-expr-kind [ type ] expression expression ")"  </code></pre></figure>
+
+<p>Comparison operations are always binary and the types of the left- and right- hand side expression must match. If the type is specified, it must be <code class="language-plaintext highlighter-rouge">w1</code>.</p>
+
+<h3 id="bitvector-manipulation">Bitvector Manipulation</h3>
+
+<h4 id="concat">Concat</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "Concat" [type] msb-expression lsb-expression ")"</code></pre></figure>
+
+<p><em>Concat</em> evaluates to a <code class="language-plaintext highlighter-rouge">type</code> bits formed by concatenating <code class="language-plaintext highlighter-rouge">lsb-expression</code> to <code class="language-plaintext highlighter-rouge">msb-expression</code>.</p>
+
+<h4 id="extract">Extract</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "Extract" type offset-number child-expression ")"</code></pre></figure>
+
+<p><em>Extract</em> evaluates to <code class="language-plaintext highlighter-rouge">type</code> bits from <code class="language-plaintext highlighter-rouge">child-expression</code> taken from <code class="language-plaintext highlighter-rouge">offset-number</code>, where <code class="language-plaintext highlighter-rouge">offset-number</code> is the index of the least-significant bit in <code class="language-plaintext highlighter-rouge">child-expression</code> which should be extracted.</p>
+
+<h4 id="zext">ZExt</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "ZExt" type child-expression ")"</code></pre></figure>
+
+<p><em>ZExt</em> evaluates to the lowest <code class="language-plaintext highlighter-rouge">type</code> bits of <code class="language-plaintext highlighter-rouge">child-expression</code>, with undefined bits set to zero.</p>
+
+<h4 id="sext">SExt</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "SExt" type input-expression ")"</code></pre></figure>
+
+<p><em>SExt</em> evaluates to the lowest <code class="language-plaintext highlighter-rouge">type</code> bits of <code class="language-plaintext highlighter-rouge">child-expression</code>, with undefined bits set to the most-significant bit of <code class="language-plaintext highlighter-rouge">input-expression</code>.</p>
+
+<h3 id="special-expressions">Special Expressions</h3>
+
+<h4 id="read">Read</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "Read" type index-expression version ")"  </code></pre></figure>
+
+<p>The <em>Read</em> expression evaluates to the first write in <code class="language-plaintext highlighter-rouge">version</code> for which <code class="language-plaintext highlighter-rouge">index-expression</code> is equivalent to the index in the write. The type of the expression must match the range of the root array in <code class="language-plaintext highlighter-rouge">version</code>, and the type of <code class="language-plaintext highlighter-rouge">index-expression</code> must match the domain.</p>
+
+<h4 id="select">Select</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "Select" type cond-expression true-expression false-
+expression ")"  </code></pre></figure>
+
+<p>The <em>Select</em> expression evalues to <code class="language-plaintext highlighter-rouge">true-expression</code> if the condition evaluates to true, and to <code class="language-plaintext highlighter-rouge">false-expression</code> if the condition evaluates to false. The <code class="language-plaintext highlighter-rouge">cond-expression</code> must have type <code class="language-plaintext highlighter-rouge">w1</code>.</p>
+
+<p>Both the true and false expressions must be well-formed, regardless of the condition expression. In particular, it is not legal for one of the expressions to cause a division-by-zero during evaluation, even if the <em>Select</em> expression will never evaluate to that expression.</p>
+
+<h3 id="macro-expressions">Macro Expressions</h3>
+
+<p>Several common expressions are not implemented directly in the Expr library, but can be expressed in terms of other operations. A number of these are implemented as “macros”. The pretty printer recognizes and prints the appropriate Expr forms as the macro, and the parser recognizes them and turns them into the underlying representation.</p>
+
+<h4 id="neg">Neg</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "Neg" [ type ] expression ")"</code></pre></figure>
+
+<p>This macro form can be used to generate a <strong>Sub</strong> from zero.</p>
+
+<h4 id="readlsb-readmsb">ReadLSB, ReadMSB</h4>
+
+<p><strong>Syntax:</strong></p>
+
+<figure class="highlight"><pre><code class="language-ebnf" data-lang="ebnf">expression = "(" "ReadLSB" type index-expression version ")"  
+expression = "(" "ReadMSB" type index-expression version ")"  </code></pre></figure>
+
+<p><em>ReadLSB</em> and <em>ReadMSB</em> can be used to simplify contiguous array accesses. The type of the expression must be a multiple <code class="language-plaintext highlighter-rouge">N</code> of the array range type. The expression expands to a concatenation of <code class="language-plaintext highlighter-rouge">N</code> read expressions, where each read is done at a subsequent offset from the <code class="language-plaintext highlighter-rouge">index-expression</code>. For <em>ReadLSB</em> (<em>ReadMSB</em>), the concatenation is done such that the read at <code class="language-plaintext highlighter-rouge">index-expression</code> forms the least- (most-) significant bits.</p>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v2.2/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="http://www.doc.ic.ac.uk/~dsl11/klee-doxygen/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://travis-ci.org/klee/klee/branches">TravisCI</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v2.2
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2020, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v2.2/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

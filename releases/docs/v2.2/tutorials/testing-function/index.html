@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Tutorial One &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v2.2/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v2.2/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v2.2/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v2.2/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v2.2/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v2.2/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v2.2/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v2.2/">
+        <img alt="KLEE" src="/releases/docs/v2.2/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li>
+      <a href="/releases/docs/v2.2/getting-started">Getting Started</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/docs">Documentation</a>
+    </li>
+    <li class="active">
+      <a href="/releases/docs/v2.2/tutorials">Tutorials</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.2/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v2.2">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 2.2
+</div>
+</a>
+
+
+    <!-- remove me after workshop -->
+<div class="workshop">
+	<p>
+		The 2<sup>nd</sup> <a href="https://srg.doc.ic.ac.uk/klee21/">International KLEE Workshop on Symbolic Execution</a> is coming!<br />
+		Join us from 22-23 April 2021 in London.
+	</p>
+</div>
+<!-- end -->
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Tutorial One</h1>
+        <h2 class="editorial-header__subtitle">Testing a Small Function</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <p>This tutorial walks you through the main steps needed to test a simple function with KLEE. Here is our simple function:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">get_sign</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="k">else</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>You can find the entire code for this example in the source tree under <code class="language-plaintext highlighter-rouge">examples/get_sign</code>. A version of the source code can also be accessed <a href="/resources/get_sign.c.html">here</a>.</p>
+
+<h2 id="marking-input-as-symbolic">Marking input as symbolic</h2>
+
+<p>In order to test this function with KLEE, we need to run it on <em>symbolic</em> input. To mark a variable as symbolic, we use the <code class="language-plaintext highlighter-rouge">klee_make_symbolic()</code> function (defined in <code class="language-plaintext highlighter-rouge">klee/klee.h</code>), which takes three arguments: the address of the variable (memory location) that we want to treat as symbolic, its size, and a name (which can be anything). Here is a simple <code class="language-plaintext highlighter-rouge">main()</code> function that marks a variable <code class="language-plaintext highlighter-rouge">a</code> as symbolic and uses it to call <code class="language-plaintext highlighter-rouge">get_sign()</code>:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">klee_make_symbolic</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="s">"a"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">get_sign</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="compiling-to-llvm-bitcode">Compiling to LLVM bitcode</h2>
+
+<p>KLEE operates on LLVM bitcode. To run a program with KLEE, you first compile it to LLVM bitcode using <code class="language-plaintext highlighter-rouge">clang -emit-llvm</code>.</p>
+
+<p>From within the <code class="language-plaintext highlighter-rouge">examples/get_sign</code> directory:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>clang <span class="nt">-I</span> ../../include <span class="nt">-emit-llvm</span> <span class="nt">-c</span> <span class="nt">-g</span> <span class="nt">-O0</span> <span class="nt">-Xclang</span> <span class="nt">-disable-O0-optnone</span> get_sign.c</code></pre></figure>
+
+<p>which should create a <code class="language-plaintext highlighter-rouge">get_sign.bc</code> file in LLVM bitcode format. The <code class="language-plaintext highlighter-rouge">-I</code>
+argument is used so that the compiler can find <code class="language-plaintext highlighter-rouge">klee/klee.h</code>, which contains
+definitions for the intrinsic functions used to interact with the KLEE virtual
+machine, such as <code class="language-plaintext highlighter-rouge">klee_make_symbolic</code>. It is useful to build with <code class="language-plaintext highlighter-rouge">-g</code> to add
+debug information to the bitcode file, which we use to generate source line
+level statistics information.</p>
+
+<p>The bitcode passed to KLEE should not be optimised, because we hand-picked the
+correct optimisations for KLEE which can be enabled with KLEE’s <code class="language-plaintext highlighter-rouge">--optimize</code>
+command line option. However, in later version of LLVM versions ( &gt; 5.0)  the
+<code class="language-plaintext highlighter-rouge">-O0</code> zero flag should NOT be used when compiling for KLEE as it prevents KLEE
+from doing its own optimisations. <code class="language-plaintext highlighter-rouge">-O0 -Xclang -disable-O0-optnone</code> should be used
+instead, see <a href="https://github.com/klee/klee/issues/902">this issue</a> for more
+details.</p>
+
+<p>If you do not wish to replay the test cases as described later and
+don’t care about debug information and optimisation, you can delete the
+<code class="language-plaintext highlighter-rouge">klee/klee.h</code> include and then compile <code class="language-plaintext highlighter-rouge">get_sign.c</code> with:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>clang <span class="nt">-emit-llvm</span> <span class="nt">-c</span> get_sign.c</code></pre></figure>
+
+<p>However, we recommend using the longer command above.</p>
+
+<h2 id="running-klee">Running KLEE</h2>
+
+<p>To run KLEE on the bitcode file simply execute:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>klee get_sign.bc</code></pre></figure>
+
+<p>You should see the following output (assumes LLVM 3.4):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">KLEE: output directory <span class="o">=</span> <span class="s2">"klee-out-0"</span>
+
+KLEE: <span class="k">done</span>: total instructions <span class="o">=</span> 31
+KLEE: <span class="k">done</span>: completed paths <span class="o">=</span> 3
+KLEE: <span class="k">done</span>: generated tests <span class="o">=</span> 3</code></pre></figure>
+
+<p>There are three paths through our simple function, one where a is <code class="language-plaintext highlighter-rouge">0</code>, one where it is less than <code class="language-plaintext highlighter-rouge">0</code> and one where it is greater than <code class="language-plaintext highlighter-rouge">0</code>. As expected, KLEE informs us that it explored three paths in the program and generated one test case for each path explored. The output of a KLEE execution is a directory (in our case <code class="language-plaintext highlighter-rouge">klee-out-0</code>) containing the test cases generated by KLEE. KLEE names the output directory <code class="language-plaintext highlighter-rouge">klee-out-N</code> where <code class="language-plaintext highlighter-rouge">N</code> is the lowest available number (so if we run KLEE again it will create a directory called <code class="language-plaintext highlighter-rouge">klee-out-1</code>), and also generates a symbolic link called <code class="language-plaintext highlighter-rouge">klee-last</code> to this directory for convenience:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">ls </span>klee-last/
+assembly.ll      run.istats       test000002.ktest
+info             run.stats        test000003.ktest
+messages.txt     test000001.ktest warnings.txt</code></pre></figure>
+
+<p>Please click <a href="/releases/docs/v2.2/docs/files">here</a> if you would like an overview of the files generated by KLEE. In this tutorial, we only focus on the actual test files generated by KLEE.</p>
+
+<h2 id="klee-generated-test-cases">KLEE-generated test cases</h2>
+
+<p>Test cases generated by KLEE are written into files with <code class="language-plaintext highlighter-rouge">.ktest</code> extension. These are binary files which can be read with the <em>ktest-tool</em> utility. <em>ktest-tool</em> outputs different representations for the same object, for instance Python byte strings (data), integers (int) or ascii text (text). So let’s examine each file:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ktest-tool klee-last/test000001.ktest
+ktest file : <span class="s1">'klee-last/test000001.ktest'</span>
+args       : <span class="o">[</span><span class="s1">'get_sign.bc'</span><span class="o">]</span>
+num objects: 1
+object 0: name: <span class="s1">'a'</span>
+object 0: size: 4
+object 0: data: b<span class="s1">'\x00\x00\x00\x00'</span>
+object 0: hex : 0x00000000
+object 0: int : 0
+object 0: uint: 0
+object 0: text: ....
+
+<span class="nv">$ </span>ktest-tool klee-last/test000002.ktest
+ktest file : <span class="s1">'klee-last/test000002.ktest'</span>
+args       : <span class="o">[</span><span class="s1">'get_sign.bc'</span><span class="o">]</span>
+num objects: 1
+object 0: name: <span class="s1">'a'</span>
+object 0: size: 4
+object 0: data: b<span class="s1">'\x01\x01\x01\x01'</span>
+object 0: hex : 0x01010101
+object 0: int : 16843009
+object 0: uint: 16843009
+object 0: text: ....
+
+<span class="nv">$ </span>ktest-tool klee-last/test000003.ktest
+ktest file : <span class="s1">'klee-last/test000003.ktest'</span>
+args       : <span class="o">[</span><span class="s1">'get_sign.bc'</span><span class="o">]</span>
+num objects: 1
+object 0: name: <span class="s1">'a'</span>
+object 0: size: 4
+object 0: data: b<span class="s1">'\x00\x00\x00\x80'</span>
+object 0: hex : 0x00000080
+object 0: int : <span class="nt">-2147483648</span>
+object 0: uint: 2147483648
+object 0: text: ....</code></pre></figure>
+
+<p>In each test file, KLEE reports the arguments with which the program was invoked (in our case no arguments other than the program name itself), the number of symbolic objects on that path (only one in our case), the name of our symbolic object (<code class="language-plaintext highlighter-rouge">'a'</code>) and its size (<code class="language-plaintext highlighter-rouge">4</code>). The actual test itself is represented by the value of our input: <code class="language-plaintext highlighter-rouge">0</code> for the first test, <code class="language-plaintext highlighter-rouge">16843009</code> for the second and <code class="language-plaintext highlighter-rouge">-2147483648</code> for the last one. As expected, KLEE generated value <code class="language-plaintext highlighter-rouge">0</code>, one positive value (<code class="language-plaintext highlighter-rouge">16843009</code>), and one negative value (<code class="language-plaintext highlighter-rouge">-2147483648</code>). We can now run these values on a native version of our program to exercise all paths through the code!</p>
+
+<h2 id="replaying-a-test-case">Replaying a test case</h2>
+
+<p>While we can run the test cases generated by KLEE on our program by hand, (or with the help of an existing test infrastructure), KLEE provides a convenient <em>replay library</em>, which simply replaces the call to <code class="language-plaintext highlighter-rouge">klee_make_symbolic</code> with a call to a function that assigns to our input the value stored in the <code class="language-plaintext highlighter-rouge">.ktest</code> file. To use it, simply link your program with the <code class="language-plaintext highlighter-rouge">libkleeRuntest</code> library and set the <code class="language-plaintext highlighter-rouge">KTEST_FILE</code> environment variable to point to the name of the desired test case:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>path-to-klee-build-dir/lib/:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nv">$ </span>gcc <span class="nt">-I</span> ../../include <span class="nt">-L</span> path-to-klee-build-dir/lib/ get_sign.c <span class="nt">-lkleeRuntest</span>
+<span class="nv">$ KTEST_FILE</span><span class="o">=</span>klee-last/test000001.ktest ./a.out
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
+0
+<span class="nv">$ KTEST_FILE</span><span class="o">=</span>klee-last/test000002.ktest ./a.out
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
+1
+<span class="nv">$ KTEST_FILE</span><span class="o">=</span>klee-last/test000003.ktest ./a.out
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
+255</code></pre></figure>
+
+<p>As expected, our program returns <code class="language-plaintext highlighter-rouge">0</code> when running the first test case, <code class="language-plaintext highlighter-rouge">1</code>  when running the second one, and <code class="language-plaintext highlighter-rouge">255</code> (<code class="language-plaintext highlighter-rouge">-1</code> converted to a valid exit code value in the <code class="language-plaintext highlighter-rouge">0-255</code> range) when running the last one.</p>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v2.2/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="http://www.doc.ic.ac.uk/~dsl11/klee-doxygen/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://travis-ci.org/klee/klee/branches">TravisCI</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v2.2
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2020, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v2.2/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
