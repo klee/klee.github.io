@@ -905,3 +905,8 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Lukáš Korenčik, Petr Ročkai  
   IEEE International Conference on Software Quality, Reliability and Security (QRS 2020)  
   Dezember 11-14, 2020, Macau, China
+
+1. [Parallel Chopped Symbolic Execution](https://link.springer.com/chapter/10.1007/978-3-030-63406-3_7)  
+  Shikhar Singh, Sarfraz Khurshid  
+  International Conference on Formal Engineering Methods (ICFEM 2020)  
+  March 1-3, 2021, Singapore
