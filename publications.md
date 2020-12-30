@@ -828,6 +828,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Yaohui Chen, Mansour Ahmadi, Reza Mirzazade farkhani, Boyu Wang, Long Lu  
   arXiv, February 20, 2020
 
+1. [Is Register Transfer Level Locking Secure?](https://ieeexplore.ieee.org/abstract/document/9116261/)  
+  Chandan Karfa, Ramanuj Chouksey, Christian Pilato, Siddharth Garg, Ramesh Karri  
+  Design, Automation & Test in Europe Conference & Exhibition (DATE 2020)  
+  March 9-13, 2020, Grenoble, France
+
 1. [Mousse: A System for Selective Symbolic Execution of Programs with Untamed Environments](https://www.ics.uci.edu/~ardalan/papers/Liu_EuroSys20.pdf)  
   Yingtong Liu, Hsin-Wei Hung, Ardalan Amiri Sani  
   ACM SIGOPS/EuroSys European Conference on Computer Systems (EuroSys 2020)  
