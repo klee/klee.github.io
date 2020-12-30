@@ -833,6 +833,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Design, Automation & Test in Europe Conference & Exhibition (DATE 2020)  
   March 9-13, 2020, Grenoble, France
 
+1. [Specification-Driven Conformance Checking for Virtual/Silicon Devices using Mutation Testing](https://ieeexplore.ieee.org/abstract/document/9075350)  
+  Haifeng Gu, Jianning Zhang, Mingsong Chen, Tongquan Wei, Li Lei, Fei Xie  
+  IEEE Transactions on Computers  
+  April 21, 2020
+
 1. [Mousse: A System for Selective Symbolic Execution of Programs with Untamed Environments](https://www.ics.uci.edu/~ardalan/papers/Liu_EuroSys20.pdf)  
   Yingtong Liu, Hsin-Wei Hung, Ardalan Amiri Sani  
   ACM SIGOPS/EuroSys European Conference on Computer Systems (EuroSys 2020)  
