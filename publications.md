@@ -845,6 +845,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM/IEEE International Conference on Software Engineering (ICSE 2020 Companion)  
   May 23-29, 2020, Seoul, Republic of Korea 
 
+1. [Modified Condition/Decision Coverage (MC/DC) Oriented Compiler Optimization for Symbolic Execution](https://link.springer.com/article/10.1631/FITEE.1900213)  
+  Wei-jiang Hong, Yi-jun Liu, Zhen-bang Chen, Wei Dong, Ji Wang  
+  Frontiers of Information Technology & Electronic Engineering (Issue 21)  
+  June 26, 2020
+
 1. [Relocatable Addressing Model for Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3395363.3397363)  
   David Trabish, Noam Rinetzky  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2020)  
