@@ -887,6 +887,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   November 8-13, 2020, Virtual Event, USA  
   **PSPA is available [here](http://srg.doc.ic.ac.uk/projects/pspa/).**
 
+1. [Type Checking beyond Type Checkers, via Slice & Run](https://dl.acm.org/doi/abs/10.1145/3427764.3428324)  
+  Justus Adam, Stephen Kell  
+  Workshop on Tools for Automatic Program Analysis (TAPAS 2020)  
+  November 19, 2020, Virtual Event, USA
+
 1. [TracerX: Dynamic Symbolic Execution with Interpolation](https://arxiv.org/abs/2012.00556)  
   Joxan Jaffar, Rasool Maghareh, Sangharatna Godboley, Xuan-Linh Ha  
   arXiv, December 1, 2020
