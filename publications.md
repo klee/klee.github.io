@@ -713,6 +713,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2018)  
   November 4-9, 2018, Lake Buena Vista, USA
 
+1. [Detecting MPI Usage Anomalies via Partial Program Symbolic Execution](https://dl.acm.org/doi/10.1109/SC.2018.00066)  
+  Fangke Ye, Jisheng Zhao, Vivek Sarkar  
+  International Conference for High Performance Computing, Networking, Storage, and Analysis (SC 2018)  
+  November 11-16, 2018, Dallas, USA
+
 1. [Interoperability-Guided Testing of QUIC Implementations using Symbolic Execution](https://arxiv.org/pdf/1811.12099.pdf)  
   Felix Rath, Daniel Schemmel, Klaus Wehrle  
   Workshop on the Evolution, Performance, and Interoperability of QUIC (EPIQ 2018)  
