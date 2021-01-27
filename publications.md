@@ -122,6 +122,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   February 25-29, 2012, New Orleans, LA, USA  
   **GKLEE is available [here](http://www.cs.utah.edu/formal_verification/GKLEE).**  
 
+1. [Data Races vs. Data Race Bugs: Telling the Difference with Portend](https://dl.acm.org/doi/10.1145/2248487.2150997)  
+  Baris Kasikci, Cristian Zamfir, George Candea  
+  ACM SIGPLAN Notices, Volume 47, Issue 4  
+  March 2012
+
 1. [Staged Symbolic Execution](https://dl.acm.org/citation.cfm?id=2231988)  
   Junaid Haroon Siddiqui, Sarfraz Khurshid  
   ACM Symposium on Applied Computing (SAC 2012)  
