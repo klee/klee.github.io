@@ -354,6 +354,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Dissertation, Stanford University, Department of Computer Science  
   December 2014, Stanford, USA
 
+1. [MPISE: Symbolic Execution of MPI Programs](https://ieeexplore.ieee.org/document/7027430/)  
+  Xianjin Fu, Zhenbang Chen, Yufeng Zhang, Chun Huang, Wei Dong, Ji Wang  
+  IEEE International Symposium on High Assurance Systems Engineering (HASE 2014)  
+  January 8-10, 2015, Daytona, USA
+
 1. [Postconditioned Symbolic Execution](http://www-bcf.usc.edu/~wang626/pubDOC/YiYGWLZ15.pdf)  
   Qiuping Yi, Zijiang Yang, Shengjian Guo, Chao Wang, Jian Liu, Chen Zhao  
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2015)  
