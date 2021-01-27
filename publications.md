@@ -430,6 +430,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE Trustcom/BigDataSE/ISPA 2015  
   August 20-22, 2015, Helsinki, Finland
 
+1. [Assertion Guided Symbolic Execution of Multithreaded Programs](https://dl.acm.org/doi/abs/10.1145/2786805.2786841)  
+  Shengjian Guo, Markus Kusano, Chao Wang, Zijiang Yang, Aarti Gupta  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2015)  
+  August 30 - September 4, 2015, Bergamo, Italy
+
 1. [Parallel Symbolic Execution: Merging In-Flight Requests](https://link.springer.com/chapter/10.1007/978-3-319-26287-1_8)  
   Martin Nowack, Katja Tietze, Christof Fetzer  
   Haifa Verification Conference (HVC 2015)  
