@@ -349,6 +349,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Haifa Verification Conference (HVC 2014)  
   November 18-20, 2014, Haifa, Israel
 
+1. [Synchronization Error Detection of MPI Programs by Symbolic Execution](https://ieeexplore.ieee.org/abstract/document/7091301)  
+  Xianjin Fu, Zhenbang Chen, Chun Huang, Wei Dong, Ji Wang  
+  Asia-Pacific Software Engineering Conference (APSEC 2014)  
+  December 1-4, 2014, Jeju, South Korea
+
 1. [Methods for Binary Symbolic Execution](https://searchworks.stanford.edu/view/10701369)  
   Anthony Romano  
   Dissertation, Stanford University, Department of Computer Science  
