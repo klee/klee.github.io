@@ -825,6 +825,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Conference on Tests and Proofs (TAP 2019)  
   October 9-11, 2019, Porto, Portugal
 
+1. [Memory Distance Measurement for Concurrent Programs](https://link.springer.com/chapter/10.1007/978-3-030-35225-7_5)  
+  Hao Li, Jialiang Chang, Zijiang Yang, Steve Carr  
+  Workshop on Languages and Compilers for Parallel Computing (LCPC 2019)  
+  October 22-24, Atlanta, USA
+
 1. [KLUZZER: Whitebox Fuzzing on Top of LLVM](https://link.springer.com/chapter/10.1007/978-3-030-31784-3_14)  
   Hoang M. Le  
   International Symposium on Automated Technology for Verification and Analysis (ATVA 2019)  
