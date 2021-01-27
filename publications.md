@@ -374,6 +374,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2015)  
   April 13-17, 2015, Graz, Austria
 
+1. [Automated Classification of Data Races Under Both Strong and WeakMemory Models](https://dl.acm.org/doi/abs/10.1145/2734118)  
+  Baris Kasikci, Cristian Zamfir, George Candea  
+  ACM Transactions on Programming Languages and Systems, Volume 37, Issue 3 (TOPLAS)  
+  May 2015
+
 1. [The Use of Symbolic Execution for Testing of Real-Time Safety-Related Software](https://dspace.cvut.cz/bitstream/handle/10467/61474/F3-BP-2015-Horenovsky-Martin-thesis.pdf)  
   Martin Hořeňovský  
   Bachelor Thesis, Czech Technical University in Prague  
