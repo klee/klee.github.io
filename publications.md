@@ -880,6 +880,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM/IEEE International Conference on Software Engineering (ICSE 2020 Companion)  
   May 23-29, 2020, Seoul, Republic of Korea 
 
+1. [Symbolic Verification of Message Passing Interface Programs](https://dl.acm.org/doi/abs/10.1145/3377811.3380419)  
+  Hengbiao Yu, Zhenbang Chen, Xianjin Fu, Ji Wang, Zhendong Su, Jun Sun, Chun Huang, Wei Dong  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2020)  
+  May 23-29, 2020, Seoul, Republic of Korea
+
 1. [Modified Condition/Decision Coverage (MC/DC) Oriented Compiler Optimization for Symbolic Execution](https://link.springer.com/article/10.1631/FITEE.1900213)  
   Wei-jiang Hong, Yi-jun Liu, Zhen-bang Chen, Wei Dong, Ji Wang  
   Frontiers of Information Technology & Electronic Engineering (Issue 21)  
