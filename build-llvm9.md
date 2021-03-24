@@ -12,7 +12,7 @@ The current procedure for building KLEE with LLVM 9 (recommended) is outlined be
 
 **NOTE:** KLEE is currently tested on Linux x86-64 (particularly
 Ubuntu), FreeBSD and macOS.  There is no support for uClibc and the
-POSIX environment under macOS. KLEE might not work under x86-32.
+POSIX environment under macOS.  KLEE does not work under x86-32.
 
 1. **Install dependencies:** KLEE requires all the dependencies of LLVM (see [here](http://llvm.org/docs/GettingStarted.html#requirements), and some more. In particular, you should install the programs and libraries listed below.
 
