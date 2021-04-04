@@ -975,3 +975,9 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Shikhar Singh, Sarfraz Khurshid  
   International Conference on Formal Engineering Methods (ICFEM 2020)  
   March 1-3, 2021, Singapore
+
+1. [Address-Aware Query Caching for Symbolic Execution](https://davidtr1037.github.io/files/icst_2021_final.pdf)  
+  David Trabish, Shachar Itzhaky, Noam Rinetzky  
+  IEEE International Conference on Software Testing, Verification and Validation (ICST 2021)  
+  April 12-16, 2021, Virtual Event, Brazil  
+  **available [here](https://github.com/davidtr1037/klee-aaqc).**
