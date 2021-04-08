@@ -699,7 +699,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Daniel Schemmel, Julian Büning, Oscar Soria Dustmann, Thomas Noll, Klaus Wehrle  
   International Conference on Computer Aided Verification (CAV 2018)  
   July 14-17, 2018, Oxford, UK  
-  **Implementation is available [here](https://github.com/COMSYS/SymbolicLivenessAnalysis/).**
+  **The implementation is available [here](https://github.com/COMSYS/SymbolicLivenessAnalysis/).**
 
 1. [Learning to Accelerate Symbolic Execution via Code Transformation](http://drops.dagstuhl.de/opus/volltexte/2018/9211/pdf/LIPIcs-ECOOP-2018-6.pdf)  
   Junjie Chen, Wenxiang Hu, Lingming Zhang, Dan Hao, Sarfraz Khurshid, Lu Zhang  
@@ -992,4 +992,4 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   David Trabish, Shachar Itzhaky, Noam Rinetzky  
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2021)  
   April 12-16, 2021, Virtual Event, Brazil  
-  **available [here](https://github.com/davidtr1037/klee-aaqc).**
+  **The implementation is available [here](https://github.com/davidtr1037/klee-aaqc).**
