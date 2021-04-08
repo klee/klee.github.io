@@ -968,6 +968,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Workshop on Tools for Automatic Program Analysis (TAPAS 2020)  
   November 19, 2020, Virtual Event, USA
 
+1. [Automatic Buffer Overflow Warning Validation](https://link.springer.com/article/10.1007/s11390-020-0525-z)  
+  Feng-Juan Gao, Yu Wang, Lin-Zhang Wang, Zijiang Yang, Xuan-Dong Li  
+  Automatic Buffer Overflow Warning Validation. Journal of Computer Science and Technology, Volume 35 (JCST 2020)  
+  November 20, 2020  
+  **BovInspector is available [here](https://bovinspectortool1.github.io/project/).**
+
 1. [TracerX: Dynamic Symbolic Execution with Interpolation](https://arxiv.org/abs/2012.00556)  
   Joxan Jaffar, Rasool Maghareh, Sangharatna Godboley, Xuan-Linh Ha  
   arXiv, December 1, 2020
