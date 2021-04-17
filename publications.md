@@ -993,3 +993,9 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2021)  
   April 12-16, 2021, Virtual Event, Brazil  
   **The implementation is available [here](https://github.com/davidtr1037/klee-aaqc).**
+
+1. [Concolic Program Repair](https://cpr-tool.github.io/PLDI21.pdf)  
+  Ridwan Salihin Shariffdeen, Yannic Noller, Lars Grunske, Abhik Roychoudhury  
+  ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2021)  
+  June 20-26, 2021, Virtual Event    
+  **The artefact is available [here](https://cpr-tool.github.io/).**
