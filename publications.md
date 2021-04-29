@@ -333,6 +333,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Symposium on NASA Formal Methods (NFM 2014)  
   April 29 - May 1, 2014, Houston, TX, USA
 
+1. [CRAXDroid: Automatic Android System Testing by Selective Symbolic Execution](https://ieeexplore.ieee.org/abstract/document/6901651) 
+  Chao Chun Yeh, Han Lin Lu, Chun Yen Chen, Kee Kiat Khor, Shih Kun Huang  
+  IEEE International Conference on Software Security and Reliability (SERE 2014 Companion)  
+  June 30 - July 2, 2014, San Francisco, USA
+
 1. [Using Test Case Reduction and Prioritization to Improve Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/2610384.2610392)  
   Chaoqiang Zhang, Alex Groce, Mohammad Amin Alipour  
   July 21-25, 2014, San Jose, USA
