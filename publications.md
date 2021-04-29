@@ -171,7 +171,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [High-Coverage Symbolic Patch Testing](http://srg.doc.ic.ac.uk/publications/highcovpatch-spin-12.html)  
   Paul Dan Marinescu, Cristian Cadar  
-  SPIN Workshop on Model Checking of Software (SPIN 2012)  
+  International SPIN Workshop on Model Checking of Software (SPIN 2012)  
   July 23-24, 2012, Oxford, UK
 
 1. [Checking Properties Described by State Machines: On Synergy of Instrumentation, Slicing, and Symbolic Execution](http://is.muni.cz/repo/984069/sse.pdf)  
@@ -255,6 +255,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Suhabe Bugrara, Dawson Engler  
   USENIX Annual Technical Conference (USENIX ATC 2013)  
   June 26-28, 2013, San Jose, California
+
+1. [Regression Verification Using Impact Summaries](https://link.springer.com/chapter/10.1007/978-3-642-39176-7_7)  
+  John Backes, Suzette Person, Neha Rungta, Oksana Tkachuk  
+  International SPIN Workshop on Model Checking (SPIN 2013)  
+  July 8-9, Stomy Brook, USA
 
 1. [Multi-solver Support in Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/klee-multisolver-cav-13.pdf)  
   Hristina Palikareva, Cristian Cadar  
