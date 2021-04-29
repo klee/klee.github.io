@@ -3,7 +3,7 @@ layout: default
 title: Publications
 subtitle: Publications and Systems Using KLEE
 slug: publications
-lead: Below you can find a list of 150+ papers and systems that either use or extend KLEE. They are listed in chronological order.
+lead: Below you can find a list of 200+ papers and systems that either use or extend KLEE. They are listed in chronological order.
 ---
 
 Additional information about systems and research based on KLEE can be found on the website of the [1st International KLEE Workshop on Symbolic Execution](https://srg.doc.ic.ac.uk/klee18/).
@@ -461,7 +461,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Explaining Software Failures by Cascade Fault Localization](https://dl.acm.org/citation.cfm?id=2738038)  
   Qiuping Yi, Zijiang Yang, Jian Liu, Chen Zhao, Chao Wang  
-  ACM Transactions on Design Automation of Electronic Systems, Volume 20 Issue 3 (TODAES)  
+  ACM Transactions on Design Automation of Electronic Systems, Volume 20, Issue 3 (TODAES)  
   June, 2015
 
 1. [Symbolic Execution for BIOS Security](https://www.usenix.org/system/files/conference/woot15/woot15-paper-bazhaniuk.pdf)  
@@ -579,7 +579,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Eliminating Path Redundancy via Postconditioned Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7835264/)  
   Qiuping Yi, Zijiang Yang, Shengjian Guo, Chao Wang, Jian Liu, Chen Zhao  
-  IEEE Transactions on Software Engineering, Volume: 44, Issue: 99  
+  IEEE Transactions on Software Engineering, Volume 44, Issue 99  
   January 26, 2017
 
 1. [Patch-related Vulnerability Detection Based on Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7867765/)  
@@ -640,7 +640,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Effectiveness of Synthesis in Concolic Deobfuscation](http://www.sciencedirect.com/science/article/pii/S0167404817301475)  
   Fabrizio Biondi, Sébastien Josse, Axel Legay, Thomas Sirvent  
-  Computers & Security (Volume: 70, 2017)  
+  Computers & Security, Volume 70  
   September 2017
 
 1. [Failure-Directed Program Trimming](https://dl.acm.org/citation.cfm?id=3106249)  
@@ -659,7 +659,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [KLOVER: Automatic Test Generation for C and C++ Programs, Using Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/8048666/)  
   Guodong Li, Takuki Kamiya, Indradeep Ghosh, Sreeranga Rajan, Susumu Tokumoto, Kazuki Munakata, Tadahiro Uehara  
-  IEEE Software (Volume: 34, Issue: 5, 2017)  
+  IEEE Software, Volume 34, Issue 5  
   September 22, 2017
 
 1. [Quantifying the Information Leak in Cache Attacks via Symbolic Execution](https://dl.acm.org/citation.cfm?id=3127044)  
@@ -825,7 +825,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Quantifying the Information Leakage in Cache Attacks via Symbolic Execution](https://dl.acm.org/citation.cfm?id=3288758)  
   Moritz Beck, Ahmed Rezine, Andreas Zeller  
-  ACM Transactions on Embedded Computing Systems, Volume 18, Issue: 1 (TECS)  
+  ACM Transactions on Embedded Computing Systems, Volume 18, Issue 1 (TECS)  
   February, 2019
 
 1. [Analyzing Semantic Correctness with Symbolic Execution: A Case Study on PKCS#1 v1.5 Signature Verification](https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04A-4_Chau_paper.pdf)  
@@ -881,7 +881,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [SCSE: Boosting Symbolic Execution via State Concretization](https://www.jstage.jst.go.jp/article/transinf/E102.D/8/E102.D_2018EDP7298/_pdf)  
   Huibin Wang, Chunqiang Li, Jianyi Meng, Xiaoyan Xiang  
-  IEICE Transactions on Information and Systems (Issue 8)  
+  IEICE Transactions on Information and Systems, Issue 8  
   August 2019
 
 1. [A Segmented Memory Model for Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/segmem-esecfse-19.pdf)  
@@ -972,7 +972,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Modified Condition/Decision Coverage (MC/DC) Oriented Compiler Optimization for Symbolic Execution](https://link.springer.com/article/10.1631/FITEE.1900213)  
   Wei-jiang Hong, Yi-jun Liu, Zhen-bang Chen, Wei Dong, Ji Wang  
-  Frontiers of Information Technology & Electronic Engineering (Issue 21)  
+  Frontiers of Information Technology & Electronic Engineering, Issue 21  
   June 26, 2020
 
 1. [Relocatable Addressing Model for Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3395363.3397363)  
