@@ -297,6 +297,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM SIGPLAN International Conference on Object Oriented Programming, Systems, Languages, and Applications (OOPSLA 2013)  
   October 26-31, 2013, Indianapolis, USA
 
+1. [Lazy Symbolic Execution through Abstraction and Sub-space Search](https://link.springer.com/chapter/10.1007/978-3-319-03077-7_20)  
+  Guodong Li, Indradeep Ghosh  
+  Haifa Verification Conference (HVC 2013)  
+  November 5-7, 2013, Haifa, Israel
+
 1. [Modeling Firmware as Service Functions and Its Application to Test Generation](https://link.springer.com/chapter/10.1007/978-3-319-03077-7_5)  
   Sunha Ahn, Sharad Malik  
   Haifa Verification Conference (HVC 2013)  
