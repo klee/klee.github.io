@@ -318,6 +318,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   March 2014, Vancouver, CA  
   **KITE is available [here](http://www.cs.ubc.ca/labs/isd/Projects/Kite/).**
 
+1. [Lazart: A Symbolic Approach for Evaluation the Robustness of Secured Codes against Control Flow Injections](https://ieeexplore.ieee.org/abstract/document/6823883)  
+  Marie-Laure Potet, Laurent Mounier, Maxime Puys, Louis Dureuil  
+  IEEE International Conference on Software Testing, Verification and Validation (ICST 2014)  
+  March 31 - April 4, 2014, Cleveland, USA
+
 1. [Reproducing Field Failures for Programs with Complex Grammar-Based Input](http://ieeexplore.ieee.org/document/6823878/)  
   Fitsum Meshesha Kifetew, Wei Jin, Roberto Tiella, Alessandro Orso, Paolo Tonella  
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2014)  
