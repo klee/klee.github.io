@@ -328,6 +328,10 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Symposium on NASA Formal Methods (NFM 2014)  
   April 29 - May 1, 2014, Houston, TX, USA
 
+1. [Using Test Case Reduction and Prioritization to Improve Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/2610384.2610392)  
+  Chaoqiang Zhang, Alex Groce, Mohammad Amin Alipour  
+  July 21-25, 2014, San Jose, USA
+
 1. [Practical Use of Formal Verification for Safety Critical Cyber-Physical Systems: A Case Study](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6961235)  
   Tasuku Ishigooka, Habib Saissi, Thorsten Piper, Stefan Winter, Neeraj Suri  
   IEEE International Conference on Cyber-Physical Systems, Networks, and Applications (CPSNA 2014)  
