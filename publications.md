@@ -111,6 +111,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM Symposium on Operating Systems Principles (SOSP 2011)  
   October 23-26, 2011, Cascais, Portugal
 
+1. [SEEP: Exploiting Symbolic Execution for Energy-aware Programming](https://dl.acm.org/doi/abs/10.1145/2094091.2094106)  
+  Timo Hönig, Christopher Eibel, Rüdiger Kapitza, Wolfgang Schröder-Preikschat  
+  ACM SIGOPS Operating Systems Review, Volume 45, Issue 3  
+  December 2011
+
 1. [Symbolic Testing of OpenCL Code](http://srg.doc.ic.ac.uk/publications/kleecl-hvc-11.html)  
   Peter Collingbourne, Cristian Cadar, Paul H. J. Kelly  
   Haifa Verification Conference (HVC 2011)  
