@@ -916,6 +916,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM/IEEE International Conference on Software Engineering (ICSE 2020)  
   May 23-29, 2020, Seoul, Republic of Korea
 
+1. [KLEE Symbolic Execution Engine in 2019](https://link.springer.com/article/10.1007/s10009-020-00570-3)  
+  Cristian Cadar, Martin Nowack  
+  International Journal on Software Tools for Technology Transfer (2020)  
+  June 2, 2020
+
 1. [Modified Condition/Decision Coverage (MC/DC) Oriented Compiler Optimization for Symbolic Execution](https://link.springer.com/article/10.1631/FITEE.1900213)  
   Wei-jiang Hong, Yi-jun Liu, Zhen-bang Chen, Wei Dong, Ji Wang  
   Frontiers of Information Technology & Electronic Engineering (Issue 21)  
