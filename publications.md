@@ -983,6 +983,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   IEEE International Conference on Software Quality, Reliability and Security (QRS 2020)  
   Dezember 11-14, 2020, Macau, China
 
+1. [Killing Stubborn Mutants with Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3425497)  
+  Thierry Titcheu Chekam, Mike Papadakis, Maxime Cordy, Yves Le Traon  
+  ACM Transactions on Software Engineering and Methodology, Volume 30, Issue 2 (TOSEM)  
+  March 2021  
+  **SEMu is available [here](https://github.com/thierry-tct/KLEE-SEMu).**
+
 1. [Parallel Chopped Symbolic Execution](https://link.springer.com/chapter/10.1007/978-3-030-63406-3_7)  
   Shikhar Singh, Sarfraz Khurshid  
   International Conference on Formal Engineering Methods (ICFEM 2020)  
