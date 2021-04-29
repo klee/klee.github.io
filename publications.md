@@ -951,6 +951,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   September 21-25, 2020, Virtual Event, AU  
   **The artefact is available [here](https://srg.doc.ic.ac.uk/projects/pending-constraints/).**
 
+1. [Reproducible Execution of POSIX Programs with DiOS](https://link.springer.com/article/10.1007/s10270-020-00837-y)  
+  Petr Ročkai, Zuzana Baranová, Jan Mrázek, Katarína Kejstová, Jiříí Barnat  
+  Software and Systems Modeling, Volume 20 (SoSyM)  
+  October 23, 2020  
+  **DiVine/DiOS are available [here](https://divine.fi.muni.cz/2020/dios/).**
+
 1. [Making Symbolic Execution Promising by Learning Aggressive State-Pruning Strategy](https://dl.acm.org/doi/10.1145/3368089.3409755)  
   Sooyoung Cha, Hakjoo Oh  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
