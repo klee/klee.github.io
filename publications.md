@@ -353,6 +353,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   September 15-19, 2014, Vasteras, Sweden  
   **Docovery is available [here](https://srg.doc.ic.ac.uk/projects/docovery/).**
 
+1. [Incremental Symbolic Execution for Automated Test Suite Maintenance](https://dl.acm.org/doi/abs/10.1145/2642937.2642961)  
+  Sarmad Makhdoom, Muhammad Adeel Khan, Junaid Haroon Siddiqui  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2014)  
+  September 15-19, 2014, Vasteras, Sweden
+
 1. [Control Flow Obfuscation using Neural Network to Fight Concolic Testing](http://ink.library.smu.edu.sg/sis_research/2260/)  
   Haoyu Ma, Xinjie Ma, Weijie Liu, Zhipeng Huang, Debin GAO, Chunfu Jia  
   International Conference on Security and Privacy in Communication Networks (SecureComm 2014)  
