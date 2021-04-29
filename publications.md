@@ -256,6 +256,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   USENIX Annual Technical Conference (USENIX ATC 2013)  
   June 26-28, 2013, San Jose, California
 
+1. [Expression Reduction from Programs in a Symbolic Binary Executor](https://link.springer.com/chapter/10.1007/978-3-642-39176-7_19)  
+  Anthony Romano, Dawson Engler  
+  International SPIN Workshop on Model Checking (SPIN 2013)  
+  July 8-9, Stomy Brook, USA
+
 1. [Regression Verification Using Impact Summaries](https://link.springer.com/chapter/10.1007/978-3-642-39176-7_7)  
   John Backes, Suzette Person, Neha Rungta, Oksana Tkachuk  
   International SPIN Workshop on Model Checking (SPIN 2013)  
