@@ -267,6 +267,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Symposium on Software Testing and Analysis (ISSTA 2013)  
   July 15-20, 2013, Lugano, Switzerland  
 
+1. [Symbolic Execution of Virtual Devices](https://ieeexplore.ieee.org/abstract/document/6605903)  
+  Kai Cong, Fei Xie, Li Lei  
+  International Conference on Quality Software (QSIC 2013)  
+  July 29-30, 2013, Najing, China
+
 1. [FIE on Firmware: Finding Vulnerabilities in Embedded Systems using Symbolic Execution](https://www.usenix.org/system/files/conference/usenixsecurity13/sec13-paper_davidson.pdf)  
   Drew Davidson, Benjamin Moench, Somesh Jha, Thomas Ristenpart  
   USENIX Security Symposium (USENIX Security '13)  
