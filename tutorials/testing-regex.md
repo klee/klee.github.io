@@ -50,25 +50,27 @@ Normally, before running this program, we would need to link it to create a nati
 
 ## Executing the code with KLEE
 
-The next step is to execute the code with KLEE:
+The next step is to execute the code with KLEE (number of instructions varies between LLVM versions and optimisation levels):
 
 ```
 $ klee --only-output-states-covering-new Regexp.bc
-KLEE: output directory = "klee-out-1"
-KLEE: ERROR: .../klee/examples/regexp/Regexp.c:23: memory error: out of bound pointer
+KLEE: output directory = "klee-out-0"
+KLEE: ERROR: Regexp.c:23: memory error: out of bound pointer
 KLEE: NOTE: now ignoring this error at this location
-KLEE: ERROR: .../klee/examples/regexp/Regexp.c:25: memory error: out of bound pointer
+KLEE: ERROR: Regexp.c:25: memory error: out of bound pointer
 KLEE: NOTE: now ignoring this error at this location
-KLEE: done: total instructions = 6334861
-KLEE: done: completed paths = 7692
-KLEE: done: generated tests = 22
+
+KLEE: done: total instructions = 4848112
+KLEE: done: completed paths = 6675
+KLEE: done: partially completed paths = 763
+KLEE: done: generated tests = 16
 ```
 
-On startup, KLEE prints the directory used to store output (in this case `klee-out-1`). By default KLEE will use the first free `klee-out-N` directory and also create a `klee-last` symlink which will point to the most recent created directory. You can specify a directory to use for outputs using the `-output-dir=path` command line argument.
+On startup, KLEE prints the directory used to store output (in this case `klee-out-0`). By default KLEE will use the first free `klee-out-N` directory and also create a `klee-last` symlink which will point to the most recent created directory. You can specify a directory to use for outputs using the `-output-dir=path` command line argument.
 
 While KLEE is running, it will print status messages for "important" events, for example when it finds an error in the program. In this case, KLEE detected two invalid memory accesses on lines 23 and 25 of our test program. We'll look closer at this in a moment.
 
-Finally, when KLEE finishes execution it prints out a few statistics about the run. Here we see that KLEE executed a total of ~6 million instructions, explored 7,692 paths, and generated 22 test cases. KLEE only generates 22 test cases because we limited the test generation to states that actually covered new code with `--only-output-states-covering-new`. If we would omit this flag, KLEE would create 6,578 test cases! Still, KLEE does not create a test case for every path. Whenever it finds a bug, it creates a test case for the first state that reaches the bug. All other paths that reach the bug at the same location are terminated silently. If you don't mind the duplication of error cases, use `--emit-all-errors` to generate test cases for all 7,692 paths.
+Finally, when KLEE finishes execution it prints out a few statistics about the run. Here we see that KLEE executed a total of ~4.8 million instructions, explored 7,438 paths, and generated 16 test cases. KLEE only generates 16 test cases because we limited the test generation to states that actually covered new code with `--only-output-states-covering-new`. If we would omit this flag, KLEE would create 6,677 test cases! Still, KLEE does not create a test case for every path. Whenever it finds a bug, it creates a test case for the first state that reaches the bug. All other paths that reach the bug at the same location are terminated silently and reported as _partially completed_ paths. If you don't mind the duplication of error cases, use `--emit-all-errors` to generate test cases for all 7,438 paths.
 
 Note that many realistic programs have an infinite (or extremely large) number of paths through them, and it is common that KLEE will not terminate. By default KLEE will run until the user presses Control-C (i.e. klee gets a `SIGINT`), but there are additional options to limit KLEE's runtime and memory usage:
 
