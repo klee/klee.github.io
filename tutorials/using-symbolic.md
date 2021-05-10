@@ -35,20 +35,23 @@ int main(int argc, char **argv) {
 {% endhighlight %}
 To enable symbolic environment, KLEE has to be given the `-posix-runtime` option. We run KLEE given the bitcode of `password.c` as input and using `-sym-arg` option as follows.
 {% highlight bash %}
-$ clang -c -g -emit-llvm password.c
+$ clang -emit-llvm -c -g -O0 -Xclang -disable-O0-optnone password.c
 $ klee -posix-runtime password.bc -sym-arg 5
-KLEE: NOTE: Using model: /home/klee/klee/build/Release+Debug+Asserts/lib/libkleeRuntimePOSIX.bca
-KLEE: output directory is "/home/klee/klee-out-1"
+KLEE: NOTE: Using model: /home/klee/klee/build/Release+Debug+Asserts/lib/libkleeRuntimePOSIX64_Release+Debug+Asserts.bca
+KLEE: output directory is "/home/klee/klee-out-0"
 KLEE: Using STP solver backend
-KLEE: WARNING: undefined reference to function: __errno_location
 KLEE: WARNING: undefined reference to function: printf
+KLEE: WARNING: undefined reference to function: strlen
+KLEE: WARNING: undefined reference to function: strncmp
 KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
-KLEE: WARNING ONCE: calling external: syscall(4, 37380480, 37480304) at /home/klee/klee/runtime/POSIX/fd.c:544
-KLEE: WARNING ONCE: calling external: printf(37358544) at /home/klee/password.c:17
+KLEE: WARNING ONCE: calling external: syscall(4, 94328563719264, 94328559327712) at /home/klee/klee/runtime/POSIX/fd.c:544 12
+KLEE: WARNING ONCE: calling __klee_posix_wrapped_main with extra arguments.
+KLEE: WARNING ONCE: calling external: printf(94328563829504) at password.c:17 5
 Password found!
 
-KLEE: done: total instructions = 817
+KLEE: done: total instructions = 1190
 KLEE: done: completed paths = 6
+KLEE: done: partially completed paths = 0
 KLEE: done: generated tests = 6
 {% endhighlight %}
 As can be seen, due to the command-line argument being symbolic, KLEE executed six paths, with one of the path having the command-line argument match the password.
@@ -101,20 +104,23 @@ int main(int argc, char **argv) {
 {% endhighlight %}
 We now run the program using KLEE. For the program not to get stuck trying to read data, we need to provide some input. In our first run, we provide a symbolic standard input using `-sym-stdin` option. The symbolic input will make KLEE explore the path with successful password check.
 {% highlight bash %}
-$ clang -c -g -emit-llvm password.c
+$ clang -emit-llvm -c -g -O0 -Xclang -disable-O0-optnone password.c
 $ klee -posix-runtime password.bc -sym-stdin 10
-KLEE: NOTE: Using model: /home/klee/klee/build/Release+Debug+Asserts/lib/libkleeRuntimePOSIX.bca
-KLEE: output directory is "/home/klee/klee-out-0"
+KLEE: NOTE: Using model: /home/klee/klee/build/Release+Debug+Asserts/lib/libkleeRuntimePOSIX64_Release+Debug+Asserts.bca
+KLEE: output directory is "/home/klee/klee-out-1"
 KLEE: Using STP solver backend
-KLEE: WARNING: undefined reference to function: __errno_location
 KLEE: WARNING: undefined reference to function: printf
+KLEE: WARNING: undefined reference to function: strlen
+KLEE: WARNING: undefined reference to function: strncmp
 KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
-KLEE: WARNING ONCE: calling external: syscall(4, 35171856, 35268224) at /home/klee/klee/runtime/POSIX/fd.c:544
-KLEE: WARNING ONCE: calling external: printf(35146128) at [no debug info]
+KLEE: WARNING ONCE: calling external: syscall(4, 94571123861232, 94571119847248) at /home/klee/klee/runtime/POSIX/fd.c:544 12
+KLEE: WARNING ONCE: calling __klee_posix_wrapped_main with extra arguments.
+KLEE: WARNING ONCE: calling external: printf(94571123946704) at password.c:35 5
 Password found in standard input
 
-KLEE: done: total instructions = 1283
+KLEE: done: total instructions = 1856
 KLEE: done: completed paths = 6
+KLEE: done: partially completed paths = 0
 KLEE: done: generated tests = 6
 {% endhighlight %}
 We have now discovered the password using KLEE.
@@ -122,18 +128,21 @@ We have now discovered the password using KLEE.
 Our program can also read the password from a disk file, but we want to read a file with symbolic content so that KLEE executes the path where the password check is successful. The `-sym-files` option provides several such files named 'A', 'B', 'C', and so on. By specifying the option `-sym-files 1 10` below, we ask KLEE to provide one symbolic file of size 10 bytes, and that file is named 'A' by KLEE. We therefore provide this file name as an argument to our program.
 {% highlight bash %}
 $ klee -posix-runtime password.bc A -sym-files 1 10
-KLEE: NOTE: Using model: /home/klee/klee/build/Release+Debug+Asserts/lib/libkleeRuntimePOSIX.bca
-KLEE: output directory is "/home/klee/klee-out-0"
+KLEE: NOTE: Using model: /home/klee/klee/build/Release+Debug+Asserts/lib/libkleeRuntimePOSIX64_Release+Debug+Asserts.bca
+KLEE: output directory is "/home/klee/klee-out-2"
 KLEE: Using STP solver backend
-KLEE: WARNING: undefined reference to function: __errno_location
 KLEE: WARNING: undefined reference to function: printf
+KLEE: WARNING: undefined reference to function: strlen
+KLEE: WARNING: undefined reference to function: strncmp
 KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
-KLEE: WARNING ONCE: calling external: syscall(4, 37950256, 38046816) at /home/klee/klee/runtime/POSIX/fd.c:544
-KLEE: WARNING ONCE: calling external: printf(37924528, 37857200) at [no debug info]
+KLEE: WARNING ONCE: calling external: syscall(4, 94110989166360, 94110985152336) at /home/klee/klee/runtime/POSIX/fd.c:544 12
+KLEE: WARNING ONCE: calling __klee_posix_wrapped_main with extra arguments.
+KLEE: WARNING ONCE: calling external: printf(94110989239968, 94110989166176) at password.c:25 15
 Password found in A
 
-KLEE: done: total instructions = 2868
+KLEE: done: total instructions = 4395
 KLEE: done: completed paths = 6
+KLEE: done: partially completed paths = 0
 KLEE: done: generated tests = 6
 {% endhighlight %}
 The password was successfully read from the symbolic file A in one of the execution paths.
