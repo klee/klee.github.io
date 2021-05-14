@@ -787,6 +787,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE/ACM International Conference on Automated Software Engineering (ASE 2018)  
   September 3-7, 2018, Montpellier, France
 
+1. [BinRec: Attack Surface Reduction Through Dynamic Binary Recovery](https://dl.acm.org/doi/abs/10.1145/3273045.3273050)  
+  Taddeus Kroes, Anil Altinay, Joseph Nash, Yeoul Na, Stijn Volckaert, Herbert Bos, Michael Franz, Cristiano Giuffrida  
+  Workshop on Forming an Ecosystem Around Software Transformation (FEAST 2018)  
+  October 19, 2018, Toronto, Canada
+
 1. [End-to-End Automated Exploit Generation for Validating the Security of Processor Designs](https://cs.unc.edu/~rzhang/files/MICRO2018.pdf)  
   Rui Zhang, Calvin Deutschbein, Peng Huang, Cynthia Sturton  
   IEEE/ACM International Symposium on Microarchitecture (MICRO 2018)  
@@ -942,6 +947,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Haifeng Gu, Jianning Zhang, Mingsong Chen, Tongquan Wei, Li Lei, Fei Xie  
   IEEE Transactions on Computers  
   April 21, 2020
+
+1. [BinRec: Dynamic Binary Lifting and Recompilation](https://dl.acm.org/doi/abs/10.1145/3342195.3387550)  
+  Anil Altinay, Joseph Nash, Taddeus Kroes, Prabhu Rajasekaran, Dixin Zhou, Adrian Dabrowski, David Gens, Yeoul Na, Stijn Volckaert, Cristiano Giuffrida, Herbert Bos, Michael Franz    
+  ACM SIGOPS/EuroSys European Conference on Computer Systems (EuroSys 2020)  
+  April 27-30, 2020, Virtual Conference, Greece
 
 1. [Mousse: A System for Selective Symbolic Execution of Programs with Untamed Environments](https://www.ics.uci.edu/~ardalan/papers/Liu_EuroSys20.pdf)  
   Yingtong Liu, Hsin-Wei Hung, Ardalan Amiri Sani  
