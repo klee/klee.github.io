@@ -289,7 +289,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [FIE on Firmware: Finding Vulnerabilities in Embedded Systems using Symbolic Execution](https://www.usenix.org/system/files/conference/usenixsecurity13/sec13-paper_davidson.pdf)  
   Drew Davidson, Benjamin Moench, Somesh Jha, Thomas Ristenpart  
-  USENIX Security Symposium (USENIX Security '13)  
+  USENIX Security Symposium (Security 2013)  
   August 14–16, 2013, Washington, D.C., USA
 
 1. [KATCH: High-Coverage Testing of Software Patches](http://srg.doc.ic.ac.uk/publications/katch-fse-13.html)  
@@ -482,7 +482,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 
 1. [Under-Constrained Symbolic Execution: Correctness Checking for Real Code](https://www.usenix.org/node/190952)  
   David A. Ramos, Dawson Engler  
-  USENIX Security Symposium (SEC 2015)  
+  USENIX Security Symposium (Security 2015)  
   August 12-14, 2015, Washington D.C., USA
 
 1. [Parallel SMT Solving and Concurrent Symbolic Execution](https://ieeexplore.ieee.org/document/7345624)  
@@ -1091,3 +1091,8 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2021)  
   June 20-26, 2021, Virtual Event    
   **The artefact is available [here](https://cpr-tool.github.io/).**
+
+1. [Automatic Firmware Emulation through Invalidity-guided Knowledge Inference](https://www.usenix.org/conference/usenixsecurity21/presentation/zhou)  
+  Wei Zhou, Le Guan, Peng Liu, Yuqing Zhang  
+  USENIX Security Symposium (Security 2021)  
+  August 11-13, 2021, Virtual Event
