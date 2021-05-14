@@ -583,6 +583,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM SIGSOFT International Symposium on Foundations of Software Engineering (FSE 2016)  
   November 13-18, 2016, Seattle, WA, USA
 
+1. [PIE: Parser Identification in Embedded Systems](https://dl.acm.org/doi/abs/10.1145/2818000.2818035)  
+  Lucian Cojocar, Jonas Zaddach, Roel Verdult, Herbert Bos, Aurélien Francillon, Davide Balzarotti  
+  Annual Computer Security Applications Conference (ACSAC 2015)  
+  December 5-9, 2016, Los Angeles, USA
+
 1. [Eliminating Path Redundancy via Postconditioned Symbolic Execution](http://ieeexplore.ieee.org/abstract/document/7835264/)  
   Qiuping Yi, Zijiang Yang, Shengjian Guo, Chao Wang, Jian Liu, Chen Zhao  
   IEEE Transactions on Software Engineering, Volume 44, Issue 99  
