@@ -332,6 +332,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE Real-Time Systems Symposium (RTSS 2013)  
   December 3-6, 2013, Vancouver, CA
 
+1. [Avatar: A Framework to Support Dynamic Security Analysis of Embedded Systems’ Firmwares](https://www.ndss-symposium.org/ndss2014/programme/avatar-framework-support-dynamic-security-analysis-embedded-systems-firmwares/)  
+  Jonas Zaddach, Luca Bruno, Aurelien Francillon, Davide Balzarotti  
+  Network and Distributed System Security Symposium (NDSS 2014)  
+  February 23-36, 2014, San Diego, USA  
+  **Avatar is available [here](http://s3.eurecom.fr/tools/avatar/).**
+
 1. [Conflict-Driven Symbolic Execution](http://hdl.handle.net/2429/46226)  
   Celina Gomes do Val  
   Master Thesis, University of British Columbia  
