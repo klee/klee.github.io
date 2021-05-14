@@ -424,6 +424,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE International Symposium on High Assurance Systems Engineering (HASE 2014)  
   January 8-10, 2015, Daytona, USA
 
+1. [The BORG: Nanoprobing Binaries for Buffer Overreads](https://dl.acm.org/doi/abs/10.1145/2699026.2699098)  
+  Matthias Neugschwandtner, Paolo Milani Comparetti, Istvan Haller, Herbert Bos  
+  ACM Conference on Data and Application Security and Privacy (CODASPY 2015)  
+  March 2-4, 2015, San Antonio, USA
+
 1. [Postconditioned Symbolic Execution](http://www-bcf.usc.edu/~wang626/pubDOC/YiYGWLZ15.pdf)  
   Qiuping Yi, Zijiang Yang, Shengjian Guo, Chao Wang, Jian Liu, Chen Zhao  
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2015)  
