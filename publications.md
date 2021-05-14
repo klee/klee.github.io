@@ -879,6 +879,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   May 25-31, 2019, Montreal, Canada  
   **pg-klee is available [here](https://hub.docker.com/r/naegling/icse19-zop2).**
 
+1. [Early Concolic Testing of Embedded Binaries with Virtual Prototypes: A RISC-V Case Study](https://ieeexplore.ieee.org/document/8806899)  
+  Vladimir Herdt, Daniel Große, Hoang M. Le, Rolf Drechsler  
+  ACM/IEEE Design Automation Conference (DAC 2016)  
+  June 2-6, 2019, Las Vegas, USA
+
 1. [ApproxSymate: Path Sensitive Program Approximation using Symbolic Execution](https://dl.acm.org/citation.cfm?id=3326341)  
   Himeshi De Silva, Andrew E. Santosa, Nhut-Minh Ho, Weng-Fai Wong  
   ACM International Conference on Languages, Compilers, and Tools for Embedded Systems (LCTES 2019)  
