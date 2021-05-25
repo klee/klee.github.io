@@ -739,6 +739,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   John Galea, Sean Heelan, Daniel Neville, Daniel Kroening  
   arXiv, May 9, 2018
 
+1. [Debugging Multithreaded Programs as if They Were Sequential](https://ieeexplore.ieee.org/abstract/document/8357815)  
+  Xiaodong Zhang, Zijiang Yang, Qinghua Zheng, Yu Hao, Pei Liu, Lechen Yu, Ting Liu  
+  IEEE Access, Volume 6  
+  May 11, 2018
+
 1. [Chopped Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/chopper-icse-18.pdf)  
   David Trabish, Andrea Mattavelli, Noam Rinetzky, Cristian Cadar  
   ACM/IEEE International Conference on Software Engineering (ICSE 2018)  
