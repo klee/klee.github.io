@@ -1058,6 +1058,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   November 4-6, 2020, Virtual Event, USA  
   **AGAMOTTO is available [here](https://github.com/efeslab/agamotto).**
 
+1. [Exposing Cache Timing Side-Channel Leaks Through Out-of-Order Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3428215)  
+  Shengjian Guo, Yueqi Chen, Jiyong Yu, Meng Wu, Zhiqiang Zuo, Peng Li, Yueqiang Cheng, Huibo Wang  
+  ACM SIGPLAN Conference on Systems, Programming, Languages, and Applications: Software for Humanity (SPLASH 2020)  
+  November 15-21, 2020, Virtual Event
+
 1. [Making Symbolic Execution Promising by Learning Aggressive State-Pruning Strategy](https://dl.acm.org/doi/10.1145/3368089.3409755)  
   Sooyoung Cha, Hakjoo Oh  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
