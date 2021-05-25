@@ -1041,6 +1041,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Software and Systems Modeling, Volume 20 (SoSyM)  
   October 23, 2020  
   **DiVine/DiOS are available [here](https://divine.fi.muni.cz/2020/dios/).**
+  
+1. [AGAMOTTO: How Persistent is your Persistent Memory Application?](https://www.usenix.org/conference/osdi20/presentation/neal)  
+  Ian Neal, Ben Reeves, Ben Stoler, Andrew Quinn, Youngjin Kwon, Simon Peter, Baris Kasikci  
+  14th USENIX Symposium on Operating Systems Design and Implementation (OSDI 2020)  
+  November 4-6, 2020, Virtual Event, USA  
+  **AGAMOTTO is available [here](https://github.com/efeslab/agamotto).**
 
 1. [Making Symbolic Execution Promising by Learning Aggressive State-Pruning Strategy](https://dl.acm.org/doi/10.1145/3368089.3409755)  
   Sooyoung Cha, Hakjoo Oh  
