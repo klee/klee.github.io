@@ -1033,6 +1033,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   July 18–22, 2020, Virtual Event, USA  
   **MoKlee is available [here](https://srg.doc.ic.ac.uk/projects/moklee/).**
 
+1. [Symbolic Partial-Order Execution for Testing Multi-Threaded Programs](https://link.springer.com/chapter/10.1007/978-3-030-53288-8_18)  
+  Daniel Schemmel, Julian Büning, César Rodríguez, David Laprell, Klaus Wehrle  
+  International Conference on Computer Aided Verification (CAV 2020)  
+  July 19-24, 2020, Virtual Event, USA
+
 1. [Analyzing System Software Components Using API Model Guided Symbolic Execution](https://link.springer.com/article/10.1007/s10515-020-00276-5)  
   Tuba Yavuz, Ken (Yihang) Bai  
   Automated Software Engineering (AUSE)  
