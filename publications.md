@@ -618,6 +618,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2017)  
   March 13-17, 2017, Tokyo, Japan
 
+1. [Bucketing Failing Tests via Symbolic Analysis](https://link.springer.com/chapter/10.1007/978-3-662-54494-5_3)  
+  Van-Thuan Pham, Sakaar Khurana, Subhajit Roy, Abhik Roychoudhury  
+  International Conference on Fundamental Approaches to Software Engineering (FASE 2017)  
+  April 26-28, 2017, Uppsala, Sweden
+
 1. [Heuristically Matching Solution Spaces of Arithmetic Formulas to Efficiently Reuse Solutions](https://dl.acm.org/citation.cfm?id=3097419)  
   Andrea Aquino, Giovanni Denaro, Mauro Pezz&egrave;  
   ACM/IEEE International Conference on Software Engineering (ICSE 2017)  
