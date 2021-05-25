@@ -613,6 +613,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2017)  
   March 13-17, 2017, Tokyo, Japan
 
+1. [Debugging Multithreaded Programs Using Symbolic Analysis](https://ieeexplore.ieee.org/abstract/document/7983292/)  
+  Xiaodong Zhang  
+  IEEE International Conference on Software Testing, Verification and Validation (ICST 2017)  
+  March 13-17, 2017, Tokyo, Japan
+
 1. [Heuristically Matching Solution Spaces of Arithmetic Formulas to Efficiently Reuse Solutions](https://dl.acm.org/citation.cfm?id=3097419)  
   Andrea Aquino, Giovanni Denaro, Mauro Pezz&egrave;  
   ACM/IEEE International Conference on Software Engineering (ICSE 2017)  
