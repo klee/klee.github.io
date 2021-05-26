@@ -292,6 +292,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   USENIX Security Symposium (Security 2013)  
   August 14–16, 2013, Washington, D.C., USA
 
+1. [Sleuth: Automated Verification of Software Power Analysis Countermeasures](https://link.springer.com/chapter/10.1007/978-3-642-40349-1_17)  
+   Ali Galip Bayrak, Francesco Regazzoni, David Novo, Paolo Ienne  
+   Conference on Cryptographic Hardware and Embedded Systems (CHES 2013)  
+   August 18-22, 2013, Santa Barbara, USA
+
 1. [KATCH: High-Coverage Testing of Software Patches](http://srg.doc.ic.ac.uk/publications/katch-fse-13.html)  
   Paul Dan Marinescu, Cristian Cadar  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2013)  
