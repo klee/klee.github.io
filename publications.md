@@ -979,6 +979,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Design, Automation & Test in Europe Conference & Exhibition (DATE 2020)  
   March 9-13, 2020, Grenoble, France
 
+1. [ConTesa: Directed Test Suite Augmentation for Concurrent Software](https://ieeexplore.ieee.org/document/8423082)  
+  Tingting Yu, Zunchen Huang, Chao Wang  
+  IEEE Transactions on Software Engineering, Volume 46, Issue 4 (TSE)  
+  April 16, 2020
+
 1. [Specification-Driven Conformance Checking for Virtual/Silicon Devices using Mutation Testing](https://ieeexplore.ieee.org/abstract/document/9075350)  
   Haifeng Gu, Jianning Zhang, Mingsong Chen, Tongquan Wei, Li Lei, Fei Xie  
   IEEE Transactions on Computers  
