@@ -1120,6 +1120,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   International Conference on Formal Engineering Methods (ICFEM 2020)  
   March 1-3, 2021, Singapore
 
+1. [Dynamic Property Enforcement in Programmable Data Planes](https://ieeexplore.ieee.org/abstract/document/9393490)  
+  Miguel Neves, Bradley Huffaker, Kirill Levchenko, Marinho Barcellos  
+  IEEE/ACM Transactions on Networking (TON)  
+  April 1, 2021
+
 1. [Address-Aware Query Caching for Symbolic Execution](https://davidtr1037.github.io/files/icst_2021_final.pdf)  
   David Trabish, Shachar Itzhaky, Noam Rinetzky  
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2021)  
