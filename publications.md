@@ -972,6 +972,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Symposium on Automated Technology for Verification and Analysis (ATVA 2019)  
   October 27-31, 2019, Taipai, Taiwan
 
+1. [Verifying Software Network Functions with no Verification Expertise](https://dl.acm.org/doi/10.1145/3341301.3359647)  
+  Arseniy Zaostrovnykh, Solal Pirelli, Rishabh Iyer, Matteo Rizzo, Luis Pedrosa, Katerina Argyraki, George Candea  
+  ACM Symposium on Operating Systems Principles (SOSP 2019)  
+  October 27-30, 2019, Huntsville, Canada  
+  **Vigor is available [here](https://vigor-nf.github.io/).**
+
 1. [SpecuSym: Speculative Symbolic Execution for Cache Timing Leak Detection](https://arxiv.org/abs/1911.00507)  
   Shengjian Guo, Yueqi Chen, Peng Li, Yueqiang Cheng, Huibo Wang, Meng Wu, Zhiqiang Zuo  
   arXiv, November 4, 2019
