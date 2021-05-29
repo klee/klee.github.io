@@ -865,6 +865,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Conference for High Performance Computing, Networking, Storage, and Analysis (SC 2018)  
   November 11-16, 2018, Dallas, USA
 
+1. [Symbolic Execution with Invariant Inlay: Evaluating the Potential](https://ieeexplore.ieee.org/abstract/document/8587283)  
+  Eman Alatawi, Tim Miller, Harald Sondergaard  
+  Australasian Software Engineering Conference (ASWEC 2018)  
+  November 26-30, 2018, Adelaide, Australia
+
 1. [Interoperability-Guided Testing of QUIC Implementations using Symbolic Execution](https://arxiv.org/pdf/1811.12099.pdf)  
   Felix Rath, Daniel Schemmel, Klaus Wehrle  
   Workshop on the Evolution, Performance, and Interoperability of QUIC (EPIQ 2018)  
