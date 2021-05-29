@@ -814,6 +814,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   August 15-17, 2018, Baltimore, USA  
   **Inception is available [here](https://inception-framework.github.io/inception/).**
 
+1. [A Formally Verified NAT Stack](https://dl.acm.org/doi/10.1145/3229538.3229540)  
+  Solal Pirelli, Arseniy Zaostrovnykh, George Candea  
+  ACM SIGCOMM Afternoon Workshop on Kernel Bypassing Networks (KBNets 2018)  
+  August 20, 2018, Hungary, USA
+
 1. [CPA-SymExec: Efficient Symbolic Execution in CPAchecker](https://www.sosy-lab.org/research/pub/2018-ASE.CPA-SymExec_Efficient_Symbolic_Execution_in_CPAchecker.pdf)  
   Dirk Beyer, Thomas Lemberger  
   IEEE/ACM International Conference on Automated Software Engineering (ASE 2018)  
