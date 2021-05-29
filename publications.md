@@ -669,6 +669,12 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2017)  
   July 10-14, 2017, Santa Barbara, CA, USA  
 
+1. [A Formally Verified NAT](https://dl.acm.org/doi/10.1145/3098822.3098833)  
+  Arseniy Zaostrovnykh, Solal Pirelli, Luis Pedrosa, Katerina Argyraki, George Candea  
+  Conference of the ACM Special Interest Group on Data Communication (SIGCOMM 2017)  
+  August 21-25, 2017, Los Angeles, USA  
+  **VigNAT is available [here](https://vignat.github.io/).**
+
 1. [Effectiveness of Synthesis in Concolic Deobfuscation](http://www.sciencedirect.com/science/article/pii/S0167404817301475)  
   Fabrizio Biondi, Sébastien Josse, Axel Legay, Thomas Sirvent  
   Computers & Security, Volume 70  
