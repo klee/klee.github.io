@@ -6,7 +6,12 @@ slug: publications
 lead: Below you can find a list of 200+ papers and systems that either use or extend KLEE. They are listed in chronological order.
 ---
 
-Additional information about systems and research based on KLEE can be found on the website of the [1st International KLEE Workshop on Symbolic Execution](https://srg.doc.ic.ac.uk/klee18/).
+We regularly organise workshops to discuss ideas and new applications.
+Additional information about systems and research based on KLEE can be found on the accompanying websites:
+
+* [1st International KLEE Workshop on Symbolic Execution](https://srg.doc.ic.ac.uk/klee18/)
+* [2nd International KLEE Workshop on Symbolic Execution](https://srg.doc.ic.ac.uk/klee21/)
+* [KLEE YouTube channel](https://www.youtube.com/channel/UCFLstNVKLkw-I91bUva3KWQ)
 
 If you have used or extended KLEE and would like to have your paper
 listed here, please open a pull request at
