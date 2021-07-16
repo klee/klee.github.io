@@ -1203,3 +1203,9 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
   August 14-16, 2021, Virtual Event  
   **The artefact is available [here](https://zenodo.org/record/4974343).**
+
+1. [Validating Static Warnings via Testing Code Fragments](https://dl.acm.org/doi/abs/10.1145/3460319.3464832)  
+  Ashwin Kallingal Joshy, Xueyuan Chen, Benjamin Steenhoek, Wei Le  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
+  August 14-16, 2021, Virtual Event  
+  **Helium is available [here](https://sites.google.com/view/helium-2021).**
