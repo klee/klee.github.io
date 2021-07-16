@@ -1174,3 +1174,8 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Wei Zhou, Le Guan, Peng Liu, Yuqing Zhang  
   USENIX Security Symposium (Security 2021)  
   August 11-13, 2021, Virtual Event
+
+1. [Synthesize Solving Strategy for Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3460319.3464815)  
+ Zhenbang Chen, Zehua Chen, Ziqi Shuai, Guofeng Zhang, Weiyu Pan, Yufeng Zhang, Ji Wang  
+ ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
+ August 14-16, 2021, Virtual Event
