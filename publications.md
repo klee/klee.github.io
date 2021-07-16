@@ -1164,6 +1164,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   April 12-16, 2021, Virtual Event, Brazil  
   **The implementation is available [here](https://github.com/davidtr1037/klee-aaqc).**
 
+1. [Metrinome: Path Complexity Predicts Symbolic Execution Path Explosion](https://ieeexplore.ieee.org/abstract/document/9402593)  
+  Gabriel Bessler, Josh Cordova, Shaheen Cullen-Baratloo, Sofiane Dissem, Emily Lu, Sofia Devin, Ibrahim Abughararh, Lucas Bang  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2021 Companion)  
+  May 25-28, 2021, Virtual Event
+
 1. [Concolic Program Repair](https://cpr-tool.github.io/PLDI21.pdf)  
   Ridwan Salihin Shariffdeen, Yannic Noller, Lars Grunske, Abhik Roychoudhury  
   ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2021)  
