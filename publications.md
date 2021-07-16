@@ -1185,6 +1185,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
   August 14-16, 2021, Virtual Event
 
+1. [Toward Optimal MC/DC Test Case Generation](https://dl.acm.org/doi/abs/10.1145/3460319.3464841)  
+  Sangharatna Godboley, Joxan Jaffar, Rasool Maghareh, Arpita Dutta  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
+  August 14-16, 2021, Virtual Event
+
 1. [Type and Interval Aware Array Constraint Solving for Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3460319.3464826)  
   Ziqi Shuai, Zhenbang Chen, Yufeng Zhang, Jun Sun, Ji Wang  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
