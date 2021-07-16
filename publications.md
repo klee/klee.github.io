@@ -1114,7 +1114,7 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Sooyoung Cha, Hakjoo Oh  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
   November 8-13, 2020, Virtual Event, USA  
-  **HOMI is available [here](https://github.com/kupl/HOMI_public).**
+  **HOMI is available [here](https://github.com/kupl/HOMI_public) ([artefact](https://zenodo.org/record/3902978)).**
 
 1. [Past-Sensitive Pointer Analysis for Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/pastsensitive-fse-20.pdf)  
   David Trabish, Timotej Kapus, Noam Rinetzky, Cristian Cadar  
@@ -1167,7 +1167,8 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
 1. [Metrinome: Path Complexity Predicts Symbolic Execution Path Explosion](https://ieeexplore.ieee.org/abstract/document/9402593)  
   Gabriel Bessler, Josh Cordova, Shaheen Cullen-Baratloo, Sofiane Dissem, Emily Lu, Sofia Devin, Ibrahim Abughararh, Lucas Bang  
   ACM/IEEE International Conference on Software Engineering (ICSE 2021 Companion)  
-  May 25-28, 2021, Virtual Event
+  May 25-28, 2021, Virtual Event  
+  **Metrinome is available [here](https://github.com/hmc-alpaqa/metrinome).**
 
 1. [Concolic Program Repair](https://cpr-tool.github.io/PLDI21.pdf)  
   Ridwan Salihin Shariffdeen, Yannic Noller, Lars Grunske, Abhik Roychoudhury  
@@ -1183,7 +1184,8 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
 1. [Boosting Symbolic Execution via Constraint Solving Time Prediction](https://dl.acm.org/doi/abs/10.1145/3460319.3464813)  
   Sicheng Luo, Hui Xu, Yanxiang Bi, Xin Wang, Yangfan Zhou  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
-  August 14-16, 2021, Virtual Event
+  August 14-16, 2021, Virtual Event  
+  **The artefact is available [here](https://zenodo.org/record/4722615).**
 
 1. [Synthesize Solving Strategy for Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3460319.3464815)  
   Zhenbang Chen, Zehua Chen, Ziqi Shuai, Guofeng Zhang, Weiyu Pan, Yufeng Zhang, Ji Wang  
@@ -1193,9 +1195,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
 1. [Toward Optimal MC/DC Test Case Generation](https://dl.acm.org/doi/abs/10.1145/3460319.3464841)  
   Sangharatna Godboley, Joxan Jaffar, Rasool Maghareh, Arpita Dutta  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
-  August 14-16, 2021, Virtual Event
+  August 14-16, 2021, Virtual Event  
+  **The artefact is available [here](https://zenodo.org/record/4771439).**
 
 1. [Type and Interval Aware Array Constraint Solving for Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3460319.3464826)  
   Ziqi Shuai, Zhenbang Chen, Yufeng Zhang, Jun Sun, Ji Wang  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
-  August 14-16, 2021, Virtual Event
+  August 14-16, 2021, Virtual Event  
+  **The artefact is available [here](https://zenodo.org/record/4974343).**
