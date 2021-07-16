@@ -1176,6 +1176,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   August 11-13, 2021, Virtual Event
 
 1. [Synthesize Solving Strategy for Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3460319.3464815)  
- Zhenbang Chen, Zehua Chen, Ziqi Shuai, Guofeng Zhang, Weiyu Pan, Yufeng Zhang, Ji Wang  
- ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
- August 14-16, 2021, Virtual Event
+  Zhenbang Chen, Zehua Chen, Ziqi Shuai, Guofeng Zhang, Weiyu Pan, Yufeng Zhang, Ji Wang  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
+  August 14-16, 2021, Virtual Event
+
+1. [Type and Interval Aware Array Constraint Solving for Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3460319.3464826)  
+  Ziqi Shuai, Zhenbang Chen, Yufeng Zhang, Jun Sun, Ji Wang  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
+  August 14-16, 2021, Virtual Event
