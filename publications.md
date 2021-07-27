@@ -485,6 +485,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   ACM Transactions on Design Automation of Electronic Systems, Volume 20, Issue 3 (TODAES)  
   June, 2015
 
+1. [Experience Report: How is Dynamic Symbolic Execution Different from Manual Testing? - A Study on KLEE](https://dl.acm.org/doi/10.1145/2771783.2771818)  
+  Xiaoyin Wang, Lingming Zhang, Philip Tanofsky  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2015)  
+  July 12-17, 2015, Baltimore, USA
+
 1. [Symbolic Execution for BIOS Security](https://www.usenix.org/system/files/conference/woot15/woot15-paper-bazhaniuk.pdf)  
   Oleksandr Bazhaniuk, John Loucaides, Lee Rosenbaum, Mark R. Tuttle, Vincent Zimmer  
   USENIX Workshop on Offensive Technologies (WOOT 2015)  
