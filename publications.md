@@ -1181,6 +1181,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   June 20-26, 2021, Virtual Event    
   **The artefact is available [here](https://cpr-tool.github.io/).**
 
+1. [FCEP: A Fast Concolic Execution for Reaching Software Patches](https://ksiresearch.org/seke/seke21paper/paper018.pdf)  
+  Meng Fan, Wenzhi Wang, Aimin Yu, Dan Meng  
+  International Conference on Software Engineering & Knowledge Engineering (SEKE 2021)  
+  July 1-10, 2021, Virtual Event
+
 1. [Automatic Firmware Emulation through Invalidity-guided Knowledge Inference](https://www.usenix.org/conference/usenixsecurity21/presentation/zhou)  
   Wei Zhou, Le Guan, Peng Liu, Yuqing Zhang  
   USENIX Security Symposium (Security 2021)  
