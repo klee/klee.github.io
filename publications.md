@@ -1209,3 +1209,9 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
   August 14-16, 2021, Virtual Event  
   **Helium is available [here](https://sites.google.com/view/helium-2021).**
+
+1. [A Bounded Symbolic-Size Model for Symbolic Execution](https://dl.acm.org/doi/10.1145/3468264.3468596)  
+  David Trabish, Shachar Itzhaky, Noam Rinetzky  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2021)  
+  August 23-28, 2021, Athens, Greece  
+  **The implementation is available [here](https://github.com/davidtr1037/klee-symsize).**
