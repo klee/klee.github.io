@@ -1237,6 +1237,10 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   August 23-28, 2021, Athens, Greece  
   **The implementation is available [here](https://github.com/davidtr1037/klee-symsize).**
 
+1. [Security-Hardening Software Libraries with Ada and SPARK](https://arxiv.org/abs/2109.10347)  
+  Kyriakos Georgiou, Guillaume Cluzel, Paul Butcher, Yannick Moy  
+  arXiv, September 2, 2021
+
 1. [Learning to Explore Paths for Symbolic Execution](https://files.sri.inf.ethz.ch/website/papers/ccs21-learch.pdf)  
   Jingxuan He, Gishor Sivanrupan, Petar Tsankov, Martin Vechev  
   ACM Conference on Computer and Communications Security (CCS 2021)  
