@@ -1225,3 +1225,8 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2021)  
   August 23-28, 2021, Athens, Greece  
   **The implementation is available [here](https://github.com/davidtr1037/klee-symsize).**
+
+1. [Learning to Explore Paths for Symbolic Execution](https://files.sri.inf.ethz.ch/website/papers/ccs21-learch.pdf)  
+  Jingxuan He, Gishor Sivanrupan, Petar Tsankov, Martin Vechev  
+  ACM Conference on Computer and Communications Security (CCS 2021)  
+  November 15-19, 2021, Virtual Event
