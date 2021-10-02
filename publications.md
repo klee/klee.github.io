@@ -1175,6 +1175,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   May 25-28, 2021, Virtual Event  
   **Metrinome is available [here](https://github.com/hmc-alpaqa/metrinome).**
 
+1. [SIT-SE: A Specification-Based Incremental Testing Method With Symbolic Execution](https://ieeexplore.ieee.org/abstract/document/9442357)  
+  Rong Wang, Shaoying Liu, Yuji Sato  
+  IEEE Transactions on Reliability, Volume 70, Issue 3  
+  May 26, 2021
+
 1. [Concolic Program Repair](https://cpr-tool.github.io/PLDI21.pdf)  
   Ridwan Salihin Shariffdeen, Yannic Noller, Lars Grunske, Abhik Roychoudhury  
   ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2021)  
