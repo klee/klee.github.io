@@ -1186,6 +1186,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   International Conference on Software Engineering & Knowledge Engineering (SEKE 2021)  
   July 1-10, 2021, Virtual Event
 
+1. [Enhancing Dynamic Symbolic Execution by Automatically Learning Search Heuristics](https://ieeexplore.ieee.org/document/9507083)  
+  Sooyoung Cha, Seongjoon Hong, Jiseong Bak, Jingyoung Kim, Junhee Lee, Hakjoo Oh  
+  IEEE Transactions on Software Engineering (TSE)  
+  August 4, 2021  
+  **ParaDySE is available [here](https://github.com/kupl/dd-klee).**
+
 1. [Automatic Firmware Emulation through Invalidity-guided Knowledge Inference](https://www.usenix.org/conference/usenixsecurity21/presentation/zhou)  
   Wei Zhou, Le Guan, Peng Liu, Yuqing Zhang  
   USENIX Security Symposium (Security 2021)  
