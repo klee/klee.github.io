@@ -1241,6 +1241,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Kyriakos Georgiou, Guillaume Cluzel, Paul Butcher, Yannick Moy  
   arXiv, September 2, 2021
 
+1. [Combining Static Analysis and Dynamic Symbolic Execution in a Toolchain to Detect Fault Injection Vulnerabilities](http://www.proofs-workshop.org/2021/papers/paper2.pdf)  
+  Guilhem Lacombe, David Féliot, Etienne Boespflug, Marie-Laure Potet  
+  International Workshop on Security Proofs for Embedded Systems (PROOFS 2021)  
+  September 17, 2021, Virtual Event
+
 1. [Learning to Explore Paths for Symbolic Execution](https://files.sri.inf.ethz.ch/website/papers/ccs21-learch.pdf)  
   Jingxuan He, Gishor Sivanrupan, Petar Tsankov, Martin Vechev  
   ACM Conference on Computer and Communications Security (CCS 2021)  
