@@ -693,12 +693,17 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
 1. [Failure-Directed Program Trimming](https://dl.acm.org/citation.cfm?id=3106249)  
   Kostas Ferles, Valentin Wüstholz, Maria Christakis, Isil Dillig  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2017)  
-  September 4-8, 2017, Paderborn, Germany  
+  September 6-8, 2017, Paderborn, Germany
 
 1. [Symbolic Execution of Programmable Logic Controller Code](https://pdfs.semanticscholar.org/6abb/1a0a4031d1e4e81b5aee041ffb438c55c5b2.pdf)  
   Shengjian Guo, Meng Wu, Chao Wang  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2017)  
-  September 4-8, 2017, Paderborn, Germany
+  September 6-8, 2017, Paderborn, Germany
+
+1. [Counterexample-Guided Approach to Finding Numerical Invariants](https://dl.acm.org/doi/10.1145/3106237.3106281)  
+  ThanhVu Nguyen, Timos Antonopoulos, Andrew Ruef, Michael Hicks  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2017)  
+  September 6-8, 2017, Paderborn, Germany
 
 1. [Did we Learn from LLC Side Channel Attacks? A Cache Leakage Detection Tool for Crypto Libraries](https://arxiv.org/abs/1709.01552)  
   Gorka Irazoqui, Kai Cong, Xiaofei Guo, Hareesh Khattri, Arun Kanuparthi, Thomas Eisenbarth, Berk Sunar  
