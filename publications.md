@@ -1157,6 +1157,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   IEEE International Conference on Software Quality, Reliability and Security (QRS 2020)  
   Dezember 11-14, 2020, Macau, China
 
+1. [Beyond Tests: Program Vulnerability Repair via Crash Constraint Extraction](https://dl.acm.org/doi/abs/10.1145/3418461)  
+  Xiang Gao, Bo Wang, Gregory J. Duck, Ruyi Ji, Yingfei Xiong, Abhik Roychoudhury  
+  ACM Transactions on Software Engineering and Methodology, Volume 30, Issue 2 (TOSEM)  
+  March 2021  
+  **ExtractFix is available [here](https://extractfix.github.io/).**
+
 1. [Killing Stubborn Mutants with Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3425497)  
   Thierry Titcheu Chekam, Mike Papadakis, Maxime Cordy, Yves Le Traon  
   ACM Transactions on Software Engineering and Methodology, Volume 30, Issue 2 (TOSEM)  
