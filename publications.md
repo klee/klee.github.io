@@ -1262,6 +1262,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   International Workshop on Security Proofs for Embedded Systems (PROOFS 2021)  
   September 17, 2021, Virtual Event
 
+1. [Layered Formal Verification of a TCP Stack](https://www.adacore.com/uploads/techPapers/Layered-formal-verification-of-a-tcp-stack.pdf)  
+  Guillaume Cluzel, Kyriakos Georgiou, Yannick Moy, Clément Zeller  
+  IEEE Secure Development Conference (SecDev 2021)  
+  October 18-20, 2021, Virtual Event  
+  **The implementation is available [here](https://github.com/Adacore/Http_Cyclone).**
+
 1. [Learning to Explore Paths for Symbolic Execution](https://files.sri.inf.ethz.ch/website/papers/ccs21-learch.pdf)  
   Jingxuan He, Gishor Sivanrupan, Petar Tsankov, Martin Vechev  
   ACM Conference on Computer and Communications Security (CCS 2021)  
