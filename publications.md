@@ -69,6 +69,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Network and Distributed System Security Symposium (NDSS 2011)  
   February 6-9, 2011, San Diego, CA, USA
 
+1. [Efficient Symbolic Execution for Analysing Cryptographic Protocol Implementations](https://link.springer.com/chapter/10.1007/978-3-642-19125-1_5)  
+  Ricardo Corin, Felipe Andrés Manzano  
+  International Symposium on Engineering Secure Software and Systems (ESSoS 2011)  
+  February 9-10, 2011, Madrid, Spain
+
 1. [S2E: A Platform for In Vivo Multi-Path Analysis of Software Systems](http://dslab.epfl.ch/pubs/s2e.pdf?attredirects=0)  
   Vitaly Chipounov, Volodymyr Kuznetsov, George Candea  
   International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS 2011)  
