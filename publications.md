@@ -1272,3 +1272,8 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Jingxuan He, Gishor Sivanrupan, Petar Tsankov, Martin Vechev  
   ACM Conference on Computer and Communications Security (CCS 2021)  
   November 15-19, 2021, Virtual Event
+
+1. [FIRVER: Concolic Testing for Systematic Validation of Firmware Binaries](http://sandip.ece.ufl.edu/publications/aspdac22.pdf)  
+  Tashfia Alam, Zhenkun Yang, Bo Chen, Nicholas Armour, Sandip Ray  
+  Asia and South Pacific Design Automation Conference (ASP-DAC 2022)  
+  January 17-20, 2022, Virtual Event
