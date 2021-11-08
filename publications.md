@@ -1090,6 +1090,11 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   International Conference on Computer Aided Verification (CAV 2020)  
   July 19-24, 2020, Virtual Event, USA
 
+1. [Countermeasures Optimization in Multiple Fault-Injection Context](https://ieeexplore.ieee.org/abstract/document/9237315)  
+  Etienne Boespflug, Cristian Ene, Laurent Mounier, Marie-Laure Potet  
+  Workshop on Fault Detection and Tolerance in Cryptography (FDTC 2020)  
+  September 13, 2020, Virtual Event
+
 1. [Analyzing System Software Components Using API Model Guided Symbolic Execution](https://link.springer.com/article/10.1007/s10515-020-00276-5)  
   Tuba Yavuz, Ken (Yihang) Bai  
   Automated Software Engineering (AUSE)  
