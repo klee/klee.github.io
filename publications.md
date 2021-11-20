@@ -1273,6 +1273,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   October 18-20, 2021, Virtual Event  
   **The implementation is available [here](https://github.com/Adacore/Http_Cyclone).**
 
+1. [Trident: Controlling Side Effects in Automated Program Repair](https://ieeexplore.ieee.org/document/9611365)  
+  Nikhil Parasaram, Earl T. Barr, Sergey Mechtaev  
+  IEEE Transactions on Software Engineering (TSE 2022)  
+  November 13, 2021
+
 1. [Learning to Explore Paths for Symbolic Execution](https://files.sri.inf.ethz.ch/website/papers/ccs21-learch.pdf)  
   Jingxuan He, Gishor Sivanrupan, Petar Tsankov, Martin Vechev  
   ACM Conference on Computer and Communications Security (CCS 2021)  
