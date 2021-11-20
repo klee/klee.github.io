@@ -1282,3 +1282,8 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Tashfia Alam, Zhenkun Yang, Bo Chen, Nicholas Armour, Sandip Ray  
   Asia and South Pacific Design Automation Conference (ASP-DAC 2022)  
   January 17-20, 2022, Virtual Event
+
+1. [LinKRID: Vetting Imbalance Reference Counting in Linux Kernel with Symbolic Execution](https://www.usenix.org/system/files/sec22summer_liu-jian.pdf)  
+  Jian Liu, Lin Yi, Weiting Chen, Chengyu Song, Zhiyun Qian, Qiuping Yi  
+  USENIX Security Symposium (Security 2022)  
+  August, 10-12, 2022, Boston, USA
