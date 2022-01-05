@@ -66,14 +66,14 @@ POSIX environment under macOS.  KLEE does not work under x86-32.
 
    For unit tests we use the Google test libraries. If you want to run the unit tests you need to perform this step and also pass `-DENABLE_UNIT_TESTS=ON` to CMake when configuring KLEE in step 8.
 
-   We depend on a version `1.7.0` right now so grab the sources for it.
+   We currently recommend version `1.11.0`, so grab the sources for it.
 
    ```bash
-   $ curl -OL https://github.com/google/googletest/archive/release-1.7.0.zip
-   $ unzip release-1.7.0.zip
+   $ curl -OL https://github.com/google/googletest/archive/release-1.11.0.zip
+   $ unzip release-1.11.0.zip
    ```
 
-   This will create a directory called `googletest-release-1.7.0`.
+   This will create a directory called `googletest-release-1.11.0`.
 
 5. **(Optional) Build uClibc and the POSIX environment model (not supported on macOS):** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
 

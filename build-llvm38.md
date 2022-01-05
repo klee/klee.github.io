@@ -63,14 +63,14 @@ The current procedure for building KLEE with LLVM 3.8 is outlined below.
    For unit tests we use the Google test libraries. If you don't want to run the unit tests you can skip this step but you will
    need to pass `-DENABLE_UNIT_TESTS=OFF` to CMake when configuring KLEE in step 8.
 
-   We depend on a version `1.7.0` right now so grab the sources for it.
+   We currently recommend version `1.11.0`, so grab the sources for it.
 
    ```bash
-   $ curl -OL https://github.com/google/googletest/archive/release-1.7.0.zip
-   $ unzip release-1.7.0.zip
+   $ curl -OL https://github.com/google/googletest/archive/release-1.11.0.zip
+   $ unzip release-1.11.0.zip
    ```
 
-   This will create a directory called `googletest-release-1.7.0`.
+   This will create a directory called `googletest-release-1.11.0`.
 
 6. **(Optional) Install lit:**
 
