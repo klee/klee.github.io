@@ -1283,6 +1283,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM Conference on Computer and Communications Security (CCS 2021)  
   November 15-19, 2021, Virtual Event
 
+1. [EXGEN: Cross-platform, Automated Exploit Generation for Smart Contract Vulnerabilities](https://ieeexplore.ieee.org/abstract/document/9674230)  
+  Ling Jin, Yinzhi Cao, Yan Chen, Di Zhang, Simone Campanoni  
+  IEEE Transactions on Dependable and Secure Computing (TDSC)  
+  January 7, 2022
+
 1. [FIRVER: Concolic Testing for Systematic Validation of Firmware Binaries](http://sandip.ece.ufl.edu/publications/aspdac22.pdf)  
   Tashfia Alam, Zhenkun Yang, Bo Chen, Nicholas Armour, Sandip Ray  
   Asia and South Pacific Design Automation Conference (ASP-DAC 2022)  
