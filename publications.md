@@ -576,7 +576,7 @@ Alternatively, email [klee-dev-owner](mailto:klee-dev-owner@imperial.ac.uk) or [
   Fengjuan Gao, Lingzhang Wang, Xuandong Li  
   IEEE/ACM International conference on Automated Software Engineering (ASE 2016)  
   September 3-7, 2016, Singapore, Singapore  
-  **BovInspector is available [here](https://github.com/terry2012/project).**
+  **BovInspector is available [here](https://github.com/BovInspector/project).**
 
 1. [Conc-iSE: Incremental Symbolic Execution of Concurrent Software](https://dl.acm.org/doi/abs/10.1145/2970276.2970332)  
   Shengjian Guo, Markus Kusano, Chao Wang  
