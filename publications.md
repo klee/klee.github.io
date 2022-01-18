@@ -1283,6 +1283,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM Conference on Computer and Communications Security (CCS 2021)  
   November 15-19, 2021, Virtual Event
 
+1. [Function Exclusion in Automated Security Patch Testing Using Chopped Symbolic Execution](http://researchonline.ljmu.ac.uk/id/eprint/16037/)  
+  Phan Ninh Thai, Hung Nguyen Viet, Nathan Shone, Mikhail Babenko  
+  NAFOSTED Conference on Information and Computer Science (NICS 2021)  
+  December 21-22, 2021, Hanoi City, Vietnam
+
 1. [EXGEN: Cross-platform, Automated Exploit Generation for Smart Contract Vulnerabilities](https://ieeexplore.ieee.org/abstract/document/9674230)  
   Ling Jin, Yinzhi Cao, Yan Chen, Di Zhang, Simone Campanoni  
   IEEE Transactions on Dependable and Secure Computing (TDSC)  
