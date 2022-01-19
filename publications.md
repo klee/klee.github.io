@@ -1298,6 +1298,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Asia and South Pacific Design Automation Conference (ASP-DAC 2022)  
   January 17-20, 2022, Virtual Event
 
+1. [The Taming of the Stack: Isolating Stack Data from Memory Errors](http://www.cse.psu.edu/~trj1/papers/huang-ndss22.pdf)  
+  Kaiming Huang, Yongzhe Huang, Mathias Payer, Zhiyun Qian, Jack Sampson, Gang Tan, Trent Jaeger  
+  Network and Distributed System Security Symposium (NDSS 2022)  
+  February 27 - March 3, 2022, San Diego, USA
+
 1. [LinKRID: Vetting Imbalance Reference Counting in Linux Kernel with Symbolic Execution](https://www.usenix.org/system/files/sec22summer_liu-jian.pdf)  
   Jian Liu, Lin Yi, Weiting Chen, Chengyu Song, Zhiyun Qian, Qiuping Yi  
   USENIX Security Symposium (Security 2022)  
