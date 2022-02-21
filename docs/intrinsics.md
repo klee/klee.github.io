@@ -64,7 +64,7 @@ int main() {
   klee_make_symbolic(&d, sizeof(d), "d");
   
   int tmp;
-  if (c == 2) {
+  if (c == 2) 
     tmp = d == 3;
   else
     tmp = 0;
