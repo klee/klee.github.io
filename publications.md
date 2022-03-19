@@ -1303,16 +1303,21 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Network and Distributed System Security Symposium (NDSS 2022)  
   February 27 - March 3, 2022, San Diego, USA
 
+1. [Characterizing and Improving Bug-Finders with Synthetic Bugs](https://messlab.moyix.net/papers/evalklee_saner22.pdf)  
+  Yu Hu, Zekun Shen, Brendan Dolan-Gavitt  
+  IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER 2020)  
+  March 15-18, 2022, Virtual Event
+
 1. [Efficient Protocol Testing Under Temporal Uncertain Event Using Discrete-event Network Simulations](https://dl.acm.org/doi/abs/10.1145/3490028)  
   Minh Vu, Lisong Xu, Sebastian Elbaum, Wei Sun, Kevin Qiao  
   ACM Transactions on Modeling and Computer Simulation, Volume 32, Issue 2 (TOMACS)  
   April, 2022
 
 1. [Applying Symbolic Execution to Test Implementations of a Network Protocol Against its Specification](https://assist-project.github.io/papers/ApplyingSymExec@ICST-22.pdf)  
-   Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas  
-   IEEE International Conference on Software Testing, Verification and Validation (ICST) 2022  
-   April 4-13, 2022, Virtual Event  
-   **The artefact is available [here](https://zenodo.org/record/5929867#.YgZF74zMLmE).**
+  Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas  
+  IEEE International Conference on Software Testing, Verification and Validation (ICST) 2022  
+  April 4-13, 2022, Virtual Event  
+  **The artefact is available [here](https://zenodo.org/record/5929867#.YgZF74zMLmE).**
 
 1. [LinKRID: Vetting Imbalance Reference Counting in Linux Kernel with Symbolic Execution](https://www.usenix.org/system/files/sec22summer_liu-jian.pdf)  
   Jian Liu, Lin Yi, Weiting Chen, Chengyu Song, Zhiyun Qian, Qiuping Yi  
