@@ -45,7 +45,7 @@ The repository has old versions of the documentation in `releases/docs/`. To gen
 
 1. Open `_config.yml` and
  - Change `is_release` to `true`
- - Add the `releases` folder to `excludes`
+ - Add the `releases` folder to `exclude`
  - Set `current_version` to the new KLEE version
 
 2. Run the following command, where `<VERSION>` is the KLEE version:
