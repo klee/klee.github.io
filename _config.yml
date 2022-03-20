@@ -11,7 +11,7 @@ permalink: pretty
 # for a release this should be set to true.
 is_release: false
 
-# When doing a release make sure you exclude the releases folder by replacing
+# When doing a release make sure you exclude the `releases` folder by replacing
 # the `exclude` declaration with the version that is currently commented out.
 #
 # It would be nice if we could just do the right thing if `is_release` is set to
