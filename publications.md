@@ -1308,6 +1308,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER 2020)  
   March 15-18, 2022, Virtual Event
 
+1. [SymEx-VP: An Open Source Virtual Prototype for OS-agnostic Concolic Testing of IoT Firmware](https://www.sciencedirect.com/science/article/pii/S1383762122000480)  
+  Sören Tempel, Vladimir Herdt, Rolf Drechsler  
+  Journal of Systems Architecture (JSA)  
+  16 March, 2022
+
 1. [Efficient Protocol Testing Under Temporal Uncertain Event Using Discrete-event Network Simulations](https://dl.acm.org/doi/abs/10.1145/3490028)  
   Minh Vu, Lisong Xu, Sebastian Elbaum, Wei Sun, Kevin Qiao  
   ACM Transactions on Modeling and Computer Simulation, Volume 32, Issue 2 (TOMACS)  
