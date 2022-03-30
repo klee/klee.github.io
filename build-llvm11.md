@@ -7,18 +7,21 @@ slug: getting-started
 
 {% include version_warning.md %}
 
-The current procedure for building KLEE with LLVM 11 (recommended) is outlined below.
+The current procedure for building KLEE manually with LLVM 11 (recommended) on Debian/Ubuntu-based distributions or macOS is outlined below.
+However, in case you trust our installation scripts for continuous integration testing, you can re-use them on your Ubuntu/macOS-based host system.
+You can find detailed instructions in: [Building arbitrary KLEE configurations]({{site.baseurl}}/build-script).
 
+## Manual Installation
 
 **NOTE:** KLEE is currently tested on Linux x86-64 (particularly Ubuntu), FreeBSD and macOS.
 There is no support for uClibc and the POSIX environment under macOS.
 KLEE does not work under x86-32.
 
-1. **Install dependencies:** KLEE requires all the dependencies of LLVM (see [here](http://llvm.org/docs/GettingStarted.html#requirements)), and some more. In particular, you should install the programs and libraries listed below. `doxygen` is optional and only needed to generate the source code documentation.
+1. **Install dependencies:** KLEE requires all the dependencies of LLVM (see [here](http://llvm.org/docs/GettingStarted.html#requirements)), and some more. In particular, you should install the programs and libraries listed below. `graphviz/doxygen` are optional and only needed to generate the source code documentation.
 
    Under Ubuntu, use:
    ```bash
-   $ sudo apt-get install build-essential cmake curl file g++-multilib gcc-multilib git libcap-dev libgoogle-perftools-dev libncurses5-dev libsqlite3-dev libtcmalloc-minimal4 python3-pip unzip doxygen
+   $ sudo apt-get install build-essential cmake curl file g++-multilib gcc-multilib git libcap-dev libgoogle-perftools-dev libncurses5-dev libsqlite3-dev libtcmalloc-minimal4 python3-pip unzip graphviz doxygen
    ```
 
    Under macOS, run:
