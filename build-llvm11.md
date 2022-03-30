@@ -56,7 +56,7 @@ KLEE does not work under x86-32.
    KLEE supports multiple different constraint solvers. You must install at least one to build KLEE.
 
    * [STP](https://github.com/stp/stp) Historically KLEE was built around STP so support for this solver is the most stable. For build instructions, see [here]({{site.baseurl}}/build-stp).
-   * [Z3](https://github.com/z3prover/z3) is another solver supported by KLEE that is reasonably stable. You should use Z3 version ≥ 4.4. For build instructions, see [here](https://github.com/Z3Prover/z3/blob/master/README.md).
+   * [Z3](https://github.com/z3prover/z3) is another solver supported by KLEE that is reasonably stable. You should use Z3 version ≥ 4.4. Z3 is packaged by [many distributions](https://repology.org/project/z3/versions). For build instructions, see [here](https://github.com/Z3Prover/z3/blob/master/README.md).
    * [metaSMT](https://github.com/agra-uni-bremen/metaSMT) supports
      various solvers, including Boolector, CVC4, STP, Z3 and Yices.  We recommend branch v4.rc1 (`git clone -b v4.rc1 ...`). For build instructions, see [here](https://github.com/agra-uni-bremen/metaSMT).
 

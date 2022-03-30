@@ -5,7 +5,9 @@ subtitle: Building STP
 slug: getting-started
 ---
 
-STP is the recommended solver in KLEE.  The instructions below are for release 2.3.3. If you would like to use the upstream version, do not perform the checkout command `git checkout tags/2.3.3` in the instructions below.
+STP is the recommended solver in KLEE. The build instructions below are for release 2.3.3. If you would like to use the upstream version, do not perform the checkout command `git checkout tags/2.3.3` in the instructions below.
+
+Before you attempt to build STP, you should check first if it is not already [supported by your package manager](https://repology.org/project/stp/versions).
 
 STP has a few external dependencies that are first listed here as an install command for Ubuntu 18.04:  
 
