@@ -14,16 +14,16 @@ The current procedure for building KLEE with LLVM 11 (recommended) is outlined b
 There is no support for uClibc and the POSIX environment under macOS.
 KLEE does not work under x86-32.
 
-1. **Install dependencies:** KLEE requires all the dependencies of LLVM (see [here](http://llvm.org/docs/GettingStarted.html#requirements)), and some more. In particular, you should install the programs and libraries listed below.
+1. **Install dependencies:** KLEE requires all the dependencies of LLVM (see [here](http://llvm.org/docs/GettingStarted.html#requirements)), and some more. In particular, you should install the programs and libraries listed below. `doxygen` is optional and only needed to generate the source code documentation.
 
    Under Ubuntu, use:
    ```bash
-   $ sudo apt-get install build-essential cmake curl g++-multilib gcc-multilib git libcap-dev libgoogle-perftools-dev libncurses5-dev libsqlite3-dev libtcmalloc-minimal4 python3-pip unzip doxygen
+   $ sudo apt-get install build-essential cmake curl file g++-multilib gcc-multilib git libcap-dev libgoogle-perftools-dev libncurses5-dev libsqlite3-dev libtcmalloc-minimal4 python3-pip unzip doxygen
    ```
 
    Under macOS, run:
    ```bash
-   $ brew install curl git cmake python unzip gperftools sqlite3 doxygen bash
+   $ brew install curl git cmake python unzip gperftools sqlite3 graphviz doxygen bash
    ```
 
    You should also install `lit` to enable testing, `tabulate` to support additional features in `klee-stats` and `wllvm` to make it easier to compile programs to LLVM bitcode:
@@ -33,7 +33,13 @@ KLEE does not work under x86-32.
    $ sudo apt-get install python3-tabulate
    ```
 
-   Use `--user` for `pip3` to install packages for the current user only and make sure that `~/.local/bin` is in your `PATH`.
+   Use `--user` for `pip3` to install packages for the current user only:
+
+   ```bash
+   $ pip3 install --user lit wllvm
+   ```
+
+   and make sure that e.g. `~/.local/bin` (check with `python3 -m site --user-base` on your system) is in your `PATH`.
 
 2. **Install LLVM 11:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
@@ -102,7 +108,7 @@ KLEE does not work under x86-32.
    Make sure that `clang++-11` is in your path. Then, run from the main KLEE source directory:
 
    ```bash
-   $ LLVM_VERSION=11 SANITIZER_BUILD= BASE=<LIBCXX_DIR> REQUIRES_RTTI=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 ENABLE_OPTIMIZED=1 ./scripts/build/build.sh libcxx
+   $ LLVM_VERSION=11 BASE=<LIBCXX_DIR> ./scripts/build/build.sh libcxx
    ```
    where `<LIBCXX_DIR>` is the absolute path where libc++ should be cloned and built.
 
@@ -165,27 +171,6 @@ KLEE does not work under x86-32.
 
    ```bash
    $ make
-   ```
-
-   <a name="rtti_link_error">**NOTE:**</a> If you see linker errors involving undefined references to `typeinfo` this is likely an [RTTI issue](https://github.com/klee/klee/issues/508).
-   Here's an example:
-
-   ```
-   [ 81%] Linking CXX executable ../../bin/kleaver
-   CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1238): undefined reference to `typeinfo for llvm::cl::Option'
-   CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1270): undefined reference to `typeinfo for llvm::cl::generic_parser_base'
-   CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x12d0): undefined reference to `typeinfo for llvm::cl::GenericOptionValue'
-   CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x12f8): undefined reference to `typeinfo for llvm::cl::Option'
-   CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1330): undefined reference to `typeinfo for llvm::cl::generic_parser_base'
-   CMakeFiles/kleaver.dir/main.cpp.o:(.rodata+0x1390): undefined reference to `typeinfo for llvm::cl::GenericOptionValue'
-   ```
-
-   The issue here is that LLVM was built without RTTI, but KLEE is trying to build with RTTI.
-   This is caused by the `llvm-config` binary not correctly reporting that `-fno-rtti` needs to be passed to the compiler.
-   To fix this delete your KLEE build directory and rerun `cmake` like so:
-
-   ```
-   $ CXXFLAGS="-fno-rtti" cmake <CMAKE_OPTIONS> <KLEE_SRC_DIRECTORY>
    ```
 
 9. **(Optional) Run the main regression test suite**
