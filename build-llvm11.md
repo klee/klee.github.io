@@ -167,23 +167,6 @@ KLEE does not work under x86-32.
    $ make
    ```
 
-   **NOTE:** If you see linker errors involving `cxx11`, you may be running into the [dual ABI issue](https://github.com/klee/klee/issues/336#issuecomment-181827009).
-   Here's an example:
-
-   ```
-   /usr/lib/llvm-3.4/include/llvm/Support/CommandLine.h:905: undefined reference to `vtable for llvm::cl::parser<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >'
-   CMakeFiles/kleaver.dir/main.cpp.o: In function `main':
-   /home/user/programs/klee/klee/tools/kleaver/main.cpp:413: undefined reference to `llvm::error_code::message[abi:cxx11]() const'
-   CMakeFiles/kleaver.dir/main.cpp.o: In function `llvm::cl::opt<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, false, llvm::cl::parser<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~opt()':
-   ```
-
-   This is caused by a mismatch between the ABI used to build LLVM and the ABI used to build KLEE.
-   To fix this delete your KLEE build directory and rerun `cmake` in this way:
-
-   ```bash
-   $ CXXFLAGS="-D_GLIBCXX_USE_CXX11_ABI=0" cmake <CMAKE_OPTIONS> <KLEE_SRC_DIRECTORY>
-   ```
-
    <a name="rtti_link_error">**NOTE:**</a> If you see linker errors involving undefined references to `typeinfo` this is likely an [RTTI issue](https://github.com/klee/klee/issues/508).
    Here's an example:
 
