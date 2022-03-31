@@ -11,24 +11,25 @@ KLEE is a symbolic execution framework that can be built with a multitude of dif
 
 Managing and building the different combinations of dependencies can be tedious. Moreover, not all the different requested versions of each dependency are available for every system. To simplify this process, we provide a build script `scripts/build/build.sh` that allows you to manage those tasks automatically.
 
-## TL; DR
+## TL;DR
 
-To locally build our standard configuration, use the following option:
-* LLVM: 9.0 - optimized with debug information
+To locally build a reasonable configuration and install all dependencies, use the following options:
+
+* LLVM: 11
 * Solvers: STP and Z3
 * uclibc: to test applications with systems interaction
 * libc++: to test C++ applications
 
 ```
-COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=9.0 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.11.0 UCLIBC_VERSION=klee_uclibc_v1.2 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= STP_VERSION=2.3.3 MINISAT_VERSION=master Z3_VERSION=4.8.4 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee --install-system-deps
+$ BASE=$HOME/klee_deps COVERAGE=0 ENABLE_DOXYGEN=0 USE_TCMALLOC=1 LLVM_VERSION=11 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=0 DISABLE_ASSERTIONS=1 REQUIRES_RTTI=1 SOLVERS=STP:Z3 GTEST_VERSION=1.11.0 UCLIBC_VERSION=klee_0_9_29 TCMALLOC_VERSION=2.9.1 SANITIZER_BUILD= STP_VERSION=master MINISAT_VERSION=master Z3_VERSION=4.8.15 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee --install-system-deps
 ```
 
 ## Users
 
 To get started, check out the KLEE source code:
 ```
-git clone https://github.com/klee/klee.git
-cd klee
+$ git clone https://github.com/klee/klee.git
+$ cd klee
 ```
 
 Start the build script with `./scripts/build/build.sh` to get an overview of the available options.
@@ -71,7 +72,7 @@ The most crucial variable is `BASE`. This defines where components are installed
 
 A full invocation to install STP (version 2.3.3) with minisat as SAT solver (version git master) could be :
 ```
-BASE="$HOME/klee_deps" MINISAT_VERSION="master" STP_VERSION="2.3.3" SOLVERS="stp" ./scripts/build/build.sh solvers
+$ BASE="$HOME/klee_deps" MINISAT_VERSION="master" STP_VERSION="2.3.3" SOLVERS="stp" ./scripts/build/build.sh solvers
 ```
 
 If the build was successful, all the sources and build artifacts can be found in the `$BASE` directory.
@@ -85,22 +86,23 @@ To fix this - assuming your system is supported - the script can be suffixed wit
 In this case, the required packages will be installed.
 Similarly, if specific packages for the system are available, the script will try to install them instead of compiling them from scratch.
 
-#### Getting inspired by the Travis Builds
-To test KLEE, we build different software combinations. The `.travis.yml` reflects those combinations.
+#### Getting inspired by the CI Builds
 
-Everything under `global` specifies the default configuration we use.
-Every line under `matrix` overrides a specific option.
+To test KLEE, we build different software combinations. The `.github/workflows/build.yaml` file reflects those combinations.
+
+Everything under `env` specifies the default configuration we use.
+Every configuration under `jobs` overrides a specific option.
 Use those options to mix and match your required setup.
 
 To locally build our standard configuration, use the following option:
 
 ```
-COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=9.0 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.11.0 UCLIBC_VERSION=klee_uclibc_v1.2 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= STP_VERSION=2.3.3 MINISAT_VERSION=master Z3_VERSION=4.8.4 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee
+$ COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=11 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.11.0 UCLIBC_VERSION=klee_uclibc_v1.2 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= STP_VERSION=2.3.3 MINISAT_VERSION=master Z3_VERSION=4.8.14 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee
 ```
 
 For example, to have address sanitized builds with LLVM 7.0 use:
 ```
-SANITIZER_BUILD=address DISABLE_ASSERTIONS=0 ENABLE_OPTIMIZED=0 USE_TCMALLOC=0 SOLVERS=STP USE_LIBCXX=0 LLVM_VERSION=7.0 STP_VERSION="2.3.3" ENABLE_DEBUG=1 UCLIBC_VERSION=klee_uclibc_v1.2 REQUIRES_RTTI=0 ./scripts/build/build.sh klee
+$ SANITIZER_BUILD=address DISABLE_ASSERTIONS=0 ENABLE_OPTIMIZED=0 USE_TCMALLOC=0 SOLVERS=STP USE_LIBCXX=0 LLVM_VERSION=7.0 STP_VERSION="2.3.3" ENABLE_DEBUG=1 UCLIBC_VERSION=klee_uclibc_v1.2 REQUIRES_RTTI=0 ./scripts/build/build.sh klee
 ```
 
 #### Mix and Match
@@ -111,7 +113,7 @@ Every component gets a version and a build-type suffix. This allows you to re-us
 ### Docker
 
 Besides, the script allows building docker images of KLEE.
-For that, append `--docker` to the script invocation. The only variable required is `BASE_IMAGE`, which refers to the docker image used as a base system, e.g., `ubuntu:xenial-20181005`.
+For that, append `--docker` to the script invocation. The only variable required is `BASE_IMAGE`, which refers to the docker image used as a base system, e.g., `ubuntu:bionic-20200807`.
 
 Internally, the different independent components will be built as separate docker images and combined for the final image.
 
@@ -146,7 +148,8 @@ We will use __STP__ as an example of how to add a new package.
 
 The virtual description file contains specific instructions that are necessary to describe the package.
 
-##### Required Variables
+#### Required Variables
+
 For example, the version number of a component is important.
 To require such information, a function or array `required_variables_COMPONENT=()` is added to the `v-COMPONENT.inc` file. The `build.sh` script will check if such an argument is provided before starting the build process.
 
@@ -170,7 +173,7 @@ To validate if required variables have a specific schema, e.g., a boolean value 
 For example, for the meta-package __SOLVERS__, which references potential solvers, the package checks if the user-provided variable contains a valid solver, i.e., _z3_, _stp_, or _metasmt_.
 
 
-##### Artifact dependencies
+#### Artifact dependencies
 
 To specify the dependencies of components, `artifact_dependency_COMPONENT` should be used. In the case of __SOLVERS__, the selected solvers become dependents.
 
@@ -191,7 +194,7 @@ It uses the following steps that can be customized as described later:
 
 In a nutshell, if the component is not available, try to get a pre-built version or built it.
 
-##### Building from source
+#### Building from source
 
 Let's start with the case that the package has to be built from scratch. For this, the last four steps are needed, and the associated functions should be added to the `p-COMPONENT.inc` file if needed.
 
@@ -254,11 +257,11 @@ The install script tries to find a satisfying function depending on the system a
 To foster reusability, source-built components should not be installed into systems directories, instead, they should be kept in separate directories.
 For example, for __STP__, it is build in something like `STP_BUILD_PATH="${BASE}/stp-${STP_VERSION}-build"` and installed into `STP_INSTALL_PATH="${BASE}/stp-${STP_VERSION}-install`. This allows us to have multiple software versions and differently optimized versions simultaneously on a system and link them appropriately.
 
-##### Using pre-built packages
+#### Using pre-built packages
 
 If a component can be provided as a pre-built package, the function `install_binary_artifact_COMPONENT()` can be specified similarly to the previous section. It should be defined in the most-specific systems file required.
 
-##### Checking if a component is installed
+#### Checking if a component is installed
 
 To handle pre-built packages and source-based installations, the `is_installed_COMPONENT` should be provided. Again, they can be specified in multiple files from more-specific systems files to least specific build files.
 
@@ -312,6 +315,6 @@ get_build_artifacts_stp() {
 The provided artifact directories are copied into a new `BASE_IMAGE` docker image to keep the overall size small.
 
 
-## Building Docker images for Travis CI
+## Building Docker images for GitHub Actions
 
-`scripts/build/build-travis-container.py` uses the `.travis.yml` file in the root directory to build all the images required for a Travis CI run. This takes a substantial amount of time and space (memory and disk space).
+`scripts/build/build-ci-container.py` uses the `build.yml` file in the `.github/workflows` directory to build all the images required for a CI run. This takes a substantial amount of time and space (memory and disk space).
