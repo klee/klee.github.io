@@ -1,0 +1,5 @@
+<map id="klee::MergeHandler::getPrioritizeState" name="klee::MergeHandler::getPrioritizeState">
+<area shape="rect" id="node1" title="Return state that should be prioritized to complete this merge." alt="" coords="5,39,140,80"/>
+<area shape="rect" id="node2" href="$classklee_1_1MergeHandler.html#a68b35bb8a327b8dd86f7e181c12bb8b9" title="Get distance of state from the openInstruction." alt="" coords="188,5,349,47"/>
+<area shape="rect" id="node3" href="$classklee_1_1MergeHandler.html#a59578126aed1b334ff6686e68e4f9924" title=" " alt="" coords="201,71,336,112"/>
+</map>

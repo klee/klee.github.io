@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classklee_1_1SolverImpl.html" title="SolverImpl &#45; Abstract base clase for solver implementations." alt="" coords="5,187,121,213"/>
+<area shape="rect" id="node2" href="$classCachingSolver.html" title=" " alt="" coords="205,5,312,32"/>
+<area shape="rect" id="node3" href="$classCexCachingSolver.html" title=" " alt="" coords="193,56,324,83"/>
+<area shape="rect" id="node4" href="$classIndependentSolver.html" title=" " alt="" coords="193,107,324,133"/>
+<area shape="rect" id="node5" href="$classQueryLoggingSolver.html" title=" " alt="" coords="189,157,328,184"/>
+<area shape="rect" id="node8" href="$classklee_1_1AssignmentValidatingSolver.html" title=" " alt="" coords="169,209,348,250"/>
+<area shape="rect" id="node9" href="$classklee_1_1DummySolverImpl.html" title=" " alt="" coords="177,275,340,301"/>
+<area shape="rect" id="node10" href="$classklee_1_1StagedSolverImpl.html" title=" " alt="" coords="180,325,337,352"/>
+<area shape="rect" id="node11" href="$classklee_1_1ValidatingSolver.html" title=" " alt="" coords="185,376,332,403"/>
+<area shape="rect" id="node6" href="$classKQueryLoggingSolver.html" title=" " alt="" coords="398,132,546,159"/>
+<area shape="rect" id="node7" href="$classSMTLIBLoggingSolver.html" title=" " alt="" coords="396,183,548,209"/>
+</map>

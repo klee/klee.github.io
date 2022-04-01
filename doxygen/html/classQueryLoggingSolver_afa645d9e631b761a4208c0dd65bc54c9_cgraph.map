@@ -1,0 +1,14 @@
+<map id="QueryLoggingSolver::computeInitialValues" name="QueryLoggingSolver::computeInitialValues">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,156,145"/>
+<area shape="rect" id="node2" href="$classklee_1_1SolverImpl.html#a60898d0151e50ae51058d570298639e6" title=" " alt="" coords="204,5,379,47"/>
+<area shape="rect" id="node3" href="$classQueryLoggingSolver.html#ab0a9e4b49b9c56e7a0e62ab013dc5102" title=" " alt="" coords="222,136,361,177"/>
+<area shape="rect" id="node6" href="$classQueryLoggingSolver.html#ad8fe69c29fd3e3c095955c5b7a24a881" title=" " alt="" coords="222,71,361,112"/>
+<area shape="rect" id="node8" href="$classQueryLoggingSolver.html#a450c9776266995cc5be6e166578da9a0" title=" " alt="" coords="222,201,361,243"/>
+<area shape="rect" id="node4" href="$classklee_1_1SolverImpl.html#ad9295e97141fbaea95f41f91206c6d8a" title="getOperationStatusCode &#45; get the status of the last solver operation" alt="" coords="427,19,625,60"/>
+<area shape="rect" id="node5" href="$namespaceklee_1_1time.html#abfc5c309b4945728c4fc944f8be27e1e" title="Returns point in time using a monotonic steady clock." alt="" coords="447,150,605,177"/>
+<area shape="rect" id="node7" href="$classQueryLoggingSolver.html#acd5f673db6a215375fdaa82f4cac0cbd" title=" " alt="" coords="442,84,610,125"/>
+<area shape="rect" id="node9" href="$classklee_1_1StatisticManager.html#a7835ad808c93087ee44f3e9f7e27163b" title=" " alt="" coords="450,201,602,243"/>
+<area shape="rect" id="node10" href="$classklee_1_1Statistic.html#a4545e080bac61456f110c69508658b5f" title="getValue &#45; Get the current primary statistic value." alt="" coords="446,267,606,294"/>
+<area shape="rect" id="node12" href="$classQueryLoggingSolver.html#a2d8c09f2e04a1da118b2bd5be639238c" title=" " alt="" coords="457,319,595,360"/>
+<area shape="rect" id="node11" href="$classklee_1_1StatisticManager.html#ac6464eca24978f9361352ddee34a2176" title=" " alt="" coords="673,260,825,301"/>
+</map>

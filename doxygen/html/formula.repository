@@ -1,0 +1,11 @@
+\_form#0=175x14:\[ \forall X constraints(X) \to query(X) \]
+\_form#1=13x10:$X$
+\_form#2=84x14:$constraints(X)$
+\_form#3=51x14:$query(X)$
+\_form#4=186x14:\[ \lnot \exists X constraints(X) \land \lnot query(X) \]
+\_form#5=176x14:\[ \exists X constraints(X) \land \lnot query(X) \]
+\_form#6=183x14:\[ \forall X constraints(X) \to \lnot query(X) \]
+\_form#7=176x14:\[ \lnot \exists X constraints(X) \land query(X) \]
+\_form#8=169x14:\[ \exists X constraints(X) \land query(X) \]
+\_form#9=191x14:\[ \lnot \forall X constraints(X) \to \lnot query(X) \]
+\_form#10=183x14:\[ \lnot \forall X constraints(X) \to query(X) \]
