@@ -16,7 +16,7 @@ is_release: false
 #
 # It would be nice if we could just do the right thing if `is_release` is set to
 # `true` but we can't do this in YAML.
-# exclude: ['README.md', 'COPYING', 'Gemfile', 'Gemfile.lock', 'releases']
+# exclude: ['README.md', 'COPYING', 'Gemfile', 'Gemfile.lock', 'doxygen', 'releases' ]
 exclude: ['README.md', 'COPYING', 'Gemfile', 'Gemfile.lock']
 
 plugins:
