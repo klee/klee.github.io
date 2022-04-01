@@ -1,0 +1,5 @@
+<map id="klee::MergeHandler::getInstructionDistance" name="klee::MergeHandler::getInstructionDistance">
+<area shape="rect" id="node1" title="Get distance of state from the openInstruction." alt="" coords="188,39,349,80"/>
+<area shape="rect" id="node2" href="$classklee_1_1MergeHandler.html#a1bebd99935f693fadf4c6c62c1967db6" title="Called when a state runs into a &#39;klee_close_merge()&#39; call." alt="" coords="5,5,140,47"/>
+<area shape="rect" id="node3" href="$classklee_1_1MergeHandler.html#ab0032ec790f17261519ab334f6dfd3e4" title="Return state that should be prioritized to complete this merge." alt="" coords="5,71,140,112"/>
+</map>

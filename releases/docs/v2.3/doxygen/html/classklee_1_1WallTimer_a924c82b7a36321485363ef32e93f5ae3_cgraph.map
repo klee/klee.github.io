@@ -1,0 +1,4 @@
+<map id="klee::WallTimer::delta" name="klee::WallTimer::delta">
+<area shape="rect" id="node1" title="Return the delta since the timer was created." alt="" coords="5,5,153,32"/>
+<area shape="rect" id="node2" href="$namespaceklee_1_1time.html#abfc5c309b4945728c4fc944f8be27e1e" title="Returns point in time using a monotonic steady clock." alt="" coords="201,5,360,32"/>
+</map>

@@ -1,0 +1,26 @@
+var classklee_1_1StatisticManager =
+[
+    [ "StatisticManager", "classklee_1_1StatisticManager.html#af37a0df64db60e1f24a13c73f4b69334", null ],
+    [ "~StatisticManager", "classklee_1_1StatisticManager.html#a469e40a0fa158c758b8638173d2634cc", null ],
+    [ "getContext", "classklee_1_1StatisticManager.html#ae91b8edd7078a04259c7a10c4823133e", null ],
+    [ "getIndex", "classklee_1_1StatisticManager.html#a5ebea26b3b673ad274f8b0c5657ffd25", null ],
+    [ "getIndexedValue", "classklee_1_1StatisticManager.html#aadee611338e0494a9125f79f3ca9422b", null ],
+    [ "getNumStatistics", "classklee_1_1StatisticManager.html#ad9b00b996b1d616b79daece5975bf376", null ],
+    [ "getStatistic", "classklee_1_1StatisticManager.html#a244072b723388d4982aae481e7ee95ce", null ],
+    [ "getStatisticByName", "classklee_1_1StatisticManager.html#a7835ad808c93087ee44f3e9f7e27163b", null ],
+    [ "getStatisticID", "classklee_1_1StatisticManager.html#a26035bba21bcb8f608199c0bef068df8", null ],
+    [ "getValue", "classklee_1_1StatisticManager.html#ac6464eca24978f9361352ddee34a2176", null ],
+    [ "incrementIndexedValue", "classklee_1_1StatisticManager.html#ad807f6e984451a4ba64c46ff65ed742a", null ],
+    [ "incrementStatistic", "classklee_1_1StatisticManager.html#a682d1282f755776b72813a9bf471d451", null ],
+    [ "registerStatistic", "classklee_1_1StatisticManager.html#ac06682cc46de6a6238d679886f996282", null ],
+    [ "setContext", "classklee_1_1StatisticManager.html#ad9af695c25fbe4614c17ce325ce28279", null ],
+    [ "setIndex", "classklee_1_1StatisticManager.html#a53945c7a9eb06449333a75c81891ba2a", null ],
+    [ "setIndexedValue", "classklee_1_1StatisticManager.html#a1073780e1fdc5fa14c32e6c43c1a434c", null ],
+    [ "useIndexedStats", "classklee_1_1StatisticManager.html#a88daa1bab319f6be8936e740dccf8429", null ],
+    [ "contextStats", "classklee_1_1StatisticManager.html#a0e6c914fd5627386a5b9e9e30325f831", null ],
+    [ "enabled", "classklee_1_1StatisticManager.html#aa62d4f107880c7c06112e2ded02f393d", null ],
+    [ "globalStats", "classklee_1_1StatisticManager.html#a4f0c15185f9bdd0f8f77bf58f2d5236f", null ],
+    [ "index", "classklee_1_1StatisticManager.html#ac2dbf386720e584139555a5553d18f4a", null ],
+    [ "indexedStats", "classklee_1_1StatisticManager.html#a3b0f9196771ed3e6a4ee6cca9d91394c", null ],
+    [ "stats", "classklee_1_1StatisticManager.html#a0ed7d1198c72f1eb9786085f30994d36", null ]
+];
