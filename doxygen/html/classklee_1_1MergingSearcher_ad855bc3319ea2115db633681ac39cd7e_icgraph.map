@@ -1,0 +1,5 @@
+<map id="klee::MergingSearcher::continueState" name="klee::MergingSearcher::continueState">
+<area shape="rect" id="node1" title="Continue a paused state." alt="" coords="371,5,523,47"/>
+<area shape="rect" id="node2" href="$classklee_1_1MergeHandler.html#a154e5009e0bb6872db5e509f61baf29a" title="Immediately release the merged states that have run into a &#39;klee_merge_close()&#39;." alt="" coords="188,5,323,47"/>
+<area shape="rect" id="node3" href="$classklee_1_1MergeHandler.html#a9a37b8a7ee8049bcf032eae950798a90" title=" " alt="" coords="5,5,140,47"/>
+</map>

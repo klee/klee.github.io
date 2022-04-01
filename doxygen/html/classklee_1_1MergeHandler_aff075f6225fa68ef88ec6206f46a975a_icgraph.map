@@ -1,0 +1,4 @@
+<map id="klee::MergeHandler::removeOpenState" name="klee::MergeHandler::removeOpenState">
+<area shape="rect" id="node1" title="Remove state from the &#39;openStates&#39; vector." alt="" coords="188,5,323,47"/>
+<area shape="rect" id="node2" href="$classklee_1_1MergeHandler.html#a1bebd99935f693fadf4c6c62c1967db6" title="Called when a state runs into a &#39;klee_close_merge()&#39; call." alt="" coords="5,5,140,47"/>
+</map>

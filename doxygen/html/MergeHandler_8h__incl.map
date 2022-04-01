@@ -1,0 +1,13 @@
+<map id="/Users/cristic/klee/lib/Core/MergeHandler.h" name="/Users/cristic/klee/lib/Core/MergeHandler.h">
+<area shape="rect" id="node1" title="Implementation of the region based merging." alt="" coords="473,5,639,47"/>
+<area shape="rect" id="node2" href="$Ref_8h.html" title="Implements smart&#45;pointer ref&lt;&gt; used by KLEE." alt="" coords="175,95,289,121"/>
+<area shape="rect" id="node8" title=" " alt="" coords="313,95,508,121"/>
+<area shape="rect" id="node9" title=" " alt="" coords="533,95,579,121"/>
+<area shape="rect" id="node10" title=" " alt="" coords="603,95,669,121"/>
+<area shape="rect" id="node11" title=" " alt="" coords="693,95,752,121"/>
+<area shape="rect" id="node3" href="$Casting_8h.html" title=" " alt="" coords="88,169,243,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="267,169,333,196"/>
+<area shape="rect" id="node4" href="$Version_8h.html" title=" " alt="" coords="5,244,152,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="176,244,331,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="9,319,148,345"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="klee::time::Span::Span" name="klee::time::Span::Span">
+<area shape="rect" id="node1" title="returns span from string in old (X.Y) and new (3h4min) format" alt="" coords="5,229,160,256"/>
+<area shape="rect" id="node2" href="$namespaceklee_1_1time.html#ab17e6b60a25d3ff39a7a0f10790dcfab" title="time spans" alt="" coords="233,29,351,56"/>
+<area shape="rect" id="node3" href="$namespaceklee.html#a9fc3412f84f6311a47ee5c794e517c52" title=" " alt="" coords="237,80,347,107"/>
+<area shape="rect" id="node7" href="$namespaceklee_1_1time.html#a170cb5af692fe9316f8a8716f9d3a26c" title=" " alt="" coords="208,155,376,181"/>
+<area shape="rect" id="node8" href="$namespaceklee_1_1time.html#aeb3f48136c748e6ca9755619bc6b8963" title=" " alt="" coords="213,229,371,256"/>
+<area shape="rect" id="node9" href="$namespaceklee_1_1time.html#a6d72b20b170b35b7956a3ad0f8323e03" title=" " alt="" coords="225,304,359,331"/>
+<area shape="rect" id="node10" href="$namespaceklee_1_1time.html#a6b420b823eab6f10dc987035680cbe26" title=" " alt="" coords="210,379,374,405"/>
+<area shape="rect" id="node11" href="$namespaceklee_1_1time.html#ae1d2a58caff3b097649d3d12923595e0" title=" " alt="" coords="224,453,360,480"/>
+<area shape="rect" id="node4" href="$ErrorHandling_8cpp.html#af16f3ef84676669ab4ebbee7f3974cd9" title=" " alt="" coords="424,80,537,107"/>
+<area shape="rect" id="node5" href="$ErrorHandling_8cpp.html#a05914663d2ebe92aa1f49cc3da4eaff0" title=" " alt="" coords="585,80,703,107"/>
+<area shape="rect" id="node6" href="$ErrorHandling_8cpp.html#aa953d8ca1fdedccea798e368359db823" title=" " alt="" coords="751,80,861,107"/>
+</map>
