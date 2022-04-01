@@ -29,3 +29,4 @@ slug: documentation
 1. [KQuery]({{site.baseurl}}/docs/kquery): The reference manual for the KQuery language, used for interacting with Kleaver.
 1. [Coreutils Experiments]({{site.baseurl}}/docs/coreutils-experiments): Some information about the Coreutils experiments presented in our [KLEE OSDI'08 paper](http://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf).
 1. [Developer's Guide]({{site.baseurl}}/docs/developers-guide/): A brief guide on working with the KLEE source code.
+1. [Doxygen]({{site.url}}/doxygen/html/):  Doxygen documentation (for release 2.3).
