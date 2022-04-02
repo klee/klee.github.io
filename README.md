@@ -48,13 +48,13 @@ The repository has old versions of the documentation in `releases/docs/`. To gen
  - Add the `doxygen` and `releases` folders to `exclude`
  - Set `current_version` to the new KLEE version
 
-2. Run the following command, where `<VERSION>` is the KLEE version:
+2. Run the following command, where `<VERSION>` is the KLEE version (e.g., "v2.3"):
 
 ```
 $ jekyll build -d releases/docs/<VERSION> --baseurl /releases/docs/<VERSION>
 ```
 
-3. Clear the changes made to `_config.yml` (e.g. by doing `git reset --hard`)
+3. Clear the changes made to `_config.yml`, except for the `current_version`
 4. Add `releases/docs/<VERSION>` to the repository
 5. Add an entry for the release in `releases/index.md`
 6. Commit the changes
