@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Developer's Guide &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v2.3/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v2.3/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v2.3/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v2.3/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v2.3/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v2.3/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v2.3/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v2.3/">
+        <img alt="KLEE" src="/releases/docs/v2.3/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li>
+      <a href="/releases/docs/v2.3/getting-started">Getting Started</a>
+    </li>
+    <li class="active">
+      <a href="/releases/docs/v2.3/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/tutorials">Tutorials</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v2.3">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 2.3
+</div>
+</a>
+
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Developer's Guide</h1>
+        <h2 class="editorial-header__subtitle">Working with KLEE source code</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <p class="toc toc__title no_toc">Contents</p>
+<ul class="toc__list list-anchor" id="markdown-toc">
+  <li><a href="#github-environment" id="markdown-toc-github-environment">GitHub Environment</a>    <ul>
+      <li><a href="#pull-requests" id="markdown-toc-pull-requests">Pull Requests</a></li>
+    </ul>
+  </li>
+  <li><a href="#build-system" id="markdown-toc-build-system">Build System</a>    <ul>
+      <li><a href="#setting-up-a-debug-build-of-klee" id="markdown-toc-setting-up-a-debug-build-of-klee">Setting up a debug build of KLEE</a></li>
+    </ul>
+  </li>
+  <li><a href="#source-overview" id="markdown-toc-source-overview">Source overview</a>    <ul>
+      <li><a href="#adding-a-class" id="markdown-toc-adding-a-class">Adding a class</a></li>
+      <li><a href="#tracing" id="markdown-toc-tracing">Tracing</a></li>
+      <li><a href="#building-code-documentation" id="markdown-toc-building-code-documentation">Building code documentation</a></li>
+    </ul>
+  </li>
+  <li><a href="#regression-testing-framework" id="markdown-toc-regression-testing-framework">Regression Testing Framework</a>    <ul>
+      <li><a href="#external-tests" id="markdown-toc-external-tests">External tests</a></li>
+      <li><a href="#internal-tests" id="markdown-toc-internal-tests">Internal tests</a></li>
+    </ul>
+  </li>
+  <li><a href="#run-time-libraries" id="markdown-toc-run-time-libraries">Run-time libraries</a>    <ul>
+      <li><a href="#adding-new-run-time-libraries" id="markdown-toc-adding-new-run-time-libraries">Adding new run-time libraries</a></li>
+      <li><a href="#add-new-architectures" id="markdown-toc-add-new-architectures">Add new architectures</a></li>
+      <li><a href="#add-new-optimizations" id="markdown-toc-add-new-optimizations">Add new optimizations</a></li>
+      <li><a href="#external-bitcode-libraries-uclibc-libc" id="markdown-toc-external-bitcode-libraries-uclibc-libc">External bitcode libraries: <code class="language-plaintext highlighter-rouge">uclibc</code>, <code class="language-plaintext highlighter-rouge">libc++</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#miscellaneous" id="markdown-toc-miscellaneous">Miscellaneous</a>    <ul>
+      <li><a href="#writing-messages-to-standard-error" id="markdown-toc-writing-messages-to-standard-error">Writing messages to standard error</a></li>
+      <li><a href="#adding-a-command-line-option-to-a-tool" id="markdown-toc-adding-a-command-line-option-to-a-tool">Adding a command line option to a tool</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="github-environment">GitHub Environment</h2>
+
+<p>KLEE’s codebase is currently hosted on <a href="https://github.com/klee/klee">GitHub</a>. For those unfamiliar with GitHub, a good starting point is <a href="https://help.github.com/categories/54/articles">here</a>.</p>
+
+<p>We are using a fork &amp; pull model in KLEE, based on pull requests. For those of you unfamiliar with the process, you can find more information <a href="https://help.github.com/articles/using-pull-requests">here</a>.</p>
+
+<h3 id="pull-requests">Pull Requests</h3>
+
+<p>When making a pull request, please ensure the following:</p>
+
+<ol>
+  <li>
+    <p><strong>PR addresses a single issue.</strong> In other words, if some parts of a PR could form another independent PR, you should break this PR into multiple smaller PRs.  This makes it easier to review and approve patches.</p>
+  </li>
+  <li>
+    <p><strong>There are no unnecessary commits.</strong> For instance, commits that fix issues with a previous commit in this PR are unnecessary and should be removed (you can find documentation on squashing commits <a href="https://github.com/edx/edx-platform/wiki/How-to-Rebase-a-Pull-Request#squash-your-changes">here</a>).</p>
+  </li>
+  <li>
+    <p><strong>Larger PRs are divided into a logical sequence of commits.</strong> Large PRs are much easier to review if they are broken down into a sequence of commits.</p>
+  </li>
+  <li>
+    <p><strong>Each commit has a meaningful message documenting what it does.</strong>  The commit message should add as a summary of its changes. Generic commits such as “More work” are obviously unhelpful.</p>
+  </li>
+  <li>
+    <p><strong>The code is commented.</strong> In particular, newly added classes and functions should be documented. New files should also include the standard KLEE header.</p>
+  </li>
+  <li>
+    <p><strong>The patch is formatted via clang-format.</strong> KLEE uses the LLVM style guide, which can be applied via <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>. You might also want to use <a href="https://raw.githubusercontent.com/llvm/llvm-project/master/clang/tools/clang-format/git-clang-format">git-clang-format</a> for Git integration.
+Please only format the patch itself and code surrounding the patch, not entire files.
+However, if the patch touches most of the code in a function, or most of the code in a file, it is fine (and recommended) to format the entire file.
+Divergences from clang-formatting are only rarely accepted, and only if they clearly improve code readability.</p>
+  </li>
+  <li>
+    <p><strong>Add test cases exercising the code you added or modified.</strong> We expect system and/or unit test cases for all non-trivial changes. After you submit your PR, you will be able to see a Codecov report telling you which parts of your patch are not covered by the regression test suite.  You will also be able to see if the Github Actions CI and Cirrus CI tests have passed. If they don’t, you should examine the failures and address them before the PR can be reviewed.</p>
+  </li>
+  <li>
+    <p><strong>Spellcheck all messages added to the codebase, all comments, as well as commit messages.</strong>  Make sure all messages added to the code (e.g. error messages, command-line options), all comments, and commit messages are spellchecked.</p>
+  </li>
+</ol>
+
+<h2 id="build-system">Build System</h2>
+
+<p>KLEE uses <a href="https://cmake.org/">cmake</a> as build system. The very basic build
+setup similar to what KLEE uses is presented in LLVM’s <a href="http://llvm.org/docs/WritingAnLLVMPass.html#setting-up-the-build-environment">Writing an LLVM pass
+tutorial</a>.</p>
+
+<p>LLVM’s build system supports out-of-source builds and so does KLEE.  It is
+highly recommended you take advantage of this. For example, you could create
+three builds (Release, Release with debug symbols, Debug) that all use the same
+source tree. This allows you to keep your source tree clean and to build with
+multiple configurations from a single source tree.</p>
+
+<h3 id="setting-up-a-debug-build-of-klee">Setting up a debug build of KLEE</h3>
+
+<p>Setting up a debug build of KLEE (we’ll assume it is an out-of-source build) is
+very similar to the build process described in <a href="/releases/docs/v2.3/getting-started">Getting
+Started</a>. KLEE uses standard <a href="http://llvm.org/docs/CMake.html#frequently-used-cmake-variables">LLVM build type
+idioms</a>, so
+building a Debug build means just setting the <code class="language-plaintext highlighter-rouge">CMAKE_BUILD_TYPE</code> variable to
+<code class="language-plaintext highlighter-rouge">Debug</code> for example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   cmake <span class="se">\</span>
+     <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Debug <span class="se">\</span>
+     <span class="nt">-DENABLE_SOLVER_STP</span><span class="o">=</span>ON <span class="se">\</span>
+     <span class="nt">-DENABLE_POSIX_RUNTIME</span><span class="o">=</span>ON <span class="se">\</span>
+     <span class="nt">-DENABLE_KLEE_UCLIBC</span><span class="o">=</span>ON <span class="se">\</span>
+     <span class="nt">-DKLEE_UCLIBC_PATH</span><span class="o">=</span>&lt;KLEE_UCLIBC_SOURCE_DIR&gt; <span class="se">\</span>
+     <span class="nt">-DGTEST_SRC_DIR</span><span class="o">=</span>&lt;GTEST_SOURCE_DIR&gt; <span class="se">\</span>
+     <span class="nt">-DENABLE_SYSTEM_TESTS</span><span class="o">=</span>ON <span class="se">\</span>
+     <span class="nt">-DENABLE_UNIT_TESTS</span><span class="o">=</span>ON <span class="se">\</span>
+     <span class="nt">-DLLVM_CONFIG_BINARY</span><span class="o">=</span>&lt;PATH_TO_LLVM_llvm-config&gt; <span class="se">\</span>
+     <span class="nt">-DLLVMCC</span><span class="o">=</span>&lt;PATH_TO_clang&gt; <span class="se">\</span>
+     <span class="nt">-DLLVMCXX</span><span class="o">=</span>&lt;PATH_TO_clang++&gt;
+     &lt;KLEE_SRC_DIRECTORY&gt;
+</code></pre></div></div>
+
+<p>The rest of the build process is exactly the same as in our build guides. Note
+that we only provide build guides for some popular LLVM versions, however KLEE
+builds with many more (at the time of writing LLVM 3.4 - LLVM 10).  The build
+process is exactly the same, cmake only needs <code class="language-plaintext highlighter-rouge">LLVM_CONFIG_BINARY</code>,
+<code class="language-plaintext highlighter-rouge">LLVMCC</code> and <code class="language-plaintext highlighter-rouge">LLVMCXX</code> to point to versions of LLVM you want to build with.</p>
+
+<p>Note that KLEE depends on LLVM and STP (and optionally Z3). If you need to
+debug KLEE’s calls to that code, then you will need to build LLVM/STP/Z3 with
+debug support too.</p>
+
+<h2 id="source-overview">Source overview</h2>
+
+<p>This section gives a brief overview of how KLEE’s source code is structured:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">include/</code> contains the publicly exported header files. That is header files
+that are accessible throughout the source code.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">tools/</code> has the <code class="language-plaintext highlighter-rouge">main</code> functions for all KLEE binaries in the <code class="language-plaintext highlighter-rouge">bin/</code>
+directory. Note that some are Python scripts.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">lib/</code> contains most of the code.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">lib/Core</code> contains code that interprets and executes the LLVM bitcode and
+KLEE’s memory model. The <code class="language-plaintext highlighter-rouge">Executor.cpp</code> class is usually a good starting
+point for any KLEE extension.</li>
+      <li><code class="language-plaintext highlighter-rouge">lib/Expr</code> has KLEE’s expression library.</li>
+      <li><code class="language-plaintext highlighter-rouge">lib/Solver</code> contains all the solvers (STP, Z3, MetaSMT) as well as all
+the solvers in the solver chain (Independent Solver and Counterexample
+Cache).</li>
+      <li><code class="language-plaintext highlighter-rouge">lib/Module</code> deals with manipulating the LLVM bitcode before it is
+executed. It links in the (POSIX) runtime functions, runs
+optimisations and other passes. Some of these put the LLVM bitcode in the state
+KLEE expects and insert some runtime checks (such as instrumenting the
+division operations to check for div by zero errors).</li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">runtime/</code> contains the various runtime KLEE supports. That is code that is
+linked in with the program KLEE analyses before execution.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">tests/</code> contains small C programs and LLVM bitcode that is used as a
+regression test suite for KLEE.</li>
+</ul>
+
+<h3 id="adding-a-class">Adding a class</h3>
+
+<p>Because KLEE uses LLVM’s build system, adding a class to an existing library in
+KLEE is very simple. For example, to add a class to libkleaverExpr
+(<code class="language-plaintext highlighter-rouge">lib/Expr</code>), the
+following steps would be followed:</p>
+
+<ol>
+  <li>
+    <p>Create the header file (<code class="language-plaintext highlighter-rouge">.h</code>) for the class and place it somewhere inside
+<code class="language-plaintext highlighter-rouge">include/</code> (the location isn’t really important except that <code class="language-plaintext highlighter-rouge">#include</code> is
+relative to the <code class="language-plaintext highlighter-rouge">include/</code> directory). Note that if you only require the
+header in the same directory you can also put it next to the source file (ie.
+<code class="language-plaintext highlighter-rouge">lib/Expr/</code>).</p>
+  </li>
+  <li>
+    <p>Create the source file (<code class="language-plaintext highlighter-rouge">.cpp</code>) for the class place it in <code class="language-plaintext highlighter-rouge">lib/Expr/</code>.</p>
+  </li>
+  <li>
+    <p>Add your <code class="language-plaintext highlighter-rouge">.cpp</code> file to the <code class="language-plaintext highlighter-rouge">lib/Expr/CMakeLists.txt</code> as an argument to
+the <code class="language-plaintext highlighter-rouge">klee_add_component</code> function.</p>
+  </li>
+</ol>
+
+<p>That’s it!</p>
+
+<h3 id="tracing">Tracing</h3>
+
+<p>KLEE provides macros that aid with tracing or “print debugging”.</p>
+
+<p><code class="language-plaintext highlighter-rouge">KLEE_DEBUG_WITH_TYPE(type, code);</code> which can be used as follows:</p>
+
+<pre><code class="language-C">#include "klee/Support/Debug.h"
+...
+KLEE_DEBUG_WITH_TYPE("my-feature",
+  llvm::errs() &lt;&lt; "Currently there are " &lt;&lt; states.size() &lt;&lt; "states\n";
+);
+</code></pre>
+
+<p>This code will be a noop unless <code class="language-plaintext highlighter-rouge">-debug-only=my-feature</code> flag is passed to KLEE, for example
+<code class="language-plaintext highlighter-rouge">klee -debug-only=my-feature myprog.bc</code>. Multiple types can be passed in a comma separated list: <code class="language-plaintext highlighter-rouge">-debug-only=my-feature1,my-feature2</code>.</p>
+
+<h3 id="building-code-documentation">Building code documentation</h3>
+
+<p>KLEE uses <a href="http://www.doxygen.org">Doxygen</a> to generate code documentation. To generate it yourself you can run the following from KLEE’s build directory root.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>make docs</code></pre></figure>
+
+<p>This will generate the documentation in <code class="language-plaintext highlighter-rouge">path/to/build-dir/docs/doxygen/</code>.</p>
+
+<h2 id="regression-testing-framework">Regression Testing Framework</h2>
+
+<p>KLEE uses LLVM’s testing infrastructure for its regression tests. In KLEE these are…</p>
+
+<ul>
+  <li>External tests executed by <a href="http://llvm.org/docs/CommandGuide/lit.html">llvm-lit</a>. These are the tests that are executed by the <code class="language-plaintext highlighter-rouge">make check</code> command. These test the KLEE tools externally.</li>
+  <li>Internal tests that are driven using <a href="https://code.google.com/p/googletest/">GoogleTest</a>. These are the tests that are executed by the <code class="language-plaintext highlighter-rouge">make unittests</code> command.  These test KLEE’s internal APIs.</li>
+</ul>
+
+<h3 id="external-tests">External tests</h3>
+
+<p><code class="language-plaintext highlighter-rouge">llvm-lit</code> is used to test KLEE’s tools by invoking them as shell commands.</p>
+
+<p>KLEE’s tests are currently divided into categories, each of which is a subdirectory in <code class="language-plaintext highlighter-rouge">test/</code> in the source tree (e.g. <code class="language-plaintext highlighter-rouge">test/Feature</code>).</p>
+
+<p><code class="language-plaintext highlighter-rouge">llvm-lit</code> is passed one or more paths to test files or directories which it will search recursively for tests. The <code class="language-plaintext highlighter-rouge">llvm-lit</code> tool needs to know what test-suite the tests belong to and how to run them. This information is in the <code class="language-plaintext highlighter-rouge">lit.site.cfg</code> (generated by the <code class="language-plaintext highlighter-rouge">Makefile</code>). This file itself refers to <code class="language-plaintext highlighter-rouge">lit.cfg</code> which tells <code class="language-plaintext highlighter-rouge">llvm-lit</code> how to run the test suite. At the time of writing the <code class="language-plaintext highlighter-rouge">lit.cfg</code> instructs <code class="language-plaintext highlighter-rouge">llvm-lit</code> to treat files with the following file extensions as tests:<code class="language-plaintext highlighter-rouge">.ll .c .cpp .kquery</code>.</p>
+
+<p>It is desirable to disable some tests (e.g. disable klee-uclibc tests if support was not compiled in) or change which file extensions to look for. This is done by adding a <code class="language-plaintext highlighter-rouge">lit.local.cfg</code> file to a directory which can be used to customise how tests in that directory are executed. For example to change the file extensions searched for to <code class="language-plaintext highlighter-rouge">.cxx</code> and <code class="language-plaintext highlighter-rouge">.txt</code> the following could be used in a <code class="language-plaintext highlighter-rouge">lit.local.cfg</code> file:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">config</span><span class="p">.</span><span class="n">suffixes</span> <span class="o">=</span> <span class="p">[</span><span class="s">'.cxx'</span><span class="p">,</span> <span class="s">'.txt'</span> <span class="p">]</span></code></pre></figure>
+
+<p>To disable execution of tests in a directory based on a condition you can
+mark them as unsupported by placing the following inside a
+<code class="language-plaintext highlighter-rouge">lit.local.cfg</code> file in that directory (where <code class="language-plaintext highlighter-rouge">some_condition</code> is any Python expression):</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">if</span> <span class="n">some_condition</span><span class="p">:</span>  <span class="n">config</span><span class="p">.</span><span class="n">unsupported</span> <span class="o">=</span> <span class="bp">True</span></code></pre></figure>
+
+<p>All <code class="language-plaintext highlighter-rouge">llvm-lit</code> configuration files are Python scripts loaded by <code class="language-plaintext highlighter-rouge">llvm-lit</code> so you have the full power of Python at your disposal.</p>
+
+<p>The actions performed in each test are specified by special comments in the file. For example, in <code class="language-plaintext highlighter-rouge">test/Feature/ByteSwap.c</code> the first two lines are:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// RUN: %clang %s -emit-llvm %O0opt -c -o %t1.bc</span>
+<span class="c1">// RUN: %klee --libc=klee --exit-on-error %t1.bc</span></code></pre></figure>
+
+<p>This first runs <code class="language-plaintext highlighter-rouge">clang</code> on the source file (<code class="language-plaintext highlighter-rouge">%s</code>) and generates a temporary file (<code class="language-plaintext highlighter-rouge">%t1.bc</code>). Then, KLEE symbolically executes this bitcode file with one of its runtimes (here <code class="language-plaintext highlighter-rouge">--libc=klee</code>). If either program returns a non-zero exit code (or crashes), the test is considered to have failed. More information on the available substitution variables (such as <code class="language-plaintext highlighter-rouge">%s</code>) can be found <a href="http://llvm.org/docs/TestingGuide.html#variables-and-substitutions">here</a>.</p>
+
+<p>For LLVM versions greater than 5.0 programs that are to be analysed with KLEE
+should not be compiled with <code class="language-plaintext highlighter-rouge">-O0</code>, since it disables KLEE’s ability to run
+optimisation passes. Therefore, we have the <code class="language-plaintext highlighter-rouge">%O0opt</code> variable, which
+substitutes to appropriate flags. At the time of writing these are: <code class="language-plaintext highlighter-rouge">-O0
+-Xclang -disable-O0-optnone</code>. For more details see this
+<a href="https://github.com/klee/klee/issues/902">issue</a>.</p>
+
+<p>To run the entire test suite run:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>path/to/klee/build/test
+<span class="nv">$ </span>make check</code></pre></figure>
+
+<p>or you can use <code class="language-plaintext highlighter-rouge">llvm-lit</code> directly</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>path/to/klee/build/test
+<span class="nv">$ </span>llvm-lit .</code></pre></figure>
+
+<p>If you want to run a subset of the test suite simply pass the filenames of the tests or directories to search for tests to <code class="language-plaintext highlighter-rouge">llvm-lit</code>. For example the commands below will execute the <code class="language-plaintext highlighter-rouge">Feature/DoubleFree.c</code> and <code class="language-plaintext highlighter-rouge">CXX/ArrayNew.cpp</code> test and all tests nested in the <code class="language-plaintext highlighter-rouge">regression/</code> folder.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>path/to/klee/build/test
+<span class="nv">$ </span>llvm-lit Feature/DoubleFree.c CXX/ArrayNew.cpp  regression/</code></pre></figure>
+
+<p>Sometimes it can be useful to pass extra command line options to <code class="language-plaintext highlighter-rouge">klee</code> or <code class="language-plaintext highlighter-rouge">kleaver</code> when running tests. This could be used for example to quickly see if changing the default value for a command line option changes the passing/failing of a test. This is <strong>not</strong> a substitute for writing new tests for <code class="language-plaintext highlighter-rouge">klee</code> or <code class="language-plaintext highlighter-rouge">kleaver</code>! If you add a new feature that is exposed by a new command line option a new test should be added that tests this behaviour.</p>
+
+<p>Here is an example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd test</span>/
+<span class="nv">$ </span>llvm-lit <span class="nt">--param</span> <span class="nv">klee_opts</span><span class="o">=</span><span class="nt">-use-forked-solver</span><span class="o">=</span>0 <span class="nt">--param</span> <span class="nv">kleaver_opts</span><span class="o">=</span><span class="s2">"-use-forked-solver=0 -use-query-log=all:smt2"</span> .</code></pre></figure>
+
+<p>In this example when running <code class="language-plaintext highlighter-rouge">klee</code> in tests an extra option <code class="language-plaintext highlighter-rouge">-use-forked-solver=0</code> is passed to <code class="language-plaintext highlighter-rouge">klee</code> and when running <code class="language-plaintext highlighter-rouge">kleaver</code> the <code class="language-plaintext highlighter-rouge">-use-forked-solver=0</code> and <code class="language-plaintext highlighter-rouge">-use-query-log=all:smt2</code> options will be passed to <code class="language-plaintext highlighter-rouge">kleaver</code>. It is important to realise if the test already invokes <code class="language-plaintext highlighter-rouge">klee</code> or <code class="language-plaintext highlighter-rouge">kleaver</code> with a particular option you will not be able to override that option because the <code class="language-plaintext highlighter-rouge">klee_opts</code> and <code class="language-plaintext highlighter-rouge">kleaver_opts</code> are substituted just after the tool name so subsequent options used in the test will override these.</p>
+
+<p>For more information on <code class="language-plaintext highlighter-rouge">llvm-lit</code> tests see <a href="http://llvm.org/docs/TestingGuide.html#id1">LLVM’s testing infrastructure documentation</a> and the <a href="http://llvm.org/docs/CommandGuide/lit.html"><code class="language-plaintext highlighter-rouge">llvm-lit</code> tool documentation</a>.</p>
+
+<h3 id="internal-tests">Internal tests</h3>
+
+<p>These tests are located in <code class="language-plaintext highlighter-rouge">unittests/</code> and can be executed by running:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>path/to/klee/build
+<span class="nv">$ </span>make unittests</code></pre></figure>
+
+<p>These test use <a href="https://code.google.com/p/googletest/">Google’s C++ testing framework</a> and is well <a href="https://code.google.com/p/googletest/wiki/Documentation">documented</a>.</p>
+
+<h2 id="run-time-libraries">Run-time libraries</h2>
+
+<p>KLEE provides a set of different run-time libraries that can be selected to augment the software under test. To support this, runtime libraries are meant to be independent of the actual architecture KLEE is running on.
+Therefore, when KLEE is built, a set of differently configured runtime libraries is built as well.
+Currently, every combination of the supported architectures (32bit x86, 64bit x86) and different optimisations: <code class="language-plaintext highlighter-rouge">Release</code>, <code class="language-plaintext highlighter-rouge">Release+Debug</code>, <code class="language-plaintext highlighter-rouge">Release+Debug+Asserts</code>, <code class="language-plaintext highlighter-rouge">Debug+Asserts</code>, and <code class="language-plaintext highlighter-rouge">Debug</code> is pre-built.</p>
+
+<p>These pre-built libraries can be found in the build directory (<code class="language-plaintext highlighter-rouge">build/runtime/lib</code>) and have the following pattern: <code class="language-plaintext highlighter-rouge">libklee</code>+<code class="language-plaintext highlighter-rouge">MyLibrary</code>+<code class="language-plaintext highlighter-rouge">architecture</code>+<code class="language-plaintext highlighter-rouge">optimisation</code>+<code class="language-plaintext highlighter-rouge">.bca</code>.</p>
+
+<p>During runtime, KLEE detects for which platform the software under test was compiled and the user can select the level of optimisation to link with and override the default with <code class="language-plaintext highlighter-rouge">klee --runtime-build=Release+Debug</code>. During startup, KLEE links against this specific setup.</p>
+
+<h3 id="adding-new-run-time-libraries">Adding new run-time libraries</h3>
+
+<p>To add a new library (e.g, <code class="language-plaintext highlighter-rouge">MyLibrary</code>), place the directory containing the library below the <code class="language-plaintext highlighter-rouge">runtime/</code> directory, e.g. <code class="language-plaintext highlighter-rouge">runtime/MyLibrary</code>.</p>
+
+<p>Add the following code to <code class="language-plaintext highlighter-rouge">runtime/CMakeLists.txt</code> to make CMake aware of additional subdirectories:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add_subdirectory(MyLibrary)
+</code></pre></div></div>
+
+<p>and add the same library to the list of <code class="language-plaintext highlighter-rouge">RUNTIME_LIBRARIES</code>, i.e.:
+<code class="language-plaintext highlighter-rouge">list(APPEND RUNTIME_LIBRARIES MyLibrary)</code></p>
+
+<p>Add a file <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code> to <code class="language-plaintext highlighter-rouge">runtime/MyLibrary</code> that follows a similar structure as <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code> in other sub-directories of <code class="language-plaintext highlighter-rouge">runtime/MyLibrary</code>, e.g.:</p>
+
+<ul>
+  <li>set <code class="language-plaintext highlighter-rouge">LIB_PREFIX</code> to the name of your library:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set(LIB_PREFIX "MyLibrary")
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>set <code class="language-plaintext highlighter-rouge">SRC_FILES</code> to all <code class="language-plaintext highlighter-rouge">.c</code> or <code class="language-plaintext highlighter-rouge">.cpp</code> files that are part of this library</p>
+  </li>
+  <li>set additional flags, if needed, as arguments of the  <code class="language-plaintext highlighter-rouge">add_bitcode_library_targets</code> function call</li>
+</ul>
+
+<h3 id="add-new-architectures">Add new architectures</h3>
+
+<p>Modify <code class="language-plaintext highlighter-rouge">runtime/CMakeLists.txt</code> to add a new architecture at <code class="language-plaintext highlighter-rouge">bc_architecture</code> and add specific compiler flags int the following <code class="language-plaintext highlighter-rouge">foreach</code> loop.</p>
+
+<p>Modify <code class="language-plaintext highlighter-rouge">tools/klee/main.cpp</code> to add appropriate architecture detection as well.</p>
+
+<h3 id="add-new-optimizations">Add new optimizations</h3>
+
+<p>Fancy a new way the provided runtime libraries should be pre-compiled (e.g., <code class="language-plaintext highlighter-rouge">MyFancyOptimization</code>)?</p>
+
+<p>Add the name for the new optimization at the beginning of <code class="language-plaintext highlighter-rouge">runtime/CMakeLists.txt</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list(APPEND available_klee_runtime_build_types MyFancyOptimization)
+</code></pre></div></div>
+
+<p>And add the specific optimization inside of the <code class="language-plaintext highlighter-rouge">foreach</code> loop at the beginning of the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>elseif (bc_optimization STREQUAL "MyFancyOptimization")
+            list(APPEND local_flags -O42 -g)
+</code></pre></div></div>
+
+<h3 id="external-bitcode-libraries-uclibc-libc">External bitcode libraries: <code class="language-plaintext highlighter-rouge">uclibc</code>, <code class="language-plaintext highlighter-rouge">libc++</code></h3>
+
+<p>KLEE utilizes bitcode libraries that are not generating while compiling KLEE, e.g. <code class="language-plaintext highlighter-rouge">libc++</code> or <code class="language-plaintext highlighter-rouge">uclibc</code>.
+KLEE searches for run-time libraries in install and build paths. These are hard-coded to the binary, so if the filesystem tree changes, KLEE will not find them until recompiled. This behaviour can be overridden by setting KLEE_RUNTIME_LIBRARY_PATH environment variable to the path to the libraries.</p>
+
+<h2 id="miscellaneous">Miscellaneous</h2>
+
+<h3 id="writing-messages-to-standard-error">Writing messages to standard error</h3>
+
+<p>The kleeCore library (<code class="language-plaintext highlighter-rouge">lib/Core</code>) provides several functions that can be used similarly to <code class="language-plaintext highlighter-rouge">printf()</code> in C. See <code class="language-plaintext highlighter-rouge">include/klee/Support/ErrorHandling.h</code> for more information.</p>
+
+<h3 id="adding-a-command-line-option-to-a-tool">Adding a command line option to a tool</h3>
+
+<p>KLEE uses LLVM’s CommandLine library for adding options to tools in KLEE, which is well documented <a href="http://llvm.org/docs/CommandLine.html">here</a>. See <code class="language-plaintext highlighter-rouge">lib/Core/Executor.cpp</code> for examples.</p>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v2.3/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/doxygen/html/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee/klee/actions">GitHub Actions</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v2.3
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2022, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v2.3/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
