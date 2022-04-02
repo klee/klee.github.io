@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Intrinsics &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v2.3/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v2.3/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v2.3/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v2.3/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v2.3/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v2.3/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v2.3/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v2.3/">
+        <img alt="KLEE" src="/releases/docs/v2.3/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li>
+      <a href="/releases/docs/v2.3/getting-started">Getting Started</a>
+    </li>
+    <li class="active">
+      <a href="/releases/docs/v2.3/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/tutorials">Tutorials</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v2.3">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 2.3
+</div>
+</a>
+
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Intrinsics</h1>
+        <h2 class="editorial-header__subtitle">Overview of the main KLEE intrinsic functions</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <p class="toc toc__title no_toc">Contents</p>
+<ul class="toc__list list-anchor" id="markdown-toc">
+  <li><a href="#klee_assumecondition" id="markdown-toc-klee_assumecondition"><code class="language-plaintext highlighter-rouge">klee_assume(condition)</code></a>    <ul>
+      <li><a href="#usage" id="markdown-toc-usage">Usage</a></li>
+      <li><a href="#interaction-with-short-circuit-operators" id="markdown-toc-interaction-with-short-circuit-operators">Interaction with short-circuit operators</a></li>
+    </ul>
+  </li>
+  <li><a href="#klee_prefer_cexobject-condition" id="markdown-toc-klee_prefer_cexobject-condition"><code class="language-plaintext highlighter-rouge">klee_prefer_cex(object, condition)</code></a></li>
+</ul>
+
+<p>KLEE provides a set of special functions which are useful in the context of symbolic execution. Whenever a program calls one of these functions, KLEE handles internally the call, hence their intrinsic nature. The functions are declared in <code class="language-plaintext highlighter-rouge">include/klee/klee.h</code>. The most often used intrinsic is <a href="/releases/docs/v2.3/tutorials/testing-function">klee_make_symbolic</a>, which creates an unconstrained symbolic object.</p>
+
+<h2 id="klee_assumecondition"><code class="language-plaintext highlighter-rouge">klee_assume(condition)</code></h2>
+
+<h3 id="usage">Usage</h3>
+
+<p><code class="language-plaintext highlighter-rouge">klee_assume(condition)</code> is used to constrain the values symbolic variables can take. The remainder of the program’s execution will only consider variable values which satisfy <em>condition</em>. Conceptually, <code class="language-plaintext highlighter-rouge">klee_assume(condition)</code> is equivalent to wrapping the rest of the program in an <code class="language-plaintext highlighter-rouge">if(condition){ }</code> statement, except that the former prints an error if the condition is unsatisfiable. Technically speaking, <code class="language-plaintext highlighter-rouge">klee_assume(condition)</code> adds <em>condition</em> to the current path constraints.</p>
+
+<h3 id="interaction-with-short-circuit-operators">Interaction with short-circuit operators</h3>
+
+<p>When <em>condition</em> contains <a href="https://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit operators</a>, the results of the <code class="language-plaintext highlighter-rouge">klee_assume</code> intrinsics may come unexpected. For example, consider the following code and the corresponding KLEE output:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include "klee/klee.h"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">;</span>
+  <span class="n">klee_make_symbolic</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="s">"c"</span><span class="p">);</span>
+  <span class="n">klee_make_symbolic</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="s">"d"</span><span class="p">);</span>
+
+  <span class="n">klee_assume</span><span class="p">((</span><span class="n">c</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">d</span><span class="o">==</span><span class="mi">3</span><span class="p">));</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>clang <span class="nt">-O0</span> <span class="nt">-I</span> klee_path/include/ <span class="nt">-g</span> <span class="nt">-c</span> <span class="nt">-emit-llvm</span> p.c <span class="nt">-o</span> p.bc
+<span class="nv">$ </span>klee p.bc
+KLEE: output directory is <span class="s2">"/path/klee-out-0"</span>
+KLEE: Using STP solver backend
+KLEE: ERROR: /path/p.c:8: invalid klee_assume call <span class="o">(</span>provably <span class="nb">false</span><span class="o">)</span>
+KLEE: NOTE: now ignoring this error at this location
+
+KLEE: <span class="k">done</span>: total instructions <span class="o">=</span> 23
+KLEE: <span class="k">done</span>: completed paths <span class="o">=</span> 2
+KLEE: <span class="k">done</span>: generated tests <span class="o">=</span> 2</code></pre></figure>
+
+<p>One might reasonably expect a single path through the program, while KLEE finds 2 paths.
+The reason lies in the way compilers handle short-circuit operators.
+Upon compilation, the above code is transformed into LLVM bitcode similar to the following C code:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include "klee/klee.h"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">;</span>
+  <span class="n">klee_make_symbolic</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="s">"c"</span><span class="p">);</span>
+  <span class="n">klee_make_symbolic</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="s">"d"</span><span class="p">);</span>
+  
+  <span class="kt">int</span> <span class="n">tmp</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> 
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="k">else</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="n">klee_assume</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Since the program contains two paths and both are feasible, <code class="language-plaintext highlighter-rouge">klee_assume</code> will be called two times: once with the comparison expression “d == 3” and once with the trivial constant argument “0”.
+As “0” is equivalent to <em>false</em> and no path can satisfy this condition, KLEE prints out an error message and terminates the corresponding path.</p>
+
+<p>More aggressive optimisations (e.g. <code class="language-plaintext highlighter-rouge">-Os</code>) reduce the program to a single path and <code class="language-plaintext highlighter-rouge">klee_assume</code> is called once with the expression “c == 2 &amp;&amp; d == 3” as expected.
+Remember, symbolic execution engines use expressions internally to represent computations over symbolic variables.
+The C API of <code class="language-plaintext highlighter-rouge">klee_assume</code> still requires a boolean condition.</p>
+
+<p>As a side note, it is also possible to obtain the ‘one path’-behaviour by replacing the logical <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> and <code class="language-plaintext highlighter-rouge">||</code> operators with their bitwise counterparts.
+To correctly do this, ensure that all operands have boolean values and no side effects.</p>
+
+<p>Note: the output was obtained after compilation with Clang 6.
+Other compilers/versions may yield slightly different results.</p>
+
+<h2 id="klee_prefer_cexobject-condition"><code class="language-plaintext highlighter-rouge">klee_prefer_cex(object, condition)</code></h2>
+
+<p>This function tells KLEE to prefer certain values when generating test cases as output. A KLEE state can correspond to many different possible test cases. For example, in this code:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">char</span> <span class="n">input</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="n">klee_make_symbolic</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">input</span><span class="p">),</span> <span class="s">"input"</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'Q'</span><span class="p">);</span></code></pre></figure>
+
+<p>KLEE will have a single failing state that corresponds to <code class="language-plaintext highlighter-rouge">input = "aaaa"</code>, <code class="language-plaintext highlighter-rouge">input = "1234"</code>, and every other input that fails the assertion. Normally, when KLEE generates a test case for this failure, it can choose any of these valid inputs. The result could be <code class="language-plaintext highlighter-rouge">input = "\0\0\0\0"</code> or <code class="language-plaintext highlighter-rouge">input = "\xff\xff\xff\xff"</code> or some other unreadable value. We can make it more readable by using <code class="language-plaintext highlighter-rouge">klee_prefer_cex</code> after <code class="language-plaintext highlighter-rouge">klee_make_symbolic</code>:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="n">klee_prefer_cex</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="mi">32</span> <span class="o">&lt;=</span> <span class="n">input</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">input</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">126</span><span class="p">);</span> <span class="c1">// assume ASCII</span></code></pre></figure>
+
+<p><strong>NOTE:</strong> Only use <code class="language-plaintext highlighter-rouge">klee_prefer_cex</code> immediately after a <code class="language-plaintext highlighter-rouge">klee_make_symbolic</code> call.  It currently cannot be used after a <code class="language-plaintext highlighter-rouge">klee_range</code> call.</p>
+
+<p>Now, when KLEE has a choice between many possible test cases, it will prefer to use printable characters when possible. When KLEE finds paths that conflict with the <code class="language-plaintext highlighter-rouge">klee_prefer_cex</code> condition, it will ignore the preference and generate (potentially unreadable) test cases anyway.</p>
+
+<p>The POSIX runtime uses <code class="language-plaintext highlighter-rouge">klee_prefer_cex</code> internally, in particular to prefer printable characters in symbolic command-line arguments.  To enable this option, use <code class="language-plaintext highlighter-rouge">-readable-posix-inputs</code>.  It is disabled by default, as <code class="language-plaintext highlighter-rouge">klee_prefer_cex</code> can be expensive when used extensively.</p>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v2.3/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/doxygen/html/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee/klee/actions">GitHub Actions</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v2.3
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2022, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v2.3/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

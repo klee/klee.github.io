@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Options &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v2.3/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v2.3/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v2.3/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v2.3/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v2.3/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v2.3/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v2.3/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v2.3/">
+        <img alt="KLEE" src="/releases/docs/v2.3/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li>
+      <a href="/releases/docs/v2.3/getting-started">Getting Started</a>
+    </li>
+    <li class="active">
+      <a href="/releases/docs/v2.3/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/tutorials">Tutorials</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v2.3">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 2.3
+</div>
+</a>
+
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Options</h1>
+        <h2 class="editorial-header__subtitle">Overview of KLEE’s main command-line options</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <p class="toc toc__title no_toc">Contents</p>
+<ul class="toc__list list-anchor" id="markdown-toc">
+  <li><a href="#klee-usage" id="markdown-toc-klee-usage">KLEE usage</a></li>
+  <li><a href="#klee-output" id="markdown-toc-klee-output">KLEE Output</a></li>
+  <li><a href="#symbolic-environment" id="markdown-toc-symbolic-environment">Symbolic Environment</a></li>
+  <li><a href="#search-heuristics" id="markdown-toc-search-heuristics">Search Heuristics</a>    <ul>
+      <li><a href="#main-search-heuristics" id="markdown-toc-main-search-heuristics">Main search heuristics</a></li>
+      <li><a href="#interleaving-search-heuristics" id="markdown-toc-interleaving-search-heuristics">Interleaving search heuristics</a></li>
+      <li><a href="#batching-search-heuristics" id="markdown-toc-batching-search-heuristics">Batching search heuristics</a></li>
+      <li><a href="#default-search-heuristics" id="markdown-toc-default-search-heuristics">Default search heuristics</a></li>
+    </ul>
+  </li>
+  <li><a href="#constraint-solving-options" id="markdown-toc-constraint-solving-options">Constraint Solving Options</a></li>
+  <li><a href="#external-call-policy" id="markdown-toc-external-call-policy">External Call Policy</a></li>
+  <li><a href="#startup-options" id="markdown-toc-startup-options">Startup Options</a></li>
+  <li><a href="#calls-to-klee_assume" id="markdown-toc-calls-to-klee_assume">Calls to <code class="language-plaintext highlighter-rouge">klee_assume</code></a></li>
+  <li><a href="#statistics" id="markdown-toc-statistics">Statistics</a></li>
+  <li><a href="#klee-debug" id="markdown-toc-klee-debug">KLEE debug</a></li>
+  <li><a href="#memory-management" id="markdown-toc-memory-management">Memory Management</a></li>
+  <li><a href="#making-klee-exit-on-events" id="markdown-toc-making-klee-exit-on-events">Making KLEE Exit on Events</a></li>
+  <li><a href="#linking-external-libraries" id="markdown-toc-linking-external-libraries">Linking External Libraries</a></li>
+</ul>
+
+<h2 id="klee-usage">KLEE usage</h2>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>klee <span class="o">[</span>klee-options] &lt;program.bc&gt; <span class="o">[</span>program-options]</code></pre></figure>
+
+<p>The general form of a KLEE command-line is: first the arguments to KLEE itself (<code class="language-plaintext highlighter-rouge">[klee-options]</code>), then the LLVM bitcode file to execute (<code class="language-plaintext highlighter-rouge">program.bc</code>), followed by any arguments to pass to the application (<code class="language-plaintext highlighter-rouge">[program-options]</code>).
+In particular, the KLEE option <code class="language-plaintext highlighter-rouge">-posix-runtime</code> enables the use of the symbolic environment options as part of the program’s options.</p>
+
+<p>Note that to enable integer overflow detection, you need to have built <code class="language-plaintext highlighter-rouge">program.bc</code> using <code class="language-plaintext highlighter-rouge">clang</code> with the option <code class="language-plaintext highlighter-rouge">-fsanitize=signed-integer-overflow</code> for signed integer overflow, and with the option <code class="language-plaintext highlighter-rouge">-fsanitize=unsigned-integer-overflow</code> for unsigned integer overflow. These <code class="language-plaintext highlighter-rouge">clang</code> options instrument <code class="language-plaintext highlighter-rouge">program.bc</code> with overflow checks that are used by KLEE.</p>
+
+<p>To get a complete list of KLEE’s command-line options run: <code class="language-plaintext highlighter-rouge">klee --help</code>. The remainder of this page illustrate KLEE’s main command-line options.</p>
+
+<h2 id="klee-output">KLEE Output</h2>
+
+<p>The files generated by KLEE are discussed <a href="/releases/docs/v2.3/docs/files">here</a>.</p>
+
+<p>By default KLEE outputs warnings both on screen and in the file <code class="language-plaintext highlighter-rouge">klee-last/warnings.txt</code>.  To output the warnings only to the file, and not on screen, one can use:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>klee <span class="nt">--warnings-only-to-file</span> ...</code></pre></figure>
+
+<h2 id="symbolic-environment">Symbolic Environment</h2>
+
+<p>KLEE provides several options as part of its symbolic environment:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">-sym-arg &lt;N&gt;</code> - Replace by a symbolic argument with length N.</li>
+  <li><code class="language-plaintext highlighter-rouge">-sym-args &lt;MIN&gt; &lt;MAX&gt; &lt;N&gt;</code> - Replace by at least MIN arguments and at most MAX arguments, each with maximum length N.</li>
+  <li><code class="language-plaintext highlighter-rouge">-sym-files &lt;NUM&gt; &lt;N&gt;</code> - Make NUM symbolic files (‘A’, ‘B’, ‘C’, etc.), each with size N (excluding stdin)</li>
+  <li><code class="language-plaintext highlighter-rouge">-sym-stdin &lt;N&gt;</code> - Make stdin symbolic with size N.</li>
+  <li><code class="language-plaintext highlighter-rouge">-sym-stdout</code> - Make stdout symbolic.</li>
+  <li><code class="language-plaintext highlighter-rouge">-save-all-writes</code> - Allow write operations to execute as expected even if they exceed the file size (<em>default=on</em>). When <em>off</em>, all writes exceeding the initial file size are discarded. <strong>Note:</strong> file offset is <em>always</em> incremented.</li>
+  <li><code class="language-plaintext highlighter-rouge">-max-fail &lt;N&gt;</code> - Allow up to N injected failures.</li>
+  <li><code class="language-plaintext highlighter-rouge">-fd-fail</code> - Shortcut for ‘-max-fail 1’.</li>
+</ol>
+
+<p>Usage examples for <code class="language-plaintext highlighter-rouge">-sym-arg</code> and <code class="language-plaintext highlighter-rouge">-sym-files</code> are provided in <a href="/releases/docs/v2.3/tutorials/using-symbolic/">this tutorial</a>.</p>
+
+<h2 id="search-heuristics">Search Heuristics</h2>
+
+<h3 id="main-search-heuristics">Main search heuristics</h3>
+
+<p>KLEE provides four main search heuristics:</p>
+
+<ol>
+  <li><strong>Depth-First Search (DFS):</strong> Traverses states in depth-first order.</li>
+  <li><strong>Random State Search:</strong> Randomly selects a state to explore.</li>
+  <li><strong>Random Path Selection:</strong> Described in our <a href="http://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf">KLEE OSDI’08</a> paper.</li>
+  <li><strong>Non Uniform Random Search (NURS):</strong> Selects a state randomly according to a given distribution. The distribution can be based on the minimum distance to an uncovered instruction (MD2U), the query cost, etc.</li>
+</ol>
+
+<p>To select a search heuristic, use the <code class="language-plaintext highlighter-rouge">--search</code> option provided by KLEE. For example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>klee <span class="nt">--search</span><span class="o">=</span>dfs demo.o</code></pre></figure>
+
+<p>runs <code class="language-plaintext highlighter-rouge">demo.o</code> using DFS, while</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>klee <span class="nt">--search</span><span class="o">=</span>random-path demo.o</code></pre></figure>
+
+<p>runs it using the random path selection strategy. The full list of options is shown in KLEE’s help message:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ klee --help
+-search - Specify the search heuristic (default=random-path interleaved with nurs:covnew)
+  =dfs - use Depth First Search (DFS)
+  =random-state - randomly select a state to explore
+  =random-path - use Random Path Selection (see OSDI'08 paper)
+  =nurs:covnew - use Non Uniform Random Search (NURS) with Coverage-New heuristic
+  =nurs:md2u - use NURS with Min-Dist-to-Uncovered heuristic
+  =nurs:depth - use NURS with 2^depth heuristic
+  =nurs:icnt - use NURS with Instr-Count heuristic
+  =nurs:cpicnt - use NURS with CallPath-Instr-Count heuristic
+  =nurs:qc - use NURS with Query-Cost heuristic
+</code></pre></div></div>
+
+<h3 id="interleaving-search-heuristics">Interleaving search heuristics</h3>
+
+<p>Search heuristics in KLEE can be interleaved in a round-robin fashion. To interleave several search heuristics, use the <code class="language-plaintext highlighter-rouge">--search</code> option multiple times. For example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>klee <span class="nt">--search</span><span class="o">=</span>random-state <span class="nt">--search</span><span class="o">=</span>nurs:md2u demo.o</code></pre></figure>
+
+<p>interleaves the Random State and the NURS:MD2U heuristics in a round robin fashion.</p>
+
+<h3 id="batching-search-heuristics">Batching search heuristics</h3>
+
+<p>The main interpreter loop in KLEE selects a new state after every executed instruction.
+To execute multiple instructions before selecting another state, the <code class="language-plaintext highlighter-rouge">-use-batching-search</code> flag can be enabled.
+Further options allow to specify the batch size by number of instructions (e.g. <code class="language-plaintext highlighter-rouge">-batch-instructions=1000</code>) or execution time (e.g. <code class="language-plaintext highlighter-rouge">-batch-time=5s</code>).</p>
+
+<h3 id="default-search-heuristics">Default search heuristics</h3>
+
+<p>The default heuristics used by KLEE are <code class="language-plaintext highlighter-rouge">random-path</code> interleaved with <code class="language-plaintext highlighter-rouge">nurs:covnew</code>.</p>
+
+<h2 id="constraint-solving-options">Constraint Solving Options</h2>
+
+<p>The constraint solving options are documented separately on the <a href="/releases/docs/v2.3/docs/solver-chain/">Solver Chain</a> page.</p>
+
+<h2 id="external-call-policy">External Call Policy</h2>
+
+<p>KLEE provides three policies for handling calls to external functions:</p>
+
+<ol>
+  <li>
+    <p><strong>None</strong>: No external function calls are allowed.  Note that KLEE always allows some external calls with concrete arguments to go through (in particular <code class="language-plaintext highlighter-rouge">printf</code> and <code class="language-plaintext highlighter-rouge">puts</code>), regardless of this option.</p>
+  </li>
+  <li>
+    <p><strong>Concrete</strong>:  Only external function calls with concrete arguments are allowed (default)</p>
+  </li>
+  <li>
+    <p><strong>All</strong>: All external function calls are allowed.  This concretizes any symbolic arguments in calls to external functions.</p>
+  </li>
+</ol>
+
+<p>The external call policy can be specified with the option <code class="language-plaintext highlighter-rouge">--external-calls</code>, which can be set to one of <code class="language-plaintext highlighter-rouge">none</code>, <code class="language-plaintext highlighter-rouge">concrete</code> or <code class="language-plaintext highlighter-rouge">all</code> (e.g., <code class="language-plaintext highlighter-rouge">--external-calls=all</code>).</p>
+
+<p>Warnings about external calls can be controlled via:</p>
+
+<ul>
+  <li><em>–all-external-warnings</em>: Issue a warning every time an external call is made, as opposed to once per function (default=off)</li>
+  <li><em>–suppress-external-warnings</em>: Suppress warnings about calling external functions</li>
+</ul>
+
+<h2 id="startup-options">Startup Options</h2>
+
+<p>These following options affect how execution is started:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">--entry-point=&lt;function_name&gt;</code>: Execution will start from this function instead of <code class="language-plaintext highlighter-rouge">main</code></li>
+  <li><code class="language-plaintext highlighter-rouge">--env-file=&lt;file_name&gt;</code>: Execution will start by initializing the environment from the given file (in “env” format)</li>
+  <li><code class="language-plaintext highlighter-rouge">--optimize</code>: optimizes the code before execution by running various compiler optimization passes (default=false)</li>
+  <li><code class="language-plaintext highlighter-rouge">--output-dir=&lt;dir_name&gt;</code>: Directory in which to write results (default=klee-out-<N>)</N></li>
+  <li><code class="language-plaintext highlighter-rouge">--run-in-dir=&lt;dir_name&gt;</code>: Change to the given directory before starting execution (default=location of tested file).</li>
+</ol>
+
+<h2 id="calls-to-klee_assume">Calls to <code class="language-plaintext highlighter-rouge">klee_assume</code></h2>
+
+<p>By default, KLEE will report an error if the assumed condition is infeasible. The option <code class="language-plaintext highlighter-rouge">-silent-klee-assume</code> can be used to silently terminate the current path exploration in such cases.</p>
+
+<h2 id="statistics">Statistics</h2>
+
+<p>KLEE generates two files containing statistics concerning the code exploration:</p>
+
+<ul>
+  <li><strong>run.stats</strong>: This is a text file containing various statistics emitted by KLEE. While this file can be inspected manually, you should use the <a href="/releases/docs/v2.3/docs/tools">klee-stats</a> tool for that.</li>
+  <li><strong>run.istats</strong>: This is a text file in Callgrind format containing global statistics emitted by KLEE for each line of code in the program. This file can be inspected with frontends which are able to read it (e.g. <a href="https://kcachegrind.github.io/">kcachegrind</a>)</li>
+</ul>
+
+<p>There are several options to modify how KLEE outputs statistics:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-stats</code>                             - Enable statistics output from program (<em>default=on</em>)</li>
+  <li><code class="language-plaintext highlighter-rouge">-output-stats</code>                      - Write running stats trace file (<em>default=on</em>)</li>
+  <li><code class="language-plaintext highlighter-rouge">-output-istats</code>                     - Write instruction level statistics in callgrind format (<em>default=on</em>)</li>
+  <li><code class="language-plaintext highlighter-rouge">-stats-write-interval=TIME</code>         - Approximate number of seconds between stats writes (<em>default=1.0s</em>)</li>
+  <li><code class="language-plaintext highlighter-rouge">-istats-write-interval=TIME</code>        - Approximate number of seconds between istats writes (<em>default=10.0s</em>)</li>
+  <li><code class="language-plaintext highlighter-rouge">-stats-write-after-instructions=N</code>  - Write statistics after each <code class="language-plaintext highlighter-rouge">N</code> instructions, 0 to disable (<em>default=0</em>)</li>
+  <li><code class="language-plaintext highlighter-rouge">-istats-write-after-instructions=N</code> - Write istats after each <code class="language-plaintext highlighter-rouge">N</code> instructions, 0 to disable (<em>default=0</em>)</li>
+</ul>
+
+<h2 id="klee-debug">KLEE debug</h2>
+
+<p>KLEE provides several debugging options:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">-debug-print-instructions=FORMAT</code>     - Log the LLVM instructions executed by KLEE (<em>default=off</em>).</p>
+
+    <p>The output may include: the source code file and line (<code class="language-plaintext highlighter-rouge">src</code>), the instruction identifier as assigned by KLEE (<code class="language-plaintext highlighter-rouge">inst_id</code>), and the LLVM instruction with debugging informations (<code class="language-plaintext highlighter-rouge">llvm_inst</code>). The output format can be controlled with the following options:</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">=all:stderr</code>     - Log all instructions to stderr in format <code class="language-plaintext highlighter-rouge">[src, inst_id, llvm_inst]</code></li>
+      <li><code class="language-plaintext highlighter-rouge">=src:stderr</code>     - Log all instructions to stderr in format <code class="language-plaintext highlighter-rouge">[src, inst_id]</code></li>
+      <li><code class="language-plaintext highlighter-rouge">=compact:stderr</code> - Log all instructions to stderr in format <code class="language-plaintext highlighter-rouge">[inst_id]</code></li>
+      <li><code class="language-plaintext highlighter-rouge">=all:file</code>       - Log all instructions to file instructions.txt in format <code class="language-plaintext highlighter-rouge">[src, inst_id, llvm_inst]</code></li>
+      <li><code class="language-plaintext highlighter-rouge">=src:file</code>       - Log all instructions to file instructions.txt in format <code class="language-plaintext highlighter-rouge">[src, inst_id]</code></li>
+      <li><code class="language-plaintext highlighter-rouge">=compact:file</code>   - Log all instructions to file instructions.txt in format <code class="language-plaintext highlighter-rouge">[inst_id]</code></li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">-debug-compress-instructions</code>  - Compress the <code class="language-plaintext highlighter-rouge">instructions.txt</code> file (<em>default=off</em>)</p>
+  </li>
+</ul>
+
+<h2 id="memory-management">Memory Management</h2>
+
+<p>KLEE explicitly intercepts calls for memory management (like <code class="language-plaintext highlighter-rouge">malloc()</code> and <code class="language-plaintext highlighter-rouge">free()</code>) and forwards them to a memory allocator.
+To change this behaviour, following options are provided:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--allocate-determ</code>                  - Enable support to allocate memory deterministically for the executed application (<em>default=off</em>)</li>
+  <li><code class="language-plaintext highlighter-rouge">--allocate-determ-size</code>             - For deterministic allocation, the buffer of the specified size is pre-allocated in MB (<em>default=100</em>)</li>
+  <li><code class="language-plaintext highlighter-rouge">--allocate-determ-start-address</code>    - Controls the required start address of the pre-allocated memory. This address has to be page aligned. If null is provided, the memory is mapped to an arbitrary address.</li>
+  <li><code class="language-plaintext highlighter-rouge">--return-null-on-zero-malloc</code>       - Controls if a NULL pointer should be returned in case the size argument is zero (<em>default=off</em>)</li>
+  <li><code class="language-plaintext highlighter-rouge">--red-zone-space</code>                   - Controls the space kept unused between two adjacent allocations in byte (<em>default=10</em>)</li>
+</ul>
+
+<p><em>Deterministic allocation</em> here means that KLEE internally uses <code class="language-plaintext highlighter-rouge">mmap</code> to pre-allocate memory at a fixed address.
+All allocations are then placed in this memory area.
+The advantage is that repeated executions of a program create the same addresses and the same queries.
+Obviously, this only works when the state selection heuristic between runs is identical and the same states are killed when KLEE runs out of memory.</p>
+
+<h2 id="making-klee-exit-on-events">Making KLEE Exit on Events</h2>
+
+<p>KLEE does not exit if a bug is found in the analyzed application by default. On
+the other hand, KLEE implicitly exits on some failures. This behaviour can be
+changed by the following options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-exit-on-error</code>                     - Exit on the first arbitrary error.</li>
+  <li><code class="language-plaintext highlighter-rouge">-exit-on-error-type=TYPE</code>           - Exit on the first error of type <code class="language-plaintext highlighter-rouge">TYPE</code>. This parameter can be repeated to exit after more types. <code class="language-plaintext highlighter-rouge">TYPE</code> can one of the following:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">=Abort</code>       - The program crashed</li>
+      <li><code class="language-plaintext highlighter-rouge">=Assert</code>      - An assertion was hit</li>
+      <li><code class="language-plaintext highlighter-rouge">=Exec</code>        - Trying to execute an unexpected instruction</li>
+      <li><code class="language-plaintext highlighter-rouge">=External</code>    - External objects referenced</li>
+      <li><code class="language-plaintext highlighter-rouge">=Free</code>        - Freeing invalid memory</li>
+      <li><code class="language-plaintext highlighter-rouge">=Model</code>       - Memory model limit hit</li>
+      <li><code class="language-plaintext highlighter-rouge">=Overflow</code>    - An overflow occurred</li>
+      <li><code class="language-plaintext highlighter-rouge">=Ptr</code>         - Pointer error</li>
+      <li><code class="language-plaintext highlighter-rouge">=ReadOnly</code>    - Write to read-only memory</li>
+      <li><code class="language-plaintext highlighter-rouge">=ReportError</code> - <code class="language-plaintext highlighter-rouge">klee_report_error</code> called</li>
+      <li><code class="language-plaintext highlighter-rouge">=User</code>        - Wrong <code class="language-plaintext highlighter-rouge">klee_*</code> functions invocation</li>
+      <li><code class="language-plaintext highlighter-rouge">=Unhandled</code>   - Unhandled instruction hit</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">-ignore-solver-failures</code>            - Do not exit upon solver failure.</li>
+</ul>
+
+<p>Examples:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">klee <span class="nt">-exit-on-error</span> input.bc</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">klee <span class="nt">-exit-on-error-type</span><span class="o">=</span>Assert <span class="nt">-exit-on-error-type</span><span class="o">=</span>Ptr input.bc</code></pre></figure>
+
+<h2 id="linking-external-libraries">Linking External Libraries</h2>
+
+<p>Definitions of undefined functions are taken from files given using the option
+<code class="language-plaintext highlighter-rouge">-link-llvm-lib</code>.</p>
+
+<p>If some functions in the input file are defined in an external LLVM IR file, an
+archive (.a) of LLVM IR files, or a shared object with LLVM IR code, these
+external files can be <em>linked in</em> using the option <code class="language-plaintext highlighter-rouge">-link-llvm-lib=LIB_FILENAME</code>.</p>
+
+<p>For example, the following command runs KLEE on the program <code class="language-plaintext highlighter-rouge">test.bc</code>, linking
+a helper library:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>klee <span class="nt">-link-llvm-lib</span><span class="o">=</span>libhelper.so.bc test.bc</code></pre></figure>
+
+<p>The option can be provided multiple times. For instance, linking two libraries,
+helper and helper2, can be done with the following command:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>klee <span class="nt">-link-llvm-lib</span><span class="o">=</span>libhelper.so.bc <span class="nt">-link-llvm-lib</span><span class="o">=</span>libhelper2.so.bc test.bc</code></pre></figure>
+
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v2.3/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/doxygen/html/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee/klee/actions">GitHub Actions</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v2.3
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2022, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v2.3/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Building KLEE and its Dependencies &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v2.3/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v2.3/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v2.3/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v2.3/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v2.3/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v2.3/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v2.3/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v2.3/">
+        <img alt="KLEE" src="/releases/docs/v2.3/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li class="active">
+      <a href="/releases/docs/v2.3/getting-started">Getting Started</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/tutorials">Tutorials</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v2.3">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 2.3
+</div>
+</a>
+
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Building KLEE and its Dependencies</h1>
+        <h2 class="editorial-header__subtitle">The build infrastructure for KLEE</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <h1 id="building-klee-and-its-dependencies">Building KLEE and its dependencies</h1>
+
+<p>KLEE is a symbolic execution framework that can be built with a multitude of different components (compiler infrastructure: multiple LLVM versions, solvers: STP, Z3, MetaSMT) and run on a variety of systems (e.g., Linux (Ubuntu), macOS, FreeBSD).</p>
+
+<p>Managing and building the different combinations of dependencies can be tedious. Moreover, not all the different requested versions of each dependency are available for every system. To simplify this process, we provide a build script <code class="language-plaintext highlighter-rouge">scripts/build/build.sh</code> that allows you to manage those tasks automatically.</p>
+
+<h2 id="tldr">TL;DR</h2>
+
+<p>To locally build a reasonable configuration and install all dependencies, use the following options:</p>
+
+<ul>
+  <li>LLVM: 11</li>
+  <li>Solvers: STP and Z3</li>
+  <li>uclibc: to test applications with systems interaction</li>
+  <li>libc++: to test C++ applications</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ BASE=$HOME/klee_deps COVERAGE=0 ENABLE_DOXYGEN=0 USE_TCMALLOC=1 LLVM_VERSION=11 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=0 DISABLE_ASSERTIONS=1 REQUIRES_RTTI=1 SOLVERS=STP:Z3 GTEST_VERSION=1.11.0 UCLIBC_VERSION=klee_0_9_29 TCMALLOC_VERSION=2.9.1 SANITIZER_BUILD= STP_VERSION=master MINISAT_VERSION=master Z3_VERSION=4.8.15 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee --install-system-deps
+</code></pre></div></div>
+
+<h2 id="users">Users</h2>
+
+<p>To get started, check out the KLEE source code:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/klee/klee.git
+$ cd klee
+</code></pre></div></div>
+
+<p>Start the build script with <code class="language-plaintext highlighter-rouge">./scripts/build/build.sh</code> to get an overview of the available options.</p>
+
+<p>The output looks like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>build.sh [--docker] [--keep-dockerfile] [--install-system-deps] component*
+Available components:
+clang
+gtest
+klee
+libcxx
+llvm
+metasmt
+sanitizer
+sanitizer_compiler
+solvers
+sqlite
+stp
+tcmalloc
+uclibc
+z3
+</code></pre></div></div>
+
+<h3 id="invoking-the-script---installing-a-solver">Invoking the script - installing a solver</h3>
+
+<p>The script builds components (e.g., <code class="language-plaintext highlighter-rouge">solver</code>) and their dependencies. KLEE is handled as one component as well (i.e., <code class="language-plaintext highlighter-rouge">klee</code>).</p>
+
+<p>Every component might require configuration options. If the script is invoked, but not all the necessary options are provided, the user is informed.</p>
+
+<p><code class="language-plaintext highlighter-rouge">./scripts/build/build.sh solvers</code> generates:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SOLVERS Required but unset
+</code></pre></div></div>
+
+<p>Prepending the script call with the option fixes that: <code class="language-plaintext highlighter-rouge">SOLVERS="stp" ./scripts/build/build.sh solvers</code> will ask for additional variables.</p>
+
+<p>The most crucial variable is <code class="language-plaintext highlighter-rouge">BASE</code>. This defines where components are installed if they are not part of system software.</p>
+
+<p>A full invocation to install STP (version 2.3.3) with minisat as SAT solver (version git master) could be :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ BASE="$HOME/klee_deps" MINISAT_VERSION="master" STP_VERSION="2.3.3" SOLVERS="stp" ./scripts/build/build.sh solvers
+</code></pre></div></div>
+
+<p>If the build was successful, all the sources and build artifacts can be found in the <code class="language-plaintext highlighter-rouge">$BASE</code> directory.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls $BASE
+minisat minisat-build minisat-install stp-2.3.3 stp-2.3.3-build stp-2.3.3-install
+</code></pre></div></div>
+
+<p>If builds fail, build dependencies might be missing.
+To fix this - assuming your system is supported - the script can be suffixed with: ` –install-system-deps`.
+In this case, the required packages will be installed.
+Similarly, if specific packages for the system are available, the script will try to install them instead of compiling them from scratch.</p>
+
+<h4 id="getting-inspired-by-the-ci-builds">Getting inspired by the CI Builds</h4>
+
+<p>To test KLEE, we build different software combinations. The <code class="language-plaintext highlighter-rouge">.github/workflows/build.yaml</code> file reflects those combinations.</p>
+
+<p>Everything under <code class="language-plaintext highlighter-rouge">env</code> specifies the default configuration we use.
+Every configuration under <code class="language-plaintext highlighter-rouge">jobs</code> overrides a specific option.
+Use those options to mix and match your required setup.</p>
+
+<p>To locally build our standard configuration, use the following option:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=11 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.11.0 UCLIBC_VERSION=klee_uclibc_v1.2 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= STP_VERSION=2.3.3 MINISAT_VERSION=master Z3_VERSION=4.8.14 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee
+</code></pre></div></div>
+
+<p>For example, to have address sanitized builds with LLVM 7.0 use:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ SANITIZER_BUILD=address DISABLE_ASSERTIONS=0 ENABLE_OPTIMIZED=0 USE_TCMALLOC=0 SOLVERS=STP USE_LIBCXX=0 LLVM_VERSION=7.0 STP_VERSION="2.3.3" ENABLE_DEBUG=1 UCLIBC_VERSION=klee_uclibc_v1.2 REQUIRES_RTTI=0 ./scripts/build/build.sh klee
+</code></pre></div></div>
+
+<h4 id="mix-and-match">Mix and Match</h4>
+
+<p>Different versions and build setups can be built and used in parallel.
+Every component gets a version and a build-type suffix. This allows you to re-use and combine different setups and use KLEE with varying versions of any component.</p>
+
+<h3 id="docker">Docker</h3>
+
+<p>Besides, the script allows building docker images of KLEE.
+For that, append <code class="language-plaintext highlighter-rouge">--docker</code> to the script invocation. The only variable required is <code class="language-plaintext highlighter-rouge">BASE_IMAGE</code>, which refers to the docker image used as a base system, e.g., <code class="language-plaintext highlighter-rouge">ubuntu:bionic-20200807</code>.</p>
+
+<p>Internally, the different independent components will be built as separate docker images and combined for the final image.</p>
+
+<p>For your docker repository, provide the <code class="language-plaintext highlighter-rouge">REPOSITORY</code> as an argument.
+Use the default <code class="language-plaintext highlighter-rouge">REPOSITORY=klee</code> to utilize KLEE’s upstream images.</p>
+
+<h2 id="developers">Developers</h2>
+
+<p>The build scripts provide a framework that can be extended easily.</p>
+
+<p>The basic idea is to describe different components that are required to build a specific artifact.</p>
+
+<p>All the required elements are in the <code class="language-plaintext highlighter-rouge">scripts/build/</code> directory or beneath.</p>
+
+<p>The main build script <code class="language-plaintext highlighter-rouge">build.sh</code> automatically uses components that are available in the same directory. Every component is described with a set of <code class="language-plaintext highlighter-rouge">*.inc</code> files.</p>
+
+<h3 id="how-to-add-a-new-component">How to add a new component?</h3>
+
+<p>A component consists of two parts: a required virtual description (<code class="language-plaintext highlighter-rouge">v-COMPONENT.inc</code>) and optional build description that are platform-specific (<code class="language-plaintext highlighter-rouge">p-COMPONENT-PLATFORM.inc</code>).</p>
+
+<p>The build script automatically detects under which platform it runs (e.g., Linux, macOS, …), which platform-specific versions (e.g., Debian, Ubuntu, …), and which version number (e.g., Ubuntu 16.04, Ubuntu 18.04, …).</p>
+
+<p>This platform information is used to resort to required build instructions from the most platform-specific version to the least.</p>
+
+<p>As example, to build the <strong>STP</strong> solver, <code class="language-plaintext highlighter-rouge">build.sh</code> finds the general component information in <code class="language-plaintext highlighter-rouge">v-stp.inc</code>. To build STP under a Linux Ubuntu 20.04, the build script will try to acquire information from <code class="language-plaintext highlighter-rouge">p-stp-linux-ubuntu-20.04.inc</code>, which it won’t find. In subsequent steps, it will try to resolve functionality from <code class="language-plaintext highlighter-rouge">p-stp-linux-ubuntu.inc</code>, then <code class="language-plaintext highlighter-rouge">p-stp-linux.inc</code> and last <code class="language-plaintext highlighter-rouge">p-stp.inc</code>.</p>
+
+<p>Due to the nature of bash, all component-specific functions are suffixed with <code class="language-plaintext highlighter-rouge">_COMPONENT</code> to avoid name clashes and re-definitions.</p>
+
+<h4 id="the-virtual-description-of-component">The virtual description of <code class="language-plaintext highlighter-rouge">COMPONENT</code></h4>
+
+<p>We will use <strong>STP</strong> as an example of how to add a new package.</p>
+
+<p>The virtual description file contains specific instructions that are necessary to describe the package.</p>
+
+<h4 id="required-variables">Required Variables</h4>
+
+<p>For example, the version number of a component is important.
+To require such information, a function or array <code class="language-plaintext highlighter-rouge">required_variables_COMPONENT=()</code> is added to the <code class="language-plaintext highlighter-rouge">v-COMPONENT.inc</code> file. The <code class="language-plaintext highlighter-rouge">build.sh</code> script will check if such an argument is provided before starting the build process.</p>
+
+<p>For STP, the <code class="language-plaintext highlighter-rouge">STP_VERSION</code> and <code class="language-plaintext highlighter-rouge">MINISAT_VERSION</code> is required, e.g.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>required_variables_stp=(
+  "STP_VERSION"
+  "MINISAT_VERSION"
+  )
+</code></pre></div></div>
+
+<p>If no additional information is required, an empty array can be used.
+Bash-specifics require it to have one entry:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>required_variables_stp=("")
+</code></pre></div></div>
+
+<p>To validate if required variables have a specific schema, e.g., a boolean value is provided, the <code class="language-plaintext highlighter-rouge">required_variables_check_COMPONENT() {}</code> function can be provided.</p>
+
+<p>For example, for the meta-package <strong>SOLVERS</strong>, which references potential solvers, the package checks if the user-provided variable contains a valid solver, i.e., <em>z3</em>, <em>stp</em>, or <em>metasmt</em>.</p>
+
+<h4 id="artifact-dependencies">Artifact dependencies</h4>
+
+<p>To specify the dependencies of components, <code class="language-plaintext highlighter-rouge">artifact_dependency_COMPONENT</code> should be used. In the case of <strong>SOLVERS</strong>, the selected solvers become dependents.</p>
+
+<h4 id="providing-build-instructions">Providing build instructions</h4>
+
+<p>Build instructions define how a component is provided.</p>
+
+<p>It uses the following steps that can be customized as described later:</p>
+
+<ol>
+  <li>Setup general variables to support each of the following steps (<code class="language-plaintext highlighter-rouge">setup_artifact_variables_COMPONENT()</code>)</li>
+  <li>Check if the artifact is already available in the build environment, i.e., it was built already or is pre-installed (<code class="language-plaintext highlighter-rouge">is_installed_COMPONENT()</code>).</li>
+  <li>Install a package that contains the artifact, e.g., a pre-compiled binary version (<code class="language-plaintext highlighter-rouge">install_binary_artifact_COMPONENT()</code>)</li>
+  <li>Setup build variables (<code class="language-plaintext highlighter-rouge">setup_build_variables_COMPONENT()</code>)</li>
+  <li>Install build dependencies (<code class="language-plaintext highlighter-rouge">install_build_dependencies_COMPONENT()</code>)</li>
+  <li>Download source code for component (<code class="language-plaintext highlighter-rouge">download_COMPONENT</code>)</li>
+  <li>Build component (<code class="language-plaintext highlighter-rouge">build_COMPONENT</code>)</li>
+  <li>Install component (<code class="language-plaintext highlighter-rouge">install_COMPONENT</code>)</li>
+</ol>
+
+<p>In a nutshell, if the component is not available, try to get a pre-built version or built it.</p>
+
+<h4 id="building-from-source">Building from source</h4>
+
+<p>Let’s start with the case that the package has to be built from scratch. For this, the last four steps are needed, and the associated functions should be added to the <code class="language-plaintext highlighter-rouge">p-COMPONENT.inc</code> file if needed.</p>
+
+<p>For <strong>STP</strong>, <code class="language-plaintext highlighter-rouge">setup_build_variables_stp()</code> in <code class="language-plaintext highlighter-rouge">p-stp.inc</code> will provide different build variables required for the next steps.</p>
+
+<p>To download (<code class="language-plaintext highlighter-rouge">download_stp</code>), build (<code class="language-plaintext highlighter-rouge">build_stp</code>), and (<code class="language-plaintext highlighter-rouge">install_stp</code>) provide each function. To speed up the build process, many functions should be guarded, e.g.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>download_COMPONENT() {
+  // Check if downloaded already
+  [[ - f "{BASE}/COMPONENT/.downloaded"]] &amp;&amp; return 0
+
+  // Do an expensive download
+
+  // Mark as downloaded
+  touch "{BASE}/COMPONENT/.downloaded"
+}
+</code></pre></div></div>
+
+<p>This helps to save bandwidth and compile time.</p>
+
+<p>Building software will often require build dependencies installed.
+But this depends on the specific system where the software is built.</p>
+
+<p>To install these dependencies, write an <code class="language-plaintext highlighter-rouge">install_build_dependencies_COMPONENT()</code> function in the system-specific file.</p>
+
+<p>For example, if the compiler is <code class="language-plaintext highlighter-rouge">clang</code> and the build system is <code class="language-plaintext highlighter-rouge">cmake</code>, the following files could be provided like in the following examples:</p>
+
+<ul>
+  <li>Specific Ubuntu version: <code class="language-plaintext highlighter-rouge">p-stp-linux-ubuntu-18.04.inc</code>:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install_build_dependencies_stp() {
+apt -y --no-install-recommends install clang-8 cmake
+}
+</code></pre></div>    </div>
+  </li>
+  <li>Any Ubuntu: <code class="language-plaintext highlighter-rouge">p-stp-linux-ubuntu.inc</code>:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install_build_dependencies_stp() {
+apt -y --no-install-recommends install clang cmake
+}
+</code></pre></div>    </div>
+  </li>
+  <li>Arch: <code class="language-plaintext highlighter-rouge">p-stp-linux-arch.inc</code>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install_build_dependencies_stp() {
+pacman -S clang cmake
+}
+</code></pre></div>    </div>
+  </li>
+  <li>macOS: <code class="language-plaintext highlighter-rouge">p-stp-osx.inc</code>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install_build_dependencies_stp() {
+brew install clang@8 cmake
+}
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>The install script tries to find a satisfying function depending on the system and the provided instructions by evaluating the most specific to the least specific version. With the previously defined functions, on Ubuntu 20.04, the script will use the more general <code class="language-plaintext highlighter-rouge">p-stp-linux-ubuntu.inc</code> as a <code class="language-plaintext highlighter-rouge">p-stp-linux-ubuntu-20.04.inc</code> is not available.</p>
+
+<p>To foster reusability, source-built components should not be installed into systems directories, instead, they should be kept in separate directories.
+For example, for <strong>STP</strong>, it is build in something like <code class="language-plaintext highlighter-rouge">STP_BUILD_PATH="${BASE}/stp-${STP_VERSION}-build"</code> and installed into <code class="language-plaintext highlighter-rouge">STP_INSTALL_PATH="${BASE}/stp-${STP_VERSION}-install</code>. This allows us to have multiple software versions and differently optimized versions simultaneously on a system and link them appropriately.</p>
+
+<h4 id="using-pre-built-packages">Using pre-built packages</h4>
+
+<p>If a component can be provided as a pre-built package, the function <code class="language-plaintext highlighter-rouge">install_binary_artifact_COMPONENT()</code> can be specified similarly to the previous section. It should be defined in the most-specific systems file required.</p>
+
+<h4 id="checking-if-a-component-is-installed">Checking if a component is installed</h4>
+
+<p>To handle pre-built packages and source-based installations, the <code class="language-plaintext highlighter-rouge">is_installed_COMPONENT</code> should be provided. Again, they can be specified in multiple files from more-specific systems files to least specific build files.</p>
+
+<p>For example, for Ubuntu:</p>
+
+<ul>
+  <li>Specific Ubuntu version: <code class="language-plaintext highlighter-rouge">p-stp-linux-ubuntu-16.04.inc</code>:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>is_installed_stp() {
+# Check if library exists
+[[ -f "/usr/lib/libstp.so" ]] &amp;&amp; return 0
+
+# Not found
+return 1
+}
+</code></pre></div>    </div>
+  </li>
+  <li>General : <code class="language-plaintext highlighter-rouge">p-stp.inc</code>:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>is_installed_stp() {
+# Check if library exists
+[[ -f "{STP_INSTALL_PATH}/lib/libstp.so" ]] &amp;&amp; return 0
+
+# Not found
+return 1
+}
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="dockerizing-components">Dockerizing components</h3>
+
+<p>To save time re-compiling code, components can be dockerized:
+If <code class="language-plaintext highlighter-rouge">build.sh</code> is executed with <code class="language-plaintext highlighter-rouge">--docker</code>, the script will use dockerized components if possible; otherwise, it will install or compile components inside the docker environment.</p>
+
+<p>To enable this functionality, two functions have to be provided: <code class="language-plaintext highlighter-rouge">get_docker_config_id_COMPONENT()</code> and <code class="language-plaintext highlighter-rouge">get_build_artifacts_COMPONENT()</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">get_docker_config_id_COMPONENT</code> provides the name of the artifact that the build script should look for, e.g., a version string or build configuration.
+The build script tries to access the docker image: <code class="language-plaintext highlighter-rouge">${REPOSITORY}/${COMPONENT}:${ID}</code>, if found it will be added as a dependency of the current docker environment.</p>
+
+<p>For example, if KLEE should be built and depends on STP version 2.3.3, <code class="language-plaintext highlighter-rouge">klee/stp:2.3.3_ubuntu</code> is added as a dependent image if available. The built artifact is transferred from the dependent image into the target image.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">get_build_artifacts_COMPONENT()</code> function is specified to describe which build results should be kept. As an example, in the case of <strong>STP</strong>, neither the source nor the build directory is of interest; only the files installed are important. The following code provides the installation directories of <em>MiniSAT</em> and <em>STP</em>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_build_artifacts_stp() {
+  (
+    echo "${MINISAT_INSTALL_PATH}"
+    echo "${STP_INSTALL_PATH}"
+  )
+}
+</code></pre></div></div>
+
+<p>The provided artifact directories are copied into a new <code class="language-plaintext highlighter-rouge">BASE_IMAGE</code> docker image to keep the overall size small.</p>
+
+<h2 id="building-docker-images-for-github-actions">Building Docker images for GitHub Actions</h2>
+
+<p><code class="language-plaintext highlighter-rouge">scripts/build/build-ci-container.py</code> uses the <code class="language-plaintext highlighter-rouge">build.yml</code> file in the <code class="language-plaintext highlighter-rouge">.github/workflows</code> directory to build all the images required for a CI run. This takes a substantial amount of time and space (memory and disk space).</p>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v2.3/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/doxygen/html/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee/klee/actions">GitHub Actions</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v2.3
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2022, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v2.3/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

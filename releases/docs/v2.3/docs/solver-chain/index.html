@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Solver Chain &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v2.3/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v2.3/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v2.3/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v2.3/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v2.3/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v2.3/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v2.3/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v2.3/">
+        <img alt="KLEE" src="/releases/docs/v2.3/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li>
+      <a href="/releases/docs/v2.3/getting-started">Getting Started</a>
+    </li>
+    <li class="active">
+      <a href="/releases/docs/v2.3/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/tutorials">Tutorials</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v2.3/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v2.3">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 2.3
+</div>
+</a>
+
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Solver Chain</h1>
+        <h2 class="editorial-header__subtitle">Overview of solver chain and related command-line options</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <p class="toc toc__title no_toc">Contents</p>
+<ul class="toc__list list-anchor" id="markdown-toc">
+  <li><a href="#the-solver-chain" id="markdown-toc-the-solver-chain">The solver chain</a>    <ul>
+      <li><a href="#core-solver" id="markdown-toc-core-solver">Core solver</a>        <ul>
+          <li><a href="#metasmt" id="markdown-toc-metasmt">MetaSMT</a></li>
+          <li><a href="#stp" id="markdown-toc-stp">STP</a></li>
+          <li><a href="#z3" id="markdown-toc-z3">Z3</a></li>
+          <li><a href="#common-core-solver-options" id="markdown-toc-common-core-solver-options">Common core solver options</a></li>
+        </ul>
+      </li>
+      <li><a href="#caching-solvers" id="markdown-toc-caching-solvers">Caching Solvers</a>        <ul>
+          <li><a href="#caching-solver" id="markdown-toc-caching-solver">Caching solver</a></li>
+          <li><a href="#counterexample-caching-solver" id="markdown-toc-counterexample-caching-solver">Counterexample caching solver</a></li>
+        </ul>
+      </li>
+      <li><a href="#independence-solver" id="markdown-toc-independence-solver">Independence solver</a></li>
+      <li><a href="#debugging-solvers" id="markdown-toc-debugging-solvers">Debugging solvers</a>        <ul>
+          <li><a href="#assignment-validating-solver" id="markdown-toc-assignment-validating-solver">Assignment validating solver</a></li>
+          <li><a href="#debug-validating-solver" id="markdown-toc-debug-validating-solver">Debug validating solver</a></li>
+          <li><a href="#query-logging-solver" id="markdown-toc-query-logging-solver">Query logging solver</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="the-solver-chain">The solver chain</h1>
+
+<p>KLEE has a number of command line options that control the solver chain that
+is shared both by the <code class="language-plaintext highlighter-rouge">klee</code> and <code class="language-plaintext highlighter-rouge">kleaver</code> tools.</p>
+
+<p>The solver chain is implemented internally using the decorator design pattern.
+Thus when a solver query is issued it travels through a nested stack of solvers
+and may eventually call the underlying SMT solver (core solver).</p>
+
+<p>The reasons for this architecture are:</p>
+
+<ol>
+  <li>Allows transforming the solver query into another form that is hopefully
+faster for the core solver to solve (e.g. the independence solver).</li>
+  <li>Allows querying the core solver to be avoided in some cases (e.g. the
+counterexample caching solver).</li>
+  <li>Allows logging of queries at different stages in the solver chain.</li>
+</ol>
+
+<p>The <code class="language-plaintext highlighter-rouge">constructSolverChain()</code> function is used to create the solver chain.</p>
+
+<h2 id="core-solver">Core solver</h2>
+
+<p>This is the underlying SMT solver. Several solvers are currently supported.
+The default is dependent on what solvers were available when KLEE was built.
+The solver can be selected using the <code class="language-plaintext highlighter-rouge">-solver-backend=</code> option.</p>
+
+<h3 id="metasmt">MetaSMT</h3>
+
+<p><strong>metaSMT:</strong> An Embedded Domain Specific Language for SMT <a href="http://www.informatik.uni-bremen.de/agra/eng/metasmt.php">link</a>. Use <code class="language-plaintext highlighter-rouge">-solver-backend=metasmt</code>.</p>
+
+<p>These are options that only affect the MetaSMT solver.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-metasmt-backend=&lt;backend&gt;</code></p>
+
+<p>This specifies the solver that metaSMT should use. Valid values for <code class="language-plaintext highlighter-rouge">&lt;backend&gt;</code>
+are <code class="language-plaintext highlighter-rouge">stp</code> (STP), <code class="language-plaintext highlighter-rouge">z3</code> (Z3), and <code class="language-plaintext highlighter-rouge">btor</code> (Boolector). Note that Z3 can also be
+used directly through its API via the Z3 core solver.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-use-construct-hash-metasmt</code></p>
+
+<p>When set to true (<strong>default: true</strong>) constructed MetaSMT expressions will be
+cached (and then cleared) for each constraint to facilitate expression re-use.</p>
+
+<h3 id="stp">STP</h3>
+
+<p><strong>STP:</strong> Simple Theorem Prover SMT solver <a href="http://stp.github.io">link</a>. Use <code class="language-plaintext highlighter-rouge">-solver-backend=stp</code>.</p>
+
+<p>These are options that only affect the STP solver.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-debug-dump-stp-queries</code></p>
+
+<p>When set to true (<strong>default: false</strong>) every query that the STP solver receives
+will be written to standard error in its native format.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-ignore-solver-failures</code></p>
+
+<p>When set to true (<strong>default: false</strong>) unexpected solver failures in the STP
+solver will be ignored.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-use-construct-hash</code></p>
+
+<p>When set to true (<strong>default: true</strong>) constructed STP expressions will be cached
+(and then cleared) for each constraint to facilitate expression re-use.</p>
+
+<h3 id="z3">Z3</h3>
+
+<p><strong>Z3:</strong> The Z3 Theorem Prover <a href="https://github.com/Z3Prover/z3">link</a>. Use <code class="language-plaintext highlighter-rouge">-solver-backend=z3</code>.</p>
+
+<p>These are options that only affect the Z3 solver.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-debug-z3-dump-queries=&lt;path&gt;</code></p>
+
+<p>When set every query that the Z3 solver receives will be logged to the file
+at <code class="language-plaintext highlighter-rouge">&lt;path&gt;</code> in the SMT-LIBv2 format.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-debug-z3-log-api-interaction=&lt;path&gt;</code></p>
+
+<p>When set Z3’s C API interaction will be logged to the file at <code class="language-plaintext highlighter-rouge">&lt;path&gt;</code>.
+This log can be replayed by the Z3 binary using its <code class="language-plaintext highlighter-rouge">-log</code> option.
+This option is useful for precisely reproducing KLEE’s interaction with Z3
+outside of KLEE.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-debug-z3-validate-models</code></p>
+
+<p>When set to true (<strong>default: false</strong>), Z3 models will be substituted back into
+the Z3 expressions for every query that is satisfiable. This is used to check
+that the models that Z3 provides are satisfiable in Z3’s own constraint
+language. If a model does not satisfy the constraints information about the
+failure is printed to standard error and then an <code class="language-plaintext highlighter-rouge">abort()</code> is called.</p>
+
+<p>Note Z3 models being satisfiable in Z3’s constraint language does not necessarily
+imply that the model is satisfiable when substituted into KLEE’s own expression
+language. This could happen if there was an unintentional semantic mismatch
+between Z3’s and KLEE’s expression language. To check that a model satisfies
+KLEE’s constraint language use <code class="language-plaintext highlighter-rouge">-debug-assignment-validating-solver</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-debug-z3-verbosity=&lt;N&gt;</code></p>
+
+<p>When set, Z3’s verbosity level will be set to level <code class="language-plaintext highlighter-rouge">&lt;N&gt;</code> (<strong>default: 0</strong>).
+This is equivalent to the Z3 binary’s <code class="language-plaintext highlighter-rouge">-v:&lt;N&gt;</code> option. This is useful for
+observing Z3’s internal behaviour (e.g. what tactic is being applied).</p>
+
+<p><code class="language-plaintext highlighter-rouge">-use-construct-hash-z3</code></p>
+
+<p>When set to true (<strong>default: true</strong>) constructed Z3 expressions will be cached
+(and then cleared) for each query to facilitate expression re-use.</p>
+
+<h3 id="common-core-solver-options">Common core solver options</h3>
+
+<p>These are options shared by two or more core solvers.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-solver-optimize-divides</code></p>
+
+<p>This only affects the MetaSMT and STP solvers. When set to true expressions involving
+division will be optimized (if possible) before being given to the solver.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-use-forked-solver</code></p>
+
+<p>This only affects the MetaSMT and STP solvers. When set to true (<strong>default:
+true</strong>) the solver is created in a separate process that is forked from the
+<code class="language-plaintext highlighter-rouge">klee</code>/<code class="language-plaintext highlighter-rouge">kleaver</code> process. When set to false the solver is created in the
+<code class="language-plaintext highlighter-rouge">klee</code>/<code class="language-plaintext highlighter-rouge">kleaver</code> process.</p>
+
+<h2 id="caching-solvers">Caching Solvers</h2>
+
+<p>These solvers cache previous queries to avoid calling the underlying solver when possible.</p>
+
+<h3 id="caching-solver">Caching solver</h3>
+
+<p>This solver caches previous queries and their result to avoid calling the underlying solver
+in certain situations. The queries are canonicalized to increase the cache hit rate.</p>
+
+<p>This solver can be enabled with the <code class="language-plaintext highlighter-rouge">-use-cache</code> option.</p>
+
+<h3 id="counterexample-caching-solver">Counterexample caching solver</h3>
+
+<p>This solver caches satisfying assignments to queries (i.e. “counterexamples”
+to validity) which can be used to avoid calling the underlying solver in
+certain situations.</p>
+
+<p>This solver can be enabled with the <code class="language-plaintext highlighter-rouge">-use-cex-cache</code> option.</p>
+
+<!-- TODO: Explain this solver in greater depth -->
+
+<!-- TODO: Document fastcex solver -->
+
+<h2 id="independence-solver">Independence solver</h2>
+
+<p>This solver splits a query into disjoint sets of independent constraints and
+then calls the underlying solver on each set to solve them independently.</p>
+
+<p>This solver can be enabled with the <code class="language-plaintext highlighter-rouge">-use-independent-solver</code> option.</p>
+
+<h2 id="debugging-solvers">Debugging solvers</h2>
+
+<p>The remaining solvers are used for debugging.</p>
+
+<h3 id="assignment-validating-solver">Assignment validating solver</h3>
+
+<p>This solver checks that assignments to satisfiable queries are satisfiable
+when substituted into the expressions in the query.</p>
+
+<p>This is useful for checking the consistency of KLEE’s constraint language and
+that of the core solver.</p>
+
+<p>This option can be enabled using the <code class="language-plaintext highlighter-rouge">-debug-assignment-validating-solver</code>
+option.</p>
+
+<h3 id="debug-validating-solver">Debug validating solver</h3>
+
+<p>This solver is meant for debugging and currently is only useful if building with
+assertions is enabled. The solver can be enabled with the <code class="language-plaintext highlighter-rouge">-debug-validate-solver</code>
+option.</p>
+
+<p>This solver invokes the underlying solver and a separate solver for every query and
+then checks that the solvers agree. The separate solver can be set with the
+<code class="language-plaintext highlighter-rouge">-debug-crosscheck-core-solver=</code> option which takes the same arguments as
+<code class="language-plaintext highlighter-rouge">-solver-backend=</code>.</p>
+
+<p>This is useful for comparing two completely independent solvers (e.g. STP and Z3) and
+for checking that invoking the solver chain and a solver directly obtains the
+same results.</p>
+
+<h3 id="query-logging-solver">Query logging solver</h3>
+
+<p>The query logging solver logs queries at different positions in the chain.</p>
+
+<p>The option to enable this is the <code class="language-plaintext highlighter-rouge">--use-query-log=</code> option. The format of the option
+is <code class="language-plaintext highlighter-rouge">--use-query-log=TYPE:FORMAT</code>, where:</p>
+<ul>
+  <li>
+    <p><strong>TYPE</strong> is either <strong>all</strong> to log all the queries given to the solver chain. This is before any optimisation (e.g. caching, constraint independence) is performed, or <strong>solver</strong> to log only the queries passed to the core solver. Note that it is possible that some of the unoptimized queries are never executed or are modified before being executed by KLEE’s underlying solver.</p>
+  </li>
+  <li>
+    <p><strong>FORMAT</strong> is the format in which queries are logged and can be either <strong>kquery</strong> for the <a href="/releases/docs/v2.3/docs/kquery">KQuery</a> format, or <strong>smt2</strong> for the <a href="http://www.smtlib.org">SMT-LIBv2</a> format.</p>
+  </li>
+</ul>
+
+<p>In addition there are several options that change how these queries are logged.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--min-query-time-to-log=TIME</code> is used to log only queries that exceed a certain time limit (default=0s)</li>
+  <li><code class="language-plaintext highlighter-rouge">--log-timed-out-queries</code> is used to log queries that exceed <code class="language-plaintext highlighter-rouge">--max-solver-time</code> (default=true)</li>
+  <li><code class="language-plaintext highlighter-rouge">--log-partial-queries-early=true</code> is used to dump the query to the log file before the next part of the solver chain is called.  Normally, KLEE prints the query and its solution after it has been solved. But if KLEE crashes inside the solver chain, the suspicious query will not be logged. Enable this option to debug such cases. This option comes with a performance penalty as the log buffer gets always flushed.</li>
+  <li><code class="language-plaintext highlighter-rouge">--compress-query-log</code> is used to compress query log files (default=off)</li>
+</ul>
+
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v2.3/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/doxygen/html/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee/klee/actions">GitHub Actions</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v2.3
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2022, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v2.3/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
