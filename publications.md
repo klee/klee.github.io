@@ -1324,6 +1324,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM Transactions on Modeling and Computer Simulation, Volume 32, Issue 2 (TOMACS)  
   April, 2022
 
+1. [DivSIM, an Interactive Simulator for LLVM Bitcode](https://link.springer.com/article/10.1007/s10009-022-00659-x)  
+  Petr Ročkai, Jiří Barnat  
+  International Journal on Software Tools for Technology Transfer (2022)  
+  April 1, 2022  
+  **DivSim is part of [DIVINE 4](https://divine.fi.muni.cz/download.html).**
+
 1. [Applying Symbolic Execution to Test Implementations of a Network Protocol Against its Specification](https://assist-project.github.io/papers/ApplyingSymExec@ICST-22.pdf)  
   Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas  
   IEEE International Conference on Software Testing, Verification and Validation (ICST) 2022  
