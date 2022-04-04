@@ -10,8 +10,8 @@ Assuming you have Docker installed, you can run the following to try
 the latest release of KLEE:
 
 ```bash
-$ docker pull klee/klee:2.1
-$ docker run --rm -ti --ulimit='stack=-1:-1' klee/klee:2.1
+$ docker pull klee/klee:2.3
+$ docker run --rm -ti --ulimit='stack=-1:-1' klee/klee:2.3
 ```
 
 # What is Docker?

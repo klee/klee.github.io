@@ -1,4 +1,5 @@
 .workshop {
+	display: none;
 	background-color: #b30000;
 	color: white;
 	font: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
