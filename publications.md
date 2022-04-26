@@ -1336,6 +1336,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   April 4-13, 2022, Virtual Event  
   **The artefact is available [here](https://zenodo.org/record/5929867#.YgZF74zMLmE).**
 
+1. [Symbolic Identification of Shared Memory Based Bank Conflicts for GPUs](https://doi.org/10.1016/j.sysarc.2022.102518)  
+  Adrian Horga, Ahmed Rezine, Sudipta Chattopadhyay, Petru Eles, Zebo Peng  
+  Journal of Systems Architecture (JSA)  
+  April 20, 2022
+
 1. [LinKRID: Vetting Imbalance Reference Counting in Linux Kernel with Symbolic Execution](https://www.usenix.org/system/files/sec22summer_liu-jian.pdf)  
   Jian Liu, Lin Yi, Weiting Chen, Chengyu Song, Zhiyun Qian, Qiuping Yi  
   USENIX Security Symposium (Security 2022)  
