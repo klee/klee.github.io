@@ -1330,6 +1330,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   April 1, 2022  
   **DivSim is part of [DIVINE 4](https://divine.fi.muni.cz/download.html).**
 
+1. [SIFT: A Tool for Property Directed Symbolic
+Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads/sites/37/2022/04/sift.pdf)  
+  Tuba Yavuz  
+  IEEE International Conference on Software Testing, Verification and Validation (ICST 2022)  
+  April 4-8, 2022, Virtual Event
+
 1. [Applying Symbolic Execution to Test Implementations of a Network Protocol Against its Specification](https://assist-project.github.io/papers/ApplyingSymExec@ICST-22.pdf)  
   Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas  
   IEEE International Conference on Software Testing, Verification and Validation (ICST) 2022  
