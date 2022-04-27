@@ -71,7 +71,6 @@ building a Debug build means just setting the `CMAKE_BUILD_TYPE` variable to
      -DCMAKE_BUILD_TYPE=Debug \
      -DENABLE_SOLVER_STP=ON \
      -DENABLE_POSIX_RUNTIME=ON \
-     -DENABLE_KLEE_UCLIBC=ON \
      -DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR> \
      -DGTEST_SRC_DIR=<GTEST_SOURCE_DIR> \
      -DENABLE_SYSTEM_TESTS=ON \

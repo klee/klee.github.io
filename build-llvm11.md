@@ -98,7 +98,7 @@ KLEE does not work under x86-32.
    **NOTE:** If you are on a different target (i.e., not i386 or x64), you will need to run `make config` and select the correct target.
    The defaults for the other uClibc configuration variables should be fine.
 
-   To tell KLEE to use both klee-uclibc and the POSIX runtime, pass `-DENABLE_POSIX_RUNTIME=ON`, `-DENABLE_KLEE_UCLIBC=ON` and `-DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR>` to CMake when configuring KLEE in step 8 where `<KLEE_UCLIBC_SOURCE_DIR>` is the absolute path to the cloned `klee-uclibc` git repository.
+   To tell KLEE to use both klee-uclibc and the POSIX runtime, pass `-DENABLE_POSIX_RUNTIME=ON` and `-DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR>` to CMake when configuring KLEE in step 8 where `<KLEE_UCLIBC_SOURCE_DIR>` is the absolute path to the cloned `klee-uclibc` git repository.
 
 6. **Get KLEE source**
 
@@ -149,14 +149,14 @@ KLEE does not work under x86-32.
    For example, if you want to build KLEE with STP, the POSIX runtime, klee-uclibc and unit testing then the command line would look something like this:
 
    ```bash
-   $ cmake -DENABLE_SOLVER_STP=ON -DENABLE_POSIX_RUNTIME=ON -DENABLE_KLEE_UCLIBC=ON -DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR> -DENABLE_UNIT_TESTS=ON -DGTEST_SRC_DIR=<GTEST_SOURCE_DIR> <KLEE_SRC_DIRECTORY>
+   $ cmake -DENABLE_SOLVER_STP=ON -DENABLE_POSIX_RUNTIME=ON -DKLEE_UCLIBC_PATH=<KLEE_UCLIBC_SOURCE_DIR> -DENABLE_UNIT_TESTS=ON -DGTEST_SRC_DIR=<GTEST_SOURCE_DIR> <KLEE_SRC_DIRECTORY>
    ```
 
    Where `<KLEE_UCLIBC_SOURCE_DIR>` is the absolute path to the klee-uclibc source tree and `<GTEST_SOURCE_DIR>` is the absolute path to the Google Test source tree.
 
    Or more concretely, with `/src` as working directory, `/src/klee/build` as build directory, and libcxx support enabled:
    ```bash
-   $ cmake -DENABLE_SOLVER_STP=ON -DENABLE_POSIX_RUNTIME=ON -DENABLE_KLEE_UCLIBC=ON -DKLEE_UCLIBC_PATH=/src/klee-uclibc -DENABLE_UNIT_TESTS=ON -DLLVM_CONFIG_BINARY=/usr/bin/llvm-config-11 -DGTEST_SRC_DIR=/src/googletest-release-1.11.0/ -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=/src/libcxx/libc++-install-110/ -DKLEE_LIBCXX_INCLUDE_DIR=/src/libcxx/libc++-install-110/include/c++/v1/ -DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=/src/libcxx/llvm-110/libcxxabi/ ..
+   $ cmake -DENABLE_SOLVER_STP=ON -DENABLE_POSIX_RUNTIME=ON -DKLEE_UCLIBC_PATH=/src/klee-uclibc -DENABLE_UNIT_TESTS=ON -DLLVM_CONFIG_BINARY=/usr/bin/llvm-config-11 -DGTEST_SRC_DIR=/src/googletest-release-1.11.0/ -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=/src/libcxx/libc++-install-110/ -DKLEE_LIBCXX_INCLUDE_DIR=/src/libcxx/libc++-install-110/include/c++/v1/ -DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=/src/libcxx/llvm-110/libcxxabi/ ..
    ```
 
    **NOTE 1:** You can simply type `cmake ..` to use the default options for KLEE but these will not include support for uClibC and the POSIX runtime.
