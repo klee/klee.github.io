@@ -1338,7 +1338,7 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
 
 1. [Applying Symbolic Execution to Test Implementations of a Network Protocol Against its Specification](https://assist-project.github.io/papers/ApplyingSymExec@ICST-22.pdf)  
   Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas  
-  IEEE International Conference on Software Testing, Verification and Validation (ICST) 2022  
+  IEEE International Conference on Software Testing, Verification and Validation (ICST 2022)  
   April 4-13, 2022, Virtual Event  
   **The artefact is available [here](https://zenodo.org/record/5929867#.YgZF74zMLmE).**
 
@@ -1346,6 +1346,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Adrian Horga, Ahmed Rezine, Sudipta Chattopadhyay, Petru Eles, Zebo Peng  
   Journal of Systems Architecture (JSA)  
   April 20, 2022
+
+1. [Verifying SystemC TLM Peripherals using Modern C++ Symbolic Execution Tools](https://www.ics.jku.at/files/2022DAC_Verifying-SystemC-TLM-Peripherals-using-SymEx.pdf)  
+  Pascal Pieper, Vladimir Herdt, Daniel Große, Rolf Drechsler  
+  Design Automation Conference (DAC 2022)  
+  July 10-14, San Francisco, USA
 
 1. [LinKRID: Vetting Imbalance Reference Counting in Linux Kernel with Symbolic Execution](https://www.usenix.org/system/files/sec22summer_liu-jian.pdf)  
   Jian Liu, Lin Yi, Weiting Chen, Chengyu Song, Zhiyun Qian, Qiuping Yi  
