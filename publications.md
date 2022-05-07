@@ -1342,6 +1342,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   April 4-13, 2022, Virtual Event  
   **The artefact is available [here](https://zenodo.org/record/5929867#.YgZF74zMLmE).**
 
+1. [Argon: A Toolbase for Evaluating Software Protection Techniques Against Symbolic Execution Attacks](https://doi.org/10.1109/SoutheastCon48659.2022.9764028)  
+  Deepak Adhikari, J. Todd McDonald, Todd R. Andel, Joseph D. Richardson  
+  IEEE SoutheastCon 2022  
+  April 13-16, 2022, Orlando, USA  
+  **Argon is available [here](https://github.com/elm3nt/argon-cli/).**
+  
 1. [Symbolic Identification of Shared Memory Based Bank Conflicts for GPUs](https://doi.org/10.1016/j.sysarc.2022.102518)  
   Adrian Horga, Ahmed Rezine, Sudipta Chattopadhyay, Petru Eles, Zebo Peng  
   Journal of Systems Architecture (JSA)  
