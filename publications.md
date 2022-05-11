@@ -1353,6 +1353,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Journal of Systems Architecture (JSA)  
   April 20, 2022
 
+1. [SymTuner: Maximizing the Power of Symbolic Execution by Adaptively Tuning External Parameters](http://prl.korea.ac.kr/~pronto/home/papers/SymTuner.pdf)  
+  Sooyoung Cha, Myungho Lee, Seokhyun Lee, Hakjoo Oh  
+  ACM/IEEE International Conference on Software Engineering (ICSE 2022)  
+  May 8-10, 2022, Virtual Event; May 22-27, 2022, Pittsburgh, USA
+
 1. [Verifying SystemC TLM Peripherals using Modern C++ Symbolic Execution Tools](https://www.ics.jku.at/files/2022DAC_Verifying-SystemC-TLM-Peripherals-using-SymEx.pdf)  
   Pascal Pieper, Vladimir Herdt, Daniel Große, Rolf Drechsler  
   Design Automation Conference (DAC 2022)  
