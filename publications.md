@@ -1358,6 +1358,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM/IEEE International Conference on Software Engineering (ICSE 2022)  
   May 8-10, 2022, Virtual Event; May 22-27, 2022, Pittsburgh, USA
 
+1. [A Deterministic Memory Allocator for Dynamic Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/kdalloc-ecoop-22.pdf)  
+  Daniel Schemmel, Julian Büning, Frank Busse, Martin Nowack, Cristian Cadar  
+  European Conference on Object-Oriented Programming (ECOOP 2022)  
+  June 8-10, 2022, Berlin, Germany
+
 1. [Verifying SystemC TLM Peripherals using Modern C++ Symbolic Execution Tools](https://www.ics.jku.at/files/2022DAC_Verifying-SystemC-TLM-Peripherals-using-SymEx.pdf)  
   Pascal Pieper, Vladimir Herdt, Daniel Große, Rolf Drechsler  
   Design Automation Conference (DAC 2022)  
