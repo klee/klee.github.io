@@ -1229,6 +1229,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   USENIX Security Symposium (Security 2021)  
   August 11-13, 2021, Virtual Event
 
+1. [MAZE: Towards Automated Heap Feng Shui](https://www.usenix.org/conference/usenixsecurity21/presentation/wang-yan)  
+  Yan Wang, Chao Zhang, Zixuan Zhao, Bolun Zhang, Xiaorui Gong, Wei Zou  
+  USENIX Security Symposium (Security 2021)  
+  August 11-13, 2021, Virtual Event
+
 1. [Boosting Symbolic Execution via Constraint Solving Time Prediction](https://dl.acm.org/doi/abs/10.1145/3460319.3464813)  
   Sicheng Luo, Hui Xu, Yanxiang Bi, Xin Wang, Yangfan Zhou  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2021)  
