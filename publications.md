@@ -1207,7 +1207,7 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   IEEE Transactions on Reliability, Volume 70, Issue 3  
   May 26, 2021
 
-1. [Concolic Program Repair](https://cpr-tool.github.io/PLDI21.pdf)  
+1. [Concolic Program Repair](https://dl.acm.org/doi/10.1145/3453483.3454051)  
   Ridwan Salihin Shariffdeen, Yannic Noller, Lars Grunske, Abhik Roychoudhury  
   ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2021)  
   June 20-26, 2021, Virtual Event    
@@ -1315,7 +1315,7 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Asia and South Pacific Design Automation Conference (ASP-DAC 2022)  
   January 17-20, 2022, Virtual Event
 
-1. [The Taming of the Stack: Isolating Stack Data from Memory Errors](http://www.cse.psu.edu/~trj1/papers/huang-ndss22.pdf)  
+1. [The Taming of the Stack: Isolating Stack Data from Memory Errors](https://www.ndss-symposium.org/wp-content/uploads/2022-60-paper.pdf)  
   Kaiming Huang, Yongzhe Huang, Mathias Payer, Zhiyun Qian, Jack Sampson, Gang Tan, Trent Jaeger  
   Network and Distributed System Security Symposium (NDSS 2022)  
   February 27 - March 3, 2022, San Diego, USA
