@@ -1213,6 +1213,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   June 20-26, 2021, Virtual Event    
   **The artefact is available [here](https://cpr-tool.github.io/).**
 
+1. [Execution Reconstruction: Harnessing Failure Reoccurrences for Failure Reproduction](https://dl.acm.org/doi/abs/10.1145/3453483.3454101)  
+  Gefei Zuo, Jiacheng Ma, Andrew Quinn, Pramod Bhatotia, Pedro Fonseca, Baris Kasikci  
+  ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2021)  
+  June 20-26, 2021, Virtual Event    
+  **The artefact is available [here](https://doi.org/10.5281/zenodo.4678015).**
+
 1. [FCEP: A Fast Concolic Execution for Reaching Software Patches](https://ksiresearch.org/seke/seke21paper/paper018.pdf)  
   Meng Fan, Wenzhi Wang, Aimin Yu, Dan Meng  
   International Conference on Software Engineering & Knowledge Engineering (SEKE 2021)  
