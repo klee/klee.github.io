@@ -18,7 +18,7 @@ sudo apt-get install cmake bison flex libboost-all-dev python perl zlib1g-dev mi
 Under macOS, you can run:
 
 ```bash
-brew install cmake bison flex python perl
+brew install cmake bison flex python perl minisat
 ```
 
 If your distribution does not offer MiniSAT, you need to install it manually:
