@@ -1353,11 +1353,16 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2022)  
   April 4-8, 2022, Virtual Event
 
-1. [Applying Symbolic Execution to Test Implementations of a Network Protocol Against its Specification](https://assist-project.github.io/papers/ApplyingSymExec@ICST-22.pdf)  
+1. [Applying Symbolic Execution to Test Implementations of a Network Protocol Against its Specification](https://ieeexplore.ieee.org/document/9787883)  
   Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas  
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2022)  
   April 4-13, 2022, Virtual Event  
   **The artefact is available [here](https://zenodo.org/record/5929867#.YgZF74zMLmE).**
+
+1. [Automating Differential Testing with Overapproximate Symbolic Execution](https://ieeexplore.ieee.org/abstract/document/9787827)  
+  Richard Rutledge, Alessandro Orso  
+  IEEE International Conference on Software Testing, Verification and Validation (ICST 2022)  
+  April 4-13, 2022, Virtual Event  
 
 1. [Argon: A Toolbase for Evaluating Software Protection Techniques Against Symbolic Execution Attacks](https://doi.org/10.1109/SoutheastCon48659.2022.9764028)  
   Deepak Adhikari, J. Todd McDonald, Todd R. Andel, Joseph D. Richardson  
