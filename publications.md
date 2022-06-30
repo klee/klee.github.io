@@ -1167,7 +1167,13 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Lukáš Korenčik, Petr Ročkai  
   IEEE International Conference on Software Quality, Reliability and Security (QRS 2020)  
   Dezember 11-14, 2020, Macau, China
-
+ 
+1. [Automated Patch Transplantation](https://dl.acm.org/doi/10.1145/3412376)  
+  Ridwan Shariffdeen, Shin Hwei Tan, Mingyuan Gao, Abhik Roychoudhury
+  ACM Transactions on Software Engineering and Methodology, Volume 30, Issue 1 (TOSEM)
+  December 2020  
+  **PatchWeave is available [here](https://patchweave.github.io/).**
+  
 1. [Beyond Tests: Program Vulnerability Repair via Crash Constraint Extraction](https://dl.acm.org/doi/abs/10.1145/3418461)  
   Xiang Gao, Bo Wang, Gregory J. Duck, Ruyi Ji, Yingfei Xiong, Abhik Roychoudhury  
   ACM Transactions on Software Engineering and Methodology, Volume 30, Issue 2 (TOSEM)  
