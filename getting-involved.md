@@ -27,7 +27,7 @@ If you find a bug in KLEE, please fill a bug report on [GitHub](https://github.c
 
 You should first check [KLEE's developer's guide]({{site.baseurl}}/docs/developers-guide).
 
-Developer documentation is written in [Doxygen](http://klee.github.io/klee/).
+Developer documentation is written in [Doxygen]({{site.baseurl}}/doxygen/html/).
 
 Many parts of KLEE rely on the LLVM infrastructure, so you might also want to look at [LLVM's General Programming
 Documentation](http://llvm.org/docs/#llvmprog).
