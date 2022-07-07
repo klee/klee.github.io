@@ -18,7 +18,7 @@ The KQuery language is the textual representation of constraint expressions and 
 
 Currently the language is capable of representing quantifier free formulas over bitvectors and arrays, with direct support for all standard operations on bitvectors. The language has been designed to be compact and easy to read and write. 
 
-The KQuery language is closely related to the C++ API for Exprs, see also the doxygen [Expr](http://t1.minormatter.com/~ddunbar/klee- doxygen/classklee_1_1Expr.html) documentation.
+The KQuery language is closely related to the C++ API for Exprs, see also the doxygen [Expr]({{site.baseurl}}/doxygen/html/classklee_1_1Expr.html) documentation.
 
 ## Notation
 
