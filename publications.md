@@ -1379,6 +1379,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Design Automation Conference (DAC 2022)  
   July 10-14, San Francisco, USA
 
+1. [Combining Static Analysis Error Traces with Dynamic Symbolic Execution (Experience Paper)](https://srg.doc.ic.ac.uk/files/papers/sa-dse-issta-22.pdf)  
+  Frank Busse, Pritam Gharat, Cristian Cadar, Alastair Donaldson  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2022)  
+  July 18-22, Virtual Event  
+  **The artefact is available [here](https://srg.doc.ic.ac.uk/projects/klee-sa/artifact.html).**
+
 1. [Semantic-Aware Vulnerability Detection](https://facsrv.cs.depaul.edu/zhuang28/Semantic_Aware_Vulnerability_Detection.pdf)  
   Zhen Huang, Marc White  
   IEEE International Conference on Cyber Security and Resilience (CSR 2022)  
