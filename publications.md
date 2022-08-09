@@ -1385,6 +1385,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Design Automation Conference (DAC 2022)  
   July 10-14, San Francisco, USA
 
+1. [Semantic-Aware Vulnerability Detection](https://facsrv.cs.depaul.edu/zhuang28/Semantic_Aware_Vulnerability_Detection.pdf)  
+  Zhen Huang, Marc White  
+  IEEE International Conference on Cyber Security and Resilience (CSR 2022)  
+  July 27-29, Virtual Event
+
 1. [LinKRID: Vetting Imbalance Reference Counting in Linux Kernel with Symbolic Execution](https://www.usenix.org/system/files/sec22summer_liu-jian.pdf)  
   Jian Liu, Lin Yi, Weiting Chen, Chengyu Song, Zhiyun Qian, Qiuping Yi  
   USENIX Security Symposium (Security 2022)  
