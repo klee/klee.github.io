@@ -7,7 +7,7 @@ slug: nix
 
 # Quick Start
 
-KLEE has a package on [nixpkgs](https://search.nixos.org/packages?channel=unstable&show=klee&from=0&size=50&sort=relevance&type=packages&query=klee) that is usable on x86_64 Linux systems.
+KLEE has a package on [nixpkgs](https://search.nixos.org/packages?query=klee&show=klee) that is usable on x86_64 Linux systems.
 Getting started with it is as fast as or faster than using the [Docker version]({{site.baseurl}}/docker), and carries all the [reproducible build guarantees](https://r13y.com/) of the
 Nix build system.
 
@@ -50,9 +50,3 @@ NOTE: If any of the build inputs change from the defaults, Nix will no longer be
 ```bash
 $ nix-shell -p 'klee.override { debug = true; }'
 ```
-
-# Notes
-
-- As of writing (2022-01), KLEE is only available in nixpkgs unstable. However, it will be included in the nixpkgs 22.05 stable release in May.
-  You may have to switch to the unstable channel if the package is not found. See the [NixOS Wiki](https://nixos.wiki/wiki/Nix_channels) for information about how to set your channel.
-- Currently, the nixpkgs build does not include klee-uclibc. This is a known issue.
