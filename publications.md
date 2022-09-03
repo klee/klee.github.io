@@ -1405,3 +1405,9 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Jian Liu, Lin Yi, Weiting Chen, Chengyu Song, Zhiyun Qian, Qiuping Yi  
   USENIX Security Symposium (Security 2022)  
   August, 10-12, 2022, Boston, USA
+
+1. [FastKLEE: Faster Symbolic Execution via Reducing Redundant Bound Checking of Type-Safe Pointers](https://haoxintu.github.io/files/fse2022-demo-camera-ready.pdf)  
+  Haoxin Tu, Lingxiao Jiang, Xuhua Ding, He Jiang  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2022 Demo)  
+  November, 14-16, 2022, Singapore  
+  **FastKLEE is available [here](https://github.com/haoxintu/FastKLEE).**
