@@ -11,6 +11,7 @@ Additional information about systems and research based on KLEE can be found on 
 
 * [1st International KLEE Workshop on Symbolic Execution](https://srg.doc.ic.ac.uk/klee18/)
 * [2nd International KLEE Workshop on Symbolic Execution](https://srg.doc.ic.ac.uk/klee21/)
+* [3rd International KLEE Workshop on Symbolic Execution](https://srg.doc.ic.ac.uk/klee22/)
 * [KLEE YouTube channel](https://www.youtube.com/channel/UCFLstNVKLkw-I91bUva3KWQ)
 
 If you have used or extended KLEE and would like to have your paper
