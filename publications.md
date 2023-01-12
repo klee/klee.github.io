@@ -1417,3 +1417,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2022 Demo)  
   November, 14-16, 2022, Singapore  
   **FastKLEE is available [here](https://github.com/haoxintu/FastKLEE).**
+
+1. [An Efficient Black-Box Support of Advanced Coverage Criteria for Klee](https://arxiv.org/abs/2211.14592)  
+  Nicolas Berthier, Steven De Oliveira, Nikolai Kosmatov, Delphine Longuet, Romain Soulat  
+  ACM/SIGAPP Symposium On Applied Computing (SAC 2023)  
+  March, 27-31, 2023, Tallin, Estonia
