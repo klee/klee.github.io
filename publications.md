@@ -1407,6 +1407,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   USENIX Security Symposium (Security 2022)  
   August, 10-12, 2022, Boston, USA
 
+1. [Feedback-Driven Incremental Symbolic Execution](https://ieeexplore.ieee.org/abstract/document/9978965)  
+  Qiuping Yi, Guowei Yang  
+  IEEE International Symposium on Software Reliability Engineering (ISSRE 2022)  
+  October 31 - November 3, 2022, Charlotte, USA
+
 1. [FastKLEE: Faster Symbolic Execution via Reducing Redundant Bound Checking of Type-Safe Pointers](https://haoxintu.github.io/files/fse2022-demo-camera-ready.pdf)  
   Haoxin Tu, Lingxiao Jiang, Xuhua Ding, He Jiang  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2022 Demo)  
