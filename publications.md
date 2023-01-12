@@ -1389,23 +1389,29 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
 1. [Verifying SystemC TLM Peripherals using Modern C++ Symbolic Execution Tools](https://www.ics.jku.at/files/2022DAC_Verifying-SystemC-TLM-Peripherals-using-SymEx.pdf)  
   Pascal Pieper, Vladimir Herdt, Daniel Große, Rolf Drechsler  
   Design Automation Conference (DAC 2022)  
-  July 10-14, San Francisco, USA
+  July 10-14, 2022, San Francisco, USA
 
 1. [Combining Static Analysis Error Traces with Dynamic Symbolic Execution (Experience Paper)](https://srg.doc.ic.ac.uk/files/papers/sa-dse-issta-22.pdf)  
   Frank Busse, Pritam Gharat, Cristian Cadar, Alastair Donaldson  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2022)  
-  July 18-22, Virtual Event  
+  July 18-22, 2022, Virtual Event  
   **The artefact is available [here](https://srg.doc.ic.ac.uk/projects/klee-sa/artifact.html).**
 
 1. [Semantic-Aware Vulnerability Detection](https://facsrv.cs.depaul.edu/zhuang28/Semantic_Aware_Vulnerability_Detection.pdf)  
   Zhen Huang, Marc White  
   IEEE International Conference on Cyber Security and Resilience (CSR 2022)  
-  July 27-29, Virtual Event
+  July 27-29, 2022, Virtual Event
 
 1. [LinKRID: Vetting Imbalance Reference Counting in Linux Kernel with Symbolic Execution](https://www.usenix.org/system/files/sec22summer_liu-jian.pdf)  
   Jian Liu, Lin Yi, Weiting Chen, Chengyu Song, Zhiyun Qian, Qiuping Yi  
   USENIX Security Symposium (Security 2022)  
   August, 10-12, 2022, Boston, USA
+
+1. [Symbolic Execution for Randomized Programs](https://dl.acm.org/doi/abs/10.1145/3563344)  
+  Zachary Susag, Sumit Lahiri, Justin Hsu, Subhajit Roy  
+  Proceedings of the ACM on Programming Languages, Volume 6, Issue OOPSLA2  
+  October 31, 2022  
+  **The artefact is available [here](https://zenodo.org/record/7061819).**
 
 1. [Feedback-Driven Incremental Symbolic Execution](https://ieeexplore.ieee.org/abstract/document/9978965)  
   Qiuping Yi, Guowei Yang  
