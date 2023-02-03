@@ -1137,6 +1137,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM SIGPLAN Conference on Systems, Programming, Languages, and Applications: Software for Humanity (SPLASH 2020)  
   November 15-21, 2020, Virtual Event
 
+1. [UBITect: a precise and scalable method to detect use-before-initialization bugs in Linux kernely](https://dl.acm.org/doi/10.1145/3368089.3409686)  
+  Yizhuo Zhai, Yu Hao, Hang Zhang, Daimeng Wang, Chengyu Song, Zhiyun Qian, Mohsen Lesani, Srikanth V. Krishnamurthy, Paul Yu
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
+  November 8-13, 2020, Virtual Event, USA  
+  **The artefact is available [here](https://github.com/seclab-ucr/UBITect).**
+
 1. [Making Symbolic Execution Promising by Learning Aggressive State-Pruning Strategy](https://dl.acm.org/doi/10.1145/3368089.3409755)  
   Sooyoung Cha, Hakjoo Oh  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
@@ -1321,6 +1327,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   Tashfia Alam, Zhenkun Yang, Bo Chen, Nicholas Armour, Sandip Ray  
   Asia and South Pacific Design Automation Conference (ASP-DAC 2022)  
   January 17-20, 2022, Virtual Event
+
+1. [Progressive Scrutiny: Incremental Detection of UBI bugs in the Linux Kernel](https://www.ndss-symposium.org/wp-content/uploads/2022-380-paper.pdf)  
+  Yizhuo Zhai, Yu Hao, Zheng Zhang, Weiteng Chen, Guoren Li, Zhiyun Qian, Chengyu Song, Manu Sridharan, Srikanth V. Krishnamurthy, Trent Jaeger, Paul Yu
+  Network and Distributed System Security Symposium (NDSS 2022)  
+  February 27 - March 3, 2022, San Diego, USA
+  **The artefact is available [here](https://github.com/seclab-ucr/IncreLux).**
 
 1. [The Taming of the Stack: Isolating Stack Data from Memory Errors](https://www.ndss-symposium.org/wp-content/uploads/2022-60-paper.pdf)  
   Kaiming Huang, Yongzhe Huang, Mathias Payer, Zhiyun Qian, Jack Sampson, Gang Tan, Trent Jaeger  
