@@ -1097,6 +1097,11 @@ Artifacts published at Zenodo can also be registered with the [Symbolic Executio
   International Conference on Computer Aided Verification (CAV 2020)  
   July 19-24, 2020, Virtual Event, USA
 
+1. [Tell You a Definite Answer: Whether Your Data is Tainted During Thread Scheduling](https://ieeexplore.ieee.org/document/8472790)  
+  Xiaodong Zhang, Zijiang Yang, Qinghua Zheng, Yu Hao, Pei Liu, Ting Liu  
+  IEEE Transactions on Software Engineering, Volume 46, Issue 9 (TSE)  
+  September 1, 2020
+
 1. [Countermeasures Optimization in Multiple Fault-Injection Context](https://ieeexplore.ieee.org/abstract/document/9237315)  
   Etienne Boespflug, Cristian Ene, Laurent Mounier, Marie-Laure Potet  
   Workshop on Fault Detection and Tolerance in Cryptography (FDTC 2020)  
@@ -1137,12 +1142,6 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM SIGPLAN Conference on Systems, Programming, Languages, and Applications: Software for Humanity (SPLASH 2020)  
   November 15-21, 2020, Virtual Event
 
-1. [UBITect: A Precise and Scalable Method to Detect Use-before-Initialization Bugs in Linux Kernel](https://dl.acm.org/doi/10.1145/3368089.3409686)  
-  Yizhuo Zhai, Yu Hao, Hang Zhang, Daimeng Wang, Chengyu Song, Zhiyun Qian, Mohsen Lesani, Srikanth V. Krishnamurthy, Paul Yu
-  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
-  November 8-13, 2020, Virtual Event, USA  
-  **The artefact is available [here](https://github.com/seclab-ucr/UBITect).**
-
 1. [Making Symbolic Execution Promising by Learning Aggressive State-Pruning Strategy](https://dl.acm.org/doi/10.1145/3368089.3409755)  
   Sooyoung Cha, Hakjoo Oh  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
@@ -1154,6 +1153,12 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
   November 8-13, 2020, Virtual Event, USA  
   **PSPA is available [here](http://srg.doc.ic.ac.uk/projects/pspa/).**
+
+1. [UBITect: A Precise and Scalable Method to Detect Use-before-Initialization Bugs in Linux Kernel](https://dl.acm.org/doi/10.1145/3368089.3409686)  
+  Yizhuo Zhai, Yu Hao, Hang Zhang, Daimeng Wang, Chengyu Song, Zhiyun Qian, Mohsen Lesani, Srikanth V. Krishnamurthy, Paul Yu
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
+  November 8-13, 2020, Virtual Event, USA  
+  **The artefact is available [here](https://github.com/seclab-ucr/UBITect).**
 
 1. [Type Checking beyond Type Checkers, via Slice & Run](https://dl.acm.org/doi/abs/10.1145/3427764.3428324)  
   Justus Adam, Stephen Kell  
