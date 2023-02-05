@@ -1137,7 +1137,7 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   ACM SIGPLAN Conference on Systems, Programming, Languages, and Applications: Software for Humanity (SPLASH 2020)  
   November 15-21, 2020, Virtual Event
 
-1. [UBITect: a precise and scalable method to detect use-before-initialization bugs in Linux kernely](https://dl.acm.org/doi/10.1145/3368089.3409686)  
+1. [UBITect: A Precise and Scalable Method to Detect Use-before-Initialization Bugs in Linux Kernel](https://dl.acm.org/doi/10.1145/3368089.3409686)  
   Yizhuo Zhai, Yu Hao, Hang Zhang, Daimeng Wang, Chengyu Song, Zhiyun Qian, Mohsen Lesani, Srikanth V. Krishnamurthy, Paul Yu
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2020)  
   November 8-13, 2020, Virtual Event, USA  
