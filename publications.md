@@ -1441,6 +1441,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   November, 14-16, 2022, Singapore  
   **FastKLEE is available [here](https://github.com/haoxintu/FastKLEE).**
 
+1. [Solder: Retrofitting Legacy Code with Cross-Language Patches](https://seclab.nu/static/publications/saner2023solder.pdf)  
+  R. Williams, A. Gavazzi, E. Kirda  
+  IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER 2023)  
+  March, 21-24, 2023, Macao, China
+
 1. [An Efficient Black-Box Support of Advanced Coverage Criteria for Klee](https://arxiv.org/abs/2211.14592)  
   Nicolas Berthier, Steven De Oliveira, Nikolai Kosmatov, Delphine Longuet, Romain Soulat  
   ACM/SIGAPP Symposium On Applied Computing (SAC 2023)  
