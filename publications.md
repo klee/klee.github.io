@@ -1445,3 +1445,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Nicolas Berthier, Steven De Oliveira, Nikolai Kosmatov, Delphine Longuet, Romain Soulat  
   ACM/SIGAPP Symposium On Applied Computing (SAC 2023)  
   March, 27-31, 2023, Tallin, Estonia
+
+1. [Automatically Generating Test Cases for Safety-critical Software via Symbolic Execution](https://doi.org/10.1016/j.jss.2023.111629)  
+  Elson Kurian, Daniela Briola, Pietro Braione, Giovanni Denaro  
+  Journal of Systems and Software, Volume 199  
+  May, 2023
