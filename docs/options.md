@@ -99,7 +99,7 @@ Search heuristics in KLEE can be interleaved in a round-robin fashion. To interl
 $ klee --search=random-state --search=nurs:md2u demo.o
 {% endhighlight %}
 
-interleaves the Random State and the NURS:MD2U heuristics in a round robin fashion.  
+interleaves the Random State and the NURS:MD2U heuristics in a round robin fashion.
 
 ### Batching search heuristics
 
@@ -187,18 +187,31 @@ KLEE provides several debugging options:
 ## Memory Management
 
 KLEE explicitly intercepts calls for memory management (like `malloc()` and `free()`) and forwards them to a memory allocator.
-To change this behaviour, following options are provided:
+In its default configuration this is the same allocator that KLEE uses for its internal data structures which has several disadvantages.
+Therefore, a new deterministic allocator ([KDAlloc](https://srg.doc.ic.ac.uk/projects/kdalloc/)) has been developed and integrated that offers features such as cross-run/cross-path determinism, spatially and temporally distanced allocations, and stability.
 
-* `--allocate-determ`                  - Enable support to allocate memory deterministically for the executed application (*default=off*)
-* `--allocate-determ-size`             - For deterministic allocation, the buffer of the specified size is pre-allocated in MB (*default=100*)
-* `--allocate-determ-start-address`    - Controls the required start address of the pre-allocated memory. This address has to be page aligned. If null is provided, the memory is mapped to an arbitrary address.
-* `--return-null-on-zero-malloc`       - Controls if a NULL pointer should be returned in case the size argument is zero (*default=off*)
-* `--red-zone-space`                   - Controls the space kept unused between two adjacent allocations in byte (*default=10*)
+The following options are available to configure KDAlloc:
 
-_Deterministic allocation_ here means that KLEE internally uses `mmap` to pre-allocate memory at a fixed address.
-All allocations are then placed in this memory area.
-The advantage is that repeated executions of a program create the same addresses and the same queries.
-Obviously, this only works when the state selection heuristic between runs is identical and the same states are killed when KLEE runs out of memory.
+* `--kdalloc` - Allocate memory deterministically (default=`false`) (before: `--allocate-determ`)
+* `--kdalloc-mark-as-unneeded` - Mark allocations as unneeded after external function calls (default=`true`)
+* `--kdalloc-globals-size` - Reserved memory for globals in GiB (default=`10`)
+* `--kdalloc-constants-size` - Reserved memory for constant globals in GiB (default=`10`)
+* `--kdalloc-heap-size` - Reserved memory for heap in GiB (default=`1024`)
+* `--kdalloc-stack-size` - Reserved memory for stack in GiB (default=`100`)
+* `--kdalloc-globals-start-address` - Start address for globals segment (has to be page aligned)
+* `--kdalloc-constants-start-address` - Start address for constant globals segment (has to be page aligned)
+* `--kdalloc-heap-start-address` - Start address for heap segment (has to be page aligned)
+* `--kdalloc-stack-start-address` - Start address for stack segment (has to be page aligned)
+* `--kdalloc-quarantine` - Size of quarantine queues in allocator (default=`8`, disabled=`0`, unlimited=`-1`)
+
+The default sizes might seem excessive but keep in mind that KDAlloc only reserves the address space and does not actually allocate that amount of memory.
+The _quarantine queue_ prevents KLEE from re-using memory addresses immediately and increases the probability to detect use-after-free bugs which might have gone unnoticed otherwise.
+For more information see [Schemmel et al.: A Deterministic Memory Allocator for Dynamic Symbolic Execution](https://srg.doc.ic.ac.uk/files/papers/kdalloc-ecoop-22.pdf).
+
+Additionally, KLEE can be configured to return `NULL` in case `malloc` is called with a size of `0`:
+
+* `--return-null-on-zero-malloc` - Returns NULL if malloc(0) is called (default=`false`)
+
 
 ## Making KLEE Exit on Events
 
