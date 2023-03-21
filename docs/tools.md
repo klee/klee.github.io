@@ -35,46 +35,114 @@ object 0: text: ....
 
 ## klee-stats
 
-_klee-stats_ is a Python script used to extract and present in a tabular form runtime statistics for a KLEE execution. The runtime statistics include:
-
-* The number of executed instructions
-* Instruction coverage in the LLVM bitcode (%)
-* Branch coverage in the LLVM bitcode (%)
-* Total static instructions in the LLVM bitcode
-* The number of currently active states
-* Megabytes of memory currently used
-* The number of queries issued to the SMT solver
-* The average number of query constructs per query
-* Various time statistics:
-  * Total user time
-  * Total wall time
-  * Time spent in the constraint solver
-  * Time spent in the counterexample caching code
-  * Time spent forking
-  * Time spent in object resolution
-
-_klee-stats_ extracts statistics information from the `run.stats` file present in the `klee-out-*` directory created during a KLEE execution. The exact usage of _klee-stats_ is as follows:
+`klee-stats` is a Python script used to extract and present statistics from `run.stats` files present in KLEE's `klee-out-*` directories.
+`klee-stats` can be invoked on a single directory or list of directories:
 
 ```
-klee-stats [options] directories
+$ klee-stats klee-out-2
+-------------------------------------------------------------------------
+|   Path   |  Instrs|  Time(s)|  ICov(%)|  BCov(%)|  ICount|  TSolver(%)|
+-------------------------------------------------------------------------
+|klee-out-2|     499|     0.09|    45.69|    39.13|     394|        0.03|
+-------------------------------------------------------------------------
+$ klee-stats .
+-------------------------------------------------------------------------
+|   Path   |  Instrs|  Time(s)|  ICov(%)|  BCov(%)|  ICount|  TSolver(%)|
+-------------------------------------------------------------------------
+|klee-last |     499|     0.13|    45.69|    39.13|     394|        0.04|
+|klee-out-3|     499|     0.03|    45.69|    39.13|     394|        0.12|
+|klee-out-2|     499|     0.09|    45.69|    39.13|     394|        0.03|
+|klee-out-8|     499|     0.13|    45.69|    39.13|     394|        0.04|
+|klee-out-4|     499|     0.02|    45.69|    39.13|     394|        0.14|
+-------------------------------------------------------------------------
+|Total (5) |    2495|     0.40|    45.69|    39.13|    1970|        0.07|
+-------------------------------------------------------------------------
 ```
 
-The _directories_ parameter is a list of `klee-out-*` directories created by KLEE. A common scenario is to simply run _klee-stats_ on _klee-last_.
+This is only a small subset of statistics that KLEE keeps track of during execution.
+By using `--print-all`, a much larger set can be displayed:
+
+|Statistic|Description|
+|:-|:-|
+|Instrs|number of executed instructions|
+|Time(s)|total wall time|
+|ICov(%)|instruction coverage in the LLVM bitcode|
+|BCov(%)|conditional branch (`br`) coverage in the LLVM bitcode|
+|ICount|total static instructions in the LLVM bitcode|
+|TSolver(%)|relative time spent in the solver chain wrt wall time (incl. caches and constraint solver)|
+|ICovered|total covered instructions in the LLVM bitcode|
+|IUncovered|total uncovered instructions in the LLVM bitcode|
+|Branches|number of conditional branch (`br`) instructions in the LLVM bitcode|
+|FullBranches|number of fully-explored conditional branch (`br`) instructions in the LLVM bitcode|
+|PartialBranches|number of partially-explored conditional branch (`br`) instructions in the LLVM bitcode|
+|ExternalCalls|number of external calls|
+|TUser(s)|total user time|
+|TResolve(s)|time spent in object resolution|
+|TResolve(%)|relative time spent in object resolution wrt wall time|
+|TCex(s)|time spent in the counterexample caching code (incl. constraint solver)|
+|TCex(%)|relative time spent in the counterexample caching code wrt wall time (incl. constraint solver)|
+|TQuery(s)|time spent in the constraint solver|
+|TSolver(s)|time spent in the solver chain (incl. caches and constraint solver)|
+|States|number of created states|
+|ActiveStates|number of currently active states (`0` after successful termination)|
+|MaxActiveStates|maximum number of active states|
+|AvgActiveStates|average number of active states|
+|InhibitedForks|number of inhibited state forks due to e.g. memory pressure|
+|Queries|number of queries issued to the solver chain|
+|SolverQueries|number of queries issued to the constraint solver|
+|SolverQueryConstructs|number of query constructs for all queries send to the constraint solver|
+|AvgSolverQuerySize|average number of query constructs per query issued to the constraint solver|
+|QCacheMisses|Query cache misses|
+|QCacheHits|Query cache hits|
+|QCexCacheMisses|Counterexample cache misses|
+|QCexCacheHits|Counterexample cache hits|
+|Allocations|number of allocated heap objects of the program under test|
+|Mem(MiB)|mebibytes of memory currently used|
+|MaxMem(MiB)|maximum memory usage|
+|AvgMem(MiB)|average memory usage|
+|BrConditional|number of forks caused by symbolic branch conditions (`br`)|
+|BrIndirect|number of forks caused by indirect branches (`indirectbr`) with symbolic address|
+|BrSwitch|number of forks caused by switch with symbolic value|
+|BrCall|number of forks caused by symbolic function pointers|
+|BrMemOp|number of forks caused by memory operation with symbolic address|
+|BrResolvePointer|number of forks caused by symbolic pointers|
+|BrAlloc|number of forks caused by symbolic allocation size|
+|BrRealloc|number of forks caused by symbolic reallocation size|
+|BrFree|number of forks caused by freeing a symbolic pointer|
+|BrGetVal|number of forks caused by user-invoked concretization while seeding|
+|TermExit|number of states that reached end of execution path|
+|TermEarly|number of early terminated states (e.g. due to memory pressure, state limt)|
+|TermSolverErr|number of states terminated due to solver errors|
+|TermProgrErr|number of states terminated due to program errors (e.g. division by zero)|
+|TermUserErr|number of states terminated due to user errors (e.g. misuse of KLEE API)|
+|TermExecErr|number of states terminated due to execution errors (e.g. unsupported intrinsics)|
+|TermEarlyAlgo|number of state terminations required by algorithm (e.g. state merging or replaying)|
+|TermEarlyUser|number of states terminated via klee_silent_exit()|
+|TArrayHash(s)|time spent hashing arrays (if `KLEE_ARRAY_DEBUG` enabled, otherwise `-1`)|
+|TFork(s)|time spent forking states|
+|TFork(%)|relative time spent forking states wrt wall time|
+|TUser(%)|relative user time wrt wall time|
 
 In order to limit printed information only to the values of measured times, the following options can be used:
 
 * `--print-rel-times` display time values relative to measured execution time
 * `--print-abs-times` display absolute time values
 
-The `--precision` option can be used to configure the number of fractional digits displayed in floating point values. By default, 2 fractional digits are displayed, but in some cases that might be not sufficient—if the value is very small, e.g. 0.0001, with 2-digits precision it will be printed as 0.00.
+Several table styles are supported (e.g. `csv`, `latex_booktabs` or `html`) that can be enabled with `--table-format=<format>`, e.g.:
+```
+$ klee-stats --table-format=readable-csv klee-out-2 klee-out-3
+Path      ,  Instrs,  Time(s),  ICov(%),  BCov(%),  ICount,  TSolver(%)
+klee-out-2,     499,     0.09,    45.69,    39.13,     394,        0.03
+klee-out-3,     499,     0.03,    45.69,    39.13,     394,        0.12
+```
 
-Several table styles are supported, e.g. `latex_booktabs` or `html`, and can be enabled with `--table-format=<format>`.
+Various other options can be used to specify what values are displayed and how they are displayed.
+Options for comparison of statistics are also provided.
+More information about available options can be obtained using the command:
 
-Various other options can be used to specify what values are displayed and how they are displayed. Options for comparison of statistics are also provided. More information about available options can be obtained using the command:
-
-{% highlight bash %}
+```
 $ klee-stats --help
-{% endhighlight %}
+```
 
 
 ### Conversion to comma-separated values (csv)
@@ -87,7 +155,7 @@ $ sqlite3 <klee-out-dir>/run.stats
 > SELECT * FROM stats
 ```
 
-The easiest way to convert all statistics to comma-separated values (csv) is to use `klee-stats` with `--to-csv` flag.
+The easiest way to convert the entries for all statistics from a single `run.stats` file to comma-separated values (csv) is to use `klee-stats` with the `--to-csv` flag.
 If the output needs to be modified or limited to specific columns and rows an SQLite client such as `sqlite3` comes handy:
 
 ```
@@ -105,14 +173,14 @@ create Grafana dashboards for live monitoring of your KLEE process. First,
 data:
 
 ```
-klee-stats --grafana <klee-out-dir>
+$ klee-stats --grafana <klee-out-dir>
 ```
 
 Which starts on port 5000 by default. Then you can start the preconfigured
 Grafana Docker image with:
 
 ```
-docker run -d --net=host --name=grafana klee/grafana
+$ docker run -d --net=host --name=grafana klee/grafana
 ```
 
 This will create a daemon container running Grafana on port 3000. The image may
@@ -138,7 +206,7 @@ ranges and enjoy the live monitoring of KLEE.
 To stop Grafana:
 
 ```
-docker stop grafana
+$ docker stop grafana
 ```
 Or if Grafana is running in the foreground then use Ctrl-C.
 
