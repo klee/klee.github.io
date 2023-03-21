@@ -1334,9 +1334,9 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   January 17-20, 2022, Virtual Event
 
 1. [Progressive Scrutiny: Incremental Detection of UBI bugs in the Linux Kernel](https://www.ndss-symposium.org/wp-content/uploads/2022-380-paper.pdf)  
-  Yizhuo Zhai, Yu Hao, Zheng Zhang, Weiteng Chen, Guoren Li, Zhiyun Qian, Chengyu Song, Manu Sridharan, Srikanth V. Krishnamurthy, Trent Jaeger, Paul Yu
+  Yizhuo Zhai, Yu Hao, Zheng Zhang, Weiteng Chen, Guoren Li, Zhiyun Qian, Chengyu Song, Manu Sridharan, Srikanth V. Krishnamurthy, Trent Jaeger, Paul Yu  
   Network and Distributed System Security Symposium (NDSS 2022)  
-  February 27 - March 3, 2022, San Diego, USA
+  February 27 - March 3, 2022, San Diego, USA  
   **The artefact is available [here](https://github.com/seclab-ucr/IncreLux).**
 
 1. [The Taming of the Stack: Isolating Stack Data from Memory Errors](https://www.ndss-symposium.org/wp-content/uploads/2022-60-paper.pdf)  
