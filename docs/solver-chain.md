@@ -75,6 +75,11 @@ solver will be ignored.
 When set to true (**default: true**) constructed STP expressions will be cached
 (and then cleared) for each constraint to facilitate expression re-use.
 
+`-stp-sat-solver=<minisat|simpleminisat|cryptominisat|riss>`
+
+Set the underlying SAT solver for STP (**default: cryptominisat**) when it is available.
+
+
 ### Z3
 
 **Z3:** The Z3 Theorem Prover [link](https://github.com/Z3Prover/z3). Use `-solver-backend=z3`.
