@@ -23,3 +23,4 @@ We also recommend the following external resources.  When using them, please tak
 1. [SAT/SMT by example](https://yurichev.com/writings/SAT_SMT_by_example.pdf): A comprehensive guide focusing on using SAT and SMT solvers, which includes lots of interesting examples involving KLEE.
 1. [Measuring the coverage achieved by symbolic execution](http://ccadar.blogspot.com/2020/07/measuring-coverage-achieved-by-symbolic.html): A blog post that discusses the difference between the internal coverage reported by KLEE and the external coverage reported by a tool such as GCov.
 1. [Binary symbolic execution with KLEE-Native](https://blog.trailofbits.com/2019/08/30/binary-symbolic-execution-with-klee-native/): An extension of KLEE that analyses binaries by lifting them to LLVM IR
+1. [SHA-3 Buffer Overflow](https://mouha.be/sha-3-buffer-overflow-part-2/): Finding a bug in a sha-3 implementation with KLEE
