@@ -645,6 +645,11 @@ Artifacts published at Zenodo can also be registered with the [Symbolic Executio
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2017)  
   March 13-17, 2017, Tokyo, Japan
 
+1. [Directed Automated Memory Performance Testing](https://link.springer.com/chapter/10.1007/978-3-662-54580-5_3)  
+  Sudipta Chattopadhyay  
+  International Conference on Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2017)  
+  April 24-28, 2017, Uppsala, Sweden
+
 1. [Bucketing Failing Tests via Symbolic Analysis](https://link.springer.com/chapter/10.1007/978-3-662-54494-5_3)  
   Van-Thuan Pham, Sakaar Khurana, Subhajit Roy, Abhik Roychoudhury  
   International Conference on Fundamental Approaches to Software Engineering (FASE 2017)  
