@@ -1428,6 +1428,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   USENIX Security Symposium (Security 2022)  
   August, 10-12, 2022, Boston, USA
 
+1. [SKLEE: A Dynamic Symbolic Analysis Tool for Ethereum Smart Contracts (Tool Paper)](https://link.springer.com/chapter/10.1007/978-3-031-17108-6_15)  
+  Namrata Jain, Kosuke Kaneko, Subodh Sharma  
+  International Conference on Software Engineering and Formal Methods (SEFM 2022)  
+  September, 26-30, 2022, Berlin, Germany
+
 1. [Symbolic Execution for Randomized Programs](https://dl.acm.org/doi/abs/10.1145/3563344)  
   Zachary Susag, Sumit Lahiri, Justin Hsu, Subhajit Roy  
   Proceedings of the ACM on Programming Languages, Volume 6, Issue OOPSLA2  
