@@ -2,7 +2,7 @@
 layout: default
 title: Tutorial Two
 subtitle: Testing a Simple Regular Expression Library
-slug: tutorials
+slug: documentation
 ---
 
 This is an example of using KLEE to test a simple regular expression matching function. You can find the basic example in the source tree under `examples/regexp`.

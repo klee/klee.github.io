@@ -2,7 +2,7 @@
 layout: default
 title: Testing Coreutils
 subtitle: Tutorial on How to Use KLEE to Test GNU Coreutils
-slug: tutorials
+slug: documentation
 ---
 
 As a more detailed explanation of using KLEE, we will look at how we did our testing of [GNU Coreutils](http://www.gnu.org/software/coreutils/) using KLEE.

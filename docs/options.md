@@ -50,7 +50,7 @@ KLEE provides several options as part of its symbolic environment:
 7.  `-max-fail <N>` - Allow up to N injected failures.
 8.  `-fd-fail` - Shortcut for '-max-fail 1'.
 
-Usage examples for `-sym-arg` and `-sym-files` are provided in [this tutorial]({{site.baseurl}}/tutorials/using-symbolic/).
+Usage examples for `-sym-arg` and `-sym-files` are provided in [this tutorial]({{site.baseurl}}/docs/using-symbolic/).
 
 ## Search Heuristics
 

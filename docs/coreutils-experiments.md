@@ -11,7 +11,7 @@ This document is structured as a series of FAQs:
 
 1.  How did you build Coreutils?  
    
-    Please follow the instructions in the [Coreutils Tutorial]({{site.baseurl}}/tutorials/testing-coreutils).
+    Please follow the instructions in the [Coreutils Tutorial]({{site.baseurl}}/docs/testing-coreutils).
 
 2.  What version of LLVM was used in the OSDI paper?  
 

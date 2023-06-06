@@ -2,7 +2,7 @@
 layout: default
 title: Tutorial One
 subtitle: Testing a Small Function
-slug: tutorials
+slug: documentation
 ---
 
 This tutorial walks you through the main steps needed to test a simple function with KLEE. Here is our simple function:

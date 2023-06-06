@@ -206,8 +206,7 @@ KLEE does not work under x86-32.
 
    **NOTE:** You can run both, the system and unit tests, with `make check`.
 
-9. **You're ready to go! Check the [Tutorials]({{site.baseurl}}/tutorials) page to try KLEE.**
-
+9. **You're ready to go! Check the [Documentation]({{site.baseurl}}/docs) page to try KLEE.**
 
 **NOTE:** For testing real applications (e.g. Coreutils), you may need to increase your system's open file limit (ulimit -n).
 Something between 10000 and 999999 should work.
