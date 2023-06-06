@@ -15,13 +15,19 @@ The copyright for the code is held by the individual contributors of the code un
 
 ## Mailing Lists
 
-Currently the main list for KLEE discussion (both for users and developers) is [klee-dev]({{site.baseurl}}/klee-dev).
+For both users and developers, the [klee-dev](https://mailman.ic.ac.uk/mailman/listinfo/klee-dev) mailing list is the central place for discussions, questions, and announcements.
+
+If you have queries about KLEE that are not answered on this website, please send a message to the list rather than opening a GitHub issue.
+
+However, before sending your message, please check [klee-dev's searchable archive](http://www.mail-archive.com/klee-dev@imperial.ac.uk/) to see if your question has already been answered.
+
+Please note that only subscribers can post messages to the list, so you would need to subscribe to the list first.  The first post of each member is moderated to avoid spam, so please allow up to a few days for your first message to be approved.
 
 Commit messages to the KLEE repository go to [klee-commits](https://mailman.ic.ac.uk/mailman/listinfo/klee-commits).
 
 ## Bug Reports
 
-If you find a bug in KLEE, please fill a bug report on [GitHub](https://github.com/klee/klee/issues/new). You might also want to report it on [klee-dev]({{site.baseurl}}/klee-dev).
+If you find a bug in KLEE, please fill a bug report on [GitHub](https://github.com/klee/klee/issues/new). You might also want to report it on [klee-dev](#mailing-lists).
 
 ## Working with the Code
 
@@ -34,7 +40,7 @@ Documentation](http://llvm.org/docs/#llvmprog).
 
 ## Open Projects
 
-This section lists a variety of open projects that are natural (and tractable) extensions of KLEE and things that we would love to see people work on. If you are interested in tackling any of the projects, please mail [klee-dev](/klee-dev/) with your ideas -- or even better, submit your PRs directly on GitHub!
+This section lists a variety of open projects that are natural (and tractable) extensions of KLEE and things that we would love to see people work on. If you are interested in tackling any of the projects, please mail [klee-dev](#mailing-lists) with your ideas -- or even better, submit your PRs directly on GitHub!
 
 * _Package KLEE for Ubuntu and Other Distributions:_
 
