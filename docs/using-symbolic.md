@@ -2,7 +2,7 @@
 layout: default
 title: Symbolic Environment
 subtitle: Using Symbolic Environment
-slug: tutorials
+slug: documentation
 ---
 
 As mentioned in the [overview of KLEE's basic command-line options]({{site.baseurl}}/docs/options/), KLEE provides several options as part of its symbolic environment. Their usage, however, is often not easily understood by new users. This tutorial provides basic usage examples for `-sym-arg` and `-sym-files`, which are perhaps the most essential among the options.

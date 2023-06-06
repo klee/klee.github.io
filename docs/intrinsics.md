@@ -12,7 +12,7 @@ Contents
 {:.toc__list .list-anchor}
 {:toc}
  
-KLEE provides a set of special functions which are useful in the context of symbolic execution. Whenever a program calls one of these functions, KLEE handles internally the call, hence their intrinsic nature. The functions are declared in `include/klee/klee.h`. The most often used intrinsic is [klee_make_symbolic]({{site.baseurl}}/tutorials/testing-function), which creates an unconstrained symbolic object.
+KLEE provides a set of special functions which are useful in the context of symbolic execution. Whenever a program calls one of these functions, KLEE handles internally the call, hence their intrinsic nature. The functions are declared in `include/klee/klee.h`. The most often used intrinsic is [klee_make_symbolic]({{site.baseurl}}/docs/testing-function), which creates an unconstrained symbolic object.
 
 ## `klee_assume(condition)`
 
