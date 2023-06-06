@@ -390,6 +390,11 @@ Artifacts published at Zenodo can also be registered with the [Symbolic Executio
   IEEE International Conference on Cyber-Physical Systems, Networks, and Applications (CPSNA 2014)  
   August 25-26, 2014, Hong Kong, China
 
+1. [8Cage: Lightweight Fault-based Test Generation for Simulink](https://dl.acm.org/doi/10.1145/2642937.2648622)  
+  Dominik Holling, Alexander Pretschner, Matthias Gemmar  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2014)  
+  September 15-19, 2014, Vasteras, Sweden
+
 1. [Docovery: Toward Generic Automatic Document Recovery](https://srg.doc.ic.ac.uk/publications/docovery-ase-14.html)  
   Tomasz Kuchta, Cristian Cadar, Miguel Castro, Manuel Costa  
   IEEE/ACM International Conference on Automated Software Engineering (ASE 2014)  
