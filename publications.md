@@ -1391,6 +1391,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE International Conference on Software Testing, Verification and Validation (ICST 2022)  
   April 4-13, 2022, Virtual Event  
 
+1. [DEEQ: Data-driven End-to-End EQuivalence Checking of High-level Synthesis](https://ieeexplore.ieee.org/abstract/document/9806218)  
+  Mohammed Abderehman, Theegala Rakesh Reddy, Chandan Karfa  
+  International Symposium on Quality Electronic Design (ISQED 2022)  
+  April 6-7, 2022, Santa Clara, USA
+
 1. [Argon: A Toolbase for Evaluating Software Protection Techniques Against Symbolic Execution Attacks](https://doi.org/10.1109/SoutheastCon48659.2022.9764028)  
   Deepak Adhikari, J. Todd McDonald, Todd R. Andel, Joseph D. Richardson  
   IEEE SoutheastCon 2022  
