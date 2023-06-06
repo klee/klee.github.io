@@ -29,8 +29,6 @@ slug: documentation
 1. [Kleaver Options]({{site.baseurl}}/docs/kleaver-options/): Overview of Kleaver's main command-line options.
 1. [KQuery]({{site.baseurl}}/docs/kquery): The reference manual for the KQuery language, used for interacting with Kleaver.
 1. [Coreutils Experiments]({{site.baseurl}}/docs/coreutils-experiments): Some information about the Coreutils experiments presented in our [KLEE OSDI'08 paper](http://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf).
-1. [Developer's Guide]({{site.baseurl}}/docs/developers-guide/): A brief guide on working with the KLEE source code.
-1. [Doxygen]({{site.baseurl}}/doxygen/html/): Doxygen documentation.
 
 ## Tutorials
 
