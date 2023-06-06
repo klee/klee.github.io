@@ -7,11 +7,11 @@ slug: getting-started
 
 ## Web Interface
 
-* [KLEE web](http://klee.doc.ic.ac.uk/): run tiny code examples in your browser
+Run tiny code examples in your browser with [KLEE web](http://klee.doc.ic.ac.uk/).
 
 ## Docker
 
-* [Our Docker images]({{site.baseurl}}/docker): this is one of the fastest ways to get started.
+[Our Docker images]({{site.baseurl}}/docker) are one of the fastest ways to get started.
 
 ## Installation via Package Manager
 
