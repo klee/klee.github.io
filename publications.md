@@ -1465,7 +1465,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM/SIGAPP Symposium On Applied Computing (SAC 2023)  
   March, 27-31, 2023, Tallin, Estonia
 
-1. [Processor Verification using Symbolic Execution: A RISC-V Case-Study](https://agra.informatik.uni-bremen.de/doc/konf/2023_DATE_NB.pdf)  
+1. [An Automated Verification Framework for HalideIR-Based Compiler Transformations](https://ieeexplore.ieee.org/document/10137308)  
+  Yanzhao Wang, Fei Xie, Zhenkun Yang, Jeremy Casas, Pasquale Cocchini, Jin Yang  
+  Design, Automation and Test in Europe Conference (DATE 2023)  
+  April, 17-19, 2023, Antwerp, Belgium
+
+1. [Processor Verification using Symbolic Execution: A RISC-V Case-Study](https://ieeexplore.ieee.org/document/10137202)  
   Niklas Bruns, Vladimir Herdt, Rolf Drechsler  
   Design, Automation and Test in Europe Conference (DATE 2023)  
   April, 17-19, 2023, Antwerp, Belgium
