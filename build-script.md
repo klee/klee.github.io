@@ -1,11 +1,9 @@
 ---
 layout: default
 title: Building KLEE and its Dependencies
-subtitle: The build infrastructure for KLEE
+subtitle: Building KLEE and its dependencies
 slug: getting-started
 ---
-
-# Building KLEE and its dependencies
 
 KLEE is a symbolic execution framework that can be built with a multitude of different components (compiler infrastructure: multiple LLVM versions, solvers: STP, Z3, MetaSMT) and run on a variety of systems (e.g., Linux (Ubuntu), macOS, FreeBSD).
 
@@ -15,13 +13,13 @@ Managing and building the different combinations of dependencies can be tedious.
 
 To locally build a reasonable configuration and install all dependencies, use the following options:
 
-* LLVM: 11
+* LLVM: 13
 * Solvers: STP and Z3
 * uclibc: to test applications with systems interaction
 * libc++: to test C++ applications
 
 ```
-$ BASE=$HOME/klee_deps COVERAGE=0 ENABLE_DOXYGEN=0 USE_TCMALLOC=1 LLVM_VERSION=11 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=0 DISABLE_ASSERTIONS=1 REQUIRES_RTTI=1 SOLVERS=STP:Z3 GTEST_VERSION=1.11.0 UCLIBC_VERSION=klee_0_9_29 TCMALLOC_VERSION=2.9.1 SANITIZER_BUILD= STP_VERSION=master MINISAT_VERSION=master Z3_VERSION=4.8.15 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee --install-system-deps
+$ BASE=$HOME/klee_deps COVERAGE=0 ENABLE_DOXYGEN=0 USE_TCMALLOC=1 LLVM_VERSION=13 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=0 DISABLE_ASSERTIONS=1 REQUIRES_RTTI=1 SOLVERS=STP:Z3 GTEST_VERSION=1.11.0 UCLIBC_VERSION=klee_uclibc_v1.3 TCMALLOC_VERSION=2.9.1 SANITIZER_BUILD= STP_VERSION=master MINISAT_VERSION=master SQLITE_VERSION=3400100 Z3_VERSION=4.8.15 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee --install-system-deps
 ```
 
 ## Users
@@ -97,12 +95,12 @@ Use those options to mix and match your required setup.
 To locally build our standard configuration, use the following option:
 
 ```
-$ COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=11 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.11.0 UCLIBC_VERSION=klee_uclibc_v1.2 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= STP_VERSION=2.3.3 MINISAT_VERSION=master Z3_VERSION=4.8.14 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee
+$ COVERAGE=0 USE_TCMALLOC=1 BASE=$HOME/klee_deps LLVM_VERSION=13 ENABLE_OPTIMIZED=1 ENABLE_DEBUG=1 DISABLE_ASSERTIONS=0 REQUIRES_RTTI=0 SOLVERS=STP:Z3 GTEST_VERSION=1.11.0 UCLIBC_VERSION=klee_uclibc_v1.3 TCMALLOC_VERSION=2.7 SANITIZER_BUILD= STP_VERSION=2.3.3 MINISAT_VERSION=master SQLITE_VERSION=3400100 Z3_VERSION=4.8.14 USE_LIBCXX=1 KLEE_RUNTIME_BUILD="Debug+Asserts" ./scripts/build/build.sh klee
 ```
 
-For example, to have address sanitized builds with LLVM 7.0 use:
+For example, to have address sanitized builds with LLVM 11.0 use:
 ```
-$ SANITIZER_BUILD=address DISABLE_ASSERTIONS=0 ENABLE_OPTIMIZED=0 USE_TCMALLOC=0 SOLVERS=STP USE_LIBCXX=0 LLVM_VERSION=7.0 STP_VERSION="2.3.3" ENABLE_DEBUG=1 UCLIBC_VERSION=klee_uclibc_v1.2 REQUIRES_RTTI=0 ./scripts/build/build.sh klee
+$ SANITIZER_BUILD=address DISABLE_ASSERTIONS=0 ENABLE_OPTIMIZED=0 USE_TCMALLOC=0 SOLVERS=STP USE_LIBCXX=0 LLVM_VERSION=11.0 STP_VERSION="2.3.3" ENABLE_DEBUG=1 UCLIBC_VERSION=klee_uclibc_v1.3 REQUIRES_RTTI=0 ./scripts/build/build.sh klee
 ```
 
 #### Mix and Match
@@ -113,7 +111,7 @@ Every component gets a version and a build-type suffix. This allows you to re-us
 ### Docker
 
 Besides, the script allows building docker images of KLEE.
-For that, append `--docker` to the script invocation. The only variable required is `BASE_IMAGE`, which refers to the docker image used as a base system, e.g., `ubuntu:bionic-20200807`.
+For that, append `--docker` to the script invocation. The only variable required is `BASE_IMAGE`, which refers to the docker image used as a base system, e.g., `ubuntu:jammy-20230126`.
 
 Internally, the different independent components will be built as separate docker images and combined for the final image.
 
@@ -138,7 +136,7 @@ The build script automatically detects under which platform it runs (e.g., Linux
 
 This platform information is used to resort to required build instructions from the most platform-specific version to the least.
 
-As example, to build the __STP__ solver, `build.sh` finds the general component information in `v-stp.inc`. To build STP under a Linux Ubuntu 20.04, the build script will try to acquire information from `p-stp-linux-ubuntu-20.04.inc`, which it won't find. In subsequent steps, it will try to resolve functionality from `p-stp-linux-ubuntu.inc`, then `p-stp-linux.inc` and last `p-stp.inc`.
+As example, to build the __STP__ solver, `build.sh` finds the general component information in `v-stp.inc`. To build STP under a Linux Ubuntu 22.04, the build script will try to acquire information from `p-stp-linux-ubuntu-22.04.inc`, which it won't find. In subsequent steps, it will try to resolve functionality from `p-stp-linux-ubuntu.inc`, then `p-stp-linux.inc` and last `p-stp.inc`.
 
 Due to the nature of bash, all component-specific functions are suffixed with `_COMPONENT` to avoid name clashes and re-definitions.
 
@@ -252,7 +250,7 @@ install_build_dependencies_stp() {
 }
 ```
 
-The install script tries to find a satisfying function depending on the system and the provided instructions by evaluating the most specific to the least specific version. With the previously defined functions, on Ubuntu 20.04, the script will use the more general `p-stp-linux-ubuntu.inc` as a `p-stp-linux-ubuntu-20.04.inc` is not available.
+The install script tries to find a satisfying function depending on the system and the provided instructions by evaluating the most specific to the least specific version. With the previously defined functions, on Ubuntu 22.04, the script will use the more general `p-stp-linux-ubuntu.inc` as a `p-stp-linux-ubuntu-22.04.inc` is not available.
 
 To foster reusability, source-built components should not be installed into systems directories, instead, they should be kept in separate directories.
 For example, for __STP__, it is build in something like `STP_BUILD_PATH="${BASE}/stp-${STP_VERSION}-build"` and installed into `STP_INSTALL_PATH="${BASE}/stp-${STP_VERSION}-install`. This allows us to have multiple software versions and differently optimized versions simultaneously on a system and link them appropriately.
