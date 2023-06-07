@@ -10,8 +10,8 @@ Assuming you have Docker installed, you can run the following to try
 the latest release of KLEE:
 
 ```bash
-$ docker pull klee/klee:2.3
-$ docker run --rm -ti --ulimit='stack=-1:-1' klee/klee:2.3
+$ docker pull klee/klee:3.0
+$ docker run --rm -ti --ulimit='stack=-1:-1' klee/klee:3.0
 ```
 
 # What is Docker?
@@ -45,7 +45,7 @@ If you want to use a tagged revision of KLEE you should instead run:
 $ docker pull klee/klee:<TAG>
 ```
 
-Where ``<TAG>`` is [one of the tags listed on the DockerHub](https://hub.docker.com/r/klee/klee/tags/). Typically this is either ``latest`` (corresponds to the ``master`` branch) or a version number (e.g. ``2.1``).
+Where ``<TAG>`` is [one of the tags listed on the DockerHub](https://hub.docker.com/r/klee/klee/tags/). Typically this is either ``latest`` (corresponds to the ``master`` branch) or a version number (e.g. ``2.3``).
 
 **Note this process pulls images containing code compiled by a third-party service. We do not accept responsibility for the contents of the image.**
 
@@ -80,7 +80,6 @@ If this worked correctly your shell prompt will have changed and you will be the
 ```bash
 klee@3c098b05ca85:~$ whoami
 klee
-klee@3c098b05ca85:~$
 ```
 
 You can now try running KLEE inside the container, where you should
@@ -190,10 +189,10 @@ to remove it.
 
 There are a few useful things to know about KLEE Docker containers created using the KLEE Docker image.
 
-* The Docker image is based on an Ubuntu 18.04 LTS image.
+* The Docker image is based on an Ubuntu 22.04 LTS image.
 * Inside the Docker image the ``klee`` user has sudo access (password is ``klee``) so that you can install other applications inside the container (e.g. a text editor). Given that the default user has sudo access this image **should never be used in a production environment**.
 * You may want files on your native filesystem available in the container. By default the host filesystem is not visible inside the container.  You can use the ``--volume=`` option to ``docker run`` to mount directories on the host filesystem into the container.
-* These Docker images use LLVM 6.0 so you need to use ``clang`` to create LLVM bitcode.
+* These Docker images use LLVM 13.0 so you need to use ``clang`` to create LLVM bitcode.
 * ``/home/klee/klee_src`` contains the source code used to build KLEE.
 * ``/home/klee/klee_build`` contains the build of KLEE built from ``/home/klee/klee_src``
 * All the previous examples implicitly run ``/bin/bash`` inside the container. This is the default but it is also possible to run KLEE directly (useful for scripting) by specifying the command line to use to ``docker run``.
