@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Getting Involved
-subtitle: KLEE Developer Policy and Guide
+subtitle: Getting Involved
 slug: getting-involved
 lead: If you are interested in contributing to KLEE, here is some relevant information.
 ---
