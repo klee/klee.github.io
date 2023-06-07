@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Testing Coreutils &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v3.0/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v3.0/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v3.0/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v3.0/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v3.0/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v3.0/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v3.0/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v3.0/">
+        <img alt="KLEE" src="/releases/docs/v3.0/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li>
+      <a href="/releases/docs/v3.0/getting-started">Getting Started</a>
+    </li>
+    <li class="active">
+      <a href="/releases/docs/v3.0/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v3.0/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v3.0/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v3.0">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 3.0
+</div>
+</a>
+
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Testing Coreutils</h1>
+        <h2 class="editorial-header__subtitle">Tutorial on How to Use KLEE to Test GNU Coreutils</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <p>As a more detailed explanation of using KLEE, we will look at how we did our testing of <a href="http://www.gnu.org/software/coreutils/">GNU Coreutils</a> using KLEE.
+Please follow the instructions in our <a href="/releases/docs/v3.0/docs/coreutils-experiments">OSDI’08 coreutils experiment description</a> to reproduce the experiment setup from the paper.
+This tutorial assumes that you have configured and <a href="/releases/docs/v3.0/getting-started">built KLEE</a> with <code class="language-plaintext highlighter-rouge">uclibc</code> and <code class="language-plaintext highlighter-rouge">POSIX</code> runtime support.
+All tests were done on a 64-bit Linux machine.</p>
+
+<h2 id="step-1-build-coreutils-with-gcov">Step 1: Build coreutils with gcov</h2>
+
+<p>First you will need to download and unpack the source for <a href="http://www.gnu.org/software/coreutils/">coreutils</a>. In this example we use version 6.11 (one version later than what was used for our OSDI paper) but you can use any version of Coreutils. However, for recent versions the <code class="language-plaintext highlighter-rouge">make -C src arch hostname</code> step can be skipped.</p>
+
+<p>Before we build with LLVM, let’s build a version of <em>coreutils</em> with <em>gcov</em> support. We will use this later to get coverage information on the test cases produced by KLEE.</p>
+
+<p>From inside the <em>coreutils</em> directory, we’ll do the usual configure/make steps inside a subdirectory (<code class="language-plaintext highlighter-rouge">obj-gcov</code>). Here are the steps:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">coreutils-6.11<span class="nv">$ </span><span class="nb">mkdir </span>obj-gcov
+coreutils-6.11<span class="nv">$ </span><span class="nb">cd </span>obj-gcov
+obj-gcov<span class="nv">$ </span>../configure <span class="nt">--disable-nls</span> <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">"-g -fprofile-arcs -ftest-coverage"</span>
+... verify that configure worked ...
+obj-gcov<span class="nv">$ </span>make
+obj-gcov<span class="nv">$ </span>make <span class="nt">-C</span> src <span class="nb">arch hostname</span>
+... verify that make worked ...</code></pre></figure>
+
+<p>We build with <code class="language-plaintext highlighter-rouge">--disable-nls</code> because this adds a lot of extra initialization in the C library which we are not interested in testing. Even though these aren’t the executables that KLEE will be running on, we want to use the same compiler flags so that the test cases KLEE generates are most likely to work correctly when run on the uninstrumented binaries.</p>
+
+<p>You should now have a set of <code class="language-plaintext highlighter-rouge">coreutils</code> in the <code class="language-plaintext highlighter-rouge">objc-gcov/src</code> directory. For example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">obj-gcov<span class="nv">$ </span><span class="nb">cd </span>src
+src<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> <span class="nb">ls echo cat</span>
+<span class="nt">-rwxrwxr-x</span> 1 klee klee 150632 Nov 21 21:58 <span class="nb">cat</span>
+<span class="nt">-rwxrwxr-x</span> 1 klee klee 135984 Nov 21 21:58 <span class="nb">echo</span>
+<span class="nt">-rwxrwxr-x</span> 1 klee klee 390552 Nov 21 21:58 <span class="nb">ls
+</span>src<span class="nv">$ </span>./cat <span class="nt">--version</span>
+<span class="nb">cat</span> <span class="o">(</span>GNU coreutils<span class="o">)</span> 6.11
+Copyright <span class="o">(</span>C<span class="o">)</span> 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund and Richard M. Stallman.</code></pre></figure>
+
+<p>In addition, these executables should be built with <code class="language-plaintext highlighter-rouge">gcov</code> support, so if you run one it will write a <code class="language-plaintext highlighter-rouge">.gcda</code> into the current directory. That file contains information about exactly what code was executed when the program ran. See the <a href="http://gcc.gnu.org/onlinedocs/gcc/Gcov.html">Gcov Documentation</a> for more information. We can use the <code class="language-plaintext highlighter-rouge">gcov</code> tool itself to produce a human readable form of the coverage information. For example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span><span class="nb">rm</span> <span class="nt">-f</span> <span class="k">*</span>.gcda <span class="c"># Get rid of any stale gcov files</span>
+src<span class="nv">$ </span>./echo<span class="k">**</span>
+
+src<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> echo.gcda
+<span class="nt">-rw-rw-r--</span> 1 klee klee 896 Nov 21 22:00 echo.gcda
+src<span class="nv">$ </span>gcov <span class="nb">echo
+</span>File <span class="s1">'../../src/echo.c'</span>
+Lines executed:24.27% of 103
+Creating <span class="s1">'echo.c.gcov'</span>
+
+File <span class="s1">'../../src/system.h'</span>
+Lines executed:0.00% of 3
+Creating <span class="s1">'system.h.gcov'</span></code></pre></figure>
+
+<p>By default <code class="language-plaintext highlighter-rouge">gcov</code> will show the number of lines executed in the program (the <code class="language-plaintext highlighter-rouge">.h</code> files include code which was compiled into <code class="language-plaintext highlighter-rouge">echo.c</code>).</p>
+
+<h2 id="step-2-install-wllvm">Step 2: Install WLLVM</h2>
+
+<p>One of the difficult parts of testing real software using KLEE is that it must be first compiled so that the final program is an LLVM bitcode file and not a native binary. The software’s build system may be set up to use tools such as ‘ar’, ‘libtool’, and ‘ld’, which do not in general understand LLVM bitcode files.</p>
+
+<p>For coreutils, we use <a href="https://github.com/travitch/whole-program-llvm">whole-program-llvm</a> (WLLVM), which provides tools for building whole-program LLVM bitcode files from an unmodified C or C++ source package. WLLVM includes four python executables: <code class="language-plaintext highlighter-rouge">wllvm</code> a C compiler and <code class="language-plaintext highlighter-rouge">wllvm++</code> a C++ compiler, the tool <code class="language-plaintext highlighter-rouge">extract-bc</code> for extracting the bitcode from a build product (either object file, executable, library, or archive), and the sanity checker <code class="language-plaintext highlighter-rouge">wllvm-sanity-checker</code> for detecting configuration oversights. In this tutorial, we use WLLVM version 1.0.17.</p>
+
+<p>To install <em>whole-program-llvm</em> the easiest way is to use <code class="language-plaintext highlighter-rouge">pip</code>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>pip <span class="nb">install</span> <span class="nt">--upgrade</span> wllvm</code></pre></figure>
+
+<p>To successfully execute WLLVM it is necessary to set the environment variable <code class="language-plaintext highlighter-rouge">LLVM_COMPILER</code> to the underlying LLVM compiler (either <code class="language-plaintext highlighter-rouge">dragonegg</code> or <code class="language-plaintext highlighter-rouge">clang</code>). In this tutorial, we use <code class="language-plaintext highlighter-rouge">clang</code>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">export </span><span class="nv">LLVM_COMPILER</span><span class="o">=</span>clang</code></pre></figure>
+
+<p>To make the environment variable persistent, add the export to your shell profile (e.g. <code class="language-plaintext highlighter-rouge">.bashrc</code>).</p>
+
+<h2 id="step-3-build-coreutils-with-llvm">Step 3: Build Coreutils with LLVM</h2>
+
+<p>As before, we will build in a separate directory so we can easily access both the native executables and the LLVM versions. Here are the steps:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">coreutils-6.11<span class="nv">$ </span><span class="nb">mkdir </span>obj-llvm
+coreutils-6.11<span class="nv">$ </span><span class="nb">cd </span>obj-llvm
+obj-llvm<span class="nv">$ CC</span><span class="o">=</span>wllvm ../configure <span class="nt">--disable-nls</span> <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">"-g -O1 -Xclang -disable-llvm-passes -D__NO_STRING_INLINES  -D_FORTIFY_SOURCE=0 -U__OPTIMIZE__"</span>
+... verify that configure worked ...
+obj-llvm<span class="nv">$ </span>make
+obj-llvm<span class="nv">$ </span>make <span class="nt">-C</span> src <span class="nb">arch hostname</span>
+... verify that make worked ...</code></pre></figure>
+
+<p>Notice that we made two changes. First, we don’t want to add <em>gcov</em>
+instrumentation in the binary we are going to test using KLEE, so we left of
+the <code class="language-plaintext highlighter-rouge">-fprofile-arcs -ftest-coverage</code> flags.  Second, we added the <code class="language-plaintext highlighter-rouge">-O1 -Xclang
+-disable-llvm-passes</code> flags to <code class="language-plaintext highlighter-rouge">CFLAGS</code>. This is similar to adding <code class="language-plaintext highlighter-rouge">-O0</code>, however
+in LLVM 5.0 and later compiling with <code class="language-plaintext highlighter-rouge">-O0</code>  prevents KLEE from performing its
+own optimisations (which we will do later). Therefore, we compile with <code class="language-plaintext highlighter-rouge">-O1</code>
+but explicitly disable all optimisations. See this
+<a href="https://github.com/klee/klee/issues/902">issue</a> for more details.</p>
+
+<p>Note that we could have used <code class="language-plaintext highlighter-rouge">-O0 -Xclang -disable-O0-optnone</code> as well but
+because we are going to run Coreutils with optimisations later, it is better to
+compile with <code class="language-plaintext highlighter-rouge">-O1 -Xclang -disable-llvm-passes</code>. The <code class="language-plaintext highlighter-rouge">-O1</code> version emits
+bitcode that is more suited for optimisation, so we prefer to use that in this case.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-D__NO_STRING_INLINES  -D_FORTIFY_SOURCE=0 -U__OPTIMIZE__</code> is another set of <strong>important flags</strong>.
+In later versions of LLVM, <code class="language-plaintext highlighter-rouge">clang</code> emits safe version of certain library functions. For example it replaces <code class="language-plaintext highlighter-rouge">fprintf</code> with <code class="language-plaintext highlighter-rouge">__fprintf_chk</code>, which KLEE does not model. That means it will treat it as an external function and concretize state. It will lead to <em>unexpected results</em>.</p>
+
+<p>If all went well, you should now have Coreutils <em>executables</em>. For example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">obj-llvm<span class="nv">$ </span><span class="nb">cd </span>src
+src<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> <span class="nb">ls echo cat</span>
+<span class="nt">-rwxrwxr-x</span> 1 klee klee 105448 Nov 21 12:03 <span class="nb">cat</span>
+<span class="nt">-rwxrwxr-x</span> 1 klee klee  95424 Nov 21 12:03 <span class="nb">echo</span>
+<span class="nt">-rwxrwxr-x</span> 1 klee klee 289624 Nov 21 12:03 <span class="nb">ls
+</span>src<span class="nv">$ </span>./cat <span class="nt">--version</span>
+<span class="nb">cat</span> <span class="o">(</span>GNU coreutils<span class="o">)</span> 6.11
+Copyright <span class="o">(</span>C<span class="o">)</span> 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund and Richard M. Stallman.</code></pre></figure>
+
+<p>You may notice that instead of LLVM bitcode files, we obtained executable files. This is because WLLVM works in two steps. In the first step, WLLVM invokes the standard compiler and then, for each object file, it also invokes a bitcode compiler to produce LLVM bitcode. WLLVM stores the location of the generated bitcode files in a dedicated section of the object file. When object files are linked together, the locations are concatenated to save the locations of all constituent files. After the build completes, one can use the WLLVM utility <code class="language-plaintext highlighter-rouge">extract-bc</code> to read the contents of the dedicated section and link all of the bitcode into a single whole-program bitcode file.</p>
+
+<p>To obtain the LLVM bitcode version of all Coreutils, we can invoke <code class="language-plaintext highlighter-rouge">extract-bc</code> on all executable files:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span>find <span class="nb">.</span> <span class="nt">-executable</span> <span class="nt">-type</span> f | xargs <span class="nt">-I</span> <span class="s1">'{}'</span> extract-bc <span class="s1">'{}'</span>
+src<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> ls.bc
+<span class="nt">-rw-rw-r--</span> 1 klee klee 543052 Nov 21 12:03 ls.bc</code></pre></figure>
+
+<h2 id="step-4-using-klee-as-an-interpreter">Step 4: Using KLEE as an interpreter</h2>
+
+<p>At its core, KLEE is just an interpreter for LLVM bitcode. For example, here is how to run the same <code class="language-plaintext highlighter-rouge">cat</code> command we did before, using KLEE. Note, this step requires that you configured and built KLEE with <code class="language-plaintext highlighter-rouge">uclibc</code> and <code class="language-plaintext highlighter-rouge">POSIX</code> runtime support (if you didn’t, you’ll need to go do that now).</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span>klee <span class="nt">--libc</span><span class="o">=</span>uclibc <span class="nt">--posix-runtime</span> ./cat.bc <span class="nt">--version</span>
+KLEE: NOTE: Using klee-uclibc : /usr/local/lib/klee/runtime/klee-uclibc.bca
+KLEE: NOTE: Using model: /usr/local/lib/klee/runtime/libkleeRuntimePOSIX.bca
+KLEE: output directory is <span class="s2">"/home/klee/coreutils-6.11/obj-llvm/src/./klee-out-0"</span>
+Using STP solver backend
+KLEE: WARNING ONCE: <span class="k">function</span> <span class="s2">"vasnprintf"</span> has inline asm
+KLEE: WARNING: undefined reference to <span class="k">function</span>: __ctype_b_loc
+KLEE: WARNING: undefined reference to <span class="k">function</span>: klee_posix_prefer_cex
+KLEE: WARNING: executable has module level assembly <span class="o">(</span>ignoring<span class="o">)</span>
+KLEE: WARNING ONCE: calling external: syscall<span class="o">(</span>16, 0, 21505, 42637408<span class="o">)</span>
+KLEE: WARNING ONCE: calling __user_main with extra arguments.
+KLEE: WARNING ONCE: calling external: getpagesize<span class="o">()</span>
+KLEE: WARNING ONCE: calling external: vprintf<span class="o">(</span>43649760, 51466656<span class="o">)</span>
+<span class="nb">cat</span> <span class="o">(</span>GNU coreutils<span class="o">)</span> 6.11
+
+License GPLv3+: GNU GPL version 3 or later
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund and Richard M. Stallman.
+Copyright <span class="o">(</span>C<span class="o">)</span> 2008 Free Software Foundation, Inc.
+KLEE: WARNING ONCE: calling close_stdout with extra arguments.
+
+KLEE: <span class="k">done</span>: total instructions <span class="o">=</span> 28988
+KLEE: <span class="k">done</span>: completed paths <span class="o">=</span> 1
+KLEE: <span class="k">done</span>: generated tests <span class="o">=</span> 1</code></pre></figure>
+
+<p>We got a lot more output this time! Let’s step through it, starting with the KLEE command itself. The general form of a KLEE command line is first the arguments for KLEE itself, then the LLVM bitcode file to execute (cat.bc), and then any arguments to pass to the application (–version in this case, as before).</p>
+
+<p>If we were running a normal native application, it would have been linked with the C library, but in this case KLEE is running the LLVM bitcode file directly. In order for KLEE to work effectively, it needs to have definitions for all the external functions the program may call. We have modified the <a href="http://www.uclibc.org">uClibc</a> C library implementation for use with KLEE; the –libc=uclibc KLEE argument tells KLEE to load that library and link it with the application before it starts execution.</p>
+
+<p>Similarly, a native application would be running on top of an operating system that provides lower level facilities like write(), which the C library uses in its implementation. As before, KLEE needs definitions for these functions in order to fully understand the program. We provide a POSIX runtime which is designed to work with KLEE and the uClibc library to provide the majority of operating system facilities used by command line applications – the –posix-runtime argument tells KLEE to link this library in as well.</p>
+
+<p>As before, cat prints out its version information (note that this time all the text is written out), but we now have a number of additional information output by KLEE. In this case, most of these warnings are innocuous, but for completeness here is what they mean:</p>
+
+<ul>
+  <li><em>undefined reference to function: ___ctype_b_loc</em>: This warning means that the program contains a call to the function __ctype_b_loc, but that function isn’t defined anywhere (we would have seen a lot more of these if we had not linked with uClibc and the POSIX runtime). If the program actually ends up making a call to this function while it is executing, KLEE won’t be able to interpret it and may terminate the program.</li>
+  <li><em>executable has module level assembly (ignoring)</em>: Some file compiled in to the application had file level inline-assembly, which KLEE can’t understand. In this case this comes from uClibc and is unused, so this is safe.</li>
+  <li><em>calling __user_main with extra arguments</em>: This indicates that the function was called with more arguments than it expected, it is almost always innocuous. In this case __user_main is actually the main() function for cat, which KLEE has renamed it when linking with uClibc. main() is being called with additional arguments by uClibc itself during startup, for example the environment pointer.</li>
+  <li><em>calling external: getpagesize()</em>: This is an example of KLEE calling a function which is used in the program but is never defined. What KLEE actually does in such cases is try to call the native version of the function, if it exists. This is sometimes safe, as long as that function does write to any of the programs memory or attempt to manipulate symbolic values. getpagesize(), for example, just returns a constant.</li>
+</ul>
+
+<p>In general, KLEE will only emit a given warning once. The warnings are also logged to warnings.txt in the KLEE output directory.</p>
+
+<h2 id="step-5-introducing-symbolic-data-to-an-application">Step 5: Introducing symbolic data to an application</h2>
+
+<p>We’ve seen that KLEE can interpret a program normally, but the real purpose of KLEE is to explore programs more exhaustively by making parts of their input symbolic. For example, lets look at running KLEE on the echo application.</p>
+
+<p>When using uClibc and the POSIX runtime, KLEE replaces the program’s main() function with a special function (klee_init_env) provided inside the runtime library. This function alters the normal command line processing of the application, in particular to support construction of symbolic arguments. For example, passing –help yields:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span>klee <span class="nt">--libc</span><span class="o">=</span>uclibc <span class="nt">--posix-runtime</span> ./echo.bc <span class="nt">--help</span>
+...
+
+usage: <span class="o">(</span>klee_init_env<span class="o">)</span> <span class="o">[</span>options] <span class="o">[</span>program arguments]
+  <span class="nt">-sym-arg</span> &lt;N&gt;              - Replace by a symbolic argument with length N
+  <span class="nt">-sym-args</span> &lt;MIN&gt; &lt;MAX&gt; &lt;N&gt; - Replace by at least MIN arguments and at most
+                              MAX arguments, each with maximum length N
+  <span class="nt">-sym-files</span> &lt;NUM&gt; &lt;N&gt;      - Make NUM symbolic files <span class="o">(</span><span class="s1">'A'</span>, <span class="s1">'B'</span>, <span class="s1">'C'</span>, etc.<span class="o">)</span>,
+                              each with size N
+  <span class="nt">-sym-stdin</span> &lt;N&gt;            - Make stdin symbolic with size N.
+  <span class="nt">-sym-stdout</span>               - Make stdout symbolic.
+  <span class="nt">-max-fail</span> &lt;N&gt;             - Allow up to N injected failures
+  <span class="nt">-fd-fail</span>                  - Shortcut <span class="k">for</span> <span class="s1">'-max-fail 1'</span>
+...</code></pre></figure>
+
+<p>As an example, lets run echo with a symbolic argument of 3 characters.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span>klee <span class="nt">--libc</span><span class="o">=</span>uclibc <span class="nt">--posix-runtime</span> ./echo.bc <span class="nt">--sym-arg</span> 3
+KLEE: NOTE: Using klee-uclibc : /usr/local/lib/klee/runtime/klee-uclibc.bca
+KLEE: NOTE: Using model: /usr/local/lib/klee/runtime/libkleeRuntimePOSIX.bca
+KLEE: output directory is <span class="s2">"/home/klee/coreutils-6.11/obj-llvm/src/./klee-out-1"</span>
+Using STP solver backend
+KLEE: WARNING ONCE: <span class="k">function</span> <span class="s2">"vasnprintf"</span> has inline asm
+KLEE: WARNING: undefined reference to <span class="k">function</span>: __ctype_b_loc
+KLEE: WARNING: undefined reference to <span class="k">function</span>: klee_posix_prefer_cex
+KLEE: WARNING: executable has module level assembly <span class="o">(</span>ignoring<span class="o">)</span>
+KLEE: WARNING ONCE: calling external: syscall<span class="o">(</span>16, 0, 21505, 39407520<span class="o">)</span>
+KLEE: WARNING ONCE: calling __user_main with extra arguments.
+..
+KLEE: WARNING: calling close_stdout with extra arguments.
+...
+KLEE: WARNING ONCE: calling external: <span class="nb">printf</span><span class="o">(</span>42797984, 41639952<span class="o">)</span>
+..
+KLEE: WARNING ONCE: calling external: vprintf<span class="o">(</span>41640400, 52740448<span class="o">)</span>
+..
+Echo the STRING<span class="o">(</span>s<span class="o">)</span> to standard output.
+
+  <span class="nt">-n</span>             <span class="k">do </span>not output the trailing newline
+  <span class="nt">-e</span>             <span class="nb">enable </span>interpretation of backslash escapes
+  <span class="nt">-E</span>             disable interpretation of backslash escapes <span class="o">(</span>default<span class="o">)</span>
+      <span class="nt">--help</span>     display this <span class="nb">help </span>and <span class="nb">exit</span>
+      <span class="nt">--version</span>  output version information and <span class="nb">exit
+</span>Usage: ./echo.bc <span class="o">[</span>OPTION]... <span class="o">[</span>STRING]...
+<span class="nb">echo</span> <span class="o">(</span>GNU coreutils<span class="o">)</span> 6.11
+Copyright <span class="o">(</span>C<span class="o">)</span> 2008 Free Software Foundation, Inc.
+If <span class="nt">-e</span> is <span class="k">in </span>effect, the following sequences are recognized:
+
+  <span class="se">\0</span>NNN   the character whose ASCII code is NNN <span class="o">(</span>octal<span class="o">)</span>
+  <span class="se">\\</span>     backslash
+  <span class="se">\a</span>     alert <span class="o">(</span>BEL<span class="o">)</span>
+  <span class="se">\b</span>     backspace
+
+License GPLv3+: GNU GPL version 3 or later
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+  <span class="se">\c</span>     suppress trailing newline
+  <span class="se">\f</span>     form feed
+  <span class="se">\n</span>     new line
+  <span class="se">\r</span>     carriage <span class="k">return</span>
+  <span class="se">\t</span>     horizontal tab
+  <span class="se">\v</span>     vertical tab
+
+NOTE: your shell may have its own version of <span class="nb">echo</span>, which usually supersedes
+the version described here.  Please refer to your shell<span class="s1">'s documentation
+for details about the options it supports.
+
+Report bugs to &lt;bug-coreutils@gnu.org&gt;.
+Written by FIXME unknown.
+
+KLEE: done: total instructions = 64546
+KLEE: done: completed paths = 25
+KLEE: done: generated tests = 25</span></code></pre></figure>
+
+<p>The results here are slightly more interesting, KLEE has explored 25 paths through the program. The output from all the paths is intermingled, but you can see that in addition to echoing various random characters, some blocks of text also were output. You may be suprised to learn that coreutils’ echo takes some arguments, in this case the options <code class="language-plaintext highlighter-rouge">--v</code> (short for <code class="language-plaintext highlighter-rouge">--version</code>) and <code class="language-plaintext highlighter-rouge">--h</code> (short for <code class="language-plaintext highlighter-rouge">--help</code>) were explored. We can get a short summary of KLEE’s internal statistics by running klee-stats on the output directory (remember, KLEE always makes a symlink called klee-last to the most recent output directory).</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span>klee-stats klee-last
+<span class="nt">------------------------------------------------------------------------</span>
+|  Path   |  Instrs|  Time<span class="o">(</span>s<span class="o">)</span>|  ICov<span class="o">(</span>%<span class="o">)</span>|  BCov<span class="o">(</span>%<span class="o">)</span>|  ICount|  TSolver<span class="o">(</span>%<span class="o">)</span>|
+<span class="nt">------------------------------------------------------------------------</span>
+|klee-last|   64546|     0.15|    22.07|    14.14|   19943|       62.97|
+<span class="nt">------------------------------------------------------------------------</span></code></pre></figure>
+
+<p>Here <em>ICov</em> is the percentage of LLVM instructions which were covered, and <em>BCov</em> is the percentage of branches that were covered. You may be wondering why the percentages are so low – how much more code can echo have! The main reason is that these numbers are computed using all the instructions or branches in the bitcode files; that includes a lot of library code which may not even be executable. We can help with that problem (and others) by passing the <code class="language-plaintext highlighter-rouge">--optimize</code> option to KLEE. This will cause KLEE to run the LLVM optimization passes on the bitcode module before executing it; in particular they will remove any dead code. When working with non-trivial applications, it is almost always a good idea to use this flag. Here are the results from running again with <code class="language-plaintext highlighter-rouge">--optimze</code> enabled:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span>klee <span class="nt">--optimize</span> <span class="nt">--libc</span><span class="o">=</span>uclibc <span class="nt">--posix-runtime</span> ./echo.bc <span class="nt">--sym-arg</span> 3
+...
+KLEE: <span class="k">done</span>: total instructions <span class="o">=</span> 33991
+KLEE: <span class="k">done</span>: completed paths <span class="o">=</span> 25
+KLEE: <span class="k">done</span>: generated tests <span class="o">=</span> 25
+src<span class="nv">$ </span>klee-stats klee-last
+<span class="nt">------------------------------------------------------------------------</span>
+|  Path   |  Instrs|  Time<span class="o">(</span>s<span class="o">)</span>|  ICov<span class="o">(</span>%<span class="o">)</span>|  BCov<span class="o">(</span>%<span class="o">)</span>|  ICount|  TSolver<span class="o">(</span>%<span class="o">)</span>|
+<span class="nt">------------------------------------------------------------------------</span>
+|klee-last|   33991|     0.13|    30.16|    21.91|    8339|       80.66|
+<span class="nt">------------------------------------------------------------------------</span></code></pre></figure>
+
+<p>This time the instruction coverage went up by about six percent, and you can see that KLEE also ran faster and executed less instructions. Most of the remaining code is still in library functions, just in places that the optimizers aren’t smart enough to remove. We can verify this – and look for uncovered code inside <code class="language-plaintext highlighter-rouge">echo</code> – by using KCachegrind to visualize the results of a KLEE run.</p>
+
+<h2 id="step-6-visualizing-klees-progress-with-kcachegrind">Step 6: Visualizing KLEE’s progress with <code class="language-plaintext highlighter-rouge">kcachegrind</code></h2>
+
+<p><a href="http://kcachegrind.sourceforge.net">KCachegrind</a> is an excellent profiling visualization tool, originally written for use with the callgrind plugin for valgrind. If you don’t have it already, it is usually easily available on a modern Linux distribution via your platforms’ software installation tool (e.g., <code class="language-plaintext highlighter-rouge">apt-get</code> or <code class="language-plaintext highlighter-rouge">yum</code>).</p>
+
+<p>KLEE by default writes out a <code class="language-plaintext highlighter-rouge">run.istats</code> file into the test output directory which is actually a KCachegrind file. In this example, the <code class="language-plaintext highlighter-rouge">run.istats</code> is from a run without <code class="language-plaintext highlighter-rouge">--optimize</code>, so the results are easier to understand.  Assuming you have KCachegrind installed, just run:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span>kcachegrind klee-last/run.istats</code></pre></figure>
+
+<p>After KCachegrind opens, you should see a window that looks something like the one below. You should make sure that the “Instructions” statistic is selected by choosing “View” &gt; “Primary Event Type” &gt; “Instructions” from the menu, and make sure the “Source Code” view is selected (the right hand pane in the screenshot below).</p>
+
+<p><a href="/content/coreutils_kc_0.png"><img src="/content/coreutils_kc_0.png" alt="" class="wide" /></a></p>
+
+<p>KCachegrind is a complex application in itself, and interested users should see the KCachegrind website for more information and documentation. However, the basics are that the one pane shows the “Flat Profile”; this is a list of which how many instructions were executed in each function. The “Self” column is the number of instructions which were executed in the function itself, and the “Incl” (inclusive) column is the number of instructions which were executed in the function, or any of the functions it called (or its callees called, and so on).</p>
+
+<p>KLEE includes quite a few statistics about execution. The one we are interested in now is “Uncovered Instructions”, which will show which functions have instructions which were never executed. If you select that statistic and resort the list of functions, you should see something like this:</p>
+
+<p><a href="/content/coreutils_kc_1.png"><img src="/content/coreutils_kc_1.png" alt="" class="wide" /></a></p>
+
+<p>Notice that most of the uncovered instructions are in library code as we would expect. However, if we select the <code class="language-plaintext highlighter-rouge">__user_main</code> function, we can look for code inside <code class="language-plaintext highlighter-rouge">echo</code> itself that was uncovered. In this case, most of the uncovered instructions are inside a large <code class="language-plaintext highlighter-rouge">if</code> statement guarded by the variable <code class="language-plaintext highlighter-rouge">do_v9</code>. If you look a bit more, you can see that this is a flag set to true when <code class="language-plaintext highlighter-rouge">-e</code> is passed. The reason that KLEE never explored this code is because we only passed one symbolic argument – hitting this code requires a command line like <code class="language-plaintext highlighter-rouge">$ echo -e \a</code>.</p>
+
+<p>One subtle thing to understand if you are trying to actually make sense of the KCachegrind numbers is that they include events accumulated across all states.  For example, consider the following code:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">Line</span> <span class="mi">1</span><span class="o">:</span>      <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">Line</span> <span class="mi">2</span><span class="o">:</span>      <span class="k">if</span> <span class="p">(...)</span>
+<span class="n">Line</span> <span class="mi">3</span><span class="o">:</span>        <span class="n">printf</span><span class="p">(</span><span class="s">"hello</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="n">Line</span> <span class="mi">4</span><span class="o">:</span>      <span class="n">b</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span></code></pre></figure>
+
+<p>In a normal application, if the statement on Line 1 was only executed once, then the statement on Line 4 could be (at most) executed once. When KLEE is running an application, however, it could fork and generate separate processes at Line 2. In that case, Line 4 may be executed more times than Line 1!</p>
+
+<p>Another useful tidbit: KLEE actually writes the <code class="language-plaintext highlighter-rouge">run.istats</code> file periodically as the application is running. This provides one way to monitor the status of long running applications (another way is to use the klee-stats tool).</p>
+
+<h2 id="step-7-replaying-klee-generated-test-cases">Step 7: Replaying KLEE generated test cases</h2>
+
+<p>Let’s step away from KLEE for a bit and look at just the test cases KLEE generated. If we look inside the <code class="language-plaintext highlighter-rouge">klee-last</code> we should see 25 <code class="language-plaintext highlighter-rouge">.ktest</code> files.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span><span class="nb">ls </span>klee-last
+assembly.ll	  test000004.ktest  test000012.ktest  test000020.ktest
+info		  test000005.ktest  test000013.ktest  test000021.ktest
+messages.txt	  test000006.ktest  test000014.ktest  test000022.ktest
+run.istats	  test000007.ktest  test000015.ktest  test000023.ktest
+run.stats	  test000008.ktest  test000016.ktest  test000024.ktest
+test000001.ktest  test000009.ktest  test000017.ktest  test000025.ktest
+test000002.ktest  test000010.ktest  test000018.ktest  warnings.txt
+test000003.ktest  test000011.ktest  test000019.ktest</code></pre></figure>
+
+<p>These files contain the actual values to use for the symbolic data in order to reproduce the path that KLEE followed (either for obtaining code coverage, or for reproducing a bug). They also contain additional metadata generated by the POSIX runtime in order to track what the values correspond to and the version of the runtime. We can look at the individual contents of one file using <code class="language-plaintext highlighter-rouge">ktest-tool</code>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ktest-tool klee-last/test000001.ktest
+ktest file : <span class="s1">'klee-last/test000001.ktest'</span>
+args       : <span class="o">[</span><span class="s1">'./echo.bc'</span>, <span class="s1">'--sym-arg'</span>, <span class="s1">'3'</span><span class="o">]</span>
+num objects: 2
+object    0: name: <span class="s1">'arg0'</span>
+object    0: size: 4
+object    0: data: <span class="s1">'\x00\x00\x00\x00'</span>
+object    1: name: <span class="s1">'model_version'</span>
+object    1: size: 4
+object    1: data: <span class="s1">'\x01\x00\x00\x00'</span></code></pre></figure>
+
+<p>In this case, the test case indicates that values “\x00\x00\x00\x00” should be passed as the first argument. However, <code class="language-plaintext highlighter-rouge">.ktest</code> files generally aren’t really meant to be looked at directly. For the POSIX runtime, we provide a tool <code class="language-plaintext highlighter-rouge">klee-replay</code> which can be used to read the <code class="language-plaintext highlighter-rouge">.ktest</code> file and invoke the native application, automatically passing it the data necessary to reproduce the path that KLEE followed.</p>
+
+<p>To see how it works, go back to the directory where we built the native executables:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span><span class="nb">cd</span> ..
+obj-llvm<span class="nv">$ </span><span class="nb">cd</span> ..
+coreutils-6.11<span class="nv">$ </span><span class="nb">cd </span>obj-gcov
+obj-gcov<span class="nv">$ </span><span class="nb">cd </span>src
+src<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> <span class="nb">echo</span>
+<span class="nt">-rwxrwxr-x</span> 1 klee klee 135984 Nov 21 21:58 <span class="nb">echo</span></code></pre></figure>
+
+<p>To use the <code class="language-plaintext highlighter-rouge">klee-replay</code> tool, we just tell it the executable to run and the <code class="language-plaintext highlighter-rouge">.ktest</code> file to use. The program arguments, input files, etc. will all be constructed from the data in the <code class="language-plaintext highlighter-rouge">.ktest</code> file.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span>klee-replay ./echo ../../obj-llvm/src/klee-last/test000001.ktest
+klee-replay: TEST CASE: ../../obj-llvm/src/klee-last/test000001.ktest
+klee-replay: ARGS: <span class="s2">"./echo"</span> <span class="s2">""</span>
+
+klee-replay: EXIT STATUS: NORMAL <span class="o">(</span>0 seconds<span class="o">)</span></code></pre></figure>
+
+<p>The first two and last lines here come from the <code class="language-plaintext highlighter-rouge">klee-replay</code> tool itself. The first two lines list the test case being run, and the concrete values for arguments that are being passed to the application (notice this matches what we saw in the <code class="language-plaintext highlighter-rouge">.ktest</code> file earlier). The last line is the exit status of the program and the elapsed time to run.</p>
+
+<p>We can also use the <code class="language-plaintext highlighter-rouge">klee-replay</code> tool to run a set of test cases at once, one after the other. Let’s do this and compare the <code class="language-plaintext highlighter-rouge">gcov</code> coverage to the numbers we got from <code class="language-plaintext highlighter-rouge">klee-stats</code>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span><span class="nb">rm</span> <span class="nt">-f</span> <span class="k">*</span>.gcda <span class="c"># Get rid of any stale gcov files</span>
+src<span class="nv">$ </span>klee-replay ./echo ../../obj-llvm/src/klee-last/<span class="k">*</span>.ktest
+klee-replay: TEST CASE: ../../obj-llvm/src/klee-last/test000001.ktest
+klee-replay: ARGS: <span class="s2">"./echo"</span> <span class="s2">"@@@"</span>
+@@@
+klee-replay: EXIT STATUS: NORMAL <span class="o">(</span>0 seconds<span class="o">)</span>
+_..._
+klee-replay: TEST CASE: ../../obj-llvm/src/klee-last/test000022.ktest
+klee-replay: ARGS: <span class="s2">"./echo"</span> <span class="s2">"--v"</span>
+<span class="nb">echo</span> <span class="o">(</span>GNU coreutils<span class="o">)</span> 6.11
+Copyright <span class="o">(</span>C<span class="o">)</span> 2008 Free Software Foundation, Inc.
+_..._
+
+src<span class="nv">$ </span>gcov <span class="nb">echo
+</span>File <span class="s1">'../../src/echo.c'</span>
+Lines executed:52.43% of 103
+Creating <span class="s1">'echo.c.gcov'</span>
+
+File <span class="s1">'../../src/system.h'</span>
+Lines executed:100.00% of 3
+Creating <span class="s1">'system.h.gcov'</span></code></pre></figure>
+
+<p>The number for <code class="language-plaintext highlighter-rouge">echo.c</code> here significantly higher than the <code class="language-plaintext highlighter-rouge">klee-stats</code> number because <code class="language-plaintext highlighter-rouge">gcov</code> is only considering lines in that one file, not the entire application. As with <code class="language-plaintext highlighter-rouge">kcachegrind</code>, we can inspect the coverage file output by <code class="language-plaintext highlighter-rouge">gcov</code> to see exactly what lines were covered and which weren’t. Here is a fragment from the output:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c">        <span class="o">-:</span>  <span class="mi">193</span><span class="o">:</span>      <span class="err">}</span>
+        <span class="o">-:</span>  <span class="mi">194</span><span class="o">:</span>
+       <span class="mi">23</span><span class="o">:</span>  <span class="mi">195</span><span class="o">:</span><span class="n">just_echo</span><span class="o">:</span>
+        <span class="o">-:</span>  <span class="mi">196</span><span class="o">:</span>
+       <span class="mi">23</span><span class="o">:</span>  <span class="mi">197</span><span class="o">:</span>  <span class="k">if</span> <span class="p">(</span><span class="n">do_v9</span><span class="p">)</span>
+        <span class="o">-:</span>  <span class="mi">198</span><span class="o">:</span>    <span class="p">{</span>
+       <span class="mi">10</span><span class="o">:</span>  <span class="mi">199</span><span class="o">:</span>      <span class="k">while</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="o">-:</span>  <span class="mi">200</span><span class="o">:</span>	<span class="p">{</span>
+    <span class="cp">#####:  201:	  char const *s = argv[0];
+</span>        <span class="o">-:</span>  <span class="mi">202</span><span class="o">:</span>	  <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+        <span class="o">-:</span>  <span class="mi">203</span><span class="o">:</span>
+    <span class="cp">#####:  204:	  while ((c = *s++))
+</span>        <span class="o">-:</span>  <span class="mi">205</span><span class="o">:</span>	    <span class="p">{</span>
+    <span class="cp">#####:  206:	      if (c == '\\' &amp;&amp; *s)
+</span>        <span class="o">-:</span>  <span class="mi">207</span><span class="o">:</span>		<span class="p">{</span>
+    <span class="cp">#####:  208:		  switch (c = *s++)
+</span>        <span class="o">-:</span>  <span class="mi">209</span><span class="o">:</span>		    <span class="p">{</span>
+    <span class="cp">#####:  210:		    case 'a': c = '\a'; break;
+</span>    <span class="cp">#####:  211:		    case 'b': c = '\b'; break;
+</span>    <span class="cp">#####:  212:		    case 'c': exit (EXIT_SUCCESS);
+</span>    <span class="cp">#####:  213:		    case 'f': c = '\f'; break;
+</span>    <span class="cp">#####:  214:		    case 'n': c = '\n'; break;</span></code></pre></figure>
+
+<p>The far left hand column is the number of times each line was executed; <strong>-</strong>
+means the line has no executable code, and <strong>#####</strong> means the line was never
+covered. As you can see, the uncovered lines here correspond exactly to the
+uncovered lines as reported in <code class="language-plaintext highlighter-rouge">kcachegrind</code>.</p>
+
+<p>Before moving on to testing more complex applications, lets make sure we can get decent coverage of the simple <code class="language-plaintext highlighter-rouge">echo.c</code>. The problem before was that we weren’t making enough data symbolic, providing echo with two symbolic arguments should be plenty to cover the entire program. We can use the POSIX runtime <code class="language-plaintext highlighter-rouge">--sym-args</code> option to pass multiple options. Here are the steps, after switching back to the <code class="language-plaintext highlighter-rouge">obj-llvm/src</code> directory:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span>klee <span class="nt">--only-output-states-covering-new</span> <span class="nt">--optimize</span> <span class="nt">--libc</span><span class="o">=</span>uclibc <span class="nt">--posix-runtime</span> ./echo.bc <span class="nt">--sym-args</span> 0 2 4
+...
+KLEE: <span class="k">done</span>: total instructions <span class="o">=</span> 7611521
+KLEE: <span class="k">done</span>: completed paths <span class="o">=</span> 10179
+KLEE: <span class="k">done</span>: generated tests <span class="o">=</span> 57</code></pre></figure>
+
+<p>The format of the <code class="language-plaintext highlighter-rouge">--sym-args</code> option actually specifies a minimum and a maximum number of arguments to pass and the length to use for each argument.  In this case <code class="language-plaintext highlighter-rouge">--sym-args 0 2 4</code> says to pass between 0 and 2 arguments (inclusive), each with a maximum length of four characters.</p>
+
+<p>We also added the <code class="language-plaintext highlighter-rouge">--only-output-states-covering-new</code> option to the KLEE command line. By default KLEE will write out test cases for every path it explores. This becomes less useful  once the program becomes larger, because many test cases will end up exercise the same paths, and computing (or even reexecuting) each one wastes time. Using this option tells KLEE to only output test cases for paths which covered some new instruction in the code (or hit an error). The final lines of the output show that even though KLEE explored almost ten thousand paths through the code, it only needed to write 57 test cases.</p>
+
+<p>If we go back to the <code class="language-plaintext highlighter-rouge">obj-gcov/src</code> directory and rerun the latest set of test cases, we finally have reasonable coverage of <code class="language-plaintext highlighter-rouge">echo.c</code>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">src<span class="nv">$ </span><span class="nb">rm</span> <span class="nt">-f</span> <span class="k">*</span>.gcda <span class="c"># Get rid of any stale gcov files</span>
+src<span class="nv">$ </span>klee-replay ./echo ../../obj-llvm/src/klee-last/<span class="k">*</span>.ktest
+klee-replay: TEST CASE: ../../obj-llvm/src/klee-last/test000001.ktest
+klee-replay: ARGS: <span class="s2">"./echo"</span>
+
+...
+
+src<span class="nv">$ </span>gcov <span class="nb">echo
+</span>File <span class="s1">'../../src/echo.c'</span>
+Lines executed:97.09% of 103
+Creating <span class="s1">'echo.c.gcov'</span>
+
+File <span class="s1">'../../src/system.h'</span>
+Lines executed:100.00% of 3
+Creating <span class="s1">'system.h.gcov'</span></code></pre></figure>
+
+<p>The reasons for not getting perfect 100% line coverage are left as an exercise to the reader.</p>
+
+<h2 id="step-8-using-zcov-to-analyze-coverage">Step 8: Using <code class="language-plaintext highlighter-rouge">zcov</code> to analyze coverage</h2>
+
+<p>For visualizing the coverage results, you might want to use the <a href="https://github.com/ddunbar/zcov">zcov</a> tool.</p>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v3.0/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/doxygen/html/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee/klee/actions">GitHub Actions</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v3.0
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2023, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v3.0/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

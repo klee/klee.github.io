@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Coreutils Experiments &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v3.0/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v3.0/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v3.0/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v3.0/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v3.0/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v3.0/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v3.0/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v3.0/">
+        <img alt="KLEE" src="/releases/docs/v3.0/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li>
+      <a href="/releases/docs/v3.0/getting-started">Getting Started</a>
+    </li>
+    <li class="active">
+      <a href="/releases/docs/v3.0/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v3.0/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v3.0/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v3.0">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 3.0
+</div>
+</a>
+
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Coreutils Experiments</h1>
+        <h2 class="editorial-header__subtitle">OSDI'08 Coreutils Experiments</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <p>This document is meant to give additional information regarding the Coreutils experiments discussed in our <a href="http://llvm.org/pubs/2008-12-OSDI-KLEE.html">KLEE OSDI’08 paper</a>. However, please note that in the last several years, KLEE and its dependencies (particularly LLVM and STP), have undergone major changes, which have resulted in considerable different behavior on several benchmarks, including Coreutils.</p>
+
+<p>This document is structured as a series of FAQs:</p>
+
+<ol>
+  <li>
+    <p>How did you build Coreutils?</p>
+
+    <p>Please follow the instructions in the <a href="/releases/docs/v3.0/tutorials/testing-coreutils">Coreutils Tutorial</a>.</p>
+  </li>
+  <li>
+    <p>What version of LLVM was used in the OSDI paper?</p>
+
+    <p>We generally kept in sync with the LLVM top-of-tree, which at the time was somewhere around LLVM 2.2 and 2.3.</p>
+  </li>
+  <li>
+    <p>What version of STP was used in the OSDI paper?</p>
+
+    <p>An old version of STP, which is still available as part of KLEE’s repository, in revisions up to <code class="language-plaintext highlighter-rouge">r161056</code>.</p>
+  </li>
+  <li>
+    <p>On what OS did you run your experiments?</p>
+
+    <p>We ran most experiments on a 32-bit Fedora machine with SELinux support. The most important aspect is that this was a 32-bit system: the constraints generated on a 64-bit system are typically more complex and memory consumption might also increase. Recent versions of KLEE do not support 32-bit host systems anymore.</p>
+  </li>
+  <li>
+    <p>What are the 89 Coreutils applications that you tested?</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ base64 basename cat chcon chgrp chmod chown chroot cksum comm cp csplit cut
+date dd df dircolors dirname du echo env expand expr factor false fmt fold
+head hostid hostname id ginstall join kill link ln logname ls md5sum mkdir
+mkfifo mknod mktemp mv nice nl nohup od paste pathchk pinky pr printenv printf
+ptx pwd readlink rm rmdir runcon seq setuidgid shred shuf sleep sort split
+stat stty sum sync tac tail tee touch tr tsort tty uname unexpand uniq unlink
+uptime users wc whoami who yes
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>What modification did you make in <code class="language-plaintext highlighter-rouge">sort</code>?</p>
+
+    <p>We changed <code class="language-plaintext highlighter-rouge">#define INPUT_FILE_SIZE_GUESS (1024 * 1024)</code></p>
+
+    <p>to <code class="language-plaintext highlighter-rouge">#define INPUT_FILE_SIZE_GUESS 1024</code> in file <code class="language-plaintext highlighter-rouge">sort.c</code></p>
+  </li>
+  <li>
+    <p>What options did you run KLEE with?</p>
+
+    <p>We used the following options (the command below is for paste):</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>klee <span class="nt">--simplify-sym-indices</span> <span class="nt">--write-cvcs</span> <span class="nt">--write-cov</span> <span class="nt">--output-module</span> <span class="se">\</span>
+<span class="nt">--max-memory</span><span class="o">=</span>1000 <span class="nt">--disable-inlining</span> <span class="nt">--optimize</span> <span class="nt">--use-forked-solver</span> <span class="se">\</span>
+<span class="nt">--use-cex-cache</span> <span class="nt">--with-libc</span> <span class="nt">--with-file-model</span><span class="o">=</span>release <span class="se">\</span>
+<span class="nt">--allow-external-sym-calls</span> <span class="nt">--only-output-states-covering-new</span> <span class="se">\</span>
+<span class="nt">--exclude-libc-cov</span> <span class="nt">--exclude-cov-file</span><span class="o">=</span>./../lib/functions.txt <span class="se">\</span>
+<span class="nt">--environ</span><span class="o">=</span>test.env <span class="nt">--run-in</span><span class="o">=</span>/tmp/sandbox <span class="nt">--output-dir</span><span class="o">=</span>paste-data-1h <span class="se">\</span>
+<span class="nt">--max-sym-array-size</span><span class="o">=</span>4096 <span class="nt">--max-instruction-time</span><span class="o">=</span>10. <span class="nt">--max-time</span><span class="o">=</span>3600. <span class="se">\</span>
+<span class="nt">--watchdog</span> <span class="nt">--max-memory-inhibit</span><span class="o">=</span><span class="nb">false</span> <span class="nt">--max-static-fork-pct</span><span class="o">=</span>1 <span class="se">\</span>
+<span class="nt">--max-static-solve-pct</span><span class="o">=</span>1 <span class="nt">--max-static-cpfork-pct</span><span class="o">=</span>1 <span class="nt">--switch-type</span><span class="o">=</span>internal <span class="se">\</span>
+<span class="nt">--randomize-fork</span> <span class="nt">--use-random-path</span> <span class="nt">--use-interleaved-covnew-NURS</span> <span class="se">\</span>
+<span class="nt">--use-batching-search</span> <span class="nt">--batch-instructions</span> 10000 <span class="nt">--init-env</span> <span class="se">\</span>
+./paste.bc <span class="nt">--sym-args</span> 0 1 10 <span class="nt">--sym-args</span> 0 2 2 <span class="nt">--sym-files</span> 1 8 <span class="nt">--sym-stdout</span>
+</code></pre></div>    </div>
+
+    <p>Some of these options have been renamed or removed in the current version of KLEE. Most notably, the options <code class="language-plaintext highlighter-rouge">--exclude-libc-cov</code> and <code class="language-plaintext highlighter-rouge">--exclude-cov-file</code> were implemented in a fragile way and we decided to remove them from KLEE. The idea was to treat the functions in libc or specified in a text file as “covered”. (For the Coreutils experiments, we were interested in covering the code in the tools themselves, as opposed to library code, see the paper for more details). If you plan to reimplement these options in a clean way, please consider contributing your code to the mainline.</p>
+
+    <p>Option <code class="language-plaintext highlighter-rouge">--randomize-fork</code> was used in the experiments but recently removed (commit <a href="https://github.com/klee/klee/commit/5133b98f1d989af94902366c6d02eb6447458aa1"><code class="language-plaintext highlighter-rouge">5133b98</code></a>) as well as <code class="language-plaintext highlighter-rouge">-max-instruction-time</code> (PR <a href="https://github.com/klee/klee/pull/1114"><code class="language-plaintext highlighter-rouge">1114</code></a>).</p>
+  </li>
+  <li>
+    <p>What are the options closest to the ones above that work with the current version of KLEE?</p>
+
+    <p>Try the following:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>klee <span class="nt">--simplify-sym-indices</span> <span class="nt">--write-cvcs</span> <span class="nt">--write-cov</span> <span class="nt">--output-module</span> <span class="se">\</span>
+<span class="nt">--max-memory</span><span class="o">=</span>1000 <span class="nt">--disable-inlining</span> <span class="nt">--optimize</span> <span class="nt">--use-forked-solver</span> <span class="se">\</span>
+<span class="nt">--use-cex-cache</span> <span class="nt">--libc</span><span class="o">=</span>uclibc <span class="nt">--posix-runtime</span> <span class="se">\</span>
+<span class="nt">--external-calls</span><span class="o">=</span>all <span class="nt">--only-output-states-covering-new</span> <span class="se">\</span>
+<span class="nt">--env-file</span><span class="o">=</span>test.env <span class="nt">--run-in-dir</span><span class="o">=</span>/tmp/sandbox <span class="se">\</span>
+<span class="nt">--max-sym-array-size</span><span class="o">=</span>4096 <span class="nt">--max-solver-time</span><span class="o">=</span>30s <span class="nt">--max-time</span><span class="o">=</span>60min <span class="se">\</span>
+<span class="nt">--watchdog</span> <span class="nt">--max-memory-inhibit</span><span class="o">=</span><span class="nb">false</span> <span class="nt">--max-static-fork-pct</span><span class="o">=</span>1 <span class="se">\</span>
+<span class="nt">--max-static-solve-pct</span><span class="o">=</span>1 <span class="nt">--max-static-cpfork-pct</span><span class="o">=</span>1 <span class="nt">--switch-type</span><span class="o">=</span>internal <span class="se">\</span>
+<span class="nt">--search</span><span class="o">=</span>random-path <span class="nt">--search</span><span class="o">=</span>nurs:covnew <span class="se">\</span>
+<span class="nt">--use-batching-search</span> <span class="nt">--batch-instructions</span><span class="o">=</span>10000 <span class="se">\</span>
+./paste.bc <span class="nt">--sym-args</span> 0 1 10 <span class="nt">--sym-args</span> 0 2 2 <span class="nt">--sym-files</span> 1 8 <span class="nt">--sym-stdin</span> 8 <span class="nt">--sym-stdout</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>How do I generate test.env and /tmp/sandbox?</p>
+
+    <p>We used a simple environment and a “sandbox” directory to make our experiments more deterministic. To recreate them, follow these steps:</p>
+
+    <ol>
+      <li>
+        <p>Download <code class="language-plaintext highlighter-rouge">testing-env.sh</code> by clicking <a href="http://www.doc.ic.ac.uk/~cristic/klee/klee-cu-testing-env.html">here</a>, and place it in the current directory.</p>
+      </li>
+      <li>
+        <p>Create <code class="language-plaintext highlighter-rouge">test.env</code> by running:</p>
+
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">env</span> <span class="nt">-i</span> /bin/bash <span class="nt">-c</span> <span class="s1">'(source testing-env.sh; env &gt;test.env)'</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Download <code class="language-plaintext highlighter-rouge">sandbox.tgz</code> by clicking <a href="http://www.doc.ic.ac.uk/~cristic/klee/klee-cu-sandbox.html">here</a>, place it in <code class="language-plaintext highlighter-rouge">/tmp</code>, and run:</p>
+
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /tmp <span class="nv">$ </span><span class="nb">tar </span>xzfv sandbox.tgz
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>What symbolic arguments did you use in your experiments?</p>
+
+    <p>We ran most utilities using the arguments below. Our choice was based on a high-level understanding of the Coreutils applications: most behavior can be triggered with no more than two short options, one long option, and two small input streams (stdin and one file).</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--sym-args</span> 0 1 10 <span class="nt">--sym-args</span> 0 2 2 <span class="nt">--sym-files</span> 1 8 <span class="nt">--sym-stdin</span> 8 <span class="nt">--sym-stdout</span>
+</code></pre></div>    </div>
+
+    <p>For eight tools where the coverage results were unsatisfactory, we consulted the man page and increased the number and size of arguments and files as follows:</p>
+
+    <ul>
+      <li><strong>dd:</strong> <code class="language-plaintext highlighter-rouge">--sym-args 0 3 10 --sym-files 1 8 --sym-stdin 8 --sym-stdout</code></li>
+      <li><strong>dircolors:</strong> <code class="language-plaintext highlighter-rouge">--sym-args 0 3 10 --sym-files 2 12 --sym-stdin 12 --sym-stdout</code></li>
+      <li><strong>echo:</strong> <code class="language-plaintext highlighter-rouge">--sym-args 0 4 300 --sym-files 2 30 --sym-stdin 30 --sym-stdout</code></li>
+      <li><strong>expr:</strong> <code class="language-plaintext highlighter-rouge">--sym-args 0 1 10 --sym-args 0 3 2 --sym-stdout</code></li>
+      <li><strong>mknod:</strong> <code class="language-plaintext highlighter-rouge">--sym-args 0 1 10 --sym-args 0 3 2 --sym-files 1 8 --sym-stdin 8 --sym-stdout</code></li>
+      <li><strong>od:</strong> <code class="language-plaintext highlighter-rouge">--sym-args 0 3 10 --sym-files 2 12 --sym-stdin 12 --sym-stdout</code></li>
+      <li><strong>pathchk:</strong> <code class="language-plaintext highlighter-rouge">--sym-args 0 1 2 --sym-args 0 1 300 --sym-files 1 8 --sym-stdin 8 --sym-stdout</code></li>
+      <li><strong>printf:</strong> <code class="language-plaintext highlighter-rouge">--sym-args 0 3 10 --sym-files 2 12 --sym-stdin 12 --sym-stdout</code></li>
+    </ul>
+
+    <p>After publication, thread support in <code class="language-plaintext highlighter-rouge">sort</code> was enabled by default by the Coreutils maintainers. KLEE currently does not support threads and <code class="language-plaintext highlighter-rouge">--parallel=1</code> should be added as command line flag for <code class="language-plaintext highlighter-rouge">sort</code>.</p>
+  </li>
+  <li>
+    <p>How did you measure coverage?</p>
+
+    <p>As mentioned in the paper, we replayed the test inputs generated by KLEE and used <code class="language-plaintext highlighter-rouge">gcov</code> to measure coverage.  One thing to take into account is that <code class="language-plaintext highlighter-rouge">gcov</code> does not record coverage on <code class="language-plaintext highlighter-rouge">_exit</code>.  This is because <code class="language-plaintext highlighter-rouge">_exit</code> terminates execution without calling any handlers, including the handler installed by <code class="language-plaintext highlighter-rouge">gcov</code> to dump coverage information.  The simplest solution is to replace <code class="language-plaintext highlighter-rouge">_exit</code> with <code class="language-plaintext highlighter-rouge">exit</code>.</p>
+  </li>
+</ol>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v3.0/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/doxygen/html/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee/klee/actions">GitHub Actions</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v3.0
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2023, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v3.0/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
