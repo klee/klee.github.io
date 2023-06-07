@@ -22,5 +22,5 @@ Run tiny code examples in your browser with [KLEE web](http://klee.doc.ic.ac.uk/
 
 ## Manual Installation
 
-* [Build from source against LLVM 11]({{site.baseurl}}/build-llvm11): this is the currently recommended version
+* [Build from source against LLVM 13]({{site.baseurl}}/build-llvm13): this is the currently recommended version
 * [Building arbitrary KLEE configurations]({{site.baseurl}}/build-script): to build different configurations of KLEE and its dependencies

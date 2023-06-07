@@ -75,7 +75,7 @@ building a Debug build means just setting the `CMAKE_BUILD_TYPE` variable to
      -DGTEST_SRC_DIR=<GTEST_SOURCE_DIR> \
      -DENABLE_SYSTEM_TESTS=ON \
      -DENABLE_UNIT_TESTS=ON \
-     -DLLVM_CONFIG_BINARY=<PATH_TO_LLVM_llvm-config> \
+     -DLLVM_DIR=<PATH_TO_LLVM_INSTALLATION> \
      -DLLVMCC=<PATH_TO_clang> \
      -DLLVMCXX=<PATH_TO_clang++>
      <KLEE_SRC_DIRECTORY>
@@ -83,14 +83,13 @@ building a Debug build means just setting the `CMAKE_BUILD_TYPE` variable to
 
 The rest of the build process is exactly the same as in our build guides. Note
 that we only provide build guides for some popular LLVM versions, however KLEE
-builds with many more (at the time of writing LLVM 3.4 - LLVM 10).  The build
-process is exactly the same, cmake only needs `LLVM_CONFIG_BINARY`,
+builds with many more (at the time of writing LLVM 9 - LLVM 14).  The build
+process is exactly the same, cmake only needs `LLVM_DIR`,
 `LLVMCC` and `LLVMCXX` to point to versions of LLVM you want to build with. 
-
 
 Note that KLEE depends on LLVM and STP (and optionally Z3). If you need to
 debug KLEE's calls to that code, then you will need to build LLVM/STP/Z3 with
-debug support too.
+debug support as well.
 
 ## Source overview
 
