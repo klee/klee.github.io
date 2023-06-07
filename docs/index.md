@@ -31,10 +31,10 @@ slug: documentation
 
 ## Tutorials
 
-1. [First tutorial]({{site.baseurl}}/docs/testing-function/): Testing a small function.
-2. [Second tutorial]({{site.baseurl}}/docs/testing-regex/): Testing a simple regular expression library.
-3. [Using a symbolic environment]({{site.baseurl}}/docs/using-symbolic/): Guide with examples on how to use the symbolic environment such as symbolic files and command-line arguments for the program under test.
-4. [Testing Coreutils]({{site.baseurl}}/docs/testing-coreutils/): In-depth description of how to use KLEE to test GNU Coreutils.
+1. [First tutorial]({{site.baseurl}}/tutorials/testing-function/): Testing a small function.
+2. [Second tutorial]({{site.baseurl}}/tutorials/testing-regex/): Testing a simple regular expression library.
+3. [Using a symbolic environment]({{site.baseurl}}/tutorials/using-symbolic/): Guide with examples on how to use the symbolic environment such as symbolic files and command-line arguments for the program under test.
+4. [Testing Coreutils]({{site.baseurl}}/tutorials/testing-coreutils/): In-depth description of how to use KLEE to test GNU Coreutils.
 
 ## External Resources
 
