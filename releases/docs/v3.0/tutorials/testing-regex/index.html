@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  
+    Tutorial Two &middot; KLEE
+  
+</title>
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/releases/docs/v3.0/images/touch/chrome-touch-icon-192x192.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+<link rel="apple-touch-icon-precomposed" href="/releases/docs/v3.0/images/touch/apple-touch-icon-precomposed.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="/releases/docs/v3.0/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+
+<!-- Page styles -->
+<link rel="stylesheet" href="/releases/docs/v3.0/css/main.css">
+<link rel="stylesheet" href="/releases/docs/v3.0/css/banner.css">
+<link rel="stylesheet" href="/releases/docs/v3.0/css/pygments/default.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <!-- master nav -->
+    <header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="/releases/docs/v3.0/images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">
+      <a href="/releases/docs/v3.0/">
+        <img alt="KLEE" src="/releases/docs/v3.0/images/klee.svg">
+      </a>
+    </h1>
+    <section class="app-bar-actions">
+    <!-- Put App Bar Buttons Here -->
+    <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li>
+      <a href="/releases/docs/v3.0/getting-started">Getting Started</a>
+    </li>
+    <li class="active">
+      <a href="/releases/docs/v3.0/docs">Documentation</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v3.0/publications">Publications</a>
+    </li>
+    <li>
+      <a href="/releases/docs/v3.0/getting-involved">Getting Involved</a>
+    </li>
+    
+    
+    
+  </ul>
+</nav>
+
+    
+<a href="https://github.com/klee/klee/releases/tag/v3.0">
+<div id="version_ribbon" class="cr cr-top cr-right cr-sticky">
+  Version 3.0
+</div>
+</a>
+
+
+    <!-- page layout -->
+    <main>
+      <div class="editorial-header">
+        <h1 class="tag editorial-header__title">Tutorial Two</h1>
+        <h2 class="editorial-header__subtitle">Testing a Simple Regular Expression Library</h2>
+        <p class="editorial-header__excerpt"></p>
+      </div>
+
+      <p>This is an example of using KLEE to test a simple regular expression matching function. You can find the basic example in the source tree under <code class="language-plaintext highlighter-rouge">examples/regexp</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Regexp.c</code> contains a simple regular expression matching function, and the bare bones testing harness (in <code class="language-plaintext highlighter-rouge">main()</code>) needed to explore this code with KLEE. You can see a version of the source code <a href="/releases/docs/v3.0/resources/Regexp.c.html">here</a>.</p>
+
+<p>This example shows how to build and run the example using KLEE, as well as how to interpret the output, and some additional KLEE features that can be used when writing a test driver by hand.</p>
+
+<p>We’ll start by showing how to build and run the example, and then explain how the test harness works in more detail.</p>
+
+<h2 id="building-the-example">Building the example</h2>
+
+<p>The first step is to compile the source code using a compiler which can
+generate object files in LLVM bitcode format.</p>
+
+<p>From within the <code class="language-plaintext highlighter-rouge">examples/regexp</code> directory execute:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>clang <span class="nt">-I</span> ../../include <span class="nt">-emit-llvm</span> <span class="nt">-c</span> <span class="nt">-g</span> <span class="nt">-O0</span> <span class="nt">-Xclang</span> <span class="nt">-disable-O0-optnone</span> Regexp.c</code></pre></figure>
+
+<p>which should create a Regexp.bc file in LLVM bitcode format. The <code class="language-plaintext highlighter-rouge">-I</code> argument
+is used so that the compiler can find
+<a href="https://github.com/klee/klee/blob/master/include/klee/klee.h"><code class="language-plaintext highlighter-rouge">klee/klee.h</code></a>,
+which contains definitions for the intrinsic functions used to interact with
+the KLEE virtual machine. <code class="language-plaintext highlighter-rouge">-c</code> is used because we only want to compile the code
+to an object file (not to a native executable), and finally <code class="language-plaintext highlighter-rouge">-g</code> causes additional
+debug information to be stored in the object file, which KLEE will use to
+determine source line number information. <code class="language-plaintext highlighter-rouge">-O0 -Xclang -disable-O0-optnone</code> is
+used to compile without any optimisation, but without preventing KLEE from
+performing its own optimisations, which compiling with <code class="language-plaintext highlighter-rouge">-O0</code> would.</p>
+
+<p>If you have the LLVM tools installed in your path, you can verify that this step worked by running llvm-nm on the generated file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ llvm-nm Regexp.bc
+                 U klee_make_symbolic
+---------------- T main
+---------------- T match
+---------------- t matchhere
+---------------- t matchstar
+</code></pre></div></div>
+
+<p>Normally, before running this program, we would need to link it to create a native executable. However, KLEE runs directly on LLVM bitcode files. Since this program only has a single file there is no need for linking. For “real” programs with multiple inputs, the <a href="http://llvm.org/cmds/llvm-link.html">llvm-link</a> tools can be used in place of the regular link step to merge multiple LLVM bitcode files into a single module which can be executed by KLEE.</p>
+
+<h2 id="executing-the-code-with-klee">Executing the code with KLEE</h2>
+
+<p>The next step is to execute the code with KLEE (number of instructions varies between LLVM versions and optimisation levels):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ klee --only-output-states-covering-new Regexp.bc
+KLEE: output directory = "klee-out-0"
+KLEE: ERROR: Regexp.c:23: memory error: out of bound pointer
+KLEE: NOTE: now ignoring this error at this location
+KLEE: ERROR: Regexp.c:25: memory error: out of bound pointer
+KLEE: NOTE: now ignoring this error at this location
+
+KLEE: done: total instructions = 4848112
+KLEE: done: completed paths = 6675
+KLEE: done: partially completed paths = 763
+KLEE: done: generated tests = 16
+</code></pre></div></div>
+
+<p>On startup, KLEE prints the directory used to store output (in this case <code class="language-plaintext highlighter-rouge">klee-out-0</code>). By default KLEE will use the first free <code class="language-plaintext highlighter-rouge">klee-out-N</code> directory and also create a <code class="language-plaintext highlighter-rouge">klee-last</code> symlink which will point to the most recent created directory. You can specify a directory to use for outputs using the <code class="language-plaintext highlighter-rouge">-output-dir=path</code> command line argument.</p>
+
+<p>While KLEE is running, it will print status messages for “important” events, for example when it finds an error in the program. In this case, KLEE detected two invalid memory accesses on lines 23 and 25 of our test program. We’ll look closer at this in a moment.</p>
+
+<p>Finally, when KLEE finishes execution it prints out a few statistics about the run. Here we see that KLEE executed a total of ~4.8 million instructions, explored 7,438 paths, and generated 16 test cases. KLEE only generates 16 test cases because we limited the test generation to states that actually covered new code with <code class="language-plaintext highlighter-rouge">--only-output-states-covering-new</code>. If we would omit this flag, KLEE would create 6,677 test cases! Still, KLEE does not create a test case for every path. Whenever it finds a bug, it creates a test case for the first state that reaches the bug. All other paths that reach the bug at the same location are terminated silently and reported as <em>partially completed</em> paths. If you don’t mind the duplication of error cases, use <code class="language-plaintext highlighter-rouge">--emit-all-errors</code> to generate test cases for all 7,438 paths.</p>
+
+<p>Note that many realistic programs have an infinite (or extremely large) number of paths through them, and it is common that KLEE will not terminate. By default KLEE will run until the user presses Control-C (i.e. klee gets a <code class="language-plaintext highlighter-rouge">SIGINT</code>), but there are additional options to limit KLEE’s runtime and memory usage:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-max-time=&lt;time span&gt;</code>: Halt execution after the given amount of time, e.g. <code class="language-plaintext highlighter-rouge">10min</code> or <code class="language-plaintext highlighter-rouge">1h5s</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">-max-forks=N</code>: Stop forking after <code class="language-plaintext highlighter-rouge">N</code> symbolic branches, and run the
+remaining paths to termination.</li>
+  <li><code class="language-plaintext highlighter-rouge">-max-memory=N</code>: Try to limit memory consumption to <code class="language-plaintext highlighter-rouge">N</code> megabytes.</li>
+</ul>
+
+<h2 id="klee-error-reports">KLEE error reports</h2>
+
+<p>When KLEE detects an error in the program being executed it will generate a test case which exhibits the error, and write some additional information about the error into a file <code class="language-plaintext highlighter-rouge">testN.TYPE.err</code>, where <code class="language-plaintext highlighter-rouge">N</code> is the test case number, and <code class="language-plaintext highlighter-rouge">TYPE</code> identifies the kind of error. Some types of errors KLEE detects include:</p>
+
+<ul>
+  <li><strong>ptr</strong>: Stores or loads of invalid memory locations.</li>
+  <li><strong>free</strong>: Double or invalid <code class="language-plaintext highlighter-rouge">free()</code>.</li>
+  <li><strong>abort</strong>: The program called <code class="language-plaintext highlighter-rouge">abort()</code>.</li>
+  <li><strong>assert</strong>: An assertion failed.</li>
+  <li><strong>div</strong>: A division or modulus by zero was detected.</li>
+  <li><strong>user</strong>: There is a problem with the input (invalid klee intrinsic calls) or the way KLEE is being used.</li>
+  <li><strong>exec</strong>: There was a problem which prevented KLEE from executing the program; for example an unknown instruction, a call to an invalid function pointer, or inline assembly.</li>
+  <li><strong>model</strong>: KLEE was unable to keep full precision and is only exploring parts of the program state. For example, symbolic sizes to malloc are not currently supported, in such cases KLEE will concretize the argument.</li>
+</ul>
+
+<p>KLEE will print a message to the console when it detects an error, in the test run above we can see that KLEE detected two memory errors. For all program errors, KLEE will write a simple backtrace into the <code class="language-plaintext highlighter-rouge">.err</code> file. This is what one of the errors above looks like:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Error: memory error: out of bound pointer
+File: .../klee/examples/regexp/Regexp.c
+Line: 23
+Stack:
+  <span class="c">#0 00000146 in matchhere (re=14816471, text=14815301) at .../klee/examples/regexp/Regexp.c:23</span>
+  <span class="c">#1 00000074 in matchstar (c, re=14816471, text=14815301) at .../klee/examples/regexp/Regexp.c:16</span>
+  <span class="c">#2 00000172 in matchhere (re=14816469, text=14815301) at .../klee/examples/regexp/Regexp.c:26</span>
+  <span class="c">#3 00000074 in matchstar (c, re=14816469, text=14815301) at .../klee/examples/regexp/Regexp.c:16</span>
+  <span class="c">#4 00000172 in matchhere (re=14816467, text=14815301) at .../klee/examples/regexp/Regexp.c:26</span>
+  <span class="c">#5 00000074 in matchstar (c, re=14816467, text=14815301) at .../klee/examples/regexp/Regexp.c:16</span>
+  <span class="c">#6 00000172 in matchhere (re=14816465, text=14815301) at .../klee/examples/regexp/Regexp.c:26</span>
+  <span class="c">#7 00000231 in matchhere (re=14816464, text=14815300) at .../klee/examples/regexp/Regexp.c:30</span>
+  <span class="c">#8 00000280 in match (re=14816464, text=14815296) at .../klee/examples/regexp/Regexp.c:38</span>
+  <span class="c">#9 00000327 in main () at .../klee/examples/regexp/Regexp.c:59</span>
+Info:
+  address: 14816471
+  next: object at 14816624 of size 4
+  prev: object at 14816464 of size 7</code></pre></figure>
+
+<p>Each line of the backtrace lists the frame number, the instruction line (this is the line number in the <code class="language-plaintext highlighter-rouge">assembly.ll</code> file found along with the run output), the function and arguments (including values for the concrete parameters), and the source information.</p>
+
+<p>Particular error reports may also include additional information. For memory errors, KLEE will show the invalid address, and what objects are on the heap both before and after that address. In this case, we can see that the address happens to be exactly one byte past the end of the previous object.</p>
+
+<h2 id="changing-the-test-harness">Changing the test harness</h2>
+
+<p>The reason KLEE is finding memory errors in this program isn’t because the regular expression functions have a bug, rather it indicates a problem in our test driver. The problem is that we are making the input regular expression buffer completely symbolic, but the match function expects it to be a null terminated string. Let’s look at two ways we can fix this.</p>
+
+<p>The simplest way to fix this problem is to store ‘\0’ at the end of the buffer, after making it symbolic. This makes our driver look like this:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// The input regular expression.</span>
+  <span class="kt">char</span> <span class="n">re</span><span class="p">[</span><span class="n">SIZE</span><span class="p">];</span>
+
+  <span class="c1">// Make the input symbolic.</span>
+  <span class="n">klee_make_symbolic</span><span class="p">(</span><span class="n">re</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">re</span><span class="p">,</span> <span class="s">"re"</span><span class="p">);</span>
+  <span class="n">re</span><span class="p">[</span><span class="n">SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'\0'</span><span class="p">;</span>
+
+  <span class="c1">// Try to match against a constant string "hello".</span>
+  <span class="n">match</span><span class="p">(</span><span class="n">re</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Making a buffer symbolic just initializes the contents to refer to symbolic variables, we are still free to modify the memory as we wish. If you recompile and run klee on this test program, the memory errors should now be gone.</p>
+
+<p>Another way to accomplish the same effect is to use the <code class="language-plaintext highlighter-rouge">klee_assume</code> intrinsic function. <code class="language-plaintext highlighter-rouge">klee_assume</code> takes a single argument (an unsigned integer) which generally should be some kind of conditional expression, and “assumes” that expression to be true on the current path (if that can never happen, i.e. the expression is provably false, KLEE will report an error).</p>
+
+<p>We can use <code class="language-plaintext highlighter-rouge">klee_assume</code> to cause KLEE to only explore states where the string is null terminated by writing the driver like this:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// The input regular expression.</span>
+  <span class="kt">char</span> <span class="n">re</span><span class="p">[</span><span class="n">SIZE</span><span class="p">];</span>
+
+  <span class="c1">// Make the input symbolic.</span>
+  <span class="n">klee_make_symbolic</span><span class="p">(</span><span class="n">re</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">re</span><span class="p">,</span> <span class="s">"re"</span><span class="p">);</span>
+  <span class="n">klee_assume</span><span class="p">(</span><span class="n">re</span><span class="p">[</span><span class="n">SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'\0'</span><span class="p">);</span>
+
+  <span class="c1">// Try to match against a constant string "hello".</span>
+  <span class="n">match</span><span class="p">(</span><span class="n">re</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>In this particular example both solutions work fine but in general <code class="language-plaintext highlighter-rouge">klee_assume</code> is more flexible:</p>
+
+<ul>
+  <li>By explicitly declaring the constraint, this will force test cases to have the <code class="language-plaintext highlighter-rouge">'\0'</code> in them. In the first example where we write the terminating null explicitly, it doesn’t matter what the last byte of the symbolic input is and KLEE is free to generate any value. In some cases where you want to inspect the test cases by hand, it is more convenient for the test case to show all the values that matter.</li>
+  <li><code class="language-plaintext highlighter-rouge">klee_assume</code> can be used to encode more complicated constraints. For example, we could use <code class="language-plaintext highlighter-rouge">klee_assume(re[0] != '^')</code> to cause KLEE to only explore states where the first byte is not <code class="language-plaintext highlighter-rouge">'^'</code>.</li>
+</ul>
+
+<p><strong>NOTE</strong>: There is one important caveat when using <code class="language-plaintext highlighter-rouge">klee_assume</code> with multiple conditions. Remember that boolean conditionals like <code class="language-plaintext highlighter-rouge">'&amp;&amp;'</code> and <code class="language-plaintext highlighter-rouge">'||'</code> may be compiled into code which branches before computing the result of the expression. In such situations KLEE will branch the process <em>before</em> it reaches the call to <code class="language-plaintext highlighter-rouge">klee_assume</code>, which may result in exploring unnecessary additional states. For this reason it is good to use as simple expressions as possible to <code class="language-plaintext highlighter-rouge">klee_assume</code> (for example splitting a single call into multiple ones), and to use the <code class="language-plaintext highlighter-rouge">'&amp;'</code> and <code class="language-plaintext highlighter-rouge">'|'</code> operators instead of the short-circuiting ones.</p>
+
+    </main>
+
+    <footer class="main-footer">
+  <div class="main-footer__container container clear">
+    <div class="main-footer__list-group">
+      <ul class="main-footer__list main-footer__list--primary">
+        <li class="sitemap__item sitemap__item--github">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee">GitHub</a>
+        </li>
+        <li class="sitemap__item sitemap__item--klee-dev">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/releases/docs/v3.0/klee-dev/">Mailing List</a>
+        </li>
+        <li class="sitemap__item sitemap__item--twitter">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://twitter.com/kleesymex">Twitter</a>
+        </li>
+        <li class="sitemap__item sitemap__item--doxygen">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="/doxygen/html/">Doxygen</a>
+        </li>
+        <li class="sitemap__item sitemap__item--buildbot">
+          <a class="sitemap--list__link sitemap--list__link--parent" href="https://github.com/klee/klee/actions">GitHub Actions</a>
+        </li>
+      </ul>
+      <div class="main-footer__klee-section">
+        <div class="g--half"><p>
+
+Documentation for KLEE v3.0
+
+        </p></div>
+        <div  class="g--half g--last">
+         <p style="text-align: right;">&copy; Copyright 2009-2023, The KLEE Team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- build:js scripts/main.min.js -->
+<script src="/releases/docs/v3.0/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
