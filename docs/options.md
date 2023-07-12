@@ -129,10 +129,7 @@ KLEE provides three policies for handling calls to external functions:
 
 The external call policy can be specified with the option `--external-calls`, which can be set to one of `none`, `concrete` or `all` (e.g., `--external-calls=all`).
 
-Warnings about external calls can be controlled via:
-
-* *--all-external-warnings*: Issue a warning every time an external call is made, as opposed to once per function (default=off)
-* *--suppress-external-warnings*: Suppress warnings about calling external functions
+Warnings about external calls can be controlled via `--external-call-warnings`, which can be set to one of `none`, `once-per-function` or `all` (e.g., `--external-call-warnings=once-per-function`).
 
 
 ## Startup Options  
