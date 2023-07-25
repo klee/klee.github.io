@@ -299,15 +299,20 @@ Artifacts published at Zenodo can also be registered with the [Symbolic Executio
   International Conference on Quality Software (QSIC 2013)  
   July 29-30, 2013, Najing, China
 
+1. [Dowsing for Overflows: a Guided Fuzzer to Find Buffer Boundary Violations](https://dl.acm.org/doi/10.5555/2534766.2534772)  
+  Istvan Haller, Asia Slowinska, Matthias Neugschwandtner, Herbert Bos  
+  USENIX Security Symposium (Security 2013)  
+  August 14–16, 2013, Washington, D.C., USA
+
 1. [FIE on Firmware: Finding Vulnerabilities in Embedded Systems using Symbolic Execution](https://www.usenix.org/system/files/conference/usenixsecurity13/sec13-paper_davidson.pdf)  
   Drew Davidson, Benjamin Moench, Somesh Jha, Thomas Ristenpart  
   USENIX Security Symposium (Security 2013)  
   August 14–16, 2013, Washington, D.C., USA
 
 1. [Sleuth: Automated Verification of Software Power Analysis Countermeasures](https://link.springer.com/chapter/10.1007/978-3-642-40349-1_17)  
-   Ali Galip Bayrak, Francesco Regazzoni, David Novo, Paolo Ienne  
-   Conference on Cryptographic Hardware and Embedded Systems (CHES 2013)  
-   August 18-22, 2013, Santa Barbara, USA
+  Ali Galip Bayrak, Francesco Regazzoni, David Novo, Paolo Ienne  
+  Conference on Cryptographic Hardware and Embedded Systems (CHES 2013)  
+  August 18-22, 2013, Santa Barbara, USA
 
 1. [KATCH: High-Coverage Testing of Software Patches](http://srg.doc.ic.ac.uk/publications/katch-fse-13.html)  
   Paul Dan Marinescu, Cristian Cadar  
