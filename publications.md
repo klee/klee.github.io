@@ -1484,3 +1484,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Elson Kurian, Daniela Briola, Pietro Braione, Giovanni Denaro  
   Journal of Systems and Software, Volume 199  
   May, 2023
+
+1. [KDAlloc: The KLEE Deterministic Allocator: Deterministic Memory Allocation during Symbolic Execution and Test Case Replay](https://dl.acm.org/doi/10.1145/3597926.3604921)  
+  Daniel Schemmel, Julian Büning, Frank Busse, Martin Nowack, Cristian Cadar  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2023)  
+  July, 18-20, 2023, Seattle, USA
