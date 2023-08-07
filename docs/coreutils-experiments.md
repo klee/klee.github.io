@@ -54,7 +54,7 @@ This document is structured as a series of FAQs:
     --use-cex-cache --with-libc --with-file-model=release \
     --allow-external-sym-calls --only-output-states-covering-new \
     --exclude-libc-cov --exclude-cov-file=./../lib/functions.txt \
-    --environ=test.env --run-in=/tmp/sandbox --output-dir=paste-data-1h \
+    --env-file=test.env --run-in-dir=/tmp/sandbox --output-dir=paste-data-1h \
     --max-sym-array-size=4096 --max-instruction-time=10. --max-time=3600. \
     --watchdog --max-memory-inhibit=false --max-static-fork-pct=1 \
     --max-static-solve-pct=1 --max-static-cpfork-pct=1 --switch-type=internal \

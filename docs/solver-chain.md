@@ -70,7 +70,7 @@ will be written to standard error in its native format.
 When set to true (**default: false**) unexpected solver failures in the STP
 solver will be ignored.
 
-`-use-construct-hash`
+`-use-construct-hash-stp`
 
 When set to true (**default: true**) constructed STP expressions will be cached
 (and then cleared) for each constraint to facilitate expression re-use.
@@ -148,7 +148,7 @@ These solvers cache previous queries to avoid calling the underlying solver when
 This solver caches previous queries and their result to avoid calling the underlying solver
 in certain situations. The queries are canonicalized to increase the cache hit rate.
 
-This solver can be enabled with the `-use-cache` option.
+This solver can be enabled with the `-use-branch-cache` option.
 
 ### Counterexample caching solver
 

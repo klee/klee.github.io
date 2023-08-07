@@ -318,7 +318,7 @@ To change this behaviour, following options are provided:</p>
   <li><code class="language-plaintext highlighter-rouge">--allocate-determ-size</code>             - For deterministic allocation, the buffer of the specified size is pre-allocated in MB (<em>default=100</em>)</li>
   <li><code class="language-plaintext highlighter-rouge">--allocate-determ-start-address</code>    - Controls the required start address of the pre-allocated memory. This address has to be page aligned. If null is provided, the memory is mapped to an arbitrary address.</li>
   <li><code class="language-plaintext highlighter-rouge">--return-null-on-zero-malloc</code>       - Controls if a NULL pointer should be returned in case the size argument is zero (<em>default=off</em>)</li>
-  <li><code class="language-plaintext highlighter-rouge">--red-zone-space</code>                   - Controls the space kept unused between two adjacent allocations in byte (<em>default=10</em>)</li>
+  <li><code class="language-plaintext highlighter-rouge">--redzone-size</code>                     - Controls the space kept unused between two adjacent allocations in byte (<em>default=10</em>)</li>
 </ul>
 
 <p><em>Deterministic allocation</em> here means that KLEE internally uses <code class="language-plaintext highlighter-rouge">mmap</code> to pre-allocate memory at a fixed address.
