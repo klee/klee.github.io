@@ -182,7 +182,7 @@ will be written to standard error in its native format.</p>
 <p>When set to true (<strong>default: false</strong>) unexpected solver failures in the STP
 solver will be ignored.</p>
 
-<p><code class="language-plaintext highlighter-rouge">-use-construct-hash</code></p>
+<p><code class="language-plaintext highlighter-rouge">-use-construct-hash-stp</code></p>
 
 <p>When set to true (<strong>default: true</strong>) constructed STP expressions will be cached
 (and then cleared) for each constraint to facilitate expression re-use.</p>
@@ -255,7 +255,7 @@ true</strong>) the solver is created in a separate process that is forked from t
 <p>This solver caches previous queries and their result to avoid calling the underlying solver
 in certain situations. The queries are canonicalized to increase the cache hit rate.</p>
 
-<p>This solver can be enabled with the <code class="language-plaintext highlighter-rouge">-use-cache</code> option.</p>
+<p>This solver can be enabled with the <code class="language-plaintext highlighter-rouge">-use-branch-cache</code> option.</p>
 
 <h3 id="counterexample-caching-solver">Counterexample caching solver</h3>
 
