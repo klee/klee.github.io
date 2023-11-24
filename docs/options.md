@@ -164,6 +164,30 @@ There are several options to modify how KLEE outputs statistics:
 * `-stats-write-after-instructions=N`  - Write statistics after each `N` instructions, 0 to disable (*default=0*)
 * `-istats-write-after-instructions=N` - Write istats after each `N` instructions, 0 to disable (*default=0*)
 
+## Process tree (execution tree)
+
+* `--compress-process-tree`   - Remove intermediate nodes in the process tree whenever possible (*default=false*)
+* `--ptree-batch-size=<uint>` - Number of process tree nodes to batch for writing (*default=100*)
+* `--write-ptree`             - Write process tree into `ptree.db` (*default=false*)
+
+Since symbolic execution aims to execute all feasible paths of a program, it creates an exploration tree instead of a single execution path.
+KLEE maintains this tree in memory when either a searcher (e.g. `random-path`) depends on it or the user explicitly requests a copy on disk (`-write-ptree`).
+To decrease the overhead of constant disk writes in the latter case, KLEE batches a number of nodes until it eventually writes them into an SQLite database (`ptree.db`).
+The batching interval can be modified with `--ptree-batch-size`.
+Afterwards, [klee-ptree]({{site.baseurl}}/docs/tools/#klee-ptree) can be used to convert the tree into an `.svg` file or to print some useful statistics.
+
+Sometimes the traversal of deep execution trees with the `random-path` searcher can become quite costly.
+`--compress-process-tree` can help in this case by reducing paths of long chains of unary edges to a single edge:
+
+```
+ /\            /\
+A  \          A  E
+    \    =>
+     \
+      E
+```
+
+
 ## KLEE debug
 
 KLEE provides several debugging options:
