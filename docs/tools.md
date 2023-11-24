@@ -239,3 +239,50 @@ KLEE can subsequently be run with the `-seed-dir` option to seed further explora
 ## ktest-randgen
 
 Similar to `ktest-gen`, except that it generates random data for the `.ktest` file.
+
+## klee-ptree
+
+When KLEE was used with `--write-ptree`, `klee-ptree` can be used to show various statistics of the execution tree, e.g. branch information and information about the termination types of paths:
+
+* `branches`     -  print branch statistics in `.csv` format
+* `depths`       -  print depths statistics in `.csv` format
+* `instructions` -  print asm line summary in `.csv` format
+* `terminations` -  print termination statistics in `.csv` format
+* `tree-dot`     -  print tree in `.dot` format
+* `tree-info`    -  print tree statistics
+
+Example usage:
+
+```
+$ klee-ptree branches klee-out-1
+branch type,count
+Alloc,0
+Br,55055
+Call,0
+Exact,0
+Free,0
+Getval,0
+Memop,0
+Realloc,0
+Switch,27091
+IndirectBr,0
+...
+
+$ klee-ptree terminations klee-out-1
+termination type,count
+Exit,2230
+Interrupted,48352
+OutOfMemory,31547
+Ptr,4
+External,14
+...
+```
+
+It also can be used to dump the tree in [Graphviz](https://graphviz.org/)' `.dot` format to generate `.png`/`.svg` files.
+We recommend `.svg` as it shows tooltips with e.g. state id, asm line, branch type.
+
+```
+$ klee-ptree tree-dot klee-out-1 | dot -Tsvg > tree.svg
+```
+
+[![]({{site.url}}/content/ptree.png){:.wide}]({{site.url}}/content/ptree.png)
