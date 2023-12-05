@@ -15,6 +15,7 @@ Run tiny code examples in your browser with [KLEE web](http://klee.doc.ic.ac.uk/
 
 ## Installation via Package Manager
 
+* [Get it from the Snap Store](https://snapcraft.io/klee). It works on Ubuntu, Fedora, Debian, and other major Linux distributions.
 * [Use your package manager](https://repology.org/project/klee/versions) for Arch Linux, openSUSE Tumbleweed, and several other distributions
 * [Running with Nix]({{site.baseurl}}/nix): this is even faster than Docker if you have Nix.
 * [FreeBSD package](https://www.freshports.org/security/klee): FreeBSD users can install latest release with `pkg install klee` or by building `security/klee` port themselves.
