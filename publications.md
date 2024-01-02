@@ -1499,3 +1499,9 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Daniel Schemmel, Julian Büning, Frank Busse, Martin Nowack, Cristian Cadar  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2023)  
   July, 18-20, 2023, Seattle, USA
+
+1. [State Merging with Quantifiers in Symbolic Execution](https://doi.org/10.1145/3611643.3616287)  
+  David Trabish, Noam Rinetzky, Sharon Shoham, Vaibhav Sharma  
+  ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2023)  
+  December 3-9, 2023, San Francisco, CA, USA  
+  **The implementation is available [here](https://github.com/davidtr1037/klee-quantifiers).**
