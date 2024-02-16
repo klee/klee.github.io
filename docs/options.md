@@ -164,11 +164,11 @@ There are several options to modify how KLEE outputs statistics:
 * `-stats-write-after-instructions=N`  - Write statistics after each `N` instructions, 0 to disable (*default=0*)
 * `-istats-write-after-instructions=N` - Write istats after each `N` instructions, 0 to disable (*default=0*)
 
-## Process tree (execution tree)
+## Execution tree
 
-* `--compress-process-tree`   - Remove intermediate nodes in the process tree whenever possible (*default=false*)
-* `--ptree-batch-size=<uint>` - Number of process tree nodes to batch for writing (*default=100*)
-* `--write-ptree`             - Write process tree into `ptree.db` (*default=false*)
+* `--compress-exec-tree`   - Remove intermediate nodes in the execution tree whenever possible (*default=false*)
+* `--exec-tree-batch-size=<uint>` - Number of execution tree nodes to batch for writing (*default=100*)
+* `--write-exec-tree`             - Write execution tree into `exec_tree.db` (*default=false*)
 
 Since symbolic execution aims to execute all feasible paths of a program, it creates an exploration tree instead of a single execution path.
 KLEE maintains this tree in memory when either a searcher (e.g. `random-path`) depends on it or the user explicitly requests a copy on disk (`-write-ptree`).
@@ -177,7 +177,7 @@ The batching interval can be modified with `--ptree-batch-size`.
 Afterwards, [klee-ptree]({{site.baseurl}}/docs/tools/#klee-ptree) can be used to convert the tree into an `.svg` file or to print some useful statistics.
 
 Sometimes the traversal of deep execution trees with the `random-path` searcher can become quite costly.
-`--compress-process-tree` can help in this case by reducing paths of long chains of unary edges to a single edge:
+`--compress-exec-tree` can help in this case by reducing paths of long chains of unary edges to a single edge:
 
 ```
  /\            /\
