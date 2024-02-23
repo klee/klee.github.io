@@ -171,10 +171,10 @@ There are several options to modify how KLEE outputs statistics:
 * `--write-exec-tree`             - Write execution tree into `exec_tree.db` (*default=false*)
 
 Since symbolic execution aims to execute all feasible paths of a program, it creates an exploration tree instead of a single execution path.
-KLEE maintains this tree in memory when either a searcher (e.g. `random-path`) depends on it or the user explicitly requests a copy on disk (`-write-ptree`).
-To decrease the overhead of constant disk writes in the latter case, KLEE batches a number of nodes until it eventually writes them into an SQLite database (`ptree.db`).
-The batching interval can be modified with `--ptree-batch-size`.
-Afterwards, [klee-ptree]({{site.baseurl}}/docs/tools/#klee-ptree) can be used to convert the tree into an `.svg` file or to print some useful statistics.
+KLEE maintains this tree in memory when either a searcher (e.g. `random-path`) depends on it or the user explicitly requests a copy on disk (`-write-exec-tree`).
+To decrease the overhead of constant disk writes in the latter case, KLEE batches a number of nodes until it eventually writes them into an SQLite database (`exec_tree.db`).
+The batching interval can be modified with `--exec-tree-batch-size`.
+Afterwards, [klee-exec-tree]({{site.baseurl}}/docs/tools/#klee-exec-tree) can be used to convert the tree into an `.svg` file or to print some useful statistics.
 
 Sometimes the traversal of deep execution trees with the `random-path` searcher can become quite costly.
 `--compress-exec-tree` can help in this case by reducing paths of long chains of unary edges to a single edge:
