@@ -7,6 +7,7 @@ slug: releases
 
 | Version         | Date          | Source code      | Docker Image            | Documentation  |
 |:---------------:|:-------------:|:----------------:|:-----------------------:|:--------------:|
+| [3.1][rn3_1]  |  29 Feb 2024 | [git tag][tb3_1] | [`klee/klee:3.1`][di] | [Docs][doc3_1] |
 | [3.0][rn3_0]  |   7 Jun 2023 | [git tag][tb3_0] | [`klee/klee:3.0`][di] | [Docs][doc3_0] |
 | [2.3][rn2_3]  |   4 Apr 2022 | [git tag][tb2_3] | [`klee/klee:2.3`][di] | [Docs][doc2_3] |
 | [2.2][rn2_2]  |   7 Dec 2020 | [git tag][tb2_2] | [`klee/klee:2.2`][di] | [Docs][doc2_2] |
@@ -18,6 +19,7 @@ slug: releases
 | [1.1.0][rn1_1]  |  13 Nov 2015  | [git tag][tb1_1] | [`klee/klee:1.1.0`][di] | [Docs][doc1_1] |
 | [1.0.0][rn1_0]  |  10 Aug 2015  | [git tag][tb1_0] | [`klee/klee:1.0.0`][di] | [Docs][doc1_0] |
 
+[rn3_1]: {{site.repository}}/releases/tag/v3.1
 [rn3_0]: {{site.repository}}/releases/tag/v3.0
 [rn2_3]: {{site.repository}}/releases/tag/v2.3
 [rn2_2]: {{site.repository}}/releases/tag/v2.2
@@ -29,6 +31,7 @@ slug: releases
 [rn1_1]: {{site.repository}}/releases/tag/v1.1.0
 [rn1_0]: {{site.repository}}/releases/tag/v1.0.0
 
+[doc3_1]: {{site.baseurl}}/releases/docs/v3.1
 [doc3_0]: {{site.baseurl}}/releases/docs/v3.0
 [doc2_3]: {{site.baseurl}}/releases/docs/v2.3
 [doc2_2]: {{site.baseurl}}/releases/docs/v2.2
@@ -40,6 +43,7 @@ slug: releases
 [doc1_1]: {{site.baseurl}}/releases/docs/v1.1.0
 [doc1_0]: {{site.baseurl}}/releases/docs/v1.0.0
 
+[tb3_1]: {{site.repository}}/tree/v3.1
 [tb3_0]: {{site.repository}}/tree/v3.0
 [tb2_3]: {{site.repository}}/tree/v2.3
 [tb2_2]: {{site.repository}}/tree/v2.2
