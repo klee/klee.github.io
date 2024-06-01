@@ -101,7 +101,7 @@ This document is structured as a series of FAQs:
     3.  Download `sandbox.tgz` by clicking [here](http://www.doc.ic.ac.uk/~cristic/klee/klee-cu-sandbox.html), place it in `/tmp`, and run: 
 
         ```bash
-        $ cd /tmp $ tar xzfv sandbox.tgz
+        $ cd /tmp $ tar xfv sandbox.tgz
         ```
 
 0.  What symbolic arguments did you use in your experiments?
