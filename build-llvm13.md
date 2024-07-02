@@ -46,7 +46,15 @@ KLEE does not work under x86-32.
 
 2. **Install LLVM 13:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
-   If you are using a recent Ubuntu (e.g. 21.10) or Debian, we recommend to use the LLVM packages provided by LLVM itself. 
+   If you are using a recent Ubuntu (e.g. 22.04) or Debian, we recommend to use the LLVM packages provided by LLVM itself via https://apt.llvm.org/
+
+   Add the repositories for your distribution to `/etc/apt/sources.list` and then import their key:
+
+   ```bash
+   $ wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
+   ```
+
+   You should now be able to install LLVM:
 
    ```bash
    $ sudo apt-get install clang-13 llvm-13 llvm-13-dev llvm-13-tools
