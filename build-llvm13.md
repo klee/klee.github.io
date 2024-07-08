@@ -119,7 +119,7 @@ KLEE does not work under x86-32.
    Make sure that `clang++-13` is in your path. Then, run from the main KLEE source directory:
 
    ```bash
-   $ LLVM_VERSION=13 BASE=<LIBCXX_DIR> ENABLE_OPTIMIZED=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 REQUIRES_RTTI=1 klee/scripts/build/build.sh libcxx
+   $ LLVM_VERSION=13 BASE=<LIBCXX_DIR> ENABLE_OPTIMIZED=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 REQUIRES_RTTI=1 scripts/build/build.sh libcxx
    ```
    where `<LIBCXX_DIR>` is the absolute path where libc++ should be cloned and built.
 
