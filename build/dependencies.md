@@ -5,7 +5,9 @@ subtitle: Dependencies
 slug: getting-started
 ---
 
-KLEE requires all the dependencies of LLVM (see [here](http://llvm.org/docs/GettingStarted.html#requirements)), and some more. In particular, you should install the programs and libraries listed below. `graphviz/doxygen` are optional and only needed to generate the source code documentation.
+KLEE requires all the dependencies of LLVM (see [here](http://llvm.org/docs/GettingStarted.html#requirements)), and some more.
+
+In particular, you should install the programs and libraries listed below. `graphviz/doxygen` are optional and only needed to generate the source code documentation.
 
    Under Ubuntu, use:
    ```bash
@@ -24,10 +26,11 @@ KLEE requires all the dependencies of LLVM (see [here](http://llvm.org/docs/Gett
    $ sudo apt-get install python3-tabulate
    ```
 
-   Use `--user` for `pip3` to install packages for the current user only:
+   In more recent Ubuntu distributions, you should install the Python packages via pipx:
 
    ```bash
-   $ pip3 install --user lit wllvm
+   $ sudo apt-get install pipx
+   $ pipx install lit wllvm
    ```
 
    and make sure that e.g. `~/.local/bin` (check with `python3 -m site --user-base` on your system) is in your `PATH`.
