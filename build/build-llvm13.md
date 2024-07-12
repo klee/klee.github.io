@@ -9,7 +9,7 @@ slug: getting-started
 
 The current procedure for building KLEE manually with LLVM 13 (recommended) on Debian/Ubuntu-based distributions or macOS is outlined below.
 However, in case you trust our installation scripts for continuous integration testing, you can re-use them on your Ubuntu/macOS-based host system.
-You can find detailed instructions in: [Building arbitrary KLEE configurations]({{site.baseurl}}/build-script).
+You can find detailed instructions in: [Building arbitrary KLEE configurations]({{site.baseurl}}/build/build-script).
 
 ## Manual Installation
 
@@ -72,7 +72,7 @@ KLEE does not work under x86-32.
 
    KLEE supports multiple different constraint solvers. You must install at least one to build KLEE.
 
-   * [STP](https://github.com/stp/stp) Historically KLEE was built around STP so support for this solver is the most stable. For build instructions, see [here]({{site.baseurl}}/build-stp).
+   * [STP](https://github.com/stp/stp) Historically KLEE was built around STP so support for this solver is the most stable. For build instructions, see [here]({{site.baseurl}}/build/build-stp).
    * [Z3](https://github.com/z3prover/z3) is another solver supported by KLEE that is reasonably stable. You should use Z3 version ≥ 4.4. Z3 is packaged by [many distributions](https://repology.org/project/z3/versions). For build instructions, see [here](https://github.com/Z3Prover/z3/blob/master/README.md).
    * [metaSMT](https://github.com/agra-uni-bremen/metaSMT) supports
      various solvers, including Boolector, CVC4, STP, Z3 and Yices.  We recommend branch v4.rc1 (`git clone -b v4.rc1 ...`). For build instructions, see [here](https://github.com/agra-uni-bremen/metaSMT).
