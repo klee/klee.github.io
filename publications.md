@@ -1505,3 +1505,9 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2023)  
   December 3-9, 2023, San Francisco, CA, USA  
   **The implementation is available [here](https://github.com/davidtr1037/klee-quantifiers).**
+
+1. [Monitor-based Testing of Network Protocol Implementations Using Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3664476.3664521)
+  Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas
+  International Conference on Availability, Reliability and Security (ARES 2024)
+  30 July 2024- 2 August 2024, Vienna, Austria
+  **The implementation is available [here](https://zenodo.org/records/11945615)**
