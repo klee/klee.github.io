@@ -1529,6 +1529,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   June 24-28, 2024, Copenhagen, Denmark  
   **The artefact is available [here](https://zenodo.org/records/10960926).**
 
+1. [Concretely Mapped Symbolic Memory Locations for Memory Error Detection](https://doi.ieeecomputersociety.org/10.1109/TSE.2024.3395412)  
+  Haoxin Tu, Lingxiao Jiang, Jiaqi Hong, Xuhua Ding, He Jiang  
+  IEEE Transactions on Software Engineering, Volume 50, Issue 7 (TSE)  
+  July 2024  
+  **The SymLoc is available [here](https://github.com/haoxintu/SymLoc).**
+
 1. [FeatMaker: Automated Feature Engineering for Search Strategy of Symbolic Execution](https://dl.acm.org/doi/10.1145/3660815)  
   Jaehan Yoon, Sooyoung Cha  
   Proceedings of the ACM on Software Engineering, Volume 1, Issue FSE (FSE 2024)  
