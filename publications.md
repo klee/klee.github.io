@@ -1559,6 +1559,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   July 15-19, 2024, Porto de Galinhas, Brazil  
   **The artefact is available [here](https://github.com/zbchen/pscache).**
 
+1. [soid: A Tool for Legal Accountability for Automated Decision Making](https://link.springer.com/chapter/10.1007/978-3-031-65630-9_12)  
+  Samuel Judson, Matthew Elacqua, Filip Cano, Timos Antonopoulos, Bettina Könighofer, Scott J. Shapiro, Ruzica Piskac  
+  International Conference on Computer Aided Verification (CAV 2024)  
+  July 22-27, 2024, Montreal, Canada  
+  **soid is available [here](https://github.com/sjudson/soid).**
+
 1. [Monitor-based Testing of Network Protocol Implementations Using Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3664476.3664521)
   Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas
   International Conference on Availability, Reliability and Security (ARES 2024)
