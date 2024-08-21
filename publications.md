@@ -1518,6 +1518,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   April 14-20, 2024, Lisbon, Portugal  
   **The implementation is available [here](https://github.com/XMUsuny/cgs) ([artefact](https://zenodo.org/records/10516325)).**
 
+1. [FeatMaker: Automated Feature Engineering for Search Strategy of Symbolic Execution](https://dl.acm.org/doi/10.1145/3660815)  
+  Jaehan Yoon, Sooyoung Cha  
+  Proceedings of the ACM on Software Engineering, Volume 1, Issue FSE (FSE 2024)  
+  July 15-19, 2024, Porto de Galinhas, Brazil  
+  **FeatMaker is available [here](https://github.com/skkusal/featmaker).**
+
 1. [Partial Solution Based Constraint Solving Cache in Symbolic Execution](https://dl.acm.org/doi/10.1145/3660817)  
   Ziqi Shuai, Zhenbang Chen, Kelin Ma, Kunlin Liu, Yufeng Zhang, Jun Sun, Ji Wang  
   Proceedings of the ACM on Software Engineering, Volume 1, Issue FSE (FSE 2024)  
