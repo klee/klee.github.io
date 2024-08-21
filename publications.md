@@ -769,12 +769,12 @@ Artifacts published at Zenodo can also be registered with the [Symbolic Executio
 1. [Resilience Evaluation via Symbolic Fault Injection on Intermediate Code](http://www.informatik.uni-bremen.de/agra/doc/konf/DATE18_symbolic-swifi-llvm.pdf)  
   Hoang M. Le, Vladimir Herdt, Daniel Große, Rolf Drechsler  
   Design, Automation and Test in Europe (DATE 2018)  
-  March 19 - 23, 2018, Dresden, Germany
+  March 19-23, 2018, Dresden, Germany
 
 1. [Symbolic Assertion Mining for Security Validation](https://ieeexplore.ieee.org/abstract/document/8342262/)  
   Alessandro Danese, Valeria Bertacco, Graziano Pravadelli  
   Design, Automation and Test in Europe (DATE 2018)  
-  March 19 - 23, 2018, Dresden, Germany
+  March 19-23, 2018, Dresden, Germany
   
 1. [Uncovering Bugs in P4 Programs with Assertion-based Verification](http://conferences.sigcomm.org/sosr/2018/sosr18-finals/sosr18-final78.pdf)  
   Lucas Freire, Miguel Neves, Lucas Leal, Kirill Levchenko, Alberto Schaeffer-Filho, Marinho Barcellos  
@@ -1447,12 +1447,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
 1. [LinKRID: Vetting Imbalance Reference Counting in Linux Kernel with Symbolic Execution](https://www.usenix.org/system/files/sec22summer_liu-jian.pdf)  
   Jian Liu, Lin Yi, Weiting Chen, Chengyu Song, Zhiyun Qian, Qiuping Yi  
   USENIX Security Symposium (Security 2022)  
-  August, 10-12, 2022, Boston, USA
+  August 10-12, 2022, Boston, USA
 
 1. [SKLEE: A Dynamic Symbolic Analysis Tool for Ethereum Smart Contracts (Tool Paper)](https://link.springer.com/chapter/10.1007/978-3-031-17108-6_15)  
   Namrata Jain, Kosuke Kaneko, Subodh Sharma  
   International Conference on Software Engineering and Formal Methods (SEFM 2022)  
-  September, 26-30, 2022, Berlin, Germany
+  September 26-30, 2022, Berlin, Germany
 
 1. [Symbolic Execution for Randomized Programs](https://dl.acm.org/doi/abs/10.1145/3563344)  
   Zachary Susag, Sumit Lahiri, Justin Hsu, Subhajit Roy  
@@ -1468,28 +1468,28 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
 1. [FastKLEE: Faster Symbolic Execution via Reducing Redundant Bound Checking of Type-Safe Pointers](https://haoxintu.github.io/files/fse2022-demo-camera-ready.pdf)  
   Haoxin Tu, Lingxiao Jiang, Xuhua Ding, He Jiang  
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2022 Demo)  
-  November, 14-16, 2022, Singapore  
+  November 14-16, 2022, Singapore  
   **FastKLEE is available [here](https://github.com/haoxintu/FastKLEE).**
 
 1. [Solder: Retrofitting Legacy Code with Cross-Language Patches](https://seclab.nu/static/publications/saner2023solder.pdf)  
   R. Williams, A. Gavazzi, E. Kirda  
   IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER 2023)  
-  March, 21-24, 2023, Macao, China
+  March 21-24, 2023, Macao, China
 
 1. [An Efficient Black-Box Support of Advanced Coverage Criteria for Klee](https://arxiv.org/abs/2211.14592)  
   Nicolas Berthier, Steven De Oliveira, Nikolai Kosmatov, Delphine Longuet, Romain Soulat  
   ACM/SIGAPP Symposium On Applied Computing (SAC 2023)  
-  March, 27-31, 2023, Tallin, Estonia
+  March 27-31, 2023, Tallin, Estonia
 
 1. [An Automated Verification Framework for HalideIR-Based Compiler Transformations](https://ieeexplore.ieee.org/document/10137308)  
   Yanzhao Wang, Fei Xie, Zhenkun Yang, Jeremy Casas, Pasquale Cocchini, Jin Yang  
   Design, Automation and Test in Europe Conference (DATE 2023)  
-  April, 17-19, 2023, Antwerp, Belgium
+  April 17-19, 2023, Antwerp, Belgium
 
 1. [Processor Verification using Symbolic Execution: A RISC-V Case-Study](https://ieeexplore.ieee.org/document/10137202)  
   Niklas Bruns, Vladimir Herdt, Rolf Drechsler  
   Design, Automation and Test in Europe Conference (DATE 2023)  
-  April, 17-19, 2023, Antwerp, Belgium
+  April 17-19, 2023, Antwerp, Belgium
 
 1. [Automatically Generating Test Cases for Safety-critical Software via Symbolic Execution](https://doi.org/10.1016/j.jss.2023.111629)  
   Elson Kurian, Daniela Briola, Pietro Braione, Giovanni Denaro  
@@ -1499,12 +1499,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
 1. [Applying Symbolic Execution to Semantic Code Clone Detection](https://ksiresearch.org/seke/seke23paper/paper070.pdf)  
   Kazusa Takemoto, Shingo Takada  
   International Conference on Software Engineering & Knowledge Engineering (SEKE 2023)  
-  July, 1-10, South San Francisco, USA
+  July 1-10, South San Francisco, USA
 
 1. [KDAlloc: The KLEE Deterministic Allocator: Deterministic Memory Allocation during Symbolic Execution and Test Case Replay](https://dl.acm.org/doi/10.1145/3597926.3604921)  
   Daniel Schemmel, Julian Büning, Frank Busse, Martin Nowack, Cristian Cadar  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2023)  
-  July, 18-20, 2023, Seattle, USA
+  July 18-20, 2023, Seattle, USA
 
 1. [Verifying RISC-V Privilege Transition Integrity Through Symbolic Execution](https://doi.org/10.1109/ATS59501.2023.10317946)  
   Shibo Tang, Jiacheng Zhu, Yifei Gao, Jing Zhou, Dejun Mu, Wei Hu  
