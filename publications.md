@@ -1518,6 +1518,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   April 14-20, 2024, Lisbon, Portugal  
   **The implementation is available [here](https://github.com/XMUsuny/cgs) ([artefact](https://zenodo.org/records/10516325)).**
 
+1. [Compatible Branch Coverage Driven Symbolic Execution for Efficient Bug Finding](https://dl.acm.org/doi/10.1145/3656443)  
+  Qiuping Yi, Yifan Yu, Guowei Yang  
+  Proceedings of the ACM on Programming Languages, Volume 8, Issue PLDI (PLDI 2024)  
+  June 24-28, 2024, Copenhagen, Denmark  
+  **The artefact is available [here](https://zenodo.org/records/10960926).**
+
 1. [FeatMaker: Automated Feature Engineering for Search Strategy of Symbolic Execution](https://dl.acm.org/doi/10.1145/3660815)  
   Jaehan Yoon, Sooyoung Cha  
   Proceedings of the ACM on Software Engineering, Volume 1, Issue FSE (FSE 2024)  
