@@ -1512,6 +1512,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   December 3-9, 2023, San Francisco, CA, USA  
   **The implementation is available [here](https://github.com/davidtr1037/klee-quantifiers).**
 
+1. [KLEEF: Symbolic Execution Engine (Competition Contribution)](https://link.springer.com/chapter/10.1007/978-3-031-57259-3_18)  
+  Aleksandr Misonizhnik, Sergey Morozov, Yurii Kostyukov, Vladislav Kalugin, Aleksei Babushkin, Dmitry Mordvinov, Dmitry Ivanov  
+  International Conference on Fundamental Approaches to Software Engineering (FASE 2024)  
+  April 6, 2024  
+  **KLEEF is available [here](https://toolchain-labs.com/projects/kleef.html).**
+
 1. [Concrete Constraint Guided Symbolic Execution](https://dl.acm.org/doi/10.1145/3597503.3639078)  
   Yue Sun, Guowei Yang, Shichao Lv, Zhi Li, Limin Sun  
   International Conference on Software Engineering (ICSE 2024)  
