@@ -1536,6 +1536,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   April 14-20, 2024, Lisbon, Portugal  
   **The implementation is available [here](https://github.com/XMUsuny/cgs) ([artefact](https://zenodo.org/records/10516325)).**
 
+1. [Broadly Enabling KLEE to Effortlessly Find Unrecoverable Errors in Rust](https://dl.acm.org/doi/abs/10.1145/3639477.3639714)  
+  Ying Zhang, Peng Li, Yu Ding, Lingxiang Wang, Dan Williams, Na Meng  
+  International Conference on Software Engineering: Software Engineering in Practice (ICSE SEIP 2024)  
+  April 17-20, 2024, Lisbon, Portugal  
+  **The artefact is available [here](https://github.com/NEUZhangy/ICSE-SEIP-2024).**
+
 1. [Combining Static Analysis With Directed Symbolic Execution for Scalable and Accurate Memory Leak Detection](https://ieeexplore.ieee.org/document/10549878)  
   Hayk Aslanyan, Hovhannes Movsisyan, Hripsime Hovhannisyan, Zhora Gevorgyan, Ruslan Mkoyan, Arutyun Avetisyan, Sevak Sargsyan  
   IEEE Access, Volume 12  
