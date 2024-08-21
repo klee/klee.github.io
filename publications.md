@@ -1518,6 +1518,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   April 14-20, 2024, Lisbon, Portugal  
   **The implementation is available [here](https://github.com/XMUsuny/cgs) ([artefact](https://zenodo.org/records/10516325)).**
 
+1. [Combining Static Analysis With Directed Symbolic Execution for Scalable and Accurate Memory Leak Detection](https://ieeexplore.ieee.org/document/10549878)  
+  Hayk Aslanyan, Hovhannes Movsisyan, Hripsime Hovhannisyan, Zhora Gevorgyan, Ruslan Mkoyan, Arutyun Avetisyan, Sevak Sargsyan  
+  IEEE Access, Volume 12  
+  June 5, 2024
+
 1. [Compatible Branch Coverage Driven Symbolic Execution for Efficient Bug Finding](https://dl.acm.org/doi/10.1145/3656443)  
   Qiuping Yi, Yifan Yu, Guowei Yang  
   Proceedings of the ACM on Programming Languages, Volume 8, Issue PLDI (PLDI 2024)  
