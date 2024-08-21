@@ -1592,3 +1592,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   International Conference on Availability, Reliability and Security (ARES 2024)
   July 30 - August 2, 2024, Vienna, Austria  
   **The implementation is available [here](https://zenodo.org/records/11945615).**
+
+1. [Towards Functional Verification of eBPF Programs](https://dl.acm.org/doi/abs/10.1145/3672197.3673435)  
+  Dana Lu, Boxuan Tang, Michael Paper, Marios Kogias  
+  ACM SIGCOMM Workshop on eBPF and Kernel Extensions  
+  August 4, 2024, Sydney, Australia
