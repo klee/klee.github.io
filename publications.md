@@ -439,7 +439,7 @@ Artifacts published at Zenodo can also be registered with the [Symbolic Executio
 1. [Synchronization Error Detection of MPI Programs by Symbolic Execution](https://ieeexplore.ieee.org/abstract/document/7091301)  
   Xianjin Fu, Zhenbang Chen, Chun Huang, Wei Dong, Ji Wang  
   Asia-Pacific Software Engineering Conference (APSEC 2014)  
-  December 1-4, 2014, Jeju, South Korea
+  December 1-4, 2014, Jeju, Republic of Korea
 
 1. [Methods for Binary Symbolic Execution](https://searchworks.stanford.edu/view/10701369)  
   Anthony Romano  
@@ -1511,6 +1511,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2023)  
   December 3-9, 2023, San Francisco, CA, USA  
   **The implementation is available [here](https://github.com/davidtr1037/klee-quantifiers).**
+
+1. [Unsatisfiable Core Based Constraint Solving Cache in Symbolic Execution](https://doi.org/10.1109/APSEC60848.2023.00098)  
+  Ziqi Shuai, Zhenbang Chen, Yufeng Zhang, Hengbiao Yu, Ji Wang  
+  Asia-Pacific Software Engineering Conference (APSEC 2023)  
+  December 4-7, 2023, Seoul, Republic of Korea
 
 1. [AISE: A Symbolic Verifier by Synergizing Abstract Interpretation and Symbolic Execution (Competition Contribution)](https://link.springer.com/chapter/10.1007/978-3-031-57256-2_19)  
   Zhen Wang, Zhenbang Chen  
