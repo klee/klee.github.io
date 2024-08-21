@@ -1512,6 +1512,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   December 3-9, 2023, San Francisco, CA, USA  
   **The implementation is available [here](https://github.com/davidtr1037/klee-quantifiers).**
 
+1. [AISE: A Symbolic Verifier by Synergizing Abstract Interpretation and Symbolic Execution (Competition Contribution)](https://link.springer.com/chapter/10.1007/978-3-031-57256-2_19)  
+  Zhen Wang, Zhenbang Chen  
+  International Conference on Fundamental Approaches to Software Engineering (FASE 2024)  
+  April 6, 2024  
+  **AISE is available [here](https://github.com/zbchen/aise-verifier).**
+
 1. [FDSE: Enhance Symbolic Execution by Fuzzing-based Pre-Analysis (Competition Contribution)](https://link.springer.com/chapter/10.1007/978-3-031-57259-3_16)  
   Guofeng Zhang, Ziqi Shuai, Kelin Ma, Kunlin Liu, Zhenbang Chen, Ji Wang  
   International Conference on Fundamental Approaches to Software Engineering (FASE 2024)  
