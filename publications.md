@@ -1518,6 +1518,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   April 14-20, 2024, Lisbon, Portugal  
   **The implementation is available [here](https://github.com/XMUsuny/cgs) ([artefact](https://zenodo.org/records/10516325)).**
 
+1. [Partial Solution Based Constraint Solving Cache in Symbolic Execution](https://dl.acm.org/doi/10.1145/3660817)  
+  Ziqi Shuai, Zhenbang Chen, Kelin Ma, Kunlin Liu, Yufeng Zhang, Jun Sun, Ji Wang  
+  Proceedings of the ACM on Software Engineering, Volume 1, Issue FSE (FSE 2024)  
+  July 15-19, 2024, Porto de Galinhas, Brazil  
+  **The artefact is available [here](https://github.com/zbchen/pscache).**
+
 1. [Monitor-based Testing of Network Protocol Implementations Using Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3664476.3664521)
   Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas
   International Conference on Availability, Reliability and Security (ARES 2024)
