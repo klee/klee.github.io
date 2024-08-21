@@ -1499,7 +1499,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
 1. [Applying Symbolic Execution to Semantic Code Clone Detection](https://ksiresearch.org/seke/seke23paper/paper070.pdf)  
   Kazusa Takemoto, Shingo Takada  
   International Conference on Software Engineering & Knowledge Engineering (SEKE 2023)  
-  July 1-10, South San Francisco, USA
+  July 1-10, 2023, South San Francisco, USA
+
+1. [Exploring Formal Methods for Cryptographic Hash Function Implementations](https://doi.org/10.1007/978-3-031-35486-1_9)  
+  Nicky Mouha  
+  Australasian Conference on Information Security and Privacy (ACISP 2023)  
+  July 5–7, 2023, Brisbane, Australia
 
 1. [KDAlloc: The KLEE Deterministic Allocator: Deterministic Memory Allocation during Symbolic Execution and Test Case Replay](https://dl.acm.org/doi/10.1145/3597926.3604921)  
   Daniel Schemmel, Julian Büning, Frank Busse, Martin Nowack, Cristian Cadar  
