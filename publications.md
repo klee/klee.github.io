@@ -1506,8 +1506,14 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   December 3-9, 2023, San Francisco, CA, USA  
   **The implementation is available [here](https://github.com/davidtr1037/klee-quantifiers).**
 
+1. [Concrete Constraint Guided Symbolic Execution](https://dl.acm.org/doi/10.1145/3597503.3639078)  
+  Yue Sun, Guowei Yang, Shichao Lv, Zhi Li, Limin Sun  
+  International Conference on Software Engineering (ICSE 2024)  
+  April 14-20, 2024, Lisbon, Portugal  
+  **The implementation is available [here](https://github.com/XMUsuny/cgs) ([artefact](https://zenodo.org/records/10516325)).**
+
 1. [Monitor-based Testing of Network Protocol Implementations Using Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3664476.3664521)
   Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas
   International Conference on Availability, Reliability and Security (ARES 2024)
-  30 July 2024- 2 August 2024, Vienna, Austria
-  **The implementation is available [here](https://zenodo.org/records/11945615)**
+  July 30 - August 2, 2024, Vienna, Austria  
+  **The implementation is available [here](https://zenodo.org/records/11945615).**
