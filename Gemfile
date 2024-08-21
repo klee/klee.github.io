@@ -11,3 +11,5 @@ gem 'github-pages', '>=104', group: :jekyll_plugins
 gem 'nokogiri', '~> 1.16.5'
 
 gem "webrick", "~> 1.7"
+
+gem "json"
