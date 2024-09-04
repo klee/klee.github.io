@@ -1578,7 +1578,7 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Haoxin Tu, Lingxiao Jiang, Jiaqi Hong, Xuhua Ding, He Jiang  
   IEEE Transactions on Software Engineering, Volume 50, Issue 7 (TSE)  
   July 2024  
-  **The SymLoc is available [here](https://github.com/haoxintu/SymLoc).**
+  **SymLoc is available [here](https://github.com/haoxintu/SymLoc).**
 
 1. [FeatMaker: Automated Feature Engineering for Search Strategy of Symbolic Execution](https://dl.acm.org/doi/10.1145/3660815)  
   Jaehan Yoon, Sooyoung Cha  
