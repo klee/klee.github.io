@@ -264,7 +264,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.8.0)
     uri (0.13.1)
-    webrick (1.8.1)
+    webrick (1.8.2)
 
 PLATFORMS
   ruby
@@ -273,7 +273,7 @@ DEPENDENCIES
   github-pages (>= 104)
   json
   nokogiri (~> 1.16.5)
-  webrick (~> 1.7)
+  webrick (~> 1.8)
 
 BUNDLED WITH
    2.3.10
