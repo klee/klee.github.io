@@ -7,8 +7,8 @@ slug: getting-started
 
 ## Web Interface
 
-<s>Run tiny code examples in your browser with
-[KLEE web](http://klee.doc.ic.ac.uk/).</s>
+<p>
+<s>Run tiny code examples in your browser with KLEE Web (http://klee.doc.ic.ac.uk).</s>
 
 KLEE web is not maintained anymore.
 If you would like to take over the maintainer role, please get in touch with [Cristian Cadar](https://www.doc.ic.ac.uk/~cristic/).
