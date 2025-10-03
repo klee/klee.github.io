@@ -53,3 +53,4 @@ We also recommend the following external resources.  When using them, please tak
 1. [Binary symbolic execution with KLEE-Native](https://blog.trailofbits.com/2019/08/30/binary-symbolic-execution-with-klee-native/): An extension of KLEE that analyses binaries by lifting them to LLVM IR
 1. [SHA-3 Buffer Overflow](https://mouha.be/sha-3-buffer-overflow-part-2/): Finding a bug in a sha-3 implementation with KLEE
 1. [Replicating CVEs with KLEE](https://www.nccgroup.com/research-blog/replicating-cves-with-klee/): Learn how to replicate CVE-2016-2147, a crash in BusyBox's udhcpc.
+1. [Analyzing the Linux Kernel in Userland with AFL and KLEE](https://grimmcyber.com/analyzing-the-linux-kernel-in-userland-with-afl-and-klee/): KLEE finds a bug in the Linux kernel that AFL missed.
