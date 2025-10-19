@@ -1501,6 +1501,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Journal of Systems and Software, Volume 199  
   May, 2023
 
+1. [Adaptive Solving Strategy Synthesis for Symbolic Execution](https://doi.org/10.1002/smr.2568)  
+  Zhenbang Chen, Guofeng Zhang, Zehua Chen, Ziqi Shuai, Weiyu Pan, Yufeng Zhang, Ji Wang  
+  Journal of Software: Evolution and Process, Volume 36, Issue 4  
+  May 11, 2023
+
 1. [Applying Symbolic Execution to Semantic Code Clone Detection](https://ksiresearch.org/seke/seke23paper/paper070.pdf)  
   Kazusa Takemoto, Shingo Takada  
   International Conference on Software Engineering & Knowledge Engineering (SEKE 2023)  
