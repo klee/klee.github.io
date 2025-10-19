@@ -1614,6 +1614,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM SIGCOMM Workshop on eBPF and Kernel Extensions  
   August 4, 2024, Sydney, Australia
 
+1. [Analysing TLS Implementations Using Full-Message Symbolic Execution](https://doi.org/10.1007/978-3-031-79007-2_15)  
+  Johannes Wilson, Mikael Asplund  
+  Nordic Conference on Secure IT systems (NordSec 2024)  
+  November 6-7, 2024, Karlstad, Sweden
+
 1. [Topseed: Learning Seed Selection Strategies for Symbolic Execution from Scratch](https://doi.ieeecomputersociety.org/10.1109/ICSE55347.2025.00095)  
   Jaehyeok Lee, Sooyoung Cha  
   IEEE/ACM International Conference on Software Engineering (ICSE 2025)  
