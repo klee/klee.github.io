@@ -1649,6 +1649,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   International Conference on Networking and Network Applications (NaNA 2024)  
   August 9-12, 2024, Yinchuan City, China
 
+1. [Fast and Precise Static Null Exception Analysis With Synergistic Preprocessing](https://doi.org/10.1109/TSE.2024.3466551)  
+  Yi Sun, Chengpeng Wang, Gang Fan, Qingkai Shi, Xiangyu Zhang  
+  IEEE Transactions on Software Engineering, Volume 50, Issue 11 (TOSEM)  
+  November 2024
+
 1. [Analysing TLS Implementations Using Full-Message Symbolic Execution](https://doi.org/10.1007/978-3-031-79007-2_15)  
   Johannes Wilson, Mikael Asplund  
   Nordic Conference on Secure IT systems (NordSec 2024)  
