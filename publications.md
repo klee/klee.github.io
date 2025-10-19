@@ -781,6 +781,11 @@ Artifacts published at Zenodo can also be registered with the [Symbolic Executio
   Symposium on SDN Research (SOSR 2018)  
   March 28-29, 2018, Los Angeles, USA
 
+1. [Improving Function Coverage With Munch: A Hybrid Fuzzing and Directed Symbolic Execution Approach](https://doi.org/10.1145/3167132.3167289)  
+  Saahil Ognawala, Thomas Hutzelmann, Eirini Psallida, Alexander Pretschner  
+  ACM Symposium on Applied Computing (SAC 2018)  
+  April 9-13, 2018, Pau, France
+
 1. [CRETE: A Versatile Binary-Level Concolic Testing Framework](https://link.springer.com/chapter/10.1007%2F978-3-319-89363-1_16)  
   Bo Chen, Christopher Havlicek, Zhenkun Yang, Kai Cong, Raghudeep Kannavara, Fei Xie  
   International Conference on Fundamental Approaches to Software Engineering (FASE 2018)  
