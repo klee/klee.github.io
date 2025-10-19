@@ -1379,6 +1379,11 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
   April 1, 2022  
   **DivSim is part of [DIVINE 4](https://divine.fi.muni.cz/download.html).**
 
+1. [Deterministic State Space Exploration](https://doi.org/10.1007/s10009-025-00809-x)  
+  Martin Nowack  
+  Workshop on Reproducibility and Replication of Research Results (RRRR 2022)  
+  April 2, 2022, Munich, Germany
+
 1. [Performance Interfaces for Network Functions](https://www.usenix.org/system/files/nsdi22-paper-iyer.pdf)  
   Rishabh Iyer, Katerina Argyraki, George Candea  
   USENIX Symposium on Networked Systems Design and Implementation (NSDI 2022)  
