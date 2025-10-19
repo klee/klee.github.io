@@ -1613,6 +1613,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   July 22-27, 2024, Montreal, Canada  
   **soid is available [here](https://github.com/sjudson/soid).**
 
+1. [Path Exploration Strategy for Symbolic Execution based on Multi-Strategy Active Learning](https://doi.org/10.1145/3671016.3671403)  
+  Lianying He, Dalin Zhang, Dongqing Zhu, Junwen Zhang, Rui Wang, Jiqiang Liu  
+  Asia-Pacific Symposium on Internetware (Internetware 2024)  
+  July, 24-26, 2024, Macau, China
+
 1. [Monitor-based Testing of Network Protocol Implementations Using Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3664476.3664521)
   Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas  
   International Conference on Availability, Reliability and Security (ARES 2024)  
