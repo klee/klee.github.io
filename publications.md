@@ -1578,6 +1578,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE Access, Volume 12  
   June 5, 2024
 
+1. [Detecting Hardware Trojans Using Model Guided Symbolic Execution](https://doi.org/10.1145/3649476.3658782)  
+  Ruochen Dai, Tuba Yavuz  
+  Great Lakes Symposium on VLSI (GLSVLSI 2024)  
+  June 12-14, 2024, Tampa Bay Area, USA
+  
+
 1. [Compatible Branch Coverage Driven Symbolic Execution for Efficient Bug Finding](https://dl.acm.org/doi/10.1145/3656443)  
   Qiuping Yi, Yifan Yu, Guowei Yang  
   Proceedings of the ACM on Programming Languages, Volume 8, Issue PLDI (PLDI 2024)  
