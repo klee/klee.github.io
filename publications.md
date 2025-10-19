@@ -1664,6 +1664,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE Conference on Standards for Communications and Networking (CSCN 2024)  
   November 25-27, 2024, Belgrade, Serbia
 
+1. [Detecting Time-Delay Attacks in Industrial Control Systems Through State-Aware Inference](https://doi.org/10.1109/JIOT.2024.3496896)  
+  Kai Yang, Qiang Li, Ting Li, Haining Wang, Limin Sun  
+  IEEE Internet of Things Journal, Volume 12, Issue 6  
+  March 15, 2025
+
 1. [Vulnerability Repair via Concolic Execution and Code Mutations](https://doi.org/10.1145/3707454)  
   Ridwan Shariffdeen, Christopher S. Timperley, Yannic Noller, Claire Le Goues, Abhik Roychoudhury  
   ACM Transactions on Software Engineering and Methodology, Volume 34, Issue 4  
