@@ -1624,6 +1624,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Nordic Conference on Secure IT systems (NordSec 2024)  
   November 6-7, 2024, Karlstad, Sweden
 
+1. [IFSE: Taming Closed-Box Functions in Symbolic Execution via Fuzz Solving](https://doi.org/10.1109/ICSE-Companion66252.2025.00019)  
+  Qichang Wang, Chuyang Chen, Ruiyang Xu, Haiying Sun, Chengcheng Wan, Ting Su  
+  IEEE/ACM International Conference on Software Engineering (ICSE 2025 Companion)  
+  April 27 - May 3, 2025, Ottawa, Canada  
+  **IFSE is available [here](https://github.com/ecnusse/ifse).**
+
 1. [Topseed: Learning Seed Selection Strategies for Symbolic Execution from Scratch](https://doi.ieeecomputersociety.org/10.1109/ICSE55347.2025.00095)  
   Jaehyeok Lee, Sooyoung Cha  
   IEEE/ACM International Conference on Software Engineering (ICSE 2025)  
