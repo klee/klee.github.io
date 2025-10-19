@@ -1797,4 +1797,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Proceedings of the ACM on Programming Languages, Volume 9, Issue OOPSLA1 (OOPSLA 2025)  
   October 16-18, 2025, Singapore  
   **The artefact is available [here](https://zenodo.org/records/14904107).**
-  
+
+1. [Synchronized Behavior Checking: A Method for Finding Missed Compiler Optimizations](https://doi.org/10.1145/3763105)  
+  Yi Zhang, Yu Wang, Linzhang Wang, Ke Wang  
+  Proceedings of the ACM on Programming Languages, Volume 9, Issue OOPSLA1 (OOPSLA 2025)  
+  October 16-18, 2025, Singapore
