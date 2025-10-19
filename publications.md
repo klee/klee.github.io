@@ -1609,6 +1609,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM SIGCOMM Workshop on eBPF and Kernel Extensions  
   August 4, 2024, Sydney, Australia
 
+1. [NexuSym: Marrying Symbolic Path Finders With Large Language Models](https://doi.org/10.1007/s10515-025-00529-1)  
+  Jiayi Wang, Ping Yu, Yi Qin, Yanyan Jiang, Yuan Yao, Xiaoxing Ma  
+  Automated Software Engineering, Volume 32  
+  June 7, 2025
+
 1. [SyzSpec: Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution](https://www.cs.ucr.edu/~zhiyunq/pub/ccs25_syzspec.pdf)  
   Yu Hao, Juefei Pu, Xingyu Li, Zhiyun Qian, Ardalan Amiri Sani  
   ACM SIGSAC Conference on Computer and Communications Security (CCS 25)  
