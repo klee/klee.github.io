@@ -1742,6 +1742,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE Symposium on Security and Privacy (S&P 2025)  
   May 12-15, 2025, San Francisco, USA
 
+1. [SCAD: Towards a Universal and Automated Network Side-Channel Vulnerability Detection](https://doi.org/10.1109/SP61157.2025.00068)  
+  Keyu Man, Zhongjie Wang, Yu Hao, Shenghan Zheng, Xin'an Zhou, Yue Cao  
+  IEEE Symposium on Security and Privacy (S&P 2025)  
+  May 12-15, 2025, San Francisco, USA
+
 1. [NexuSym: Marrying Symbolic Path Finders With Large Language Models](https://doi.org/10.1007/s10515-025-00529-1)  
   Jiayi Wang, Ping Yu, Yi Qin, Yanyan Jiang, Yuan Yao, Xiaoxing Ma  
   Automated Software Engineering, Volume 32  
