@@ -1624,6 +1624,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE/ACM International Conference on Software Engineering (ICSE 2025)  
   April 27 - May 3, 2025, Ottawa, Canada
 
+1. [Integrating Path Selection for Symbolic Execution and Variable Selection for Constraint Solving](https://doi.org/10.1145/3735552)  
+  Shunkai Zhu, Jun Sun, Jingyi Wang, Zhenbang Chen, Peng Cheng  
+  ACM Transactions on Software Engineering and Methodology (TOSEM)  
+  April 30, 2025
+
 1. [Empc: Effective Path Prioritization for Symbolic Execution with Path Cover](https://doi.ieeecomputersociety.org/10.1109/SP61157.2025.00190)  
   Shuangjie Yao, Dongdong She  
   IEEE Symposium on Security and Privacy (S&P 2025)  
