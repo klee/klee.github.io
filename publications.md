@@ -1615,6 +1615,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE International Conference on Software Quality, Reliability and Security (QRS 2024)  
   July 1-5, 2024, Cambridge, UK
 
+1. [Automatically Reasoning About How Systems Code Uses the CPU Cache](https://www.usenix.org/conference/osdi24/presentation/iyer)  
+  Rishabh Iyer, Katerina Argyraki, George Candea  
+  USENIX Symposium on Operating Systems Design and Implementation (OSDI 2024)  
+  July 10-12, 2024, Santa Clare, USA
+
 1. [FeatMaker: Automated Feature Engineering for Search Strategy of Symbolic Execution](https://dl.acm.org/doi/10.1145/3660815)  
   Jaehan Yoon, Sooyoung Cha  
   Proceedings of the ACM on Software Engineering, Volume 1, Issue FSE (FSE 2024)  
