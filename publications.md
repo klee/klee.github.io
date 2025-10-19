@@ -1756,3 +1756,10 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Yu Hao, Juefei Pu, Xingyu Li, Zhiyun Qian, Ardalan Amiri Sani  
   ACM SIGSAC Conference on Computer and Communications Security (CCS 25)  
   October 13-17, 2025, Taipei, Taiwan
+
+1. [Orax: A Feedback-Driven Framework for Efficiently Solving Satisfiability Modulo Theories and Oracles](https://doi.org/10.1145/3720438)  
+  Zhineng Zhong, Ziqi Zhang, Hanqin Guan, Ding Li  
+  Proceedings of the ACM on Programming Languages, Volume 9, Issue OOPSLA1 (OOPSLA 2025)  
+  October 16-18, 2025, Singapore  
+  **The artefact is available [here](https://zenodo.org/records/14904107).**
+  
