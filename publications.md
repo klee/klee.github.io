@@ -1542,6 +1542,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Asia-Pacific Software Engineering Conference (APSEC 2023)  
   December 4-7, 2023, Seoul, Republic of Korea
 
+1. [DDoSMiner: An Automated Framework for DDoS Attack Characterization and Vulnerability Mining](https://doi.org/10.1007/978-3-031-54773-7_12)  
+  Xi Ling, Jiongchi Yu, Ziming Zhao, Zhihao Zhou, Haitao Xu, Binbin Chen, Fan Zhang  
+  International Conference on Applied Cryptography and Network Security (ACNS 2024)  
+  March 5-8, 2024, Abu Dhabi, UAE
+
 1. [AISE: A Symbolic Verifier by Synergizing Abstract Interpretation and Symbolic Execution (Competition Contribution)](https://link.springer.com/chapter/10.1007/978-3-031-57256-2_19)  
   Zhen Wang, Zhenbang Chen  
   International Conference on Fundamental Approaches to Software Engineering (FASE 2024)  
