@@ -1664,6 +1664,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   International Conference on Networking and Network Applications (NaNA 2024)  
   August 9-12, 2024, Yinchuan City, China
 
+1. [HLS-IRT: Hardware Trojan Insertion through Modification of Intermediate Representation During High-Level Synthesis](https://doi.org/10.1145/3663477)  
+  Rijoy Mukherjee, Archisman Ghosh, Rajat Subhra Chakraborty  
+  ACM Transactions on Design Automation of Electronic Systems, Volume 29, Issue 5  
+  September 4, 2024
+
 1. [Scalable Verification of Multi-ACK Properties in Loss-Based Congestion Control Implementations](https://doi.org/10.1109/ICNP61940.2024.10858512)  
   Minh Vu, Hamid Bagheri, Lisong Xu, Wei Sun, Mingrui Zhang  
   IEEE International Conference on Network Protocols (ICNP 2024)  
