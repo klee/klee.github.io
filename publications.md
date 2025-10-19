@@ -1614,6 +1614,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Automated Software Engineering, Volume 32  
   June 7, 2025
 
+1. [On the Unnecessary Complexity of Names in X.509 and Their Impact on Implementations](https://doi.org/10.1145/3715785)  
+  Yuteng Sun, Joyanta Debnath, Wenzheng Hong, Omar Chowdhury, Sze Yiu Chau  
+  ACM International Conference on the Foundations of Software Engineering (FSE 2025)  
+  June 23-27, 2025, Trondheim, Norway
+
 1. [OptSE: Toward Optimal Symbolic Execution](https://doi.org/10.1109/TSE.2025.3564666)  
   Shunkai Zhu, Jun Sun, Jingyi Wang, Xingwei Lin, Peng Cheng  
   IEEE Transactions on Software Engineering, Volume 51, Issue 7 (TSE)  
