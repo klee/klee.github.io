@@ -1639,6 +1639,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM SIGCOMM Workshop on eBPF and Kernel Extensions  
   August 4, 2024, Sydney, Australia
 
+1. [Detecting Source Code Vulnerabilities Using High-Precision Code Representation and Bimodal Contrastive Learning](https://doi.org/10.1109/NaNA63151.2024.00094)  
+  Jie Wang, Mengru Xu, Hao Chen  
+  International Conference on Networking and Network Applications (NaNA 2024)  
+  August 9-12, 2024, Yinchuan City, China
+
 1. [Analysing TLS Implementations Using Full-Message Symbolic Execution](https://doi.org/10.1007/978-3-031-79007-2_15)  
   Johannes Wilson, Mikael Asplund  
   Nordic Conference on Secure IT systems (NordSec 2024)  
