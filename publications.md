@@ -1731,6 +1731,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   USENIX Security Symposium (Security 2025)  
   August 13-15, 2025, Seattle, USA
 
+1. [SymBisect: Accurate Bisection for Fuzzer-Exposed Vulnerabilities](https://www.usenix.org/conference/usenixsecurity24/presentation/zhang-zheng)  
+  Zheng Zhang, Yu Hao, Weiteng Chen, Xiaochen Zou, Xingyu Li, Haonan Li, Yizhuo Zhai, Zhiyun Qian  
+  USENIX Security Symposium (Security 2025)  
+  August 13-15, 2025, Seattle, USA
+
 1. [SyzSpec: Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution](https://www.cs.ucr.edu/~zhiyunq/pub/ccs25_syzspec.pdf)  
   Yu Hao, Juefei Pu, Xingyu Li, Zhiyun Qian, Ardalan Amiri Sani  
   ACM SIGSAC Conference on Computer and Communications Security (CCS 25)  
