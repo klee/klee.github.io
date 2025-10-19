@@ -3,7 +3,7 @@ layout: default
 title: Publications
 subtitle: Publications and Systems Using KLEE
 slug: publications
-lead: Below you can find a list of 250+ papers and systems that either use or extend KLEE. They are listed in chronological order.
+lead: Below you can find a list of 300+ papers and systems that either use or extend KLEE. They are listed in chronological order.
 ---
 
 We regularly organise workshops to discuss ideas and new applications.
