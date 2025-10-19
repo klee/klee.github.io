@@ -1717,6 +1717,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE/ACM International Conference on Software Engineering (ICSE 2025)  
   April 27 - May 3, 2025, Ottawa, Canada
 
+1. [Automated Test Generation for Integration Testing](https://doi.org/10.1109/AST66626.2025.00011)  
+  Elson Kurian, Giovanni Denaro, Pietro Braione, Luca Guglielmo  
+  IEEE/ACM International Conference on Automation of Software Test (AST 2025)  
+  April 28-29, 2025, Ottawa, Canada
+
 1. [Integrating Path Selection for Symbolic Execution and Variable Selection for Constraint Solving](https://doi.org/10.1145/3735552)  
   Shunkai Zhu, Jun Sun, Jingyi Wang, Zhenbang Chen, Peng Cheng  
   ACM Transactions on Software Engineering and Methodology (TOSEM)  
