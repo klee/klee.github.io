@@ -1634,6 +1634,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE Transactions on Software Engineering, Volume 51, Issue 7 (TSE)  
   July, 2025
 
+1. [Unified and Split Symbolic Execution for Exposing Semantic Differences](https://doi.org/10.1145/3705299)  
+  Hongliang Liang, Luming Yin, Wenying Hu, Yuxiang Li, Wuwei Shen  
+  ACM Transactions on Software Engineering and Methodology, Volume 34, Issue 6  
+  July 1, 2025
+
 1. [SyzSpec: Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution](https://www.cs.ucr.edu/~zhiyunq/pub/ccs25_syzspec.pdf)  
   Yu Hao, Juefei Pu, Xingyu Li, Zhiyun Qian, Ardalan Amiri Sani  
   ACM SIGSAC Conference on Computer and Communications Security (CCS 25)  
