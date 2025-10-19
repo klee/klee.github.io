@@ -1706,6 +1706,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM Transactions on Software Engineering and Methodology, Volume 34, Issue 6  
   July 1, 2025
 
+1. [SyzForge: An Automated System Call Specification Generation Process for Efficient Kernel Fuzzing](https://doi.org/10.1007/978-3-031-97620-9_7)  
+  SyzForge: An Automated System Call Specification Generation Process for Efficient Kernel Fuzzing  
+  Conference on Detection of Intrusions and Malware & Vulnerability Assessment (DIMVA 2025)  
+  July 9-11, 2025, Graz, Austria
+  
+
 1. [SyzSpec: Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution](https://www.cs.ucr.edu/~zhiyunq/pub/ccs25_syzspec.pdf)  
   Yu Hao, Juefei Pu, Xingyu Li, Zhiyun Qian, Ardalan Amiri Sani  
   ACM SIGSAC Conference on Computer and Communications Security (CCS 25)  
