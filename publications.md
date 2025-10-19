@@ -1582,7 +1582,6 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Ruochen Dai, Tuba Yavuz  
   Great Lakes Symposium on VLSI (GLSVLSI 2024)  
   June 12-14, 2024, Tampa Bay Area, USA
-  
 
 1. [Compatible Branch Coverage Driven Symbolic Execution for Efficient Bug Finding](https://dl.acm.org/doi/10.1145/3656443)  
   Qiuping Yi, Yifan Yu, Guowei Yang  
@@ -1639,6 +1638,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Johannes Wilson, Mikael Asplund  
   Nordic Conference on Secure IT systems (NordSec 2024)  
   November 6-7, 2024, Karlstad, Sweden
+
+1. [Testing IoT Protocol Requirements Using Fuzzing and Symbolic Execution: Application to CoAP](https://doi.org/10.1109/CSCN63874.2024.10849709)  
+  Hooman Asadian, Paul Fiterău-Broştean, Bengt Jonsson, Konstantinos Sagonas  
+  IEEE Conference on Standards for Communications and Networking (CSCN 2024)  
+  November 25-27, 2024, Belgrade, Serbia
 
 1. [IFSE: Taming Closed-Box Functions in Symbolic Execution via Fuzz Solving](https://doi.org/10.1109/ICSE-Companion66252.2025.00019)  
   Qichang Wang, Chuyang Chen, Ruiyang Xu, Haiying Sun, Chengcheng Wan, Ting Su  
