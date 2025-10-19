@@ -1654,6 +1654,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE Transactions on Software Engineering, Volume 50, Issue 11 (TOSEM)  
   November 2024
 
+1. [Practical Verification of System-Software Components Written in Standard C](https://doi.org/10.1145/3694715.3695980)  
+  Can Cebeci, Yonghao Zou, Diyu Zhou, George Candea, Clément Pit-Claudel  
+  Symposium on Operating Systems Principles (SOSP 2024)  
+  November 4-6, 2024, Austin, USA  
+  **The artefact is available [here](https://github.com/dslab-epfl/tpot).**
+
 1. [Analysing TLS Implementations Using Full-Message Symbolic Execution](https://doi.org/10.1007/978-3-031-79007-2_15)  
   Johannes Wilson, Mikael Asplund  
   Nordic Conference on Secure IT systems (NordSec 2024)  
