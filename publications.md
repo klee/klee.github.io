@@ -1776,6 +1776,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   SyzForge: An Automated System Call Specification Generation Process for Efficient Kernel Fuzzing  
   Conference on Detection of Intrusions and Malware & Vulnerability Assessment (DIMVA 2025)  
   July 9-11, 2025, Graz, Austria
+
+1. [A Friend's Eye is A Good Mirror: Synthesizing MCU Peripheral Models from Peripheral Drivers](https://www.usenix.org/conference/usenixsecurity24/presentation/lei)  
+  Chongqing Lei, Zhen Ling, Yue Zhang, Yan Yang, Junzhou Luo, Xinwen Fu  
+  USENIX Security Symposium (Security 2025)  
+  August 13-15, 2025, Seattle, USA
   
 1. [Sound and Efficient Generation of Data-Oriented Exploits via Programming Language Synthesis](https://www.usenix.org/conference/usenixsecurity25/presentation/ling)  
   Yuxi Ling, Gokul Rajiv, Kiran Gopinathan, Ilya Sergey  
