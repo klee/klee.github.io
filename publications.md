@@ -1609,6 +1609,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM SIGCOMM Workshop on eBPF and Kernel Extensions  
   August 4, 2024, Sydney, Australia
 
+1. [Topseed: Learning Seed Selection Strategies for Symbolic Execution from Scratch](https://doi.ieeecomputersociety.org/10.1109/ICSE55347.2025.00095)  
+  Jaehyeok Lee, Sooyoung Cha  
+  IEEE/ACM International Conference on Software Engineering (ICSE 2025)  
+  April 27 - May 3, 2025, Ottawa, Canada
+
 1. [Empc: Effective Path Prioritization for Symbolic Execution with Path Cover](https://doi.ieeecomputersociety.org/10.1109/SP61157.2025.00190)  
   Shuangjie Yao, Dongdong She  
   IEEE Symposium on Security and Privacy (S&P 2025)  
