@@ -1644,6 +1644,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Nordic Conference on Secure IT systems (NordSec 2024)  
   November 6-7, 2024, Karlstad, Sweden
 
+1. [Toward Automated Detection of Portability Bugs in Kokkos Parallel Programs](https://doi.org/10.1109/SCW63240.2024.00029)  
+  Vivek Kale, Hanru Yan, Shyamali Mukherjee, Jackson Mayo, Keita Teranishi, Richard Rutledge  
+  SC24-W: Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis  
+  November 17-22, 2024, Atlanta, USA
+
 1. [Testing IoT Protocol Requirements Using Fuzzing and Symbolic Execution: Application to CoAP](https://doi.org/10.1109/CSCN63874.2024.10849709)  
   Hooman Asadian, Paul Fiterău-Broştean, Bengt Jonsson, Konstantinos Sagonas  
   IEEE Conference on Standards for Communications and Networking (CSCN 2024)  
