@@ -1659,6 +1659,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   International Conference on Networking and Network Applications (NaNA 2024)  
   August 9-12, 2024, Yinchuan City, China
 
+1. [Scalable Verification of Multi-ACK Properties in Loss-Based Congestion Control Implementations](https://doi.org/10.1109/ICNP61940.2024.10858512)  
+  Minh Vu, Hamid Bagheri, Lisong Xu, Wei Sun, Mingrui Zhang  
+  IEEE International Conference on Network Protocols (ICNP 2024)  
+  October 28-31, 2024, Charleroi, Belgium
+
 1. [Fast and Precise Static Null Exception Analysis With Synergistic Preprocessing](https://doi.org/10.1109/TSE.2024.3466551)  
   Yi Sun, Chengpeng Wang, Gang Fan, Qingkai Shi, Xiangyu Zhang  
   IEEE Transactions on Software Engineering, Volume 50, Issue 11 (TOSEM)  
