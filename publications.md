@@ -1324,7 +1324,7 @@ Solving Once](https://www.semanticscholar.org/paper/Multiplex-Symbolic-Execution
 
 1. [Trident: Controlling Side Effects in Automated Program Repair](https://ieeexplore.ieee.org/document/9611365)  
   Nikhil Parasaram, Earl T. Barr, Sergey Mechtaev  
-  IEEE Transactions on Software Engineering (TSE 2022)  
+  IEEE Transactions on Software Engineering (TSE)  
   November 13, 2021
 
 1. [Learning to Explore Paths for Symbolic Execution](https://files.sri.inf.ethz.ch/website/papers/ccs21-learch.pdf)  
@@ -1613,6 +1613,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Jiayi Wang, Ping Yu, Yi Qin, Yanyan Jiang, Yuan Yao, Xiaoxing Ma  
   Automated Software Engineering, Volume 32  
   June 7, 2025
+
+1. [OptSE: Toward Optimal Symbolic Execution](https://doi.org/10.1109/TSE.2025.3564666)  
+  Shunkai Zhu, Jun Sun, Jingyi Wang, Xingwei Lin, Peng Cheng  
+  IEEE Transactions on Software Engineering, Volume 51, Issue 7 (TSE)  
+  July, 2025
 
 1. [SyzSpec: Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution](https://www.cs.ucr.edu/~zhiyunq/pub/ccs25_syzspec.pdf)  
   Yu Hao, Juefei Pu, Xingyu Li, Zhiyun Qian, Ardalan Amiri Sani  
