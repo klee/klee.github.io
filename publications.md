@@ -1599,8 +1599,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   **soid is available [here](https://github.com/sjudson/soid).**
 
 1. [Monitor-based Testing of Network Protocol Implementations Using Symbolic Execution](https://dl.acm.org/doi/abs/10.1145/3664476.3664521)
-  Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas
-  International Conference on Availability, Reliability and Security (ARES 2024)
+  Hooman Asadian, Paul Fiterau-Brostean, Bengt Jonsson, and Konstantinos Sagonas  
+  International Conference on Availability, Reliability and Security (ARES 2024)  
   July 30 - August 2, 2024, Vienna, Austria  
   **The implementation is available [here](https://zenodo.org/records/11945615).**
 
@@ -1608,3 +1608,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Dana Lu, Boxuan Tang, Michael Paper, Marios Kogias  
   ACM SIGCOMM Workshop on eBPF and Kernel Extensions  
   August 4, 2024, Sydney, Australia
+
+1. [SyzSpec: Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution](https://www.cs.ucr.edu/~zhiyunq/pub/ccs25_syzspec.pdf)  
+  Yu Hao, Juefei Pu, Xingyu Li, Zhiyun Qian, Ardalan Amiri Sani  
+  ACM SIGSAC Conference on Computer and Communications Security (CCS 25)  
+  October 13-17, 2025, Taipei, Taiwan
