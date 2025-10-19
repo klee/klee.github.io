@@ -1629,6 +1629,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   July 30 - August 2, 2024, Vienna, Austria  
   **The implementation is available [here](https://zenodo.org/records/11945615).**
 
+1. [Scaver: A Scalable Verification System for Programmable Network](https://doi.org/10.1145/3672199.3673887)  
+  Ying Yao, Zixi Cui, Le Tian, Menglong Li, Fan Pan, Yuxiang Hu  
+  ACM SIGCOMM Workshop on Formal Methods Aided Network Operation (FMANO 2024)  
+  August 4, 2024, Sydney, Australia
+
 1. [Towards Functional Verification of eBPF Programs](https://dl.acm.org/doi/abs/10.1145/3672197.3673435)  
   Dana Lu, Boxuan Tang, Michael Paper, Marios Kogias  
   ACM SIGCOMM Workshop on eBPF and Kernel Extensions  
