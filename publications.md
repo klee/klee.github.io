@@ -1700,6 +1700,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE Internet of Things Journal, Volume 12, Issue 6  
   March 15, 2025
 
+1. [Rakis: Secure Fast I/O Primitives Across Trust Boundaries on Intel SGX](https://doi.org/10.1145/3689031.3696090)  
+  Mansour Alharthi, Fan Sang, Dmitrii Kuvaiskii, Mona Vij, Taesoo Kim  
+  European Conference on Computer Systems (EuroSys 2025)  
+  March 30 - April 3, 2025, Rotterdam, Netherlands
+
 1. [Vulnerability Repair via Concolic Execution and Code Mutations](https://doi.org/10.1145/3707454)  
   Ridwan Shariffdeen, Christopher S. Timperley, Yannic Noller, Claire Le Goues, Abhik Roychoudhury  
   ACM Transactions on Software Engineering and Methodology, Volume 34, Issue 4  
