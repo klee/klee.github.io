@@ -1717,6 +1717,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM International Conference on the Foundations of Software Engineering (FSE 2025)  
   June 23-27, 2025, Trondheim, Norway
 
+1. [QSF: Multi-objective Optimization Based Efficient Solving for Floating-Point Constraints](https://doi.org/10.1145/3715739)  
+  Xu Yang, Zhenbang Chen, Wei Dong, Ji Wang  
+  ACM International Conference on the Foundations of Software Engineering (FSE 2025)  
+  June 23-27, 2025, Trondheim, Norway
+
 1. [OptSE: Toward Optimal Symbolic Execution](https://doi.org/10.1109/TSE.2025.3564666)  
   Shunkai Zhu, Jun Sun, Jingyi Wang, Xingwei Lin, Peng Cheng  
   IEEE Transactions on Software Engineering, Volume 51, Issue 7 (TSE)  
