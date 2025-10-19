@@ -1659,6 +1659,12 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE Conference on Standards for Communications and Networking (CSCN 2024)  
   November 25-27, 2024, Belgrade, Serbia
 
+1. [Vulnerability Repair via Concolic Execution and Code Mutations](https://doi.org/10.1145/3707454)  
+  Ridwan Shariffdeen, Christopher S. Timperley, Yannic Noller, Claire Le Goues, Abhik Roychoudhury  
+  ACM Transactions on Software Engineering and Methodology, Volume 34, Issue 4  
+  April 26, 2025  
+  **CrashRepair is available [here](https://github.com/nus-apr/CrashRepair).**
+
 1. [IFSE: Taming Closed-Box Functions in Symbolic Execution via Fuzz Solving](https://doi.org/10.1109/ICSE-Companion66252.2025.00019)  
   Qichang Wang, Chuyang Chen, Ruiyang Xu, Haiying Sun, Chengcheng Wan, Ting Su  
   IEEE/ACM International Conference on Software Engineering (ICSE 2025 Companion)  
