@@ -26,5 +26,5 @@ If you would like to take over the maintainer role, please get in touch with [Cr
 
 ## Manual Installation
 
-* [Build from source against LLVM 13]({{site.baseurl}}/build/build-llvm13): this is the currently recommended version
+* [Build from source against LLVM 16]({{site.baseurl}}/build/build-from-source): this is the currently recommended version
 * [Building arbitrary KLEE configurations]({{site.baseurl}}/build/build-script): to build different configurations of KLEE and its dependencies
