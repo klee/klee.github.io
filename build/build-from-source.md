@@ -1,15 +1,16 @@
 ---
 layout: default
-title: LLVM 13 (recommended)
-subtitle: Building KLEE with LLVM 13
+title: LLVM 16 (recommended)
+subtitle: Building KLEE from Source
 slug: getting-started
 ---
 
 {% include version_warning.md %}
 
-The current procedure for building KLEE manually with LLVM 13 (recommended) on Debian/Ubuntu-based distributions or macOS is outlined below.
-However, in case you trust our installation scripts for continuous integration testing, you can re-use them on your Ubuntu/macOS-based host system.
-You can find detailed instructions in: [Building arbitrary KLEE configurations]({{site.baseurl}}/build/build-script).
+The current procedure for building KLEE from source with LLVM 16 on Ubuntu, Debian and macOS is outlined below.
+
+As an alternative to the manual steps outlined below, you can also check out our installation scripts for continuous integration testing discussed at [Building arbitrary KLEE configurations]({{site.baseurl}}/build/build-script).
+
 
 ## Manual Installation
 
@@ -19,9 +20,10 @@ KLEE does not work under x86-32.
 
 1. [**Install dependencies**]({{site.baseurl}}/build/dependencies)
 
-2. **Install LLVM 13:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation. See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
+2. **Install LLVM 16:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation.
+See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
-   If you are using a recent Ubuntu (e.g. 22.04) or Debian, we recommend to use the LLVM packages provided by LLVM itself via https://apt.llvm.org/
+   If you are using a recent Ubuntu (e.g. 24.04) or Debian, we recommend to use the LLVM packages provided by LLVM itself via https://apt.llvm.org/
 
    Add the repositories for your distribution to `/etc/apt/sources.list` and then import their key:
 
@@ -32,20 +34,21 @@ KLEE does not work under x86-32.
    You should now be able to install LLVM:
 
    ```bash
-   $ sudo apt-get install clang-13 llvm-13 llvm-13-dev llvm-13-tools
+   $ sudo apt-get install clang-16 llvm-16 llvm-16-dev llvm-16-tools
    ```
 
    If you are using macOS, you can install older LLVM packages using brew:
    ```bash
-   $ brew install llvm@13
+   $ brew install llvm@16
    ```   
 
    That's it for LLVM.
-   If you want to install it manually, please refer to the official [LLVM Getting Started documentation](https://releases.llvm.org/11.0.1/docs/GettingStarted.html).
+   If you want to install it manually, please refer to the official [LLVM Getting Started documentation](https://releases.llvm.org/16.0.0/docs/GettingStarted.html).
 
 3. **Install constraint solver(s)**
 
-   KLEE supports multiple different constraint solvers. You must install at least one to build KLEE.
+   KLEE supports multiple different constraint solvers.
+   You must install at least one to build KLEE.
 
    * [STP](https://github.com/stp/stp) Historically KLEE was built around STP so support for this solver is the most stable. For build instructions, see [here]({{site.baseurl}}/build/build-stp).
    * [Z3](https://github.com/z3prover/z3) is another solver supported by KLEE that is reasonably stable. You should use Z3 version ≥ 4.4. Z3 is packaged by [many distributions](https://repology.org/project/z3/versions). For build instructions, see [here](https://github.com/Z3Prover/z3/blob/master/README.md).
@@ -57,22 +60,22 @@ KLEE does not work under x86-32.
    For unit tests we use the Google test libraries.
    If you want to run the unit tests you need to perform this step and also pass `-DENABLE_UNIT_TESTS=ON` to CMake when configuring KLEE in step 8.
 
-   We currently recommend version `1.11.0`, so grab the sources for it.
+   We currently recommend version `1.16.0`, so grab the sources for it.
 
    ```bash
-   $ curl -OL https://github.com/google/googletest/archive/release-1.11.0.zip
-   $ unzip release-1.11.0.zip
+   $ curl -OL https://github.com/google/googletest/archive/refs/tags/v1.16.0.zip
+   $ unzip v1.16.0.zip
    ```
 
-   This will create a directory called `googletest-release-1.11.0`.
+   This will create a directory called `googletest-1.16.0`.
 
 5. **(Optional) Build uClibc and the POSIX environment model (not supported on macOS):** By default, KLEE works on closed programs (programs that don't use any external code such as C library functions). However, if you want to use KLEE to run real programs you will want to enable the KLEE POSIX runtime, which is built on top of the [uClibc](http://uclibc.org) C library.
 
    ```bash
    $ git clone https://github.com/klee/klee-uclibc.git
    $ cd klee-uclibc
-   $ ./configure --make-llvm-lib # --with-cc clang-13 --with-llvm-config llvm-config-13
-   $ make -j2
+   $ ./configure --make-llvm-lib # --with-cc clang-16 --with-llvm-config llvm-config-16
+   $ make -j
    $ cd ..
    ```
    When `clang` or `llvm-config` are not in your `PATH` or have a custom prefix/suffix, `configure` may fail to detect their location.
@@ -91,20 +94,20 @@ KLEE does not work under x86-32.
 
 7. **(Optional) Build libc++:** To be able to run C++ code, you also need to enable support for the C++ standard library.
 
-   Make sure that `clang++-13` is in your path. Then, run from the main KLEE source directory:
+   Make sure that `clang++-16` is in your path. Then, run from the main KLEE source directory:
 
    ```bash
-   $ LLVM_VERSION=13 BASE=<LIBCXX_DIR> ENABLE_OPTIMIZED=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 REQUIRES_RTTI=1 scripts/build/build.sh libcxx
+   $ LLVM_VERSION=16 BASE=<LIBCXX_DIR> ENABLE_OPTIMIZED=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 REQUIRES_RTTI=1 scripts/build/build.sh libcxx
    ```
    where `<LIBCXX_DIR>` is the absolute path where libc++ should be cloned and built.
 
    To tell KLEE to use libc++, pass the following flags to CMake when you configure KLEE in step 8:
 
-   `-DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_DIR>/libc++-install-130/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_DIR>/libc++-install-130/include/c++/v1/`
+   `-DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_DIR>/libc++-install-160/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_DIR>/libc++-install-160/include/c++/v1/`
 
    To additionally enable KLEE's exception handling support for C++, pass the following flags to CMake when you configure KLEE in step 8:
 
-   `-DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=<LIBCXX_DIR>/llvm-130/libcxxabi/`
+   `-DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=<LIBCXX_DIR>/llvm-160/libcxxabi/`
 
    `<LIBCXX_DIR>` must currently be an absolute path.
    If you want to build libc++ in your home path, note that in some environments (such as Ubuntu 18.04) `~` may not be an absolute path.
@@ -139,12 +142,12 @@ KLEE does not work under x86-32.
 
    Or more concretely, with `/src` as working directory, `/src/klee/build` as build directory, and libcxx support enabled:
    ```bash
-   $ cmake -DENABLE_SOLVER_STP=ON -DENABLE_POSIX_RUNTIME=ON -DKLEE_UCLIBC_PATH=/src/klee-uclibc -DENABLE_UNIT_TESTS=ON -DGTEST_SRC_DIR=/src/googletest-release-1.11.0/ -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=/src/libcxx/libc++-install-130/ -DKLEE_LIBCXX_INCLUDE_DIR=/src/libcxx/libc++-install-130/include/c++/v1/ -DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=/src/libcxx/llvm-130/libcxxabi/ ..
+   $ cmake -DENABLE_SOLVER_STP=ON -DENABLE_POSIX_RUNTIME=ON -DKLEE_UCLIBC_PATH=/src/klee-uclibc -DENABLE_UNIT_TESTS=ON -DGTEST_SRC_DIR=/src/googletest-1.16.0/ -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=/src/libcxx/libc++-install-160/ -DKLEE_LIBCXX_INCLUDE_DIR=/src/libcxx/libc++-install-160/include/c++/v1/ -DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=/src/libcxx/llvm-160/libcxxabi/ ..
    ```
 
    **NOTE 1:** You can simply type `cmake ..` to use the default options for KLEE but these will not include support for uClibC and the POSIX runtime.
 
-   **NOTE 2:** If LLVM is not found or you need a particular version to be used, you can pass `-DLLVM_DIR=<LLVM_DIR>` to CMake where `<LLVM_DIR>` is the absolute path to the relevant build or installation directory (e.g. `/usr/lib/llvm-13/`).
+   **NOTE 2:** If LLVM is not found or you need a particular version to be used, you can pass `-DLLVM_DIR=<LLVM_DIR>` to CMake where `<LLVM_DIR>` is the absolute path to the relevant build or installation directory (e.g. `/usr/lib/llvm-16/`).
    Similarly, KLEE needs a C and C++ compiler that can create LLVM bitcode that is compatible with the LLVM version KLEE is using.
    If these are not detected automatically, `-DLLVMCC=<PATH_TO_CLANG>` and `-DLLVMCXX=<PATH_TO_CLANG++>` can be passed to explicitly set these compilers, where `<PATH_TO_CLANG>` is the absolute path to `clang` and `<PATH_TO_CLANG++>` is the absolute path to `clang++`.
 
