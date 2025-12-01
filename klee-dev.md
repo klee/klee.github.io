@@ -4,7 +4,7 @@ title: klee-dev
 subtitle: KLEE Mailing List
 ---
 
-For both users and developers, the [klee-dev](https://mailman.ic.ac.uk/mailman/listinfo/klee-dev) mailing list is the central place for discussions, questions, and announcements.
+For both users and developers, the [klee-dev](https://mailing-lists.imperial.ac.uk/mailman3/lists/klee-dev.imperial.ac.uk/) mailing list is the central place for discussions, questions, and announcements.
 
 If you have queries about KLEE that are not answered on this website, please send a message to the list rather than opening a GitHub issue.
 
