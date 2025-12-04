@@ -1669,6 +1669,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM Transactions on Design Automation of Electronic Systems, Volume 29, Issue 5  
   September 4, 2024
 
+1. [STASE: Static Analysis Guided Symbolic Execution for UEFI Vulnerability Signature Generation](https://dl.acm.org/doi/abs/10.1145/3691620.3695543)  
+  Md Shafiuzzaman, Achintya Desai, Laboni Sarker, Tevfik Bultan  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2024)  
+  October 27 - November 1, 2024, Sacramento, California
+
 1. [Scalable Verification of Multi-ACK Properties in Loss-Based Congestion Control Implementations](https://doi.org/10.1109/ICNP61940.2024.10858512)  
   Minh Vu, Hamid Bagheri, Lisong Xu, Wei Sun, Mingrui Zhang  
   IEEE International Conference on Network Protocols (ICNP 2024)  
