@@ -67,7 +67,7 @@ The repository has old versions of the documentation in `releases/docs/`. To gen
 2. Run the following command, where `<VERSION>` is the KLEE version (e.g., "v2.3"):
 
 ```
-$ jekyll build -d releases/docs/<VERSION> --baseurl /releases/docs/<VERSION>
+$ bundle exec jekyll build -d releases/docs/<VERSION> --baseurl /releases/docs/<VERSION>
 ```
 
 3. Clear the changes made to `_config.yml`, except for the `current_version`
