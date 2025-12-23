@@ -7,7 +7,7 @@ slug: releases
 
 | Version         | Date          | Source code      | Docker Image            | Documentation  |
 |:---------------:|:-------------:|:----------------:|:-----------------------:|:--------------:|
-| [3.2][rn3_2]  |  23 Dec 2025 | [git tag][tb3_1] | [`klee/klee:3.2`][di] | [Docs][doc3_2] |
+| [3.2][rn3_2]  |  23 Dec 2025 | [git tag][tb3_2] | [`klee/klee:3.2`][di] | [Docs][doc3_2] |
 | [3.1][rn3_1]  |  29 Feb 2024 | [git tag][tb3_1] | [`klee/klee:3.1`][di] | [Docs][doc3_1] |
 | [3.0][rn3_0]  |   7 Jun 2023 | [git tag][tb3_0] | [`klee/klee:3.0`][di] | [Docs][doc3_0] |
 | [2.3][rn2_3]  |   4 Apr 2022 | [git tag][tb2_3] | [`klee/klee:2.3`][di] | [Docs][doc2_3] |
