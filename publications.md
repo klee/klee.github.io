@@ -1778,7 +1778,7 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   July 1, 2025
 
 1. [SyzForge: An Automated System Call Specification Generation Process for Efficient Kernel Fuzzing](https://doi.org/10.1007/978-3-031-97620-9_7)  
-  SyzForge: An Automated System Call Specification Generation Process for Efficient Kernel Fuzzing  
+  ZhiZhuo Tang, Jian Lin, Weiyu Dong, Hang Ma, Tieming Liu  
   Conference on Detection of Intrusions and Malware & Vulnerability Assessment (DIMVA 2025)  
   July 9-11, 2025, Graz, Austria
 
