@@ -1817,3 +1817,9 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Yi Zhang, Yu Wang, Linzhang Wang, Ke Wang  
   Proceedings of the ACM on Programming Languages, Volume 9, Issue OOPSLA1 (OOPSLA 2025)  
   October 16-18, 2025, Singapore
+
+1. [Enhancing Symbolic Execution with Machine-Checked Safety Proofs](https://doi.org/10.1145/3779031.3779089)  
+  David Trabish, Shachar Itzhaky  
+  Proceedings of the 15th ACM SIGPLAN International Conference on Certified Programs and Proof (CPP 2026)  
+  January 12-13, 2026, Rennes, France  
+  **KLEE-Rocq is available [here](https://github.com/davidtr1037/klee-rocq/tree/cpp-2026).**
