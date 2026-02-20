@@ -8,7 +8,7 @@ source 'https://rubygems.org'
 gem 'github-pages', '>=104', group: :jekyll_plugins
 
 # To avoid CVE-2017-9050
-gem 'nokogiri', '~> 1.18.9'
+gem 'nokogiri', '~> 1.19.1'
 
 gem "webrick", "~> 1.8"
 
