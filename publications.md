@@ -1823,3 +1823,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Proceedings of the 15th ACM SIGPLAN International Conference on Certified Programs and Proof (CPP 2026)  
   January 12-13, 2026, Rennes, France  
   **KLEE-Rocq is available [here](https://github.com/davidtr1037/klee-rocq/tree/cpp-2026).**
+
+1. [FENSE: Feedback-Driven Incremental Symbolic Execution for Redundant Path Elimination](https://doi.org/10.1109/TSE.2026.3667998)  
+  Pengbo Du, Qiuping Yi, Hongliang Liang, Guowei Yang  
+  IEEE Transactions on Software Engineering (TSE)  
+  February 25, 2026
