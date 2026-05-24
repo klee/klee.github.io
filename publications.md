@@ -1839,3 +1839,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   International Symposium on Formal Methods (FM 2026)  
   May 18-22, 2026, Tokyo, Japan  
   **SeaCoral is available [here](https://github.com/OCamlPro/seacoral).**
+
+1. [Selective Concolic Testing](https://doi.org/10.1007/978-3-032-26220-2_14)  
+  Guofeng Zhang, Zhenbang Chen, Ziqi Shuai, Jun Sun, Weijiang Hong, Yufeng Zhang, Ji Wang, Yang Liu  
+  International Symposium on Formal Methods (FM 2026)  
+  May 18-22, 2026, Tokyo, Japan
