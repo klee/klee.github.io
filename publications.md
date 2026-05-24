@@ -1767,6 +1767,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM International Conference on the Foundations of Software Engineering (FSE 2025)  
   June 23-27, 2025, Trondheim, Norway
 
+1. [An Evaluation of Symbolic Execution for Test Generation in Open-Source C/C++ Software](https://doi.org/10.1007/978-3-032-14816-2_1)  
+  Martín Nieto-Pinteño, Kevin J. Valle-Gómez, Inmaculada Medina-Bulo  
+  Spanish-German Symposium on Applied Computer Science (SGSOACS 2025)  
+  June 30 - July 3, 2025, Wien, Austria
+
 1. [OptSE: Toward Optimal Symbolic Execution](https://doi.org/10.1109/TSE.2025.3564666)  
   Shunkai Zhu, Jun Sun, Jingyi Wang, Xingwei Lin, Peng Cheng  
   IEEE Transactions on Software Engineering, Volume 51, Issue 7 (TSE)  
