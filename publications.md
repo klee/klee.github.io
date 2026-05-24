@@ -1833,3 +1833,9 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Pengbo Du, Qiuping Yi, Hongliang Liang, Guowei Yang  
   IEEE Transactions on Software Engineering (TSE)  
   February 25, 2026
+
+1. [SeaCoral: A Collaborative Test Generation Toolset for Industrial Orchestration of Testing Tools](https://doi.org/10.1007/978-3-032-26220-2_34)  
+  Nicolas Berthier, Steven de Oliveira, Nikolai Kosmatov, Delphine Longuet  
+  International Symposium on Formal Methods (FM 2026)  
+  May 18-22, 2026, Tokyo, Japan  
+  **SeaCoral is available [here](https://github.com/OCamlPro/seacoral).**
