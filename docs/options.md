@@ -287,3 +287,16 @@ helper and helper2, can be done with the following command:
 {% highlight bash %}
 $ klee -link-llvm-lib=libhelper.so.bc -link-llvm-lib=libhelper2.so.bc test.bc
 {% endhighlight %}
+
+## UBSan Runtime
+
+KLEE includes handlers for the UBSan function calls inserted by `clang` during the compilation process. This runtime can 
+be enabled by passing the `--ubsan-runtime` flag. A tutorial that concerns this functionality exists 
+[here]({{site.baseurl}}/tutorials/using-ubsan/). 
+
+Please note that the following checks are not supported:
+
+* `-fsanitize=local-bounds`
+* `-fsanitize=function`
+* `-fsanitize=objc-cast`
+* `-fsanitize=vptr`
