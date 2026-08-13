@@ -35,6 +35,7 @@ slug: documentation
 2. [Second tutorial]({{site.baseurl}}/tutorials/testing-regex/): Testing a simple regular expression library.
 3. [Using a symbolic environment]({{site.baseurl}}/tutorials/using-symbolic/): Guide with examples on how to use the symbolic environment such as symbolic files and command-line arguments for the program under test.
 4. [Testing Coreutils]({{site.baseurl}}/tutorials/testing-coreutils/): In-depth description of how to use KLEE to test GNU Coreutils.
+5. [Using UBSan]({{site.baseurl}}/tutorials/using-ubsan/): An example of how KLEE can be leveraged alongside the UBSan instrumentation framework built in to compilers like `clang`
 
 ## External Resources
 
