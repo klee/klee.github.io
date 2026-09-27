@@ -17,17 +17,21 @@ should the program be compiled with the appropriate UBSan flags.
 
 Let us consider the following program 'badDivision.c':
 {% highlight c %}
-#include <stdint.h>
-#include <math.h>
 #include <stdio.h>
+#include <limits.h>
 
 #include <klee/klee.h>
 
-double noUB(void) {
-  double a = 85.3;
-  double b = 19.8;
-  double c = 0.11;
-  return (-b + sqrt(b*b - 4*a*c)) / (2*a);
+static int noUB(void) {
+int x;
+int y;
+
+klee_make_symbolic(&x, sizeof(x), "x");
+klee_assume(x != INT_MIN);
+klee_make_symbolic(&y, sizeof(y), "y");
+klee_assume(y != 0);
+
+return x / y;
 }
 
 static int signed_division_overflow(void) {
@@ -48,7 +52,8 @@ int main(void) {
   
   switch (path) {
     case 0:
-      printf("clean path: %lf\n", noUB());
+      noUB();
+      printf("Clean path. This result was expected.\n");
     break;
     case 1:
       signed_division_overflow();
@@ -81,34 +86,20 @@ When we execute this program with KLEE, we can see that the path that contains s
 throw an error and terminate the offending execution state. Please note that the flag `--ubsan-runtime` is required to 
 enable KLEE's UBSan handlers.
 {% highlight bash %}
-$ klee --libc=uclibc --ubsan-runtime --posix-runtime ./badDivision.bc
-KLEE: NOTE: Using POSIX model: /tmp/klee_build130stp_z3/runtime/lib/libkleeRuntimePOSIX64_Debug+Asserts.bca
-KLEE: NOTE: Using klee-uclibc : /tmp/klee_build130stp_z3/runtime/lib/klee-uclibc.bca
-KLEE: output directory is "/home/klee/klee_ubsan_test/./klee-out-0"
-KLEE: Using STP solver backend
-KLEE: SAT solver: MiniSat
-KLEE: Deterministic allocator: Using quarantine queue size 8
-KLEE: Deterministic allocator: globals (start-address=0x7f40af200000 size=10 GiB)
-KLEE: Deterministic allocator: constants (start-address=0x7f3e2f200000 size=10 GiB)
-KLEE: Deterministic allocator: heap (start-address=0x7e3e2f200000 size=1024 GiB)
-KLEE: Deterministic allocator: stack (start-address=0x7e1e2f200000 size=128 GiB)
-KLEE: WARNING: undefined reference to function: sqrt
-KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 132543126962176) at klee_src/runtime/POSIX/fd.c:997 10                                                                                                                  
-KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.                                                                                                                                   
-KLEE: WARNING ONCE: calling __klee_posix_wrapped_main with extra arguments.                                                                                                                                                         
-KLEE: ERROR: ./badDivision.c:21: divide by zero                                                                                                                                                                                     
-KLEE: NOTE: now ignoring this error at this location                                                                                                                                                                                
-KLEE: WARNING ONCE: calling external: sqrt(4644944186881844708) at ./badDivision.c:11 14                                                                                                                                            
-KLEE: WARNING ONCE: calling external: printf(133741053739008) at ./badDivision.c:37 5                                                                                                                                               
-A valid division operation occurred in this path!
-clean path: -0.005695                                                                                                                                                                            
+$ klee --ubsan-runtime ./badDivision.bc
+KLEE: WARNING: undefined reference to function: printf
+KLEE: ERROR: ./badDivision.c:25: divide by zero                                                                                                                   
+KLEE: NOTE: now ignoring this error at this location                                                                                                              
+KLEE: WARNING ONCE: calling external: printf(133192071774208) at ./badDivision.c:42 5                                                                             
+A valid division operation occurred in this path!                                                                                                                 
+Clean path. This result was expected.
 KLEE: ERROR: klee_src/runtime/Sanitizer/ubsan/ubsan_handlers.cpp:37: integer division overflow
 KLEE: NOTE: now ignoring this error at this location
 
-KLEE: done: total instructions = 13532                                                                                                                                                                                              
-KLEE: done: completed paths = 2                                                                                                                                                                                                     
-KLEE: done: partially completed paths = 2                                                                                                                                                                                           
-KLEE: done: generated tests = 4   
+KLEE: done: total instructions = 138                                                                                                                              
+KLEE: done: completed paths = 2                                                                                                                                   
+KLEE: done: partially completed paths = 2                                                                                                                         
+KLEE: done: generated tests = 4                      
 {% endhighlight %}
 
 Notice that the two invalid cases are detected differently. Division by zero is detected directly by KLEE while 
