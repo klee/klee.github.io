@@ -1,13 +1,13 @@
 ---
 layout: default
-title: LLVM 16 (recommended)
+title: LLVM 18 (recommended)
 subtitle: Building KLEE from Source
 slug: getting-started
 ---
 
 {% include version_warning.md %}
 
-The current procedure for building KLEE from source with LLVM 16 on Ubuntu, Debian and macOS is outlined below.
+The current procedure for building KLEE from source with LLVM 18 on Ubuntu, Debian and macOS is outlined below.
 
 As an alternative to the manual steps outlined below, you can also check out our installation scripts for continuous integration testing discussed at [Building arbitrary KLEE configurations]({{site.baseurl}}/build/build-script).
 
@@ -20,7 +20,7 @@ KLEE does not work under x86-32.
 
 1. [**Install dependencies**]({{site.baseurl}}/build/dependencies)
 
-2. **Install LLVM 16:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation.
+2. **Install LLVM 18:** KLEE is built on top of [LLVM](http://llvm.org); the first steps are to get a working LLVM installation.
 See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.html) for more information.
 
    If you are using a recent Ubuntu (e.g. 24.04) or Debian, we recommend to use the LLVM packages provided by LLVM itself via https://apt.llvm.org/
@@ -34,16 +34,16 @@ See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.h
    You should now be able to install LLVM:
 
    ```bash
-   $ sudo apt-get install clang-16 llvm-16 llvm-16-dev llvm-16-tools
+   $ sudo apt-get install clang-18 llvm-18 llvm-18-dev llvm-18-tools
    ```
 
    If you are using macOS, you can install older LLVM packages using brew:
    ```bash
-   $ brew install llvm@16
+   $ brew install llvm@18
    ```   
 
    That's it for LLVM.
-   If you want to install it manually, please refer to the official [LLVM Getting Started documentation](https://releases.llvm.org/16.0.0/docs/GettingStarted.html).
+   If you want to install it manually, please refer to the official [LLVM Getting Started documentation](https://releases.llvm.org/18.1.8/docs/GettingStarted.html).
 
 3. **Install constraint solver(s)**
 
@@ -74,7 +74,7 @@ See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.h
    ```bash
    $ git clone https://github.com/klee/klee-uclibc.git
    $ cd klee-uclibc
-   $ ./configure --make-llvm-lib # --with-cc clang-16 --with-llvm-config llvm-config-16
+   $ ./configure --make-llvm-lib # --with-cc clang-18 --with-llvm-config llvm-config-18
    $ make -j
    $ cd ..
    ```
@@ -94,20 +94,20 @@ See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.h
 
 7. **(Optional) Build libc++:** To be able to run C++ code, you also need to enable support for the C++ standard library.
 
-   Make sure that `clang++-16` is in your path. Then, run from the main KLEE source directory:
+   Make sure that `clang++-18` is in your path. Then, run from the main KLEE source directory:
 
    ```bash
-   $ LLVM_VERSION=16 BASE=<LIBCXX_DIR> ENABLE_OPTIMIZED=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 REQUIRES_RTTI=1 scripts/build/build.sh libcxx
+   $ LLVM_VERSION=18 BASE=<LIBCXX_DIR> ENABLE_OPTIMIZED=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 REQUIRES_RTTI=1 scripts/build/build.sh libcxx
    ```
    where `<LIBCXX_DIR>` is the absolute path where libc++ should be cloned and built.
 
    To tell KLEE to use libc++, pass the following flags to CMake when you configure KLEE in step 8:
 
-   `-DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_DIR>/libc++-install-160/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_DIR>/libc++-install-160/include/c++/v1/`
+   `-DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=<LIBCXX_DIR>/libc++-install-180/ -DKLEE_LIBCXX_INCLUDE_DIR=<LIBCXX_DIR>/libc++-install-180/include/c++/v1/`
 
    To additionally enable KLEE's exception handling support for C++, pass the following flags to CMake when you configure KLEE in step 8:
 
-   `-DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=<LIBCXX_DIR>/llvm-160/libcxxabi/`
+   `-DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=<LIBCXX_DIR>/llvm-180/libcxxabi/`
 
    `<LIBCXX_DIR>` must currently be an absolute path.
    If you want to build libc++ in your home path, note that in some environments (such as Ubuntu 18.04) `~` may not be an absolute path.
@@ -142,12 +142,12 @@ See [Getting Started with the LLVM System](http://llvm.org/docs/GettingStarted.h
 
    Or more concretely, with `/src` as working directory, `/src/klee/build` as build directory, and libcxx support enabled:
    ```bash
-   $ cmake -DENABLE_SOLVER_STP=ON -DENABLE_POSIX_RUNTIME=ON -DKLEE_UCLIBC_PATH=/src/klee-uclibc -DENABLE_UNIT_TESTS=ON -DGTEST_SRC_DIR=/src/googletest-1.16.0/ -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=/src/libcxx/libc++-install-160/ -DKLEE_LIBCXX_INCLUDE_DIR=/src/libcxx/libc++-install-160/include/c++/v1/ -DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=/src/libcxx/llvm-160/libcxxabi/ ..
+   $ cmake -DENABLE_SOLVER_STP=ON -DENABLE_POSIX_RUNTIME=ON -DKLEE_UCLIBC_PATH=/src/klee-uclibc -DENABLE_UNIT_TESTS=ON -DGTEST_SRC_DIR=/src/googletest-1.16.0/ -DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=/src/libcxx/libc++-install-180/ -DKLEE_LIBCXX_INCLUDE_DIR=/src/libcxx/libc++-install-180/include/c++/v1/ -DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=/src/libcxx/llvm-180/libcxxabi/ ..
    ```
 
    **NOTE 1:** You can simply type `cmake ..` to use the default options for KLEE but these will not include support for uClibC and the POSIX runtime.
 
-   **NOTE 2:** If LLVM is not found or you need a particular version to be used, you can pass `-DLLVM_DIR=<LLVM_DIR>` to CMake where `<LLVM_DIR>` is the absolute path to the relevant build or installation directory (e.g. `/usr/lib/llvm-16/`).
+   **NOTE 2:** If LLVM is not found or you need a particular version to be used, you can pass `-DLLVM_DIR=<LLVM_DIR>` to CMake where `<LLVM_DIR>` is the absolute path to the relevant build or installation directory (e.g. `/usr/lib/llvm-18/`).
    Similarly, KLEE needs a C and C++ compiler that can create LLVM bitcode that is compatible with the LLVM version KLEE is using.
    If these are not detected automatically, `-DLLVMCC=<PATH_TO_CLANG>` and `-DLLVMCXX=<PATH_TO_CLANG++>` can be passed to explicitly set these compilers, where `<PATH_TO_CLANG>` is the absolute path to `clang` and `<PATH_TO_CLANG++>` is the absolute path to `clang++`.
 
