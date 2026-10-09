@@ -11,7 +11,7 @@ sass:
 # This variable controls changes the behaviour of the banner in
 # `_includes/version_warning.md`. When generating documentation
 # for a release this should be set to true.
-is_release: true
+is_release: false
 
 # When doing a release, make sure you exclude the `doxygen` and `releases`
 # folder by replacing the `exclude` declaration with the version that is
