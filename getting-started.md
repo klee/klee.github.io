@@ -7,14 +7,13 @@ slug: getting-started
 
 ## Web Interface
 
-~~Run tiny code examples in your browser with [KLEE Web](http://klee.doc.ic.ac.uk).~~
+Run small code examples in your browser with [KLEE Web](http://klee.doc.ic.ac.uk).
 
-KLEE web is not maintained anymore.
-If you would like to take over the maintainer role, please get in touch with [Cristian Cadar](https://www.doc.ic.ac.uk/~cristic/).
 
 ## Docker
 
 [Our Docker images]({{site.baseurl}}/docker) are one of the fastest ways to get started.
+
 
 ## Installation via Package Manager
 
@@ -23,6 +22,7 @@ If you would like to take over the maintainer role, please get in touch with [Cr
 * [Running with Nix]({{site.baseurl}}/nix): this is even faster than Docker if you have Nix.
 * [FreeBSD package](https://www.freshports.org/security/klee): FreeBSD users can install latest release with `pkg install klee` or by building `security/klee` port themselves.
 * [Homebrew package]({{site.baseurl}}/install-brew): install the latest release using [Homebrew](https://brew.sh)
+
 
 ## Manual Installation
 
