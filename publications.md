@@ -1905,6 +1905,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   International Conference on Electrical, Computer and Energy Technologies (ICECET 2026)  
   July 6-9, 2026, Rome, Italy
 
+1. [Inferring Input Grammars from Code with Symbolic Parsing](https://doi.org/10.1145/3776743)  
+  Leon Bettscheider, Andreas Zeller  
+  ACM Transactions on Software Engineering and Methodology, Volume 35, Issue 8 (TOSEM)  
+  July 17, 2026
+
 1. [Vital: Vulnerability-Oriented Symbolic Execution via Type-Unsafe Pointer-Guided Monte Carlo Tree Search](https://doi.org/10.1145/3786795)  
   Haoxin Tu, Lingxiao Jiang, Marcel Böhme  
   ACM Transactions on Software Engineering and Methodology, Volume 35, Issue 9 (TOSEM)  
