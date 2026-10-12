@@ -1865,6 +1865,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Proceedings of the ACM on Programming Languages, Volume 10, Issue OOPSLA1 (OOPSLA 2026)  
   May 5-7, 2026, Oakland, USA
 
+1. [Foresight: A Directed Execution Framework for Uncovering Rare-Event Failures in Autonomous Decision Pipelines](https://doi.org/10.1109/ICECET65726.2026.11633107)  
+  Mahdi Eslamimehr  
+  International Conference on Electrical, Computer and Energy Technologies (ICECET 2026)  
+  July 6-9, 2026, Rome, Italy
+
 1. [Defusing Logic Bombs in Symbolic Execution with LLM-Generated Ghost Code](https://doi.org/10.1145/3832126)  
   Dimitrios Stamatios Bouras, Sergey Mechtaev  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2026)  
