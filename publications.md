@@ -1879,6 +1879,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Proceedings of the ACM on Programming Languages, Volume 10, Issue OOPSLA1 (OOPSLA 2026)  
   May 5-7, 2026, Oakland, USA
 
+1. [Comp-AFL: Towards Complete Fuzzing](https://doi.org/10.1109/ICSTW72326.2026.00041)  
+  Sangharatna Godboley, Kanika Gupta, G. Monika Rani, P. Radha Krishna  
+  IEEE International Conference on Software Testing, Verification and Validation Workshops (ICSTW 2026)  
+  May 18-22, 2026, Daejeon, Republic of Korea
+
 1. [SeaCoral: A Collaborative Test Generation Toolset for Industrial Orchestration of Testing Tools](https://doi.org/10.1007/978-3-032-26220-2_34)  
   Nicolas Berthier, Steven de Oliveira, Nikolai Kosmatov, Delphine Longuet  
   International Symposium on Formal Methods (FM 2026)  
