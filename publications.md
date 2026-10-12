@@ -1895,6 +1895,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   International Symposium on Formal Methods (FM 2026)  
   May 18-22, 2026, Tokyo, Japan
 
+1. [A Unified Framework for Efficient Test Case Generation and Prioritization Driven by Multiple Coverage Criteria](https://doi.org/10.1038/s41598-026-56540-3)  
+  Xinyue Xu, Xiangxian Chen, Zhonghao Guo  
+  Science Report 16, 27877  
+  June 8, 2026
+
 1. [Symetra: Visual Analytics for the Parameter Tuning Process of Symbolic Execution Engines](https://doi.org/10.1111/cgf.70461)  
   Donghee Hong, Minjong Kim, Sooyoung Cha, Jaemin Jo  
   Computer Graphics Forum  
