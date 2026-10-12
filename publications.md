@@ -1869,3 +1869,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Dimitrios Stamatios Bouras, Sergey Mechtaev  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2026)  
   October 7-8, Oakland, USA
+
+1. [SEDCoT: Enhancing LLM-Based COBOL Code Translation via Symbolic Execution and Delta Debugging](https://doi.org/10.1145/3832259)  
+  Phillip Entin, Wenchao Gu, Alexander Knapp, Chunyang Chen  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2026)  
+  October 7-8, Oakland, USA
