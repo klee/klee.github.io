@@ -1895,6 +1895,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   International Conference on Electrical, Computer and Energy Technologies (ICECET 2026)  
   July 6-9, 2026, Rome, Italy
 
+1. [Vital: Vulnerability-Oriented Symbolic Execution via Type-Unsafe Pointer-Guided Monte Carlo Tree Search](https://doi.org/10.1145/3786795)  
+  Haoxin Tu, Lingxiao Jiang, Marcel Böhme  
+  ACM Transactions on Software Engineering and Methodology, Volume 35, Issue 9 (TOSEM)  
+  August 21, 2026
+
 1. [M2K: Making the Model-Kernel Interface Explicit for Reliable CUDA Kernel Verification](https://doi.org/10.1145/3830418.3843908)  
   Mengting He, Shihao Xia, Haomin Jia, Wenfei Wu, Linhai Song  
   Symposium on Operating Systems Principles (SOSP 2026)  
