@@ -1849,3 +1849,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Guofeng Zhang, Zhenbang Chen, Ziqi Shuai, Jun Sun, Weijiang Hong, Yufeng Zhang, Ji Wang, Yang Liu  
   International Symposium on Formal Methods (FM 2026)  
   May 18-22, 2026, Tokyo, Japan
+
+1. [Symetra: Visual Analytics for the Parameter Tuning Process of Symbolic Execution Engines](https://doi.org/10.1111/cgf.70461)  
+  Donghee Hong, Minjong Kim, Sooyoung Cha, Jaemin Jo  
+  Computer Graphics Forum  
+  June 17, 2026
