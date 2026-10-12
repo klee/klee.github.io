@@ -1940,6 +1940,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM Transactions on Software Engineering and Methodology, Volume 35, Issue 8 (TOSEM)  
   July 17, 2026
 
+1. [Discovering, Characterizing and Exploiting Controllable-Copy Objects for Kernel Data-Only Attacks with CopyKat](https://www.usenix.org/conference/usenixsecurity26/presentation/koschel)  
+  Jakob Koschel, Andrea Mambretti, Alessandro Sorniotti, Pietro Moretto, Claudio Migliorelli, Andrea Di Dio, Cristiano Giuffrida, Anil Kurmus  
+  USENIX Security Symposium (Security 2026)  
+  August 12-14, 2026, Baltimore, USA
+
 1. [Vital: Vulnerability-Oriented Symbolic Execution via Type-Unsafe Pointer-Guided Monte Carlo Tree Search](https://doi.org/10.1145/3786795)  
   Haoxin Tu, Lingxiao Jiang, Marcel Böhme  
   ACM Transactions on Software Engineering and Methodology, Volume 35, Issue 9 (TOSEM)  
