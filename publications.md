@@ -1859,6 +1859,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE/ACM 48th International Conference on Software Engineer (ICSE 2026)  
   April 12-18, 2026, Rio de Janeiro, Brazil
 
+1. [Generator Solving for Symbolic Execution](https://doi.org/10.1145/3744916.3764561)  
+  Siwei Wei, Yan Cai  
+  IEEE/ACM 48th International Conference on Software Engineer (ICSE 2026)  
+  April 12-18, 2026, Rio de Janeiro, Brazil
+
 1. [Eywa: Automating Model-Based Testing using LLMs](https://www.usenix.org/conference/nsdi26/presentation/mondal)  
   Rajdeep Mondal, Rathin Singha, Todd Millstein, George Varghese, Ryan Beckett, Siva Kesava Reddy Kakarla  
   USENIX Symposium on Networked Systems Design and Implementation (NSDI 2026)  
