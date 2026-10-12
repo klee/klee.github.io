@@ -1895,6 +1895,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Fault Diagnosis and Tolerance in Cryptography (FDTC 2026)  
   October 11, 2026, Antalya, Turkey
 
+1. [Large Language Model Enabled Symbolic Execution for Automated Functional Analysis](https://doi.org/10.1145/3832783.3837524)  
+  Meixi Liu, Zhenbang Chen, Xudong Wang, Ziran He, Jiachen Gu, Minghui Chen, Lei Wang, Wei Dong  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2026)  
+  October 12-16, 2026, Munich, Germany
+
 1. [Orbis: Guiding Symbolic Execution Techniques to Maximize Option-Related Branch Coverage](https://doi.org/10.1145/3832783.3837526)  
   Minjong Kim, Sungjae Hwang, Sooyoung Cha  
   IEEE/ACM International Conference on Automated Software Engineering (ASE 2026)  
