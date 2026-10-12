@@ -1854,3 +1854,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Donghee Hong, Minjong Kim, Sooyoung Cha, Jaemin Jo  
   Computer Graphics Forum  
   June 17, 2026
+
+1. [Defusing Logic Bombs in Symbolic Execution with LLM-Generated Ghost Code](https://doi.org/10.1145/3832126)  
+  Dimitrios Stamatios Bouras, Sergey Mechtaev  
+  ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2026)  
+  October 7-8, Oakland, USA
