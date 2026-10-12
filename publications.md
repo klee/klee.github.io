@@ -1860,6 +1860,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Computer Graphics Forum  
   June 17, 2026
 
+1. [Taming the Hydra: Targeted Control-Flow Transformations for Dynamic Symbolic Execution](https://doi.org/10.1145/3798202)  
+  Charitha Saumya, Muhammad Hassan, Rohan Gangaraju, Milind Kulkarni, Kirshanthan Sundararajah  
+  Proceedings of the ACM on Programming Languages, Volume 10, Issue OOPSLA1 (OOPSLA 2026)  
+  May 5-7, 2026, Oakland, USA
+
 1. [Defusing Logic Bombs in Symbolic Execution with LLM-Generated Ghost Code](https://doi.org/10.1145/3832126)  
   Dimitrios Stamatios Bouras, Sergey Mechtaev  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2026)  
