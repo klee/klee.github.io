@@ -1874,6 +1874,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   USENIX Symposium on Networked Systems Design and Implementation (NSDI 2026)  
   May 4-6, 2026
 
+1. [KRAKENGUARD: Towards Fine-Grained eBPF Isolation](https://www.usenix.org/conference/nsdi26/presentation/patel)  
+  Jainil Patel, Lucas Graeff Buhl-Nielsen, Adrien Ghosn, Marios Kogias  
+  USENIX Symposium on Networked Systems Design and Implementation (NSDI 2026)  
+  May 4-6, 2026
+
 1. [Taming the Hydra: Targeted Control-Flow Transformations for Dynamic Symbolic Execution](https://doi.org/10.1145/3798202)  
   Charitha Saumya, Muhammad Hassan, Rohan Gangaraju, Milind Kulkarni, Kirshanthan Sundararajah  
   Proceedings of the ACM on Programming Languages, Volume 10, Issue OOPSLA1 (OOPSLA 2026)  
