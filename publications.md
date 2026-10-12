@@ -1910,6 +1910,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Computer Graphics Forum  
   June 17, 2026
 
+1. [Fast, Fine-Grained Equivalence Checking for Neural Decompilers](https://doi.org/10.1145/3772368)  
+  Luke Dramko, Claire Le Goues, Edward J. Schwartz  
+  ACM Transactions on Software Engineering and Methodology, Volume 35, Issue 7 (TOSEM)  
+  June 17, 2026
+
 1. [Automatic Unit-Test Generation Based on Symbolic Execution](https://doi.org/10.1109/ICECET65726.2026.11632856)  
   Tigran Avagyan, Hovhannes Movsisyan, Hayk Aslanyan  
   International Conference on Electrical, Computer and Energy Technologies (ICECET 2026)  
