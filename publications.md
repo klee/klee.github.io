@@ -1880,6 +1880,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   International Conference on Electrical, Computer and Energy Technologies (ICECET 2026)  
   July 6-9, 2026, Rome, Italy
 
+1. [M2K: Making the Model-Kernel Interface Explicit for Reliable CUDA Kernel Verification](https://doi.org/10.1145/3830418.3843908)  
+  Mengting He, Shihao Xia, Haomin Jia, Wenfei Wu, Linhai Song  
+  Symposium on Operating Systems Principles (SOSP 2026)  
+  September 29 - October 2, 2026, Prague, Czechia
+
 1. [Defusing Logic Bombs in Symbolic Execution with LLM-Generated Ghost Code](https://doi.org/10.1145/3832126)  
   Dimitrios Stamatios Bouras, Sergey Mechtaev  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2026)  
