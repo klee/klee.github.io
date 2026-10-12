@@ -1844,6 +1844,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2026)  
   April 12-13, 2026, Rio de Janeiro, Brazil
 
+1. [Profile-Guided Constraint Simplification for Symbolic Execution](https://doi.org/10.1145/3793656.3793700)  
+  Roxana Shajarian, Md Rashedul Hasan, Lisong Xu, Hamid Bagheri  
+  IEEE/ACM 14th International Conference on Formal Methods in Software Engineeri (FormaliSE 2026)  
+  April 12-13, 2026, Rio de Janeiro, Brazil
+
 1. [Enhancing Symbolic Execution with Self-Configuring Parameters](https://doi.org/10.1145/3744916.3773264)  
   Minjong Kim, Sooyoung Cha  
   IEEE/ACM 48th International Conference on Software Engineer (ICSE 2026)  
