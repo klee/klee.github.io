@@ -1864,6 +1864,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE/ACM 48th International Conference on Software Engineer (ICSE 2026)  
   April 12-18, 2026, Rio de Janeiro, Brazil
 
+1. [Locus: Agentic Predicate Synthesis for Directed Fuzzing](https://doi.org/10.1145/3744916.3773102)  
+  Jie Zhu, Chihao Shen, Ziyang Li, Jiahao Yu, Yizheng Chen, Kexin Pei  
+  IEEE/ACM 48th International Conference on Software Engineer (ICSE 2026)  
+  April 12-18, 2026, Rio de Janeiro, Brazil
+
 1. [SymRadar: PoC-Centered Bounded Verification for Vulnerability Repair](https://doi.org/10.1145/3744916.3787825)  
   Seungheon Han, YoungJae Kim, Yeseung Lee, Jooyong Yi  
   IEEE/ACM 48th International Conference on Software Engineer (ICSE 2026)  
