@@ -1839,6 +1839,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE Transactions on Software Engineering (TSE)  
   February 25, 2026
 
+1. [Static Analysis Traces can Help Dynamic Symbolic Execution: a Replication Study](https://doi.org/10.1109/SANER67736.2026.00114)  
+  Sriteja Kummita, Fabian Schiebel, Eric Bodden, Miao Miao, Shiyi Wei  
+  IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER 2026)  
+  March 17-20, 2026, Limassol, Cyprus
+
 1. [Finding Missing Input Validation in TEEs via LLM-Assisted Symbolic Execution](https://doi.org/10.1145/3793655.3793740)  
   Chengyan Ma, Jieke Shi, Ruidong Han, Ye Liu, Yuqing Niu, David Lo  
   ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2026)  
