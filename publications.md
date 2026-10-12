@@ -1865,6 +1865,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Proceedings of the ACM on Programming Languages, Volume 10, Issue OOPSLA1 (OOPSLA 2026)  
   May 5-7, 2026, Oakland, USA
 
+1. [Automatic Unit-Test Generation Based on Symbolic Execution](https://doi.org/10.1109/ICECET65726.2026.11632856)  
+  Tigran Avagyan, Hovhannes Movsisyan, Hayk Aslanyan  
+  International Conference on Electrical, Computer and Energy Technologies (ICECET 2026)  
+  July 6-9, 2026, Rome, Italy  
+
 1. [Foresight: A Directed Execution Framework for Uncovering Rare-Event Failures in Autonomous Decision Pipelines](https://doi.org/10.1109/ICECET65726.2026.11633107)  
   Mahdi Eslamimehr  
   International Conference on Electrical, Computer and Energy Technologies (ICECET 2026)  
