@@ -1839,6 +1839,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE Transactions on Software Engineering (TSE)  
   February 25, 2026
 
+1. [Eywa: Automating Model-Based Testing using LLMs](https://www.usenix.org/conference/nsdi26/presentation/mondal)  
+  Rajdeep Mondal, Rathin Singha, Todd Millstein, George Varghese, Ryan Beckett, Siva Kesava Reddy Kakarla  
+  USENIX Symposium on Networked Systems Design and Implementation (NSDI 2026)  
+  May 4-6, 2026
+
 1. [SeaCoral: A Collaborative Test Generation Toolset for Industrial Orchestration of Testing Tools](https://doi.org/10.1007/978-3-032-26220-2_34)  
   Nicolas Berthier, Steven de Oliveira, Nikolai Kosmatov, Delphine Longuet  
   International Symposium on Formal Methods (FM 2026)  
