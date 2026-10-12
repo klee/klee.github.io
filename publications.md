@@ -1844,6 +1844,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   USENIX Symposium on Networked Systems Design and Implementation (NSDI 2026)  
   May 4-6, 2026
 
+1. [Taming the Hydra: Targeted Control-Flow Transformations for Dynamic Symbolic Execution](https://doi.org/10.1145/3798202)  
+  Charitha Saumya, Muhammad Hassan, Rohan Gangaraju, Milind Kulkarni, Kirshanthan Sundararajah  
+  Proceedings of the ACM on Programming Languages, Volume 10, Issue OOPSLA1 (OOPSLA 2026)  
+  May 5-7, 2026, Oakland, USA
+
 1. [SeaCoral: A Collaborative Test Generation Toolset for Industrial Orchestration of Testing Tools](https://doi.org/10.1007/978-3-032-26220-2_34)  
   Nicolas Berthier, Steven de Oliveira, Nikolai Kosmatov, Delphine Longuet  
   International Symposium on Formal Methods (FM 2026)  
@@ -1859,11 +1864,6 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Donghee Hong, Minjong Kim, Sooyoung Cha, Jaemin Jo  
   Computer Graphics Forum  
   June 17, 2026
-
-1. [Taming the Hydra: Targeted Control-Flow Transformations for Dynamic Symbolic Execution](https://doi.org/10.1145/3798202)  
-  Charitha Saumya, Muhammad Hassan, Rohan Gangaraju, Milind Kulkarni, Kirshanthan Sundararajah  
-  Proceedings of the ACM on Programming Languages, Volume 10, Issue OOPSLA1 (OOPSLA 2026)  
-  May 5-7, 2026, Oakland, USA
 
 1. [Automatic Unit-Test Generation Based on Symbolic Execution](https://doi.org/10.1109/ICECET65726.2026.11632856)  
   Tigran Avagyan, Hovhannes Movsisyan, Hayk Aslanyan  
