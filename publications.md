@@ -1839,6 +1839,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   IEEE Transactions on Software Engineering (TSE)  
   February 25, 2026
 
+1. [Finding Missing Input Validation in TEEs via LLM-Assisted Symbolic Execution](https://doi.org/10.1145/3793655.3793740)  
+  Chengyan Ma, Jieke Shi, Ruidong Han, Ye Liu, Yuqing Niu, David Lo  
+  ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2026)  
+  April 12-13, 2026, Rio de Janeiro, Brazil
+
 1. [Eywa: Automating Model-Based Testing using LLMs](https://www.usenix.org/conference/nsdi26/presentation/mondal)  
   Rajdeep Mondal, Rathin Singha, Todd Millstein, George Varghese, Ryan Beckett, Siva Kesava Reddy Kakarla  
   USENIX Symposium on Networked Systems Design and Implementation (NSDI 2026)  
