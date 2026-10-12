@@ -1920,15 +1920,15 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM Transactions on Software Engineering and Methodology, Volume 35, Issue 7 (TOSEM)  
   June 17, 2026
 
-1. [Automatic Unit-Test Generation Based on Symbolic Execution](https://doi.org/10.1109/ICECET65726.2026.11632856)  
-  Tigran Avagyan, Hovhannes Movsisyan, Hayk Aslanyan  
-  International Conference on Electrical, Computer and Energy Technologies (ICECET 2026)  
-  July 6-9, 2026, Rome, Italy  
-
 1. [BinDec: LLM and Symbolic Execution Collaborative Decompilation Method for RISC-V](http://dx.doi.org/10.21655/ijsi.1673-7288.00376)  
   Yuzhang Li, Xi Zhang, Tao Xu  
   International Journal of Software and Informatics, 2026, Volume 16, Issue 2  
   June 29, 2026
+
+1. [Automatic Unit-Test Generation Based on Symbolic Execution](https://doi.org/10.1109/ICECET65726.2026.11632856)  
+  Tigran Avagyan, Hovhannes Movsisyan, Hayk Aslanyan  
+  International Conference on Electrical, Computer and Energy Technologies (ICECET 2026)  
+  July 6-9, 2026, Rome, Italy  
 
 1. [Foresight: A Directed Execution Framework for Uncovering Rare-Event Failures in Autonomous Decision Pipelines](https://doi.org/10.1109/ICECET65726.2026.11633107)  
   Mahdi Eslamimehr  
