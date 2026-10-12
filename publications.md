@@ -1844,6 +1844,11 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2026)  
   April 12-13, 2026, Rio de Janeiro, Brazil
 
+1. [Enhancing Symbolic Execution with Self-Configuring Parameters](https://doi.org/10.1145/3744916.3773264)  
+  Minjong Kim, Sooyoung Cha  
+  IEEE/ACM 48th International Conference on Software Engineer (ICSE 2026)  
+  April 12-18, 2026, Rio de Janeiro, Brazil
+
 1. [Eywa: Automating Model-Based Testing using LLMs](https://www.usenix.org/conference/nsdi26/presentation/mondal)  
   Rajdeep Mondal, Rathin Singha, Todd Millstein, George Varghese, Ryan Beckett, Siva Kesava Reddy Kakarla  
   USENIX Symposium on Networked Systems Design and Implementation (NSDI 2026)  
