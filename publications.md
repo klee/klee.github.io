@@ -1884,3 +1884,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Phillip Entin, Wenchao Gu, Alexander Knapp, Chunyang Chen  
   ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2026)  
   October 7-8, Oakland, USA
+
+1. [Study of Rust’s Attack Surface Against Multiple Fault Injection](https://hal.science/hal-05763290v1/)  
+  Etienne Boespflug, Tommy Prats, Timothé Baleras, Laurent Mounier  
+  Fault Diagnosis and Tolerance in Cryptography (FDTC 2026)  
+  October 11, 2026, Antalya, Turkey
