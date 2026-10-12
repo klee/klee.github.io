@@ -1894,3 +1894,8 @@ Execution of Multithreaded Software](https://tuba.ece.ufl.edu/wp-content/uploads
   Etienne Boespflug, Tommy Prats, Timothé Baleras, Laurent Mounier  
   Fault Diagnosis and Tolerance in Cryptography (FDTC 2026)  
   October 11, 2026, Antalya, Turkey
+
+1. [Orbis: Guiding Symbolic Execution Techniques to Maximize Option-Related Branch Coverage](https://doi.org/10.1145/3832783.3837526)  
+  Minjong Kim, Sungjae Hwang, Sooyoung Cha  
+  IEEE/ACM International Conference on Automated Software Engineering (ASE 2026)  
+  October 12-16, 2026, Munich, Germany
