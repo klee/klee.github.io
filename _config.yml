@@ -26,5 +26,5 @@ plugins:
 - jekyll-sitemap
 
 project_title: KLEE
-current_version: 3.2
+current_version: 3.3
 repository: https://github.com/klee/klee
