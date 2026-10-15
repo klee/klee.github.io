@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+  Petr Hosek -- developer -- @petrh
+
+# THANKS
+
+  Cristian Cadar
+  Daniel Liew
+
+# TECHNOLOGY COLOPHON
+
+  HTML5, CSS3

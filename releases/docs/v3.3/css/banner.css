@@ -1,0 +1,21 @@
+.workshop {
+	background-color: #b30000;
+	color: white;
+	font: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 500;
+	padding: 24px 0;
+}
+
+.workshop p {
+	font-size: x-large;
+	padding: 0 24px;
+	text-align:center;
+}
+
+.workshop p a { color: white; }
+
+@media (max-width: 990px) {
+.workshop {
+	margin-top: 60px;
+}
+}
