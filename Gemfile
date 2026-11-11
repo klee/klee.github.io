@@ -18,7 +18,7 @@ end
 gem 'rubyzip', '>= 3.4.0', '< 4'
 
 # To avoid CVE-2017-9050
-gem 'nokogiri', '~> 1.19.4'
+gem 'nokogiri', '~> 1.19.5'
 
 gem "webrick", "~> 1.8"
 
